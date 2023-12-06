@@ -1,23 +1,27 @@
-<?php 
-	/* 	
-		@@@@@@@   @@@  @@@   @@@@@@@@  @@@@@@@@  @@@   @@@@@@   @@@  @@@  
-		@@@@@@@@  @@@  @@@  @@@@@@@@@  @@@@@@@@  @@@  @@@@@@@   @@@  @@@  
-		@@!  @@@  @@!  @@@  !@@        @@!       @@!  !@@       @@!  @@@  
-		!@   @!@  !@!  @!@  !@!        !@!       !@!  !@!       !@!  @!@  
-		@!@!@!@   @!@  !@!  !@! @!@!@  @!!!:!    !!@  !!@@!!    @!@!@!@!  
-		!!!@!!!!  !@!  !!!  !!! !!@!!  !!!!!:    !!!   !!@!!!   !!!@!!!!  
-		!!:  !!!  !!:  !!!  :!!   !!:  !!:       !!:       !:!  !!:  !!!  
-		:!:  !:!  :!:  !:!  :!:   !::  :!:       :!:      !:!   :!:  !:!  
-		 :: ::::  ::::: ::   ::: ::::   ::        ::  :::: ::   ::   :::  
-		:: : ::    : :  :    :: :: :    :        :    :: : :     :   : :  
-		   ____         _     __                      __  __         __           __  __
-		  /  _/ _    __(_)__ / /    __ _____  __ __  / /_/ /  ___   / /  ___ ___ / /_/ /
-		 _/ /  | |/|/ / (_-</ _ \  / // / _ \/ // / / __/ _ \/ -_) / _ \/ -_|_-</ __/_/ 
-		/___/  |__,__/_/___/_//_/  \_, /\___/\_,_/  \__/_//_/\__/ /_.__/\__/___/\__(_)  
-								  /___/                           
-		Bugfish Framework Codebase // MIT License
-		// Autor: Jan-Maurice Dahlmanns (Bugfish)
-		// Website: www.bugfish.eu 
+<?php
+	/* 	__________ ____ ___  ___________________.___  _________ ___ ___  
+		\______   \    |   \/  _____/\_   _____/|   |/   _____//   |   \ 
+		 |    |  _/    |   /   \  ___ |    __)  |   |\_____  \/    ~    \
+		 |    |   \    |  /\    \_\  \|     \   |   |/        \    Y    /
+		 |______  /______/  \______  /\___  /   |___/_______  /\___|_  / 
+				\/                 \/     \/                \/       \/  	
+							www.bugfish.eu
+							
+	    Bugfish Framework
+		Copyright (C) 2024 Jan Maurice Dahlmanns [Bugfish]
+
+		This program is free software: you can redistribute it and/or modify
+		it under the terms of the GNU General Public License as published by
+		the Free Software Foundation, either version 3 of the License, or
+		(at your option) any later version.
+
+		This program is distributed in the hope that it will be useful,
+		but WITHOUT ANY WARRANTY; without even the implied warranty of
+		MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+		GNU General Public License for more details.
+
+		You should have received a copy of the GNU General Public License
+		along with this program.  If not, see <https://www.gnu.org/licenses/>.
 	*/
 class x_class_user {  
 	/*		__________                                     __                       
@@ -337,6 +341,7 @@ class x_class_user {
 		$this->mysql->query("CREATE TABLE IF NOT EXISTS `".$this->dt_users."` (
 										  `id` int NOT NULL AUTO_INCREMENT COMMENT 'Unique ID',
 										  `user_name` varchar(512) DEFAULT 'undefined' COMMENT 'Users Name for Login if Ref',
+										  `user_initial` int(1) DEFAULT 0 COMMENT '1 if this user is initial created user',
 										  `user_pass` varchar(512) DEFAULT NULL COMMENT 'Users Pass for Login',
 										  `user_mail` varchar(512) NULL COMMENT 'Users Mail for Login if Ref',
 										  `user_shadow` varchar(512) DEFAULT NULL COMMENT 'Users Store for Mail if Renew',
@@ -351,7 +356,9 @@ class x_class_user {
 										  `last_block` datetime DEFAULT NULL COMMENT 'Block Date for this user',
 										  `last_login` datetime DEFAULT NULL COMMENT 'Last Login Date',
 										  `user_lang` varchar(24) DEFAULT NULL COMMENT 'User Default Language',
+										  `user_color` varchar(24) DEFAULT NULL COMMENT 'User Default Color',
 										  `user_theme` varchar(24) DEFAULT NULL COMMENT 'User Default Theme',
+										  `user_theme_sub` varchar(24) DEFAULT NULL COMMENT 'User Default Sub Theme',
 										  `req_reset` datetime DEFAULT NULL COMMENT 'Reset Date Counter for new Requests',
 										  `req_activation` datetime DEFAULT NULL COMMENT 'Activation Date Counter for new Requests',
 										  `req_mail_edit` datetime DEFAULT NULL COMMENT 'Last Mail Change Request Date',
@@ -382,8 +389,8 @@ class x_class_user {
 			$bind[1]["value"] = $initial;
 			$bind[2]["type"] = "s";
 			$bind[2]["value"] = $this->password_crypt($initialpass);
-			$this->mysql->query("INSERT INTO `".$this->dt_users."` (user_name, user_mail, user_confirmed, user_pass, user_rank)
-									VALUES(?, ?, 1, ?, '".$initialrank."');", $bind);}}	
+			$this->mysql->query("INSERT INTO `".$this->dt_users."` (user_name, user_mail, user_confirmed, user_pass, user_rank, user_initial)
+									VALUES(?, ?, 1, ?, '".$initialrank."', 1);", $bind);}}	
 									
 	/*	___________    ______ ______ ____   ____   ____  
 		\____ \__  \  /  ___//  ___// ___\_/ __ \ /    \ 
@@ -776,7 +783,7 @@ class x_class_user {
 		$r = $this->mysql->query("SELECT * FROM `".$this->dt_keys."` WHERE session_key = ? AND key_type = '".$this->key_activation."' AND fk_user = '".$userid."' AND is_active = 1", $bind);
 		if($f= $this->mysql->fetch_array($r)){
 			// Blocked for Activation
-			if($f["block_activation"] == 1) {  $this->act_request_code = 4; return 4; }
+			//if($f["block_activation"] == 1) {  $this->act_request_code = 4; return 4; }
 			// Interval not Reached
 			if(!$this->activation_token_valid($userid, $token)) { $this->act_request_code = 3; return 3;}
 			// Log Activation Token
@@ -906,7 +913,7 @@ class x_class_user {
 			if($this->log_mail_edit) {$this->mysql->query("UPDATE `".$this->dt_keys."` SET is_active = 0 WHERE fk_user = ".$f["id"]." AND key_type = '".$this->key_mail_edit."'");	
 			} else { $this->mysql->query("DELETE FROM `".$this->dt_keys."` WHERE fk_user = ".$f["id"]." AND key_type = '".$this->key_mail_edit."'");};
 			// Update last Mail Edit
-			$this->mysql->query("UPDATE `".$this->dt_users."` SET req_mail_edit = CURRENT_TIMESTAMP() WHERE id = '".$userid."'");
+			$this->mysql->query("UPDATE `".$this->dt_users."` SET req_mail_edit = CURRENT_TIMESTAMP() WHERE id = '".@$id."'");
 			// Create the Token
 			$token	=	$this->token_gen();
 			$this->mail_edit_token_create($f["id"], $token);

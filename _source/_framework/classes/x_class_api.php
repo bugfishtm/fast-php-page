@@ -1,45 +1,49 @@
-<?php 
-	/* 	
-		@@@@@@@   @@@  @@@   @@@@@@@@  @@@@@@@@  @@@   @@@@@@   @@@  @@@  
-		@@@@@@@@  @@@  @@@  @@@@@@@@@  @@@@@@@@  @@@  @@@@@@@   @@@  @@@  
-		@@!  @@@  @@!  @@@  !@@        @@!       @@!  !@@       @@!  @@@  
-		!@   @!@  !@!  @!@  !@!        !@!       !@!  !@!       !@!  @!@  
-		@!@!@!@   @!@  !@!  !@! @!@!@  @!!!:!    !!@  !!@@!!    @!@!@!@!  
-		!!!@!!!!  !@!  !!!  !!! !!@!!  !!!!!:    !!!   !!@!!!   !!!@!!!!  
-		!!:  !!!  !!:  !!!  :!!   !!:  !!:       !!:       !:!  !!:  !!!  
-		:!:  !:!  :!:  !:!  :!:   !::  :!:       :!:      !:!   :!:  !:!  
-		 :: ::::  ::::: ::   ::: ::::   ::        ::  :::: ::   ::   :::  
-		:: : ::    : :  :    :: :: :    :        :    :: : :     :   : :  
-		   ____         _     __                      __  __         __           __  __
-		  /  _/ _    __(_)__ / /    __ _____  __ __  / /_/ /  ___   / /  ___ ___ / /_/ /
-		 _/ /  | |/|/ / (_-</ _ \  / // / _ \/ // / / __/ _ \/ -_) / _ \/ -_|_-</ __/_/ 
-		/___/  |__,__/_/___/_//_/  \_, /\___/\_,_/  \__/_//_/\__/ /_.__/\__/___/\__(_)  
-								  /___/                           
-		Bugfish Framework Codebase // MIT License
-		// Autor: Jan-Maurice Dahlmanns (Bugfish)
-		// Website: www.bugfish.eu 
+<?php
+	/* 	__________ ____ ___  ___________________.___  _________ ___ ___  
+		\______   \    |   \/  _____/\_   _____/|   |/   _____//   |   \ 
+		 |    |  _/    |   /   \  ___ |    __)  |   |\_____  \/    ~    \
+		 |    |   \    |  /\    \_\  \|     \   |   |/        \    Y    /
+		 |______  /______/  \______  /\___  /   |___/_______  /\___|_  / 
+				\/                 \/     \/                \/       \/  	
+							www.bugfish.eu
+							
+	    Bugfish Framework
+		Copyright (C) 2024 Jan Maurice Dahlmanns [Bugfish]
+
+		This program is free software: you can redistribute it and/or modify
+		it under the terms of the GNU General Public License as published by
+		the Free Software Foundation, either version 3 of the License, or
+		(at your option) any later version.
+
+		This program is distributed in the hope that it will be useful,
+		but WITHOUT ANY WARRANTY; without even the implied warranty of
+		MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+		GNU General Public License for more details.
+
+		You should have received a copy of the GNU General Public License
+		along with this program.  If not, see <https://www.gnu.org/licenses/>.
 	*/
 	class x_class_api {		
 		// Class Variables
 		private $mysql   = false; 
 		private $table   = false; 	
-		private $section = false;
+		private $section = "";
 	
 		// Table Initialization
 		private function create_table() {
 			return $this->mysql->query("CREATE TABLE IF NOT EXISTS `".$this->table."` (
 												  `id` int(9) NOT NULL AUTO_INCREMENT COMMENT 'Unique ID',
-												  `direction` varchar(12) NOT NULL AUTO_INCREMENT COMMENT 'Token Type',
+												  `direction` varchar(12) NOT NULL COMMENT 'Token Type',
 												  `api_token` varchar(512) NOT NULL COMMENT 'Token for API Requests',
-												  `section` varchar(16) NOT NULL COMMENT 'Value for Constant',
+												  `section` varchar(128) NOT NULL COMMENT 'Value for Constant',
 												  `last_use` datetime NULL COMMENT 'Last Use Date in Check',
 												  `creation` datetime DEFAULT CURRENT_TIMESTAMP COMMENT 'Creation Date of Entry | Will be Auto-Set',
 												  `modification` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Modification Date of Entry with Auto-Update on Change',
 												  PRIMARY KEY (`id`),
-												  UNIQUE KEY `Unique` (`outgoing`,`token`,`section`) USING BTREE);");}
+												  UNIQUE KEY `Unique` (`direction`,`api_token`,`section`) USING BTREE);");}
 	
 		// Constructor Functions
-		function __construct($mysql, $table, $section = false) {
+		function __construct($mysql, $table, $section = "") {
 			if(!$section) { $section = "undefined"; }
 			$this->mysql = $mysql;
 			$this->table = $table;

@@ -1,0 +1,73 @@
+#		@@@@@@@   @@@  @@@   @@@@@@@@  @@@@@@@@  @@@   @@@@@@   @@@  @@@  
+#		@@@@@@@@  @@@  @@@  @@@@@@@@@  @@@@@@@@  @@@  @@@@@@@   @@@  @@@  
+#		@@!  @@@  @@!  @@@  !@@        @@!       @@!  !@@       @@!  @@@  
+#		!@   @!@  !@!  @!@  !@!        !@!       !@!  !@!       !@!  @!@  
+#		@!@!@!@   @!@  !@!  !@! @!@!@  @!!!:!    !!@  !!@@!!    @!@!@!@!  
+#		!!!@!!!!  !@!  !!!  !!! !!@!!  !!!!!:    !!!   !!@!!!   !!!@!!!!  
+#		!!:  !!!  !!:  !!!  :!!   !!:  !!:       !!:       !:!  !!:  !!!  
+#		:!:  !:!  :!:  !:!  :!:   !::  :!:       :!:      !:!   :!:  !:!  
+#		 :: ::::  ::::: ::   ::: ::::   ::        ::  :::: ::   ::   :::  
+#		:: : ::    : :  :    :: :: :    :        :    :: : :     :   : :  www.bugfish.eu
+#		 _____   ____  _____ ______      ____  __ __  ____       ____   ____   ____    ___ 
+#		|     | /    |/ ___/|      |    |    \|  |  ||    \     |    \ /    | /    |  /  _]
+#		|   __||  o  (   \_ |      |    |  o  )  |  ||  o  )    |  o  )  o  ||   __| /  [_ 
+#		|  |_  |     |\__  ||_|  |_|    |   _/|  _  ||   _/     |   _/|     ||  |  ||    _]
+#		|   _] |  _  |/  \ |  |  |      |  |  |  |  ||  |       |  |  |  _  ||  |_ ||   [_ 
+#		|  |   |  |  |\    |  |  |      |  |  |  |  ||  |       |  |  |  |  ||     ||     |
+#		|__|   |__|__| \___|  |__|      |__|  |__|__||__|       |__|  |__|__||___,_||_____|
+
+# Event Messages
+e_csrf=Form is expired, please try again!
+e_deleted=The item has been deleted!
+e_edited=The item has been edited!
+e_created=The item has been created!
+
+# Menues & Title Site
+m_start=Start
+m_files=Files
+m_files_folder=Folders
+m_files_list=List
+m_backend=Backend
+m_backend_constant=Constants
+m_backend_template=Mail-Templates
+m_backend_token=API-Token
+m_logging=Logging
+m_logging_mysql=MySQL
+m_logging_curl=Curl
+m_logging_visits=Visits
+m_logging_blacklist=Blacklist
+m_logging_referer=Referer
+m_logging_benchmark=Benchmark
+m_logging_javascript=Javascript
+m_logging_mail=Mail
+m_logging_logging=Logging
+m_user=Users
+m_user_list=Users
+m_user_group=Groups
+m_user_session=Sessions
+m_system=System
+m_system_core=Core Update
+m_system_site=Site Update
+m_system_store=Store
+m_system_modules=Modules
+m_system_about=About
+m_profile_view=Profile
+m_profile_switch=Switch to Frontend
+m_profile_logout=Logout
+
+# Login
+
+# Start
+
+# Files
+
+# Backend
+
+# Logging
+
+# User
+
+# System
+
+# Profile
+
