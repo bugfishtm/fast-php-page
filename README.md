@@ -90,6 +90,11 @@ Users can leverage integrated software site modules without the need for coding 
 For users with coding expertise, the platform offers the freedom to create advanced functionalities rapidly.
 
 
+## Initial Login
+If you are using user login functionality, the initial created user for the backend is as follow:  
+Username: admin@admin.local  
+Password: changeme
+
 ## Extensive Project Documentation
 
 Our project is meticulously documented, providing comprehensive guidance and information every step of the way. From installation instructions to in-depth explanations of features and functionalities, our documentation ensures a smooth and informed user experience. You'll find detailed resources, tutorials, and examples to assist you in harnessing the full potential of our platform, empowering you to create, manage, and optimize your projects effectively.
