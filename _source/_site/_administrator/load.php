@@ -32,7 +32,7 @@
 	//////////////////////////////////////////////////////////////////////////////
 	// Start Page if no Page Selected
 	//////////////////////////////////////////////////////////////////////////////
-	if($object["user"]->user_loggedIn AND @trim(_HIVE_URL_CUR_[0]) == "") { Header("Location: /".hive_get_url_rel(array("start", false, false, false, false))); exit();}
+	if($object["user"]->user_loggedIn AND @trim(_HIVE_URL_CUR_[0]) == "") { Header("Location: ".hive_get_url_rel(array("start", false, false, false, false))); exit();}
 	
 	//////////////////////////////////////////////////////////////////////////////
 	// Login Areas - Titles

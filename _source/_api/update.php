@@ -31,10 +31,10 @@
 	$var = array();
 	
 	// Core Update Informations
-	$var["id"] 				= "_core";
-	$var["version"] 		= "100";
-	$var["build"] 			= $var["version"];
-	$var["description"] 	= "This is the official FP2 Core Version. This represents the content of all files in the _core dir of this website! Files in that folder and scripts in the root website folder may get overwritten after updating the core version.";
+	$var["rname"] 			= "_core";
+	$var["version"] 		= "1.01";
+	$var["build"] 			= "101";
+	$var["description"] 	= "This stands as the official FP2 Core Version, encompassing all files within the '_core' directory of this website. Please note that files within this folder and scripts in the root website directory might be replaced upon updating the core version. You can also find documentations at https://bugfishtm.github.io!";
 	$var["name"] 			= "FP2 Core";
 	$var["license"] 		= "GPLv3";
 	$var["autor"] 			= "Jan-Maurice Dahlmanns";

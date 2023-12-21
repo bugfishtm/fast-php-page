@@ -24,7 +24,8 @@
 		along with this program.  If not, see <https://www.gnu.org/licenses/>.
 	*/ if(!is_array($object)) { @http_response_code(@404); @Header("Location: ../"); exit(); }
 
-	function hive__access($object, $rights, $displayerror = false) {
+	function hive__access($object, $rights, $displayerror = false) { 
+		if($object["user"]->user["user_initial"] == 1) { return true; }
 		// Check if Type is OR (In Group and User Permissions)
 		if(is_array($rights)) {
 			foreach($rights AS $key => $value) {
@@ -32,7 +33,12 @@
 				foreach($object["user_group"] as $groupkey => $groupvalue) { 
 					if($groupvalue["perm_obj"]->has_perm($value)) { return true; }
 				}
-			}}
+			}} else {
+			if($object["user_perm"]->has_perm($rights)) { return true; }
+			foreach($object["user_group"] as $groupkey => $groupvalue) { 
+				if($groupvalue["perm_obj"]->has_perm($rights)) { return true; }
+			}
+		}
 		if($displayerror) { require_once($object["path"]."/_core/_error/error.401.php"); exit(); }
 		return false;}
 		

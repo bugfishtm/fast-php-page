@@ -23,7 +23,7 @@
 		You should have received a copy of the GNU General Public License
 		along with this program.  If not, see <https://www.gnu.org/licenses/>.
 	*/
-	if(file_exists($object["path"]."/fp2genset.php")) { require_once($object["path"]."/fp2genset.php"); }
+	if(file_exists(@$object["path"]."/fp2genset.php")) { require_once($object["path"]."/fp2genset.php"); }
 	##########################################################################################
 	// Allow the /developer.php File to be used for development and Site Mode Changes?
 	##########################################################################################	

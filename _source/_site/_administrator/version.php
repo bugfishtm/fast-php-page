@@ -23,15 +23,14 @@
 		You should have received a copy of the GNU General Public License
 		along with this program.  If not, see <https://www.gnu.org/licenses/>.
 	*/	
-$version=100;
-$mod_id="_administrator";
-# ModuleID=_administrator
-# ModuleVersion=100
-# ModuleBuild=100
-# ModuleName=FP2 Administrator 
-# ModuleDescription=FP2 Administrator Template to use side by side with Admin Switch Mode Functionality or to copy and paste for your own projects! A lot of sections for administration and functions are included in here!
-# ModuleCreatorPseudo=Bugfish
-# ModuleCreatorName=Jan-Maurice Dahlmanns
-# ModuleCreatorWebsite=www.bugfish.eu
-# ModuleCreatorMail=requests@bugfish.eu
-# ModuleLicense=GPLv3
+	$x = array();
+	$x["rname"] 		= "_administrator";
+	$x["version"] 		= "1.01";
+	$x["build"] 		= "101";
+	$x["description"] 	= "The FP2 Administrator Template is a comprehensive resource designed for seamless integration with the Admin Switch Mode Functionality or for direct incorporation into personal projects. Packed with an extensive array of sections dedicated to administration and diverse functions, this template serves as a robust toolkit for administrative purposes within the CMS (Content Management System). Its rich collection of features and functionalities are readily available for immediate use, allowing for effortless implementation and customization. Whether utilized alongside the Admin Switch Mode or copied and adapted for individual projects, this template offers an abundance of pre-designed sections tailored for streamlined administration, making it an invaluable asset for developers seeking to expedite the creation of feature-rich administrative interfaces. Included in this Module is this Modules Documentation! You can also find documentations at https://bugfishtm.github.io!";
+	$x["name"] 			= "FP2 Administrator";
+	$x["license"] 		= "GPLv3";
+	$x["autor"] 			= "Jan-Maurice Dahlmanns";
+	$x["pseudo"] 		= "Bugfish";
+	$x["mail"] 			= "requests@bugfish.eu";
+	$x["website"] 		= "www.bugfish.eu";

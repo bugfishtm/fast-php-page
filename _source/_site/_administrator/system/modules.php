@@ -98,14 +98,21 @@
 					if($first) { $first = false; $class = ""; } else { $class = "xfpe_margintop15px"; } 
 					hive__dashboard_box_start("". basename($itemPath) , "min-w-0 p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800 dark:text-gray-200  ".$class."");
 					if(file_exists($itemPath."/version.php")) {
-						$lines = file($itemPath."/version.php", FILE_IGNORE_NEW_LINES);
-						if(is_array($lines)) {
-							foreach($lines as $key_one => $value_one) {
-								if(substr($value_one, 0, 1) != "#") { continue; }
-								echo "<small>".$value_one."</small>";
-								echo "<br />";
+						require_once($itemPath."/version.php");
+						if(@is_array(@$x)) { 
+							echo "<div class='xfpe_maxwidth100pct'>";
+							echo "<table class='xfpe_textbreakall'>";
+							echo "<tbody class='bg-white divide-y dark:divide-gray-700 dark:bg-gray-800'>";
+							foreach($x as $key => $value) {
+								if($key == "version") { $version = $value; }
+								echo "<tr>";
+								echo '<td class="px-4 py-3 font-semibold">'.@htmlspecialchars(@ucfirst($key)).'</td> <td class="xfpe_textbreakall"><div style="white-space: normal; word-break: keep-all;">'.@htmlspecialchars(@$value).'</div></td>';
+								echo "</tr>";
 							}
-						}
+							echo "</tbody>";
+							echo "</table>";
+							echo "</div>";
+						 }
 					} else {
 						echo '<font color="red">No version.php file found!</font>';
 					}
@@ -142,6 +149,7 @@
 			}
 		}
 		
+		echo "<div class='xfpe_margintop15px'></div>";
 		hive__dashboard_alert_warning("Deactivated Site Modules:");
 		$directory = _HIVE_PATH_."/_site/__internal/_deactivated";
 		$folders = array();
@@ -152,14 +160,21 @@
 				if (is_dir($itemPath) && !in_array($item, array('.', '..', "__internal"))) {
 					hive__dashboard_box_start("". basename($itemPath) , "min-w-0 p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800 dark:text-gray-200 xfpe_margintop15px");
 					if(file_exists($itemPath."/version.php")) {
-						$lines = file($itemPath."/version.php", FILE_IGNORE_NEW_LINES);
-						if(is_array($lines)) {
-							foreach($lines as $key_one => $value_one) {
-								if(substr($value_one, 0, 1) != "#") { continue; }
-								echo "<small>".$value_one."</small>";
-								echo "<br />";
+						require_once($itemPath."/version.php");
+						if(@is_array(@$x)) { 
+							echo "<div class='xfpe_maxwidth100pct'>";
+							echo "<table class='xfpe_textbreakall'>";
+							echo "<tbody class='bg-white divide-y dark:divide-gray-700 dark:bg-gray-800'>";
+							foreach($x as $key => $value) {
+								if($key == "version") { $version = $value; }
+								echo "<tr>";
+								echo '<td class="px-4 py-3 font-semibold">'.@htmlspecialchars(@ucfirst($key)).'</td> <td class="xfpe_textbreakall"><div style="white-space: normal; word-break: keep-all;">'.@htmlspecialchars(@$value).'</div></td>';
+								echo "</tr>";
 							}
-						}
+							echo "</tbody>";
+							echo "</table>";
+							echo "</div>";
+						 }
 					} else {
 						echo '<font color="red">No version.php file found!</font>';
 					}
@@ -182,11 +197,12 @@
 						echo "</div>";
 						echo "</form>";
 					echo "</div>";
-					hive__dashboard_box_end();
+					hive__dashboard_box_end(); 
 				}
 			}
 		}
 		
+		echo "<div class='xfpe_margintop15px'></div>";
 		hive__dashboard_alert_info("Site Module Templates:");
 		$directory = _HIVE_PATH_."/_site/__internal/_downloaded";
 		$folders = array();
@@ -197,14 +213,21 @@
 				if (is_dir($itemPath) && !in_array($item, array('.', '..', "__internal"))) {
 					hive__dashboard_box_start("". basename($itemPath) , "min-w-0 p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800 dark:text-gray-200 xfpe_margintop15px");
 					if(file_exists($itemPath."/version.php")) {
-						$lines = file($itemPath."/version.php", FILE_IGNORE_NEW_LINES);
-						if(is_array($lines)) {
-							foreach($lines as $key_one => $value_one) {
-								if(substr($value_one, 0, 1) != "#") { continue; }
-								echo "<small>".$value_one."</small>";
-								echo "<br />";
+						require_once($itemPath."/version.php");
+						if(@is_array(@$x)) { 
+							echo "<div class='xfpe_maxwidth100pct'>";
+							echo "<table class='xfpe_textbreakall'>";
+							echo "<tbody class='bg-white divide-y dark:divide-gray-700 dark:bg-gray-800'>";
+							foreach($x as $key => $value) {
+								if($key == "version") { $version = $value; }
+								echo "<tr>";
+								echo '<td class="px-4 py-3 font-semibold">'.@htmlspecialchars(@ucfirst($key)).'</td> <td class="xfpe_textbreakall"><div style="white-space: normal; word-break: keep-all;">'.@htmlspecialchars(@$value).'</div></td>';
+								echo "</tr>";
 							}
-						}
+							echo "</tbody>";
+							echo "</table>";
+							echo "</div>";
+						 }
 					} else {
 						echo '<font color="red">No version.php file found!</font>';
 					}

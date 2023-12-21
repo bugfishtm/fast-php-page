@@ -109,7 +109,13 @@ Enter your MySQL database credentials and desired database prefix in the provide
 		<br />						
 		<b>Website URL</b>:<br /><small> Enter the Website URL it will be reachable online. Enter the URL Name without www/http and without trailing slash. If this website is installed in a subfolder, do add this subfolder into this domain as well. Please add a trailing slash if not existant!</small><br />
 		<?php if($erroremptyu) { echo "<b><div class='containererror'>Please enter the public URL, where this page will run on!</div></b>"; } ?>
-		<input type="text" name="website_url" value="<?php if(!is_string(@$_POST["website_url"])) { echo $_SERVER["HTTP_HOST"]."/"; } else { echo htmlentities(@$_POST["website_url"]);} ?>"> <br />
+		<input type="text" name="website_url" value="<?php if(!is_string(@$_POST["website_url"])) { 
+			if(@strlen(@dirname(@trim(@$_SERVER["REQUEST_URI"]))) > 2) { 
+				echo $_SERVER["HTTP_HOST"]."".@dirname(@$_SERVER["REQUEST_URI"])."/"; 
+			} else {
+				echo $_SERVER["HTTP_HOST"]."/"; 
+			}
+		} else { echo htmlentities(@$_POST["website_url"]);} ?>"> <br />
 		<br />
 		<b>Cookie Prefix</b>:<br /><small> Cookie Prefix, does not need to be changed.</small><br />
 		<?php if(@$erroremptyux) { echo "<b><div class='containererror'>Please enter a valid Cookie Prefix!</div></b>"; } ?>

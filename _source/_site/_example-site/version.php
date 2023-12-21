@@ -23,14 +23,14 @@
 		You should have received a copy of the GNU General Public License
 		along with this program.  If not, see <https://www.gnu.org/licenses/>.
 	*/
-$version = 100;
-# ModuleID=_example-site
-# ModuleVersion=100
-# ModuleBuild=100
-# ModuleName=FP2 Site Example
-# ModuleDescription=FP2 Site Example Template, to demonstrate deeper functionalities and full configuration examples for this CMS.
-# ModuleCreatorPseudo=Bugfish
-# ModuleCreatorName=Jan-Maurice Dahlmanns
-# ModuleCreatorWebsite=www.bugfish.eu
-# ModuleCreatorMail=requests@bugfish.eu
-# ModuleLicense=GPLv3
+	$x = array();
+	$x["rname"] 		= "_example-site";
+	$x["version"] 		= "1.00";
+	$x["build"] 		= "100";
+	$x["description"] 	= "The FP2 Site Example Template serves as an illustrative showcase, presenting an extensive array of functionalities and comprehensive configuration examples within this CMS (Content Management System). This template goes beyond the surface, delving into the deeper capabilities of the CMS, offering a comprehensive view of its functionalities. It provides detailed configurations that showcase the full spectrum of features, guiding users through intricate settings and demonstrating how to maximize the CMS's potential. This exemplar template aims to serve as a valuable resource for users seeking a more profound understanding of the CMS, offering practical examples and in-depth configurations to aid in building robust and highly functional websites or applications. Included in this Module is this Modules Documentation! You can also find documentations at https://bugfishtm.github.io!";
+	$x["name"] 			= "FP2 Site Module Example";
+	$x["license"] 		= "GPLv3";
+	$x["autor"] 		= "Jan-Maurice Dahlmanns";
+	$x["pseudo"] 		= "Bugfish";
+	$x["mail"] 			= "requests@bugfish.eu";
+	$x["website"] 		= "www.bugfish.eu";

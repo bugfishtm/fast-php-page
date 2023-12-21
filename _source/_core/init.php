@@ -178,8 +178,12 @@
 		define("_HIVE_URL_", $object["url"]); 
 	}
 	$object["url"] = _HIVE_URL_;	 
-	define('_HIVE_URL_REL_', x_getRelativeFolderFromURL(_HIVE_URL_));
-
+	$tmp = _HIVE_URL_;
+	if(strpos($tmp, "http://")) { $tmp = substr($tmp, 7); }
+	elseif(strpos($tmp, "https://")) { $tmp = substr($tmp, 8); }
+	$tmp = substr($tmp, strpos($tmp, "/"));
+	define('_HIVE_URL_REL_', $tmp);
+	
 	// Instance Settings
 	if(file_exists($object["path"]."/_site/"._HIVE_MODE_."/_config/config.php")) { require_once($object["path"]."/_site/"._HIVE_MODE_."/_config/config.php"); }	
 	else { 	/* hive_error_full("Runtime", "ERROR", "Relative Websites config.php File not found!", true, 503); */ }	

@@ -23,14 +23,14 @@
 		You should have received a copy of the GNU General Public License
 		along with this program.  If not, see <https://www.gnu.org/licenses/>.
 	*/
-$version = 100;
-# ModuleID=_core
-# ModuleVersion=100
-# ModuleBuild=100
-# ModuleName=FP2 Core
-# ModuleDescription=This is the official FP2 Core Version. This represents the content of all files in the _core dir of this website! Files in that folder and scripts in the root website folder may get overwritten after updating the core version.
-# ModuleCreatorPseudo=Bugfish
-# ModuleCreatorName=Jan-Maurice Dahlmanns
-# ModuleCreatorWebsite=www.bugfish.eu
-# ModuleCreatorMail=requests@bugfish.eu
-# ModuleLicense=GPLv3
+	$x = array();
+	$x["rname"] 		= "_core";
+	$x["version"] 		= "1.01";
+	$x["build"] 		= "101";
+	$x["description"] 	= "This stands as the official FP2 Core Version, encompassing all files within the '_core' directory of this website. Please note that files within this folder and scripts in the root website directory might be replaced upon updating the core version. You can also find documentations at https://bugfishtm.github.io!";
+	$x["name"] 			= "FP2 Core";
+	$x["license"] 		= "GPLv3";
+	$x["autor"] 		= "Jan-Maurice Dahlmanns";
+	$x["pseudo"] 		= "Bugfish";
+	$x["mail"] 			= "requests@bugfish.eu";
+	$x["website"] 		= "www.bugfish.eu";

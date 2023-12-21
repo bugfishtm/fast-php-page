@@ -29,78 +29,59 @@
 	
 	// Init Array
 	$var = array();
+	$varx = array();
 	
 	// _administrator
-	$var[0]["rname"] 		= "_administrator";
-	$var[0]["version"] 		= "100";
-	$var[0]["build"] 		= $var[0]["version"];
-	$var[0]["description"] 	= "FP2 Administrator Template to use side by side with Admin Switch Mode Functionality or to copy and paste for your own projects! A lot of sections for administration and functions are included in here!";
-	$var[0]["name"] 		= "FP2 Administrator";
-	$var[0]["license"] 		= "GPLv3";
-	$var[0]["autor"] 		= "Jan-Maurice Dahlmanns";
-	$var[0]["pseudo"] 		= "Bugfish";
-	$var[0]["mail"] 		= "requests@bugfish.eu";
-	$var[0]["website"] 		= "www.bugfish.eu";
+	$varx["rname"] 			= "_administrator";
+	$varx["version"] 		= "1.01";
+	$varx["build"] 			= "101";
+	$varx["description"] 	= "The FP2 Administrator Template is a comprehensive resource designed for seamless integration with the Admin Switch Mode Functionality or for direct incorporation into personal projects. Packed with an extensive array of sections dedicated to administration and diverse functions, this template serves as a robust toolkit for administrative purposes within the CMS (Content Management System). Its rich collection of features and functionalities are readily available for immediate use, allowing for effortless implementation and customization. Whether utilized alongside the Admin Switch Mode or copied and adapted for individual projects, this template offers an abundance of pre-designed sections tailored for streamlined administration, making it an invaluable asset for developers seeking to expedite the creation of feature-rich administrative interfaces. Included in this Module is this Modules Documentation! You can also find documentations at https://bugfishtm.github.io!";
+	$varx["name"] 			= "FP2 Administrator";
+	$varx["license"] 		= "GPLv3";
+	$varx["autor"] 			= "Jan-Maurice Dahlmanns";
+	$varx["pseudo"] 		= "Bugfish";
+	$varx["mail"] 			= "requests@bugfish.eu";
+	$varx["website"] 		= "www.bugfish.eu";
+	array_push($var, $varx);
 	
 	// _example-simple
-	$var[1]["rname"] 		= "_example-simple";
-	$var[1]["version"] 		= "100";
-	$var[1]["build"] 		= $var[1]["version"];
-	$var[1]["description"] 	= "FP2 Simple Example Template to test simplest solution website development with this CMS.";
-	$var[1]["name"] 		= "FP2 Simple Example";
-	$var[1]["license"] 		= "GPLv3";
-	$var[1]["autor"] 		= "Jan-Maurice Dahlmanns";
-	$var[1]["pseudo"] 		= "Bugfish";
-	$var[1]["mail"] 		= "requests@bugfish.eu";
-	$var[1]["website"] 		= "www.bugfish.eu";
+	$varx["rname"] 			= "_example-simple";
+	$varx["version"] 		= "1.00";
+	$varx["build"] 			= "100";
+	$varx["description"] 	= "The FP2 Simple Example Template is a foundational tool designed to facilitate straightforward website development within this CMS (Content Management System). Tailored for simplicity, this template serves as a starting point for testing and implementing the most basic solutions offered by the CMS. It provides a clear and uncomplicated framework, perfect for users seeking to explore the fundamental functionalities and build a minimalistic yet functional website. By offering a simplified approach, this template serves as an ideal playground for beginners or those looking to grasp the core features of the CMS, enabling them to create uncomplicated websites efficiently and effectively. Included in this Module is this Modules Documentation! You can also find documentations at https://bugfishtm.github.io!";
+	$varx["name"] 			= "FP2 Simple Example";
+	$varx["license"] 		= "GPLv3";
+	$varx["autor"] 			= "Jan-Maurice Dahlmanns";
+	$varx["pseudo"] 		= "Bugfish";
+	$varx["mail"] 			= "requests@bugfish.eu";
+	$varx["website"] 		= "www.bugfish.eu";
+	array_push($var, $varx);
 	
 	// _example-complex
-	$var[2]["rname"] 		= "_example-complex";
-	$var[2]["version"] 		= "100";
-	$var[2]["build"] 		= $var[2]["version"];
-	$var[2]["description"] 	= "FP2 Complex Example Template, to test and demonstrate a complex dashboard theme and more advanced functionalities of this CMS.";
-	$var[2]["name"] 		= "FP2 Complex Example";
-	$var[2]["license"] 		= "GPLv3";
-	$var[2]["autor"] 		= "Jan-Maurice Dahlmanns";
-	$var[2]["pseudo"] 		= "Bugfish";
-	$var[2]["mail"] 		= "requests@bugfish.eu";
-	$var[2]["website"] 		= "www.bugfish.eu";
+	$varx["rname"] 			= "_example-complex";
+	$varx["version"] 		= "1.00";
+	$varx["build"] 			= "100";
+	$varx["description"] 	= "The FP2 Complex Example Template stands as an advanced demonstration platform, specifically designed to test and showcase intricate dashboard themes and sophisticated functionalities within this CMS (Content Management System). This template serves as an in-depth exploration of the CMS's capabilities, offering a complex dashboard theme that highlights the system's versatility and advanced features. It provides an environment to test and experiment with intricate functionalities, aiming to unveil the system's full potential. Through this complex example, users can delve deeper into the CMS's advanced features, gaining insights and practical knowledge to leverage these capabilities effectively. This template is a valuable resource for developers and users seeking to explore and harness the more intricate and powerful aspects of the CMS for creating sophisticated and high-performing web applications or interfaces. Included in this Module is this Modules Documentation! You can also find documentations at https://bugfishtm.github.io!";
+	$varx["name"] 			= "FP2 Complex Example";
+	$varx["license"] 		= "GPLv3";
+	$varx["autor"] 			= "Jan-Maurice Dahlmanns";
+	$varx["pseudo"] 		= "Bugfish";
+	$varx["mail"] 			= "requests@bugfish.eu";
+	$varx["website"] 		= "www.bugfish.eu";
+	array_push($var, $varx);
 	
 	// _example-site
-	$var[3]["rname"] 		= "_example-site";
-	$var[3]["version"] 		= "100";
-	$var[3]["build"] 		= $var[3]["version"];
-	$var[3]["description"] 	= "FP2 Site Example Template, to demonstrate deeper functionalities and full configuration examples for this CMS.";
-	$var[3]["name"] 		= "FP2 Site Module Example";
-	$var[3]["license"] 		= "GPLv3";
-	$var[3]["autor"] 		= "Jan-Maurice Dahlmanns";
-	$var[3]["pseudo"] 		= "Bugfish";
-	$var[3]["mail"] 		= "requests@bugfish.eu";
-	$var[3]["website"] 		= "www.bugfish.eu";
-	
-	// _documentation
-	$var[4]["rname"] 		= "_documentation";
-	$var[4]["version"] 		= "100";
-	$var[4]["build"] 		= $var[4]["version"];
-	$var[4]["description"] 	= "FP2 Documentation page which can also be found at www.bugfish-github.de!";
-	$var[4]["name"] 		= "FP2 Documentation";
-	$var[4]["license"] 		= "Private";
-	$var[4]["autor"] 		= "Jan-Maurice Dahlmanns";
-	$var[4]["pseudo"] 		= "Bugfish";
-	$var[4]["mail"] 		= "requests@bugfish.eu";
-	$var[4]["website"] 		= "www.bugfish.eu";
-	
-	// _frameworkdocs
-	$var[5]["rname"] 		= "_frameworkdocs";
-	$var[5]["version"] 		= "100";
-	$var[5]["build"] 		= $var[5]["version"];
-	$var[5]["description"] 	= "This module lets you view the Bugfish Framework Documentation!";
-	$var[5]["name"] 		= "Bugfish Framework Documentation";
-	$var[5]["license"] 		= "Private";
-	$var[5]["autor"] 		= "Jan-Maurice Dahlmanns";
-	$var[5]["pseudo"] 		= "Bugfish";
-	$var[5]["mail"] 		= "requests@bugfish.eu";
-	$var[5]["website"] 		= "www.bugfish.eu";
+	$varx["rname"] 			= "_example-site";
+	$varx["version"] 		= "1.00";
+	$varx["build"] 			= "100";
+	$varx["description"] 	= "The FP2 Site Example Template serves as an illustrative showcase, presenting an extensive array of functionalities and comprehensive configuration examples within this CMS (Content Management System). This template goes beyond the surface, delving into the deeper capabilities of the CMS, offering a comprehensive view of its functionalities. It provides detailed configurations that showcase the full spectrum of features, guiding users through intricate settings and demonstrating how to maximize the CMS's potential. This exemplar template aims to serve as a valuable resource for users seeking a more profound understanding of the CMS, offering practical examples and in-depth configurations to aid in building robust and highly functional websites or applications. Included in this Module is this Modules Documentation! You can also find documentations at https://bugfishtm.github.io!";
+	$varx["name"] 			= "FP2 Site Module Example";
+	$varx["license"] 		= "GPLv3";
+	$varx["autor"] 			= "Jan-Maurice Dahlmanns";
+	$varx["pseudo"] 		= "Bugfish";
+	$varx["mail"] 			= "requests@bugfish.eu";
+	$varx["website"] 		= "www.bugfish.eu";
+	array_push($var, $varx);
 	
 	// Output
 	if(!$hasbeen) { echo serialize($var); }

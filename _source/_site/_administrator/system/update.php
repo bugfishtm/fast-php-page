@@ -31,9 +31,8 @@
 		echo "<div class='xfpe_margintop15px'></div>";
 		
 		// Display the Information Box!
-		hive__dashboard_alert_info("Enhance Your Platform's Foundation - Seamlessly update the core version of your website's foundation. Access the latest advancements and improvements, ensuring your platform stays at the forefront of innovation and functionality. Here you can check if a new Core Version for your Instance is available! Checking will be done with FP² instance called as descripted in internal.php setup. You cannot automatically update here, you need to download the update manually and overwritte the files with the new update. Caution is advised.");
+		hive__dashboard_alert_info("Enhance Your Platform's Foundation - Seamlessly update the core version of your website's foundation. Access the latest advancements and improvements, ensuring your platform stays at the forefront of innovation and functionality. Here you can check if a new Core Version for your Instance is available! Checking will be done with FP² instance called as descripted in internal.php setup. You cannot automatically update here, you need to download the update manually and overwritte the files with the new update. Caution is advised. It is always recommended to install the latest core version!");
 
-		hive__dashboard_box_start("<b>Current Build Informations</b> " , "min-w-0 p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800 dark:text-gray-200 ");
 
 		$output = x_curl_gettext(_HIVE_SERVER_."/_api/update.php") ;	
 		if(is_string($output)) {
@@ -45,45 +44,58 @@
 		} 
 		
 		if(file_exists(_HIVE_PATH_."/_core/version.php")) {
-			$lines = file(_HIVE_PATH_."/_core/version.php", FILE_IGNORE_NEW_LINES);
-			if(is_array($lines)) {
-				foreach($lines as $key_one => $value_one) {
-					if(substr($value_one, 0, 1) != "#") { continue; }
-					echo "<small>".$value_one."</small>";
-					echo "<br />";
+			$x = array();
+			if(file_exists(_HIVE_PATH_."/_core/version.php")) { require_once(_HIVE_PATH_."/_core/version.php"); }
+			if(@is_array(@$x)) { 
+				hive__dashboard_box_start("<b>Core Information</b> " , "min-w-0 p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800 dark:text-gray-200 ");
+				echo "<div class='xfpe_maxwidth100pct'>";
+				echo "<table class='xfpe_textbreakall'>";
+				echo "<tbody class='bg-white divide-y dark:divide-gray-700 dark:bg-gray-800'>";
+				foreach($x as $key => $value) {
+				if($key == "version") { $version = $value; }
+					echo "<tr>";
+					echo '<td class="px-4 py-3 font-semibold">'.@htmlspecialchars(@ucfirst($key)).'</td> <td class="xfpe_textbreakall"><div style="white-space: normal; word-break: keep-all;">'.@htmlspecialchars(@$value).'</div></td>';
+					echo "</tr>";
 				}
-			}
-			
-			if(@is_array(@$realoutput)) { 
-				hive__dashboard_box_end();
-				hive__dashboard_box_start("<b>Latest Build Informations</b> " , "min-w-0 p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800 dark:text-gray-200 xfpe_margintop15px");
-				foreach($realoutput as $key => $value) {
-					if($key == "version") { $newversion = $value; }
-					echo ''.ucfirst($key).': '.$value.'<br />';
-				}
-			}
+				echo "</tbody>";
+				echo "</table>";
+				echo "</div>";
+				hive__dashboard_box_end(); }
 		} else {
-			echo '<font color="red">No version.php file found!</font>';
-			
-			if(@is_array(@$realoutput)) { 
-				hive__dashboard_box_end();
-				hive__dashboard_box_start("<b>Latest Build Informations</b> " , "min-w-0 p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800 dark:text-gray-200 xfpe_margintop15px");
-				foreach($realoutput as $key => $value) {
-					if($key == "version") { $newversion = $value; }
-					echo ''.ucfirst($key).': '.$value.'<br />';
-				}
-			}
+			hive__dashboard_alert_danger("The core system version file at _core/version.php has not been found!");
 		}
-		hive__dashboard_box_end();
+		
+		if(@is_array(@$realoutput)) { 
+			hive__dashboard_box_start("<b>Update Server</b> " , "min-w-0 p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800 dark:text-gray-200 xfpe_margintop15px ");
+			echo "<div class='xfpe_maxwidth100pct'>";
+			echo "<table class='xfpe_textbreakall'>";
+			echo "<thead>";
+				echo "<tr class='text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800'>";
+					echo "<th class='px-4 py-3'>Key</th>";
+					echo "<th class='px-4 py-3'>Value</th>";
+				echo "</tr>";
+			echo "</thead>";
+			echo "<tbody class='bg-white divide-y dark:divide-gray-700 dark:bg-gray-800'>";
+			foreach($realoutput as $key => $value) {
+				echo "<tr>";
+				if($key == "version") { $newversion = $value; }
+				echo '<td class="px-4 py-3 font-semibold">'.ucfirst($key).'</td> <td class="xfpe_textbreakall"><div style="white-space: normal; word-break: keep-all;">'.$value.'</div></td>';
+				echo "</tr>";
+			}
+			echo "</tbody>";
+			echo "</table>";
+			echo "</div>";
+			hive__dashboard_box_end();
+		}
 
 		require_once(_HIVE_PATH_."/_core/version.php");
 		if(@$newversion) {
 			hive__dashboard_box_start(false , "min-w-0 p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800 dark:text-gray-200 xfpe_margintop15px");
-			if($newversion > $version) {
-				hive__dashboard_alert_warning("<font color='yellow'>A new build is available! <br />Check this projects Github Page to download the latest release.</font>");echo "<br /><br />Current Server URL:<br /> "._HIVE_SERVER_."/_api/update.php"."";
+			if($newversion != $version) {
+				hive__dashboard_alert_warning("<font color='black'>A new build is available! <br />Check this projects Github Page to download the latest release.</font>");echo "Current Server URL:<br /> "._HIVE_SERVER_."/_api/update.php"."";
 			} else {
 				hive__dashboard_alert_success("You are up to date!");
-				echo "<br />Current Server URL:<br /> "._HIVE_SERVER_."/_api/update.php"."";
+				echo "Current Server URL:<br /> "._HIVE_SERVER_."/_api/update.php"."";
 			}
 			hive__dashboard_box_end();
 		} else {

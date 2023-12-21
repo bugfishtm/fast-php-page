@@ -34,48 +34,75 @@
 		// Display the Information Box!
 		hive__dashboard_alert_info("Discover the Current Website and Backend Versions - Unveiling the technological core of our platform. Explore detailed version information for both the website and backend, showcasing our commitment to the latest advancements in technology. Here you can see some informations about the current used site module and the core module!");
 
-		hive__dashboard_box_start("<b>Core Module Informations</b> " , "min-w-0 p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800 dark:text-gray-200 ");
-		hive__dashboard_alert_warning("You can check for Core updates in the 'System->Update' Section of this Administrator Interface!");
 		if(file_exists(_HIVE_PATH_."/_core/version.php")) {
-			$lines = file(_HIVE_PATH_."/_core/version.php", FILE_IGNORE_NEW_LINES);
-			if(is_array($lines)) {
-				foreach($lines as $key_one => $value_one) {
-					if(substr($value_one, 0, 1) != "#") { continue; }
-					echo "<small>".$value_one."</small>";
-					echo "<br />";
+			$x = array();
+			if(file_exists(_HIVE_PATH_."/_core/version.php")) { require_once(_HIVE_PATH_."/_core/version.php"); }
+			if(@is_array(@$x)) { 
+				hive__dashboard_box_start("<b>Core Information</b> " , "min-w-0 p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800 dark:text-gray-200 ");
+				echo "<div class='xfpe_maxwidth100pct'>";
+				echo "<table class='xfpe_textbreakall'>";
+				echo "<tbody class='bg-white divide-y dark:divide-gray-700 dark:bg-gray-800'>";
+				foreach($x as $key => $value) {
+					echo "<tr>";
+					echo '<td class="px-4 py-3 font-semibold">'.@htmlspecialchars(@ucfirst($key)).'</td> <td class="xfpe_textbreakall"><div style="white-space: normal; word-break: keep-all;">'.@htmlspecialchars(@$value).'</div></td>';
+					echo "</tr>";
 				}
-			}
+				echo "</tbody>";
+				echo "</table>";
+				echo "</div>";
+				hive__dashboard_box_end(); }
 		} else {
-			echo '<font color="red">No version.php file found!</font>';
+			hive__dashboard_alert_danger("The core system version file at _core/version.php has not been found!");
 		}
-		hive__dashboard_box_end();
-
-		hive__dashboard_box_start("<b>Site Module Informations:</b> ". _HIVE_MODE_ , "min-w-0 p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800 dark:text-gray-200 xfpe_margintop15px");
-		hive__dashboard_alert_warning("Information about this current visible administrator/site Module!");
-		if(file_exists(_HIVE_SITE_PATH_."/version.php")) {
-			$lines = file(_HIVE_SITE_PATH_."/version.php", FILE_IGNORE_NEW_LINES);
-			if(is_array($lines)) {
-				foreach($lines as $key_one => $value_one) {
-					if(substr($value_one, 0, 1) != "#") { continue; }
-					echo "<small>".$value_one."</small>";
-					echo "<br />";
-				}
-			}
-		} else {
-			echo '<font color="red">No version.php file found!</font>';
-		}
-		hive__dashboard_box_end();
-
-
-
-		hive__dashboard_box_start("Bugfish Framework Informations", "min-w-0 p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800 dark:text-gray-200 xfpe_margintop15px");
-		hive__dashboard_alert_warning("Information about the integrated Bugfish Framework!");
-		$info = new x_class_version();
-		echo "<b>Version:</b><br />" .$info->version."<br />" ;
-		echo "<br /><b>Autor:</b><br />" .$info->autor."<br />";
-		echo "<br /><b>Contact:</b><br />" .$info->contact."<br />" ;
-		echo "<br /><b>Website:</b><br />" .$info->website."<br />" ;
-		echo "<br /><b>Github:</b><br />" .$info->github."<br />" ;
-		hive__dashboard_box_end();
 		
+		if(file_exists(_HIVE_SITE_PATH_."/version.php")) {
+			$x = array();
+			if(file_exists(_HIVE_PATH_."/_site/"._HIVE_MODE_."/version.php")) { require_once(_HIVE_PATH_."/_site/"._HIVE_MODE_."/version.php"); }
+			if(@is_array(@$x)) { 
+				hive__dashboard_box_start("<b>Current Site Information</b> " , "min-w-0 p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800 dark:text-gray-200 xfpe_margintop15px ");
+				echo "<div class='xfpe_maxwidth100pct'>";
+				echo "<table class='xfpe_textbreakall'>";
+				echo "<tbody class='bg-white divide-y dark:divide-gray-700 dark:bg-gray-800'>";
+				foreach($x as $key => $value) {
+					echo "<tr>";
+					echo '<td class="px-4 py-3 font-semibold">'.@htmlspecialchars(@ucfirst($key)).'</td> <td class="xfpe_textbreakall"><div style="white-space: normal; word-break: keep-all;">'.@htmlspecialchars(@$value).'</div></td>';
+					echo "</tr>";
+				}
+				echo "</tbody>";
+				echo "</table>";
+				echo "</div>";
+				hive__dashboard_box_end(); }
+		} else {
+			hive__dashboard_alert_danger("The site module version file at _site/"._HIVE_MODE_."/version.php has not been found!");
+		}
+
+		$info = new x_class_version();
+		hive__dashboard_box_start("<b>Framework Information</b> " , "min-w-0 p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800 dark:text-gray-200 xfpe_margintop15px ");
+		echo "<div class='xfpe_maxwidth100pct'>";
+		echo "<table class='xfpe_textbreakall'>";
+		echo "<tbody class='bg-white divide-y dark:divide-gray-700 dark:bg-gray-800'>";
+
+			echo "<tr>";
+			echo '<td class="px-4 py-3 font-semibold">Version</td> <td class="xfpe_textbreakall"><div style="white-space: normal; word-break: keep-all;">'.$info->version.'</div></td>';
+			echo "</tr>";
+			echo "<tr>";
+			echo '<td class="px-4 py-3 font-semibold">Autor</td> <td class="xfpe_textbreakall"><div style="white-space: normal; word-break: keep-all;">'.$info->autor.'</div></td>';
+			echo "</tr>";
+			echo "<tr>";
+			echo '<td class="px-4 py-3 font-semibold">Contact</td> <td class="xfpe_textbreakall"><div style="white-space: normal; word-break: keep-all;">'.$info->contact.'</div></td>';
+			echo "</tr>";
+			echo "<tr>";
+			echo '<td class="px-4 py-3 font-semibold">Website</td> <td class="xfpe_textbreakall"><div style="white-space: normal; word-break: keep-all;">'.$info->website.'</div></td>';
+			echo "</tr>";
+			echo "<tr>";
+			echo '<td class="px-4 py-3 font-semibold">Github</td> <td class="xfpe_textbreakall"><div style="white-space: normal; word-break: keep-all;">'.$info->github.'</div></td>';
+			echo "</tr>";
+			echo "<tr>";
+			echo '<td class="px-4 py-3 font-semibold">License</td> <td class="xfpe_textbreakall"><div style="white-space: normal; word-break: keep-all;">GPLv3</div></td>';
+			echo "</tr>";
+		
+		echo "</tbody>";
+		echo "</table>";
+		echo "</div>";
+		hive__dashboard_box_end();
 	}

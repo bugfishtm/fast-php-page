@@ -66,11 +66,16 @@
 				foreach($realoutput as $key => $value) {
 					if($key == 0) { $class = ""; } else { $class = "xfpe_margintop15px"; } 
 					$found = true;
-					hive__dashboard_box_start("[".$key."] ". $value["name"]." [Build: ".$value["build"]."]" , "min-w-0 p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800 dark:text-gray-200 ".$class."");
-					echo "Autor: ".$value["autor"]."<br />";
-					echo "Website: ".$value["website"]."<br />";
-					echo "License: ".$value["license"]."<br />";
-					echo "Description: ".$value["description"]."<br />";
+					hive__dashboard_box_start("[".$key."] ". $value["name"]." [<b>Build</b> ".@htmlspecialchars(@$value["build"])."]" , "min-w-0 p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800 dark:text-gray-200 ".$class."");
+					
+					
+					echo "<b>Creator</b> ".@htmlspecialchars(@$value["autor"])." ";
+					if(@trim(@$value["website"]) != "") { echo "[<a href='".@htmlspecialchars(@$value["website"])."'>Website</a>]"; }
+					if(@trim(@$value["license"]) != "") { echo " [".@htmlspecialchars(@$value["license"])."]"; }
+					echo "<br /><img src='"._HIVE_SERVER_."/_api/_store/".$key.".png' style='max-width: 200px;'>";
+					
+					
+					echo "<br><b>Description</b><br> ".$value["description"]."<br />";
 						echo "<br /><form method='post' action='./?"._HIVE_URL_GET_[0]."="._HIVE_URL_CUR_[0]."&"._HIVE_URL_GET_[1]."="._HIVE_URL_CUR_[1]."'>";
 							hive__dashboard_button_icright("Download", "bx bx-download", "lime", "black", "submit", "", "hive_submit_mod_a_delete");
 							echo "<input type='hidden' name='hive_submit_mod_dl' value='1'>";
