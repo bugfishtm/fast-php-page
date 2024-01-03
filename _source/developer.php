@@ -54,7 +54,7 @@
 		<b>Current Site</b>: <?php echo _HIVE_MODE_; ?><br />
 		<b>Session Site</b>: <?php echo @$_SESSION[_HIVE_COOKIE_."hive_mode"]; ?><br />
 		<b>Default Site</b>: <?php echo _HIVE_MODE_DEFAULT_; ?><br />
-		<b>Array Site</b>: <span style='word-break: break-all;'><?php if(is_array(@_HIVE_MODE_ARRAY_)) { foreach(_HIVE_MODE_ARRAY_ as $key => $value) { if($key != 0) {echo ", ";} echo @htmlspecialchars($value);  } }?></span><br /><br />
+		<b>Array Site</b>: <span style='word-break: break-all;'><?php if(is_array(@_HIVE_MODE_ARRAY_)) { foreach(_HIVE_MODE_ARRAY_ as $key => $value) { if($key != 0) {echo ", ";} echo htmlspecialchars($value ?? '');  } }?></span><br /><br />
 		<?php 
 			if(@is_string(@$_POST["mod_change"]) AND @in_array(@$_POST["mod_change"], @_HIVE_MODE_ARRAY_)) {
 				$_SESSION[_HIVE_COOKIE_."hive_mode"] = @$_POST["mod_change"];
@@ -63,10 +63,10 @@
 		?>
 		<form method="post">
 			<select name="mod_change" class="containerbox-btn">
-				<option value="<?php echo @htmlentities($_SESSION[_HIVE_COOKIE_."hive_mode"] ); ?>">Active: <?php echo @htmlentities($_SESSION[_HIVE_COOKIE_."hive_mode"] ); ?></option>
+				<option value="<?php echo htmlentities($_SESSION[_HIVE_COOKIE_."hive_mode"]  ?? ''); ?>">Active: <?php echo htmlentities($_SESSION[_HIVE_COOKIE_."hive_mode"] ?? '' ); ?></option>
 				<?php
 					foreach(_HIVE_MODE_ARRAY_ as $key => $value) {
-						echo "<option value='".@htmlspecialchars($value)."'>".@htmlspecialchars($value)."</option>";
+						echo "<option value='".@htmlspecialchars($value ?? '')."'>".@htmlspecialchars($value ?? '')."</option>";
 					}
 				?>
 			</select>
@@ -76,10 +76,10 @@
 	</div>
 	<div class="containerbox">
 		<b>Change website language:</b><br />Here you can change this websites language if available!<br /><br />
-		<b>Current Language</b>: <?php echo @htmlspecialchars(_HIVE_LANG_); ?><br />
-		<b>Session Language</b>: <?php echo @htmlspecialchars(@$_SESSION[_HIVE_SITE_COOKIE_."hive_language"]); ?><br />
-		<b>Default Language</b>: <?php echo @htmlspecialchars(_HIVE_LANG_DEFAULT_); ?><br />
-		<b>Array Language</b>: <span style='word-break: break-all;'><?php if(is_array(@_HIVE_LANG_ARRAY_)) { foreach(_HIVE_LANG_ARRAY_ as $key => $value) { if($key != 0) {echo ", ";} echo @htmlspecialchars($value);  } }?></span>
+		<b>Current Language</b>: <?php echo htmlspecialchars(_HIVE_LANG_ ?? ''); ?><br />
+		<b>Session Language</b>: <?php echo htmlspecialchars(@$_SESSION[_HIVE_SITE_COOKIE_."hive_language"] ?? ''); ?><br />
+		<b>Default Language</b>: <?php echo htmlspecialchars(_HIVE_LANG_DEFAULT_ ?? ''); ?><br />
+		<b>Array Language</b>: <span style='word-break: break-all;'><?php if(is_array(@_HIVE_LANG_ARRAY_)) { foreach(_HIVE_LANG_ARRAY_ as $key => $value) { if($key != 0) {echo ", ";} echo htmlspecialchars($value ?? '');  } }?></span>
 		<br />
 		<?php 
 			if(@is_string(@$_POST["lang_change"]) AND @in_array(@$_POST["lang_change"], @_HIVE_LANG_ARRAY_)) {
@@ -89,10 +89,10 @@
 		?>
 		<form method="post">
 			<select name="lang_change" class="containerbox-btn">
-				<option value="<?php echo @htmlentities(@$_SESSION[_HIVE_SITE_COOKIE_."hive_language"]); ?>">Active: <?php echo @htmlentities(@$_SESSION[_HIVE_SITE_COOKIE_."hive_language"]); ?></option>
+				<option value="<?php echo htmlentities(@$_SESSION[_HIVE_SITE_COOKIE_."hive_language"] ?? ''); ?>">Active: <?php echo htmlentities(@$_SESSION[_HIVE_SITE_COOKIE_."hive_language"] ?? ''); ?></option>
 				<?php
 					foreach(_HIVE_LANG_ARRAY_ as $key => $value) {
-						echo "<option value='".@htmlspecialchars($value)."'>".@htmlspecialchars($value)."</option>";
+						echo "<option value='".htmlspecialchars($value ?? '')."'>".htmlspecialchars($value ?? '')."</option>";
 					}
 				?>
 			</select>
@@ -102,10 +102,10 @@
 	</div>
 	<div class="containerbox">
 		<b>Change website theme:</b><br />Here you can change this websites theme if available!<br /><br />
-		<b>Current Theme</b>: <?php echo @htmlspecialchars(_HIVE_THEME_); ?><br />
-		<b>Session Theme</b>: <?php echo @htmlspecialchars(@$_SESSION[_HIVE_SITE_COOKIE_."hive_theme"]); ?><br />
-		<b>Default Theme</b>: <?php echo @htmlspecialchars(_HIVE_THEME_DEFAULT_); ?><br />
-		<b>Array Theme</b>: <span style='word-break: break-all;'><?php if(is_array(@_HIVE_THEME_ARRAY_)) { foreach(_HIVE_THEME_ARRAY_ as $key => $value) { if($key != 0) {echo ", ";} echo @htmlspecialchars($value);  } }?></span>	
+		<b>Current Theme</b>: <?php echo htmlspecialchars(_HIVE_THEME_ ?? ''); ?><br />
+		<b>Session Theme</b>: <?php echo htmlspecialchars(@$_SESSION[_HIVE_SITE_COOKIE_."hive_theme"] ?? ''); ?><br />
+		<b>Default Theme</b>: <?php echo htmlspecialchars(_HIVE_THEME_DEFAULT_ ?? ''); ?><br />
+		<b>Array Theme</b>: <span style='word-break: break-all;'><?php if(is_array(@_HIVE_THEME_ARRAY_)) { foreach(_HIVE_THEME_ARRAY_ as $key => $value) { if($key != 0) {echo ", ";} echo htmlspecialchars($value ?? '');  } }?></span>	
 		<br />
 		<?php 
 			if(@is_string(@$_POST["thm_change"]) AND @in_array(@$_POST["thm_change"], @_HIVE_THEME_ARRAY_)) {
@@ -115,10 +115,10 @@
 		?>
 		<form method="post">
 			<select name="thm_change" class="containerbox-btn">
-			<option value="<?php echo @htmlentities(@$_SESSION[_HIVE_SITE_COOKIE_."hive_theme"]); ?>">Active: <?php echo @htmlentities(@$_SESSION[_HIVE_SITE_COOKIE_."hive_theme"]); ?></option>
+			<option value="<?php echo @htmlentities(@$_SESSION[_HIVE_SITE_COOKIE_."hive_theme"]); ?>">Active: <?php echo @htmlentities(@$_SESSION[_HIVE_SITE_COOKIE_."hive_theme"] ?? ''); ?></option>
 				<?php
 					foreach(_HIVE_THEME_ARRAY_ as $key => $value) {
-						echo "<option value='".@htmlspecialchars($value)."'>".@htmlspecialchars($value)."</option>";
+						echo "<option value='".htmlspecialchars($value ?? '')."'>".htmlspecialchars($value ?? '')."</option>";
 					}
 				?>
 			</select>
@@ -128,9 +128,9 @@
 	</div>		
 	<div class="containerbox">
 		<b>Change website color:</b><br />Here you can change this websites color if available!<br /><br />
-		<b>Current Color</b>: <?php echo @htmlspecialchars(_HIVE_COLOR_); ?><br />
-		<b>Session Color</b>: <?php echo @htmlspecialchars(@$_SESSION[_HIVE_SITE_COOKIE_."hive_color"]); ?><br />	
-		<b>Default Color</b>: <?php echo @htmlspecialchars(_HIVE_THEME_COLOR_DEFAULT_); ?><br />		
+		<b>Current Color</b>: <?php echo htmlspecialchars(_HIVE_COLOR_ ?? ''); ?><br />
+		<b>Session Color</b>: <?php echo htmlspecialchars(@$_SESSION[_HIVE_SITE_COOKIE_."hive_color"] ?? ''); ?><br />	
+		<b>Default Color</b>: <?php echo htmlspecialchars(_HIVE_THEME_COLOR_DEFAULT_ ?? ''); ?><br />		
 		<br />
 		<?php 
 			if(@is_string(@$_POST["ctsd_change"])) {
@@ -139,7 +139,7 @@
 			}
 		?>
 		<form method="post">
-			<input type="color" name="ctsd_change" value='<?php echo @htmlspecialchars(_HIVE_COLOR_); ?>'>
+			<input type="color" name="ctsd_change" value='<?php echo htmlspecialchars(_HIVE_COLOR_ ?? ''); ?>'>
 			<input type="hidden" name="update_start" value="set">
 			<button type="submit" class="containerbox-btn">Change Theme Color</button> 
 		</form>

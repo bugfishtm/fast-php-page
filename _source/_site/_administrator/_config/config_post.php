@@ -123,27 +123,32 @@
 	$sub_system[1]["nav_title"] = $object["lang"]->translate("m_system_site"); 
 	$sub_system[2]["nav_title"] = $object["lang"]->translate("m_system_store"); 
 	$sub_system[3]["nav_title"] = $object["lang"]->translate("m_system_modules"); 
-	$sub_system[4]["nav_title"] = $object["lang"]->translate("m_system_about"); 
+	$sub_system[4]["nav_title"] = $object["lang"]->translate("Data"); 
+	$sub_system[5]["nav_title"] = $object["lang"]->translate("m_system_about"); 
 	$sub_system[0]["nav_sub"] = false;   
 	$sub_system[1]["nav_sub"] = false;	 
 	$sub_system[2]["nav_sub"] = false;	  
 	$sub_system[3]["nav_sub"] = false;	  
 	$sub_system[4]["nav_sub"] = false;	  
+	$sub_system[5]["nav_sub"] = false;	  
 	$sub_system[0]["nav_loc"] = hive_get_url_rel(array("system", "update", false));
 	$sub_system[1]["nav_loc"] = hive_get_url_rel(array("system", "updatesite", false));
 	$sub_system[2]["nav_loc"] = hive_get_url_rel(array("system", "store", false));  
 	$sub_system[3]["nav_loc"] = hive_get_url_rel(array("system", "modules", false));  
-	$sub_system[4]["nav_loc"] = hive_get_url_rel(array("system", "about", false));  
+	$sub_system[4]["nav_loc"] = hive_get_url_rel(array("system", "data", false));  
+	$sub_system[5]["nav_loc"] = hive_get_url_rel(array("system", "about", false));  
 	$sub_system[0]["nav_img"] = ""; 
 	$sub_system[1]["nav_img"] = ""; 
 	$sub_system[2]["nav_img"] = ""; 
 	$sub_system[3]["nav_img"] = ""; 
 	$sub_system[4]["nav_img"] = ""; 
+	$sub_system[5]["nav_img"] = ""; 
 	$sub_system[0]["nav_act"] = "update";
 	$sub_system[1]["nav_act"] = "updatesite";
 	$sub_system[2]["nav_act"] = "store";
 	$sub_system[3]["nav_act"] = "modules";
-	$sub_system[4]["nav_act"] = "about";
+	$sub_system[4]["nav_act"] = "data";
+	$sub_system[5]["nav_act"] = "about";
 	///////////////////////////////////////////////////////////////////
 	// Navigation Main Menue Settings
 	///////////////////////////////////////////////////////////////////

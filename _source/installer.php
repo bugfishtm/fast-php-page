@@ -46,13 +46,13 @@
 		if(@$_SESSION["csrf_hive_installer"] == @$_POST["csrf"]) { 
 				if(@_INSTALLER_CODE_ == @$_POST["installer_code"] OR @_INSTALLER_CODE_ == false OR @_INSTALLER_CODE_ == "") { 
 					$do = true;
-					if(@trim(@$_POST["website_url"]) == "") {  $erroremptyu = true; $do = false;}
-					if(@trim(@$_POST["website_cookie"]) == "") {  $erroremptyux = true; $do = false;}
-					if(@trim(@$_POST["website_prefix"]) == "") {  $erroremptyuy = true; $do = false;}
+					if(@trim(@$_POST["website_url"] ?? '') == "") {  $erroremptyu = true; $do = false;}
+					if(@trim(@$_POST["website_cookie"] ?? '') == "") {  $erroremptyux = true; $do = false;}
+					if(@trim(@$_POST["website_prefix"] ?? '') == "") {  $erroremptyuy = true; $do = false;}
 					if(!file_exists(@$_POST["doc_root"]."_core/_misc/ynvnzmlzaa.php")) { $erroremptyr = true; $do = false;}
-					if(@trim(@$_POST["mysql_db"]) == "") {  $erroremptyd = true; $do = false;}
+					if(@trim(@$_POST["mysql_db"] ?? '') == "") {  $erroremptyd = true; $do = false;}
 					if(!is_numeric(@$_POST["mysql_port"])) { $_POST["mysql_port"] = 3306; }
-					if(@trim(@$_POST["mysql_host"]) == "") { $_POST["mysql_host"] = "localhost"; }
+					if(@trim(@$_POST["mysql_host"] ?? '') == "") { $_POST["mysql_host"] = "localhost"; }
 					try { $mysqli = @new mysqli(@$_POST["mysql_host"], $_POST["mysql_user"], $_POST["mysql_pass"], $_POST["mysql_db"], $_POST["mysql_port"]);  
 						if ($mysqli->connect_errno) {
 							$coner = "Connection Error: ".$mysqli->connect_error;
@@ -83,47 +83,47 @@ Enter your MySQL database credentials and desired database prefix in the provide
 		<?php if(_INSTALLER_CODE_ != false AND _INSTALLER_CODE_ != "") { ?>
 		<b>Installation Code</b>:<br /><small>Provide Installation Code to install this software!<br /> You can find the installer code in /_core/_lib/lib.__installer.php!</small><br />
 		<?php if(@$erroremptyrcced) { echo "<b><div class='containererror'>Please provide a valid installer code!</div></b>"; } ?>
-		<input type="text" name="installer_code"  placeholder="Installer Code" value="<?php if(!is_string(@$_POST["installer_code"])) { echo ""; } else { echo htmlentities(@$_POST["installer_code"]);} ?>"> <br />
+		<input type="text" name="installer_code"  placeholder="Installer Code" value="<?php if(!is_string(@$_POST["installer_code"])) { echo ""; } else { echo htmlentities(@$_POST["installer_code"] ?? '');} ?>"> <br />
 		<br />
 		<?php }?>
 		<?php echo @$csrf; if($coner) { echo "<b><div class='containererror'>MySQL Error</b>: ".$coner."</div><br />"; } ?>
 		<b>MySQL Hostname</b>:<br /><small>The hostname of the MySQL Server you want to connect to.</small><br />
-		<input type="text" name="mysql_host"  placeholder="MySQL Host" value="<?php if(!is_string(@$_POST["mysql_host"])) { echo "localhost"; } else { echo htmlentities(@$_POST["mysql_host"]);} ?>"> <br />
+		<input type="text" name="mysql_host"  placeholder="MySQL Host" value="<?php if(!is_string(@$_POST["mysql_host"])) { echo "localhost"; } else { echo htmlentities(@$_POST["mysql_host"] ?? '');} ?>"> <br />
 		<br />
 		<b>MySQL Port</b>:<br /><small>The port of the MySQL Server you want to connect to.</small><br />
-		<input type="number" name="mysql_port" placeholder="MySQL Port" value="<?php if(!is_numeric(@$_POST["mysql_port"])) { echo "3306"; } else { echo htmlentities(@$_POST["mysql_port"]);} ?>"> <br />
+		<input type="number" name="mysql_port" placeholder="MySQL Port" value="<?php if(!is_numeric(@$_POST["mysql_port"])) { echo "3306"; } else { echo htmlentities(@$_POST["mysql_port"] ?? '');} ?>"> <br />
 		<br />
 		<b>MySQL Username</b>:<br /><small>The username to connect to the MySQL Instance</small><br />
-		<input type="text" name="mysql_user" placeholder="MySQL Username" value="<?php if(!is_string(@$_POST["mysql_user"])) { echo "root"; } else { echo htmlentities(@$_POST["mysql_user"]);} ?>"> <br />
+		<input type="text" name="mysql_user" placeholder="MySQL Username" value="<?php if(!is_string(@$_POST["mysql_user"])) { echo "root"; } else { echo htmlentities(@$_POST["mysql_user"] ?? '');} ?>"> <br />
 		<br />
 		<b>MySQL Password</b>:<br /> <small>The password to connect to the MySQL Instance</small><br />
 		<input type="password" name="mysql_pass" placeholder="*****" > <br />
 		<br />
 		<b>MySQL Database</b>:<br /><small>The name of the MySQL Database you want to connect to.</small><br />
 			<?php if($erroremptyd) { echo "<b><div class='containererror'>Invalid database name!</div></b>"; } ?>
-		<input type="text" name="mysql_db" placeholder="Database Name" value="<?php if(!is_string(@$_POST["mysql_db"])) { echo ""; } else { echo htmlentities(@$_POST["mysql_db"]);} ?>"> <br />
+		<input type="text" name="mysql_db" placeholder="Database Name" value="<?php if(!is_string(@$_POST["mysql_db"])) { echo ""; } else { echo htmlentities(@$_POST["mysql_db"] ?? '');} ?>"> <br />
 		<br />
 		<b>Document Root</b>:<br /><small>Document Root Folder where this website is located on your webspace. This will be auto-determined, you do not need to change this, as the default setting should be correct! Please add a trailing slash if not existant!</small><br />
 		<?php if($erroremptyr) { echo "<b><div class='containererror'>Please provide a valid document root!</div></b>"; } ?>
-		<input type="text" name="doc_root" value="<?php if(!is_string(@$_POST["doc_root"])) { echo substr(dirname(__FILE__), 0)."/"; } else { echo htmlentities(@$_POST["doc_root"]);} ?>"> <br />
+		<input type="text" name="doc_root" value="<?php if(!is_string(@$_POST["doc_root"])) { echo substr(dirname(__FILE__), 0)."/"; } else { echo htmlentities(@$_POST["doc_root"] ?? '');} ?>"> <br />
 		<br />						
 		<b>Website URL</b>:<br /><small> Enter the Website URL it will be reachable online. Enter the URL Name without www/http and without trailing slash. If this website is installed in a subfolder, do add this subfolder into this domain as well. Please add a trailing slash if not existant!</small><br />
 		<?php if($erroremptyu) { echo "<b><div class='containererror'>Please enter the public URL, where this page will run on!</div></b>"; } ?>
 		<input type="text" name="website_url" value="<?php if(!is_string(@$_POST["website_url"])) { 
-			if(@strlen(@dirname(@trim(@$_SERVER["REQUEST_URI"]))) > 2) { 
+			if(@strlen(@dirname(@trim(@$_SERVER["REQUEST_URI"] ?? ''))) > 2) { 
 				echo $_SERVER["HTTP_HOST"]."".@dirname(@$_SERVER["REQUEST_URI"])."/"; 
 			} else {
 				echo $_SERVER["HTTP_HOST"]."/"; 
 			}
-		} else { echo htmlentities(@$_POST["website_url"]);} ?>"> <br />
+		} else { echo htmlentities(@$_POST["website_url"] ?? '');} ?>"> <br />
 		<br />
 		<b>Cookie Prefix</b>:<br /><small> Cookie Prefix, does not need to be changed.</small><br />
 		<?php if(@$erroremptyux) { echo "<b><div class='containererror'>Please enter a valid Cookie Prefix!</div></b>"; } ?>
-		<input type="text" name="website_cookie" value="<?php if(!is_string(@$_POST["website_cookie"])) {  echo _INSTALLER_COOKIE_;} else { echo htmlentities(@$_POST["website_cookie"]);} ?>"> <br />
+		<input type="text" name="website_cookie" value="<?php if(!is_string(@$_POST["website_cookie"])) {  echo _INSTALLER_COOKIE_;} else { echo htmlentities(@$_POST["website_cookie"] ?? '');} ?>"> <br />
 		<br />
 		<b>Table Prefix</b>:<br /><small> MySQL Tables Prefix, does not need to be changed.</small><br />
 		<?php if(@$erroremptyuy) { echo "<b><div class='containererror'>Please enter a valid Table Prefix!</div></b>"; } ?>				
-		<input type="text" name="website_prefix" value="<?php if(!is_string(@$_POST["website_prefix"])) { echo _INSTALLER_PREFIX_; } else { echo @htmlentities(@$_POST["website_prefix"]);} ?>"> <br />			
+		<input type="text" name="website_prefix" value="<?php if(!is_string(@$_POST["website_prefix"])) { echo _INSTALLER_PREFIX_; } else { echo htmlentities(@$_POST["website_prefix"] ?? '');} ?>"> <br />			
 		<button type="submit" class="containerbox-btn">Start Installation</button>			 
 	</div>
 	<?php hive__simple_end($object, 'Powered by <a href="https://github.com/bugfishtm" rel="noopener" target="_blank" style="color: yellow!important;">Bugfish</a> Fast-PHP Framework!'); ?>

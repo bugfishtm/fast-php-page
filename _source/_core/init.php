@@ -178,11 +178,7 @@
 		define("_HIVE_URL_", $object["url"]); 
 	}
 	$object["url"] = _HIVE_URL_;	 
-	$tmp = _HIVE_URL_;
-	if(strpos($tmp, "http://")) { $tmp = substr($tmp, 7); }
-	elseif(strpos($tmp, "https://")) { $tmp = substr($tmp, 8); }
-	$tmp = substr($tmp, strpos($tmp, "/"));
-	define('_HIVE_URL_REL_', $tmp);
+	define('_HIVE_URL_REL_', x_getRelativeFolderFromURL(_HIVE_URL_));
 	
 	// Instance Settings
 	if(file_exists($object["path"]."/_site/"._HIVE_MODE_."/_config/config.php")) { require_once($object["path"]."/_site/"._HIVE_MODE_."/_config/config.php"); }	
@@ -242,7 +238,7 @@
 	// Classes Initializations	
 	$object["var"]->init_constant();			
 	if(!defined("_HIVE_IP_LIMIT_")) { define("_HIVE_IP_LIMIT_", false); }
-	
+	$object["file"] = NULL;
 	// IPBL Setup
 	$object["ipbl"] = new x_class_ipbl($object["mysql"], _TABLE_LOG_IP_, _HIVE_IP_LIMIT_);			
 	$object["referer"] = new x_class_referer($object["mysql"], _TABLE_LOG_REFERER_, $object["url"]);	
@@ -325,8 +321,8 @@
 	$object["user"]->init();		
 
 	// User Permissions
-	$object["perm_user"] 	= 	new x_class_perm($object["mysql"], _TABLE_USER_PERM_, _HIVE_MODE_);
-	$object["perm_group"] 	= 	new x_class_perm($object["mysql"], _TABLE_USER_GROUP_PERM_, _HIVE_MODE_);
+	$object["perm_user"] 	= 	new x_class_perm($object["mysql"], _TABLE_USER_PERM_, "__global");
+	$object["perm_group"] 	= 	new x_class_perm($object["mysql"], _TABLE_USER_GROUP_PERM_, "__global");
 	
 	// Create Permission Item for Current User
 	$object["user_perm"] = $object["perm_user"]->item($object["user"]->user_id);		

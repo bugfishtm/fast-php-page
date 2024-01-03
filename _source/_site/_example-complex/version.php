@@ -25,7 +25,7 @@
 	*/	
 	$x = array();
 	$x["rname"] 		= "_example-complex";
-	$x["version"] 		= "1.00";
+	$x["version"] 		= "1.10";
 	$x["build"] 		= "100";
 	$x["description"] 	= "The FP2 Complex Example Template stands as an advanced demonstration platform, specifically designed to test and showcase intricate dashboard themes and sophisticated functionalities within this CMS (Content Management System). This template serves as an in-depth exploration of the CMS's capabilities, offering a complex dashboard theme that highlights the system's versatility and advanced features. It provides an environment to test and experiment with intricate functionalities, aiming to unveil the system's full potential. Through this complex example, users can delve deeper into the CMS's advanced features, gaining insights and practical knowledge to leverage these capabilities effectively. This template is a valuable resource for developers and users seeking to explore and harness the more intricate and powerful aspects of the CMS for creating sophisticated and high-performing web applications or interfaces. Included in this Module is this Modules Documentation! You can also find documentations at https://bugfishtm.github.io!";
 	$x["name"] 			= "FP2 Complex Example";

@@ -1,10 +1,11 @@
 ![Bugfish](https://img.shields.io/badge/Bugfish-CMS-orange)
 ![Status](https://img.shields.io/badge/Status-Finished-green)
 ![License](https://img.shields.io/badge/License-GPLv3-black)
-![Version](https://img.shields.io/badge/Version-1.01-white)
+![Version](https://img.shields.io/badge/Version-1.02-white)
+![Version](https://img.shields.io/badge/Build-100-white)
 
 # Fast PHP Page
-![Logo](./_images/logo-default-small.jpg)
+![Logo](./_images/bugfish-fp2-logo-sm.png)
 
 **Repository:** [Fast-PHP-Page Project](https://github.com/bugfishtm/fast-php-page)  
 **Documentation:** [Comprehensive Documentation](https://bugfishtm.github.io/fast-php-page/)  
@@ -18,7 +19,7 @@ https://www.bugfish-github.de/fast-php-page
 **You can find Screenshots of templates and the software in this repositories _images folder or at the documentation available in the "docs" folder or at www.bugfish-github.de!**
 
 If you want to support us, add this banner to the project you have created!  
-![Bugfish Framework Banner](./_images/bugfish-framework-banner.jpg)![Bugfish FP2 Banner](./_images/bugfish-fp2-banner.jpg)
+![Bugfish Framework Banner](./_images/bugfish-framework-banner.jpg) ![Bugfish FP2 Banner](./_images/bugfish-fp2-banner.jpg)
 
 ## Repository Folders
 
@@ -29,6 +30,7 @@ If you want to support us, add this banner to the project you have created!
 | docs        | Website documentation               |
 | _releases   | Software releases                   |
 | _images   | Some images for this readme file      |
+| _licenses   | Some informations about used licenses      |
 
 
 
@@ -132,6 +134,46 @@ This project relies on third-party libraries stored in the '/_core/_vendor' fold
 | boxicons (<a href="https://boxicons.com" rel="noopener" target="_blank">Image List</a>) | MIT | [Link](https://github.com/atisawd/boxicons) |
 | bugfish-dashboard              | GPLv3      | [Link](https://github.com/bugfishtm/bugfish-dashboard)    |
 | country-flags-icons           | MIT      | [Link](https://github.com/ashhitch/ISO-country-flags-icons)    |
+| animate-css           | HYP      | None   |
+| autosize           | MIT      | None   |
+| animate           | MIT      | None   |
+| bootstrap           | MIT      | None   |
+| bootstrap-colorpicker           | MIT      | None   |
+| bootstrap-material-datetimepicker           | MIT      | None   |
+| bootstrap-notify           | MIT      | None   |
+| bootstrap-select           | MIT      | None   |
+| bootstrap-tagsinput           | MIT      | None   |
+| bugfish-dashboard           | GPLv3      | None   |
+| chosen           | MIT      | None   |
+| dropzone           | MIT      | None   |
+| editable-table           | MIT      | None   |
+| flot-charts           | MIT      | None   |
+| gmaps           | MIT      | None   |
+| ion-rangeslider           | MIT      | None   |
+| jquery-cookie           | MIT      | None   |
+| jquery-countto           | MIT      | None   |
+| jquery-inputmask           | MIT      | None   |
+| jquery-knob           | MIT      | None   |
+| jquery-slimscroll           | MIT      | None   |
+| jquery-sparkline           | MIT      | None   |
+| jquery-spinner           | MIT      | None   |
+| jquery-steps           | MIT      | None   |
+| jquery-validation           | MIT      | None   |
+| jvectormap           | AGPL      | None   |
+| light-gallery           | GPLv3      | None   |
+| material-design-iconic-font           | Apache      | None   |
+| materialize-css           | MIT      | None   |
+| momentjs           | MIT      | None   |
+| morrisjs           | MIT      | None   |
+| multi-select           | MIT      | None   |
+| nestable           | MIT      | None   |
+| node-waves           | MIT      | None   |
+| nouislider           | MIT      | None   |
+| raphael           | MIT      | None   |
+| waitme           | MIT      | None   |
+| Windmill Theme           | MIT      | None   |
+| Responsive Mail Template          | MIT      | None   |
+| Responsive Error Page          | MIT      | None   |
 
 
 ## Get Support

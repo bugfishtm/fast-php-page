@@ -52,6 +52,19 @@
 			} else { $object["eventbox"]->error("Form expired! Please try again."); }}	
 			
 			
+		if(@$_POST["hive_submit_mod_i_rename"]) {
+			if($csrf->check(@$_POST["hive_submit_mod_csrf"])) {
+			if(@trim(@$_POST["hive_submit_mod_i_rename_newname"]) != "") {
+				
+			if(!is_dir(_HIVE_PATH_."/_site/__internal/_deactivated/".@$_POST["hive_submit_mod_i_rename_newname"])) {
+				rename( _HIVE_PATH_."/_site/__internal/_deactivated/".@$_POST["hive_submit_mod_i_rename_name"],  _HIVE_PATH_."/_site/__internal/_deactivated/".@$_POST["hive_submit_mod_i_rename_newname"]);
+				$object["eventbox"]->ok("Site Module has been renamed.");
+				$object["log"]->info("Rename Module with Name: '".@$_POST["hive_submit_mod_i_deploy_name"]."' has been renamed by UID: ".$object["user"]->user_id."");
+				
+				
+			} else { $object["eventbox"]->error("There is already another Site Module installed with that name!"); }
+			} else { $object["eventbox"]->error("You need to enter a new name!"); }
+			} else { $object["eventbox"]->error("Form expired! Please try again."); }}
 		if(@$_POST["hive_submit_mod_i_deploy"]) {
 			if($csrf->check(@$_POST["hive_submit_mod_csrf"])) {
 			if(!is_dir(_HIVE_PATH_."/_site/".@$_POST["hive_submit_mod_i_deploy_name"])) {
@@ -96,7 +109,8 @@
 				$itemPath = $directory . '/' . $item;
 				if (is_dir($itemPath) && !in_array($item, array('.', '..', "__internal"))) {
 					if($first) { $first = false; $class = ""; } else { $class = "xfpe_margintop15px"; } 
-					hive__dashboard_box_start("". basename($itemPath) , "min-w-0 p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800 dark:text-gray-200  ".$class."");
+					hive__dashboard_box_start("<font color='lime'>[ACTIVE]</font> ". basename($itemPath) , "min-w-0 p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800 dark:text-gray-200  ".$class."");
+					echo "<div style='display: none;'>";
 					if(file_exists($itemPath."/version.php")) {
 						require_once($itemPath."/version.php");
 						if(@is_array(@$x)) { 
@@ -118,7 +132,11 @@
 					}
 					echo "<br /><small>You can switch back to Admin Interface by executing /_core/admin_switch.php!<br />This will lead you back to the default Admin Panel declared in internal.php setup!</small>";
 					echo "<br /><b>Caution:</b> If you delete a site Module, all its files in the /_site/ folder will be deleted as well.";
-					echo "<div class='flex flex-col flex-wrap mb-4 space-y-4 md:flex-row md:items-end md:space-x-4'>";
+					echo "</div>";
+					echo "<div class='flex flex-col flex-wrap mb-0 space-y-4 md:flex-row md:items-end md:space-x-4'>";
+						echo "<div class='space-x-6'>";
+							echo '<button type="button" class="flex items-center justify-between px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-primary-bugfish border border-transparent rounded-lg active:bg-primary-bugfish hover:bg-primary-bugfish focus:outline-none focus:shadow-primary-bugfish force-white-focus" onclick="$(this).parent().parent().prev().toggle();">Maximize / Minimize</button> ';
+						echo "</div>";
 						echo "<form method='post' action='./?"._HIVE_URL_GET_[0]."="._HIVE_URL_CUR_[0]."&"._HIVE_URL_GET_[1]."="._HIVE_URL_CUR_[1]."'>";
 						echo "<div class='space-x-6'>";
 							hive__dashboard_button_icright("Deactivate", "bx bx-stop", "yellow", "black", "submit", "", "hive_submit_mod_a_disable");
@@ -150,7 +168,6 @@
 		}
 		
 		echo "<div class='xfpe_margintop15px'></div>";
-		hive__dashboard_alert_warning("Deactivated Site Modules:");
 		$directory = _HIVE_PATH_."/_site/__internal/_deactivated";
 		$folders = array();
 		if (is_dir($directory)) {
@@ -158,7 +175,8 @@
 			foreach ($contents as $item) {
 				$itemPath = $directory . '/' . $item;
 				if (is_dir($itemPath) && !in_array($item, array('.', '..', "__internal"))) {
-					hive__dashboard_box_start("". basename($itemPath) , "min-w-0 p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800 dark:text-gray-200 xfpe_margintop15px");
+					hive__dashboard_box_start("<font color='red'>[INACTIVE]</font> ". basename($itemPath) , "min-w-0 p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800 dark:text-gray-200 xfpe_margintop15px");
+					echo "<div style='display: none;'>";
 					if(file_exists($itemPath."/version.php")) {
 						require_once($itemPath."/version.php");
 						if(@is_array(@$x)) { 
@@ -179,7 +197,22 @@
 						echo '<font color="red">No version.php file found!</font>';
 					}
 					echo "<br /><b>Caution:</b> If you delete a site Module, all its files in the /_site/ folder will be deleted as well.";
-					echo "<div class='flex flex-col flex-wrap mb-4 space-y-4 md:flex-row md:items-end md:space-x-4'>";
+					echo "</div>";
+					
+						echo "<form method='post' action='./?"._HIVE_URL_GET_[0]."="._HIVE_URL_CUR_[0]."&"._HIVE_URL_GET_[1]."="._HIVE_URL_CUR_[1]."'>";
+
+							echo "<small><font color='red'>CAUTION! If you change the site modules name, old data may not be related anymore! Check the data section for lost data site module section names.</font></small><br />";
+							echo '<input type="text" name="hive_submit_mod_i_rename_newname" class="xfpe_floatleft" style="color: black;height: 35px; border-radius: 5px; padding: 2px;" placeholder="New Site Modules Name">';
+							hive__dashboard_button_icright("Rename", "bx bx-edit", "yellow", "black", "submit", "", "hive_submit_mod_i_rename");
+							echo "<input type='hidden' name='hive_submit_mod_i_rename' value='1'>";
+							echo "<input type='hidden' name='hive_submit_mod_csrf' value='".$csrf->get()."'>";
+							echo "<input type='hidden' name='hive_submit_mod_i_rename_name' value='".basename($itemPath)."'>";
+
+						echo "</form>";
+					echo "<div class='flex flex-col flex-wrap mb-0 space-y-4 md:flex-row md:items-end md:space-x-4'>";
+						echo "<div class='space-x-6'>";
+							echo '<button type="button" class="flex items-center justify-between px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-primary-bugfish border border-transparent rounded-lg active:bg-primary-bugfish hover:bg-primary-bugfish focus:outline-none focus:shadow-primary-bugfish force-white-focus" onclick="$(this).parent().parent().prev().prev().toggle();">Maximize / Minimize</button> ';
+						echo "</div>";
 						echo "<form method='post' action='./?"._HIVE_URL_GET_[0]."="._HIVE_URL_CUR_[0]."&"._HIVE_URL_GET_[1]."="._HIVE_URL_CUR_[1]."'>";
 						echo "<div class='space-x-6'>";
 							hive__dashboard_button_icright("Activate", "bx bx-play", "lime", "black", "submit", "", "hive_submit_mod_i_deploy");
@@ -203,7 +236,6 @@
 		}
 		
 		echo "<div class='xfpe_margintop15px'></div>";
-		hive__dashboard_alert_info("Site Module Templates:");
 		$directory = _HIVE_PATH_."/_site/__internal/_downloaded";
 		$folders = array();
 		if (is_dir($directory)) {
@@ -211,7 +243,8 @@
 			foreach ($contents as $item) {
 				$itemPath = $directory . '/' . $item;
 				if (is_dir($itemPath) && !in_array($item, array('.', '..', "__internal"))) {
-					hive__dashboard_box_start("". basename($itemPath) , "min-w-0 p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800 dark:text-gray-200 xfpe_margintop15px");
+					hive__dashboard_box_start("<font color='lightblue'>[TEMPLATE]</font> ". basename($itemPath) , "min-w-0 p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800 dark:text-gray-200 xfpe_margintop15px");
+					echo "<div style='display: none;'>";
 					if(file_exists($itemPath."/version.php")) {
 						require_once($itemPath."/version.php");
 						if(@is_array(@$x)) { 
@@ -231,7 +264,11 @@
 					} else {
 						echo '<font color="red">No version.php file found!</font>';
 					}
-					echo "<div class='flex flex-col flex-wrap mb-4 space-y-4 md:flex-row md:items-end md:space-x-4'>";
+					echo "</div>";
+					echo "<div class='flex flex-col flex-wrap mb-0 space-y-4 md:flex-row md:items-end md:space-x-4'>";
+						echo "<div class='space-x-6'>";
+							echo '<button type="button" class="flex items-center justify-between px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-primary-bugfish border border-transparent rounded-lg active:bg-primary-bugfish hover:bg-primary-bugfish focus:outline-none focus:shadow-primary-bugfish force-white-focus" onclick="$(this).parent().parent().prev().toggle();">Maximize / Minimize</button> ';
+						echo "</div>";
 						echo "<form method='post' action='./?"._HIVE_URL_GET_[0]."="._HIVE_URL_CUR_[0]."&"._HIVE_URL_GET_[1]."="._HIVE_URL_CUR_[1]."'>";
 						echo "<div class='space-x-6'>";
 							hive__dashboard_button_icright("Deploy", "bx bx-play", "lime", "black", "submit", "", "hive_submit_mod_d_deploy");

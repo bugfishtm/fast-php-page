@@ -70,8 +70,8 @@
 				<br />
 				<small>You can switch back to Site Module: </small><br />
 				<?php 
-					if(@trim(@$_SESSION[_HIVE_COOKIE_."hive_mode_last"]) == "") { $newmode = _HIVE_MODE_DEFAULT_; } else { $newmode = @$_SESSION[_HIVE_COOKIE_."hive_mode_last"]; }
-					echo "<b>".@htmlspecialchars($newmode)."</b><br /><br />"; ?>
+					if(@trim(@$_SESSION[_HIVE_COOKIE_."hive_mode_last"] ?? '') == "") { $newmode = _HIVE_MODE_DEFAULT_; } else { $newmode = @$_SESSION[_HIVE_COOKIE_."hive_mode_last"]; }
+					echo "<b>".@htmlspecialchars($newmode ?? '')."</b><br /><br />"; ?>
 				<form method="get">
 					<input type="submit" value="Frontend Mode" name="adm_change_access">
 				</form>

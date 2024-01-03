@@ -25,8 +25,8 @@
 	*/	
 	$x = array();
 	$x["rname"] 		= "_administrator";
-	$x["version"] 		= "1.01";
-	$x["build"] 		= "101";
+	$x["version"] 		= "1.10";
+	$x["build"] 		= "100";
 	$x["description"] 	= "The FP2 Administrator Template is a comprehensive resource designed for seamless integration with the Admin Switch Mode Functionality or for direct incorporation into personal projects. Packed with an extensive array of sections dedicated to administration and diverse functions, this template serves as a robust toolkit for administrative purposes within the CMS (Content Management System). Its rich collection of features and functionalities are readily available for immediate use, allowing for effortless implementation and customization. Whether utilized alongside the Admin Switch Mode or copied and adapted for individual projects, this template offers an abundance of pre-designed sections tailored for streamlined administration, making it an invaluable asset for developers seeking to expedite the creation of feature-rich administrative interfaces. Included in this Module is this Modules Documentation! You can also find documentations at https://bugfishtm.github.io!";
 	$x["name"] 			= "FP2 Administrator";
 	$x["license"] 		= "GPLv3";

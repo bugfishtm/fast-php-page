@@ -73,7 +73,7 @@
     <strong>_documentation:</strong> Site Module designed that holds this CMS Documentation to be viewed any time needed!
   </li>
   <li>
-    <strong>_frameworkdocs:</strong> Site Module designed that holds the Bugfish Framework Documentation to be viewed any time needed!
+    <strong>_framework-documentation:</strong> Site Module designed that holds the Bugfish Framework Documentation to be viewed any time needed!
   </li>
 </ul>
 		

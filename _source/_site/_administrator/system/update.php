@@ -53,6 +53,7 @@
 				echo "<tbody class='bg-white divide-y dark:divide-gray-700 dark:bg-gray-800'>";
 				foreach($x as $key => $value) {
 				if($key == "version") { $version = $value; }
+				if($key == "build") { $build = $value; }
 					echo "<tr>";
 					echo '<td class="px-4 py-3 font-semibold">'.@htmlspecialchars(@ucfirst($key)).'</td> <td class="xfpe_textbreakall"><div style="white-space: normal; word-break: keep-all;">'.@htmlspecialchars(@$value).'</div></td>';
 					echo "</tr>";
@@ -79,6 +80,7 @@
 			foreach($realoutput as $key => $value) {
 				echo "<tr>";
 				if($key == "version") { $newversion = $value; }
+				if($key == "build") { $newbuild = $value; }
 				echo '<td class="px-4 py-3 font-semibold">'.ucfirst($key).'</td> <td class="xfpe_textbreakall"><div style="white-space: normal; word-break: keep-all;">'.$value.'</div></td>';
 				echo "</tr>";
 			}
@@ -91,7 +93,7 @@
 		require_once(_HIVE_PATH_."/_core/version.php");
 		if(@$newversion) {
 			hive__dashboard_box_start(false , "min-w-0 p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800 dark:text-gray-200 xfpe_margintop15px");
-			if($newversion != $version) {
+			if($newversion != $version OR $newbuild != $build) {
 				hive__dashboard_alert_warning("<font color='black'>A new build is available! <br />Check this projects Github Page to download the latest release.</font>");echo "Current Server URL:<br /> "._HIVE_SERVER_."/_api/update.php"."";
 			} else {
 				hive__dashboard_alert_success("You are up to date!");

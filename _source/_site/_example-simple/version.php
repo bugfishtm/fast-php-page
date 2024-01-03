@@ -25,7 +25,7 @@
 	*/	
 	$x = array();
 	$x["rname"] 		= "_example-simple";
-	$x["version"] 		= "1.00";
+	$x["version"] 		= "1.10";
 	$x["build"] 		= "100";
 	$x["description"] 	= "The FP2 Simple Example Template is a foundational tool designed to facilitate straightforward website development within this CMS (Content Management System). Tailored for simplicity, this template serves as a starting point for testing and implementing the most basic solutions offered by the CMS. It provides a clear and uncomplicated framework, perfect for users seeking to explore the fundamental functionalities and build a minimalistic yet functional website. By offering a simplified approach, this template serves as an ideal playground for beginners or those looking to grasp the core features of the CMS, enabling them to create uncomplicated websites efficiently and effectively. Included in this Module is this Modules Documentation! You can also find documentations at https://bugfishtm.github.io!";
 	$x["name"] 			= "FP2 Simple Example";

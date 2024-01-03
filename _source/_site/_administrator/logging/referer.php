@@ -31,11 +31,12 @@
 		// Variables
 		////////////////////////////////////////////////////////////////
 		$title_general 	= "Referer";
-		$trts_general 	= "full_url, hits, section, id";
+		$trts_general 	= "full_url, site_url, hits, section, id";
 		$item_general 	= "Referer Entry";
 		$text_general 	= "Analyze and track referral sources with detailed referer log entries in this dedicated section, enhancing your website's insights into visitor origins and interactions.";
 		$table_general 	= _TABLE_LOG_REFERER_;
 		$table_title   	= array(array("name" => "URL"),
+							    array("name" => "Site"),
 							    array("name" => "Hits"),
 							    array("name" => "Module"));
 		
@@ -63,6 +64,7 @@
 		if(is_array($value_array)) {
 			foreach($value_array as $key => $value) {
 				$value_array[$key]["full_url"] = @htmlspecialchars($value_array[$key]["full_url"]);
+				$value_array[$key]["site_url"] = @htmlspecialchars($value_array[$key]["site_url"]);
 				$value_array[$key]["hits"] = @htmlspecialchars($value_array[$key]["hits"]);
 				$value_array[$key]["section"] = @htmlspecialchars($value_array[$key]["section"]);
 			}

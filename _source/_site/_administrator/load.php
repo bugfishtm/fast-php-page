@@ -26,6 +26,7 @@
 	//////////////////////////////////////////////////////////////////////////////
 	// Show Login if not Logged In
 	//////////////////////////////////////////////////////////////////////////////
+	x_cookieBanner_Pre(_HIVE_SITE_COOKIE_);
 	if((!$object["user"]->user_loggedIn OR @trim(_HIVE_URL_CUR_[0]) == "") AND (@trim(_HIVE_URL_CUR_[0]) != "login_recover" AND @trim(_HIVE_URL_CUR_[0]) != "login_mail_change")) { $csrf_key = "login_auth"; $object["add_nav_title"] = ""; $object["add_top_title"] = ""; $object["add_head_title"] = "Login";
 																			if(!defined("_INT_SHOW_LOGIN_")) { define("_INT_SHOW_LOGIN_", 1); }}
 	
@@ -74,7 +75,7 @@
 			//////////////////////////////////////////////////////////////////////////////
 			// Start Related Titles and Operations	
 			//////////////////////////////////////////////////////////////////////////////
-			case false: case "": case NULL: Header("Location: /".hive_get_url_rel(array("start", false, false, false, false))); exit(); break;
+			case false: case "": case NULL: Header("Location: /".hive_get_url_rel(array("start", false, false, false, false))); break;
 			case "start": $csrf_key = "start"; $object["add_nav_title"] = _HIVE_TITLE_; $object["add_top_title"] = "Start"; $object["add_head_title"] = "Start"; break;
 			// File Related Titles	
 			case "file":
@@ -107,7 +108,7 @@
 				switch(_HIVE_URL_CUR_[1]) {
 					case "profile": $csrf_key = "user_profile"; $object["add_nav_title"] = _HIVE_TITLE_; $object["add_top_title"] = "Profile"; $object["add_head_title"] = "Profile"; break;
 					case "switch": $csrf_key = "user_switch"; $object["add_nav_title"] = _HIVE_TITLE_; $object["add_top_title"] = "Switch"; $object["add_head_title"] = "Switch"; break;
-					case "logout": $object["user"]->logout(); $object["eventbox"]->ok("You have been logged out!"); @Header("Location: /".hive_get_url_rel(array("start", false, false, false, false))); exit(); break;
+					case "logout": $object["user"]->logout(); $object["eventbox"]->ok("You have been logged out!"); @Header("Location: ".hive_get_url_rel(array("start", false, false, false, false))); exit(); break;
 					case "user": $csrf_key = "user_user"; $object["add_nav_title"] = _HIVE_TITLE_; $object["add_top_title"] = "Users"; $object["add_head_title"] = "Users"; break;
 					case "group": $csrf_key = "user_group"; $object["add_nav_title"] = _HIVE_TITLE_; $object["add_top_title"] = "Groups"; $object["add_head_title"] = "Groups"; break;
 					case "session": $csrf_key = "user_session"; $object["add_nav_title"] = _HIVE_TITLE_; $object["add_top_title"] = "Sessions"; $object["add_head_title"] = "Sessions"; break;
@@ -120,6 +121,7 @@
 					case "updatesite": $csrf_key = "system_updatesite"; $object["add_nav_title"] = _HIVE_TITLE_; $object["add_top_title"] = "Site Update"; $object["add_head_title"] = "Site Update"; break;
 					case "store": $csrf_key = "system_store"; $object["add_nav_title"] = _HIVE_TITLE_; $object["add_top_title"] = "Store"; $object["add_head_title"] = "Store"; break;
 					case "about": $csrf_key = "system_about"; $object["add_nav_title"] = _HIVE_TITLE_; $object["add_top_title"] = "About"; $object["add_head_title"] = "About"; break;
+					case "data": $csrf_key = "system_data"; $object["add_nav_title"] = _HIVE_TITLE_; $object["add_top_title"] = "Data"; $object["add_head_title"] = "Data"; break;
 					case "modules": $csrf_key = "system_modules"; $object["add_nav_title"] = _HIVE_TITLE_; $object["add_top_title"] = "Modules"; $object["add_head_title"] = "Modules"; break;
 				};	
 				break;	
@@ -231,6 +233,7 @@
 					case "updatesite": require_once(_HIVE_SITE_PATH_."/system/updatesite.php"); if(!defined("_INT_SHOW_FOUND_")) { define("_INT_SHOW_FOUND_", 1); } break;
 					case "store": require_once(_HIVE_SITE_PATH_."/system/store.php"); if(!defined("_INT_SHOW_FOUND_")) { define("_INT_SHOW_FOUND_", 1); } break;
 					case "modules": require_once(_HIVE_SITE_PATH_."/system/modules.php"); if(!defined("_INT_SHOW_FOUND_")) { define("_INT_SHOW_FOUND_", 1); } break;
+					case "data": require_once(_HIVE_SITE_PATH_."/system/data.php"); if(!defined("_INT_SHOW_FOUND_")) { define("_INT_SHOW_FOUND_", 1); } break;
 					case "about": require_once(_HIVE_SITE_PATH_."/system/about.php"); if(!defined("_INT_SHOW_FOUND_")) { define("_INT_SHOW_FOUND_", 1); } break;
 				}; break;	
 		};		

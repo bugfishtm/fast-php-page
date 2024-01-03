@@ -36,9 +36,9 @@
         <p><b>You are going to update this website!</b><br />This updater is mandatory to install database updates and more via php scripts! More informations about this updater can be found in this CMS Documentation.</p>              	
 			<?php $checkx = false; if(@_UPDATER_CODE_ == @$_POST["installer_code"]) { $checkx = true; } if(@_UPDATER_CODE_ != @$_POST["installer_code"] AND isset($_POST["installer_code"])) {
 			$_SESSION["hive_installer_block"] = $_SESSION["hive_installer_block"] + 1; }if(@$_POST["update_start"] != "set" OR !$checkx) { ?>
-			<p><b>Site Module</b>: <?php echo @htmlspecialchars(_HIVE_MODE_); ?><br />
-			<b>Active Build</b>: <?php echo @htmlspecialchars(_HIVE_BUILD_ACTIVE_); ?><br />
-			<b>Target Build</b>: <?php echo @htmlspecialchars(_HIVE_BUILD_); ?><br /><br />
+			<p><b>Site Module</b>: <?php echo htmlspecialchars(_HIVE_MODE_ ?? ''); ?><br />
+			<b>Active Build</b>: <?php echo htmlspecialchars(_HIVE_BUILD_ACTIVE_ ?? ''); ?><br />
+			<b>Target Build</b>: <?php echo htmlspecialchars(_HIVE_BUILD_ ?? ''); ?><br /><br />
 			<?php
 				$ar = array();
 				foreach (glob("./_site/"._HIVE_MODE_."/_update/*") as $filename) {
@@ -51,8 +51,8 @@
 				foreach ($ar as $key => $filename) {
 					$cas = $cas  + 1;
 					if(substr($filename, 0, -4) > _HIVE_BUILD_ACTIVE_ AND substr($filename, 0, -4) <= _HIVE_BUILD_) { 
-						if($x == 0) { echo "<b>Available Updates</b>:<br />".$cas.". Build ".@htmlspecialchars(substr($filename, 0, -4))." (<b>Next Update</b>)"; $x = true; }
-						else { echo "<br />".$cas.". Build ".@htmlspecialchars(substr($filename, 0, -4))." (Waiting)";  }				
+						if($x == 0) { echo "<b>Available Updates</b>:<br />".$cas.". Build ".htmlspecialchars(substr($filename, 0, -4) ?? '')." (<b>Next Update</b>)"; $x = true; }
+						else { echo "<br />".$cas.". Build ".htmlspecialchars(substr($filename, 0, -4) ?? '')." (Waiting)";  }				
 					}	
 				} 
 				?> </p><form method="post">			
@@ -82,11 +82,11 @@
 						break;
 					}								
 				}						
-				echo "<p><b><font color='lime'>OK: </font>Installing Build: ".@htmlspecialchars($y)."</b><br />";
+				echo "<p><b><font color='lime'>OK: </font>Installing Build: ".htmlspecialchars($y ?? '')."</b><br />";
 				if(!$x) { $y = _HIVE_BUILD_; }			
-				$object["var"]->set("_HIVE_BUILD_ACTIVE_", @htmlspecialchars($y));			
-				if(file_exists("./_site/"._HIVE_MODE_."/_update/".@htmlspecialchars($y).".php") AND $x) { require_once("./_site/"._HIVE_MODE_."/_update/".@htmlspecialchars($y).".php"); }			
-				echo "<font color='lime'>OK: </font>Version Number has been changed to ".@htmlspecialchars($y)."!";
+				$object["var"]->set("_HIVE_BUILD_ACTIVE_", htmlspecialchars($y ?? ''));			
+				if(file_exists("./_site/"._HIVE_MODE_."/_update/".htmlspecialchars($y ?? '').".php") AND $x) { require_once("./_site/"._HIVE_MODE_."/_update/".htmlspecialchars($y ?? '').".php"); }			
+				echo "<font color='lime'>OK: </font>Version Number has been changed to ".htmlspecialchars($y ?? '')."!";
 				echo "<br /><b><font color='lime'>OK: </font>Build Installed!</b></p>";
 			?> <form method="post">							
 				<button type="submit" class="containerbox-btn">Finish Update</button> 

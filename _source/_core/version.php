@@ -25,8 +25,8 @@
 	*/
 	$x = array();
 	$x["rname"] 		= "_core";
-	$x["version"] 		= "1.01";
-	$x["build"] 		= "101";
+	$x["version"] 		= "1.02";
+	$x["build"] 		= "100";
 	$x["description"] 	= "This stands as the official FP2 Core Version, encompassing all files within the '_core' directory of this website. Please note that files within this folder and scripts in the root website directory might be replaced upon updating the core version. You can also find documentations at https://bugfishtm.github.io!";
 	$x["name"] 			= "FP2 Core";
 	$x["license"] 		= "GPLv3";
