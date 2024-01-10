@@ -32,7 +32,7 @@
 	
 	// Core Update Informations
 	$var["rname"] 			= "_core";
-	$var["version"] 		= "1.02";
+	$var["version"] 		= "1.03";
 	$var["build"] 			= "100";
 	$var["description"] 	= "This stands as the official FP2 Core Version, encompassing all files within the '_core' directory of this website. Please note that files within this folder and scripts in the root website directory might be replaced upon updating the core version. You can also find documentations at https://bugfishtm.github.io!";
 	$var["name"] 			= "FP2 Core";
