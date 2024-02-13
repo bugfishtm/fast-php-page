@@ -4,10 +4,10 @@
 const lineConfig = {
   type: 'line',
   data: {
-    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+    labels: ['1', '2', '3', '4', '5', '6', '7'],
     datasets: [
       {
-        label: 'Organic',
+        label: 'X',
         /**
          * These colors come from Tailwind CSS palette
          * https://tailwindcss.com/docs/customizing-colors/#default-color-palette
@@ -18,7 +18,7 @@ const lineConfig = {
         fill: false,
       },
       {
-        label: 'Paid',
+        label: 'Y',
         fill: false,
         /**
          * These colors come from Tailwind CSS palette

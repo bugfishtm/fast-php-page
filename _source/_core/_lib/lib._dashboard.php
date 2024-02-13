@@ -215,7 +215,7 @@
 	#############################################################################################################################################
 	// Modal Elements
 	#############################################################################################################################################
-	function hive__dashboard_modal($text, $title = false, $icon = "info", $closebutton = "true") { ?>
+	function hive__dashboard_modal($text, $title = false, $icon = "info") { ?>
 		<script>
 			$( document ).ready(function() {
 				Swal.fire({
@@ -223,7 +223,6 @@
 				  <?php if($icon) { ?>icon: '<?php echo $icon; ?>',<?php } ?>
 				  html:
 					'<?php echo str_replace("'", "\\'", $text); ?>',
-				  showCloseButton: <?php echo $closebutton; ?>
 				});
 			});
 		</script>
@@ -259,39 +258,73 @@
 		</div></main>
 	<?php }
 	function hive__dashboard_header($object, $tabtitle = "", $metaextensions = "", $theme_default = "dark", $mainclass = "flex h-screen bg-gray-50 dark:bg-gray-900") { 
-		if(!isset($_SESSION[_HIVE_SITE_COOKIE_."hive_dashboard_subtheme"])) { $_SESSION[_HIVE_SITE_COOKIE_."hive_dashboard_subtheme"] = $theme_default; }	
+		if(!isset($_SESSION[_HIVE_SITE_COOKIE_."hive_dashboard_subtheme"])) {
+			$_SESSION[_HIVE_SITE_COOKIE_."hive_dashboard_subtheme"] = $theme_default; 
+			if($object["user"]->user_loggedIn) {
+				if(isset($object["user"]->user["hive_extradata"][_HIVE_MODE_]["theme_sub"] )) {
+					if($object["user"]->user["hive_extradata"][_HIVE_MODE_]["theme_sub"] == "dark" OR $object["user"]->user["hive_extradata"][_HIVE_MODE_]["theme_sub"] == "false") {
+						$_SESSION[_HIVE_SITE_COOKIE_."hive_dashboard_subtheme"] = $object["user"]->user["hive_extradata"][_HIVE_MODE_]["theme_sub"];
+					}
+				}
+			}
+		}		
+				
 		$change_theme = false;
 		if(@$_GET["hive__db_cst"] == "dark") { $change_theme = "dark"; }
 		if(@$_GET["hive__db_cst"] == "light") { $change_theme = "false"; }    
-		if($change_theme) { $_SESSION[_HIVE_SITE_COOKIE_."hive_dashboard_subtheme"] = $change_theme;
-								Header("Location: ./"); } 
-		if($object["user"]->user_loggedIn) {
-			if($change_theme) {
-				$object["mysql"]->query("UPDATE "._TABLE_USER_." SET user_theme_sub = '".$change_theme."' WHERE id = '".$object["user"]->user_id."'");
-				$_SESSION[_HIVE_SITE_COOKIE_."hive_dashboard_subtheme"] = $change_theme;
-			} else {
-				if($object["user"]->user["user_theme_sub"] == "dark" OR $object["user"]->user["user_theme_sub"] == "false") {
-					$_SESSION[_HIVE_SITE_COOKIE_."hive_dashboard_subtheme"] = $object["user"]->user["user_theme_sub"];
-				} else {
-					$_SESSION[_HIVE_SITE_COOKIE_."hive_dashboard_subtheme"] = $theme_default;
-				}
-			} 
+		if($change_theme) {
+			if($object["user"]->user_loggedIn) {
+				hive__user_theme_sub_set($object, $object["user"]->user_id, _HIVE_MODE_, $change_theme);
+			}	
+			$_SESSION[_HIVE_SITE_COOKIE_."hive_dashboard_subtheme"] = $change_theme;
+			
+			// Program to display URL of current page.
+			if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on')
+			{$link = "https";}
+			else
+			{$link = "http";}
+				 
+			// Here append the common URL characters.
+			$link .= "://";
+				 
+			// Append the host(domain name, ip) to the URL.
+			$link .= $_SERVER['HTTP_HOST'];
+				
+			// Append the requested resource location to the URL
+			$link .= $_SERVER['REQUEST_URI']; echo $link;
+
+			$link = strtok($link, "&hive__");
+
+			Header("Location: ".$link);  
 		} 
+				
 		$change_lang = false;
-		if(@in_array(@$_GET["hive__change_lang"], _HIVE_LANG_ARRAY_)) { $change_lang = @$_GET["hive__change_lang"]; }
-		if($change_lang) {  $_SESSION[_HIVE_SITE_COOKIE_."hive_language"] = $change_lang;
-								Header("Location: ./");  } 
-		if($object["user"]->user_loggedIn) { 
-			if($change_lang) {
-				$object["mysql"]->query("UPDATE "._TABLE_USER_." SET user_lang = '".$change_lang."' WHERE id = '".$object["user"]->user_id."'");
-				$_SESSION[_HIVE_SITE_COOKIE_."hive_language"] = $change_lang;
-			} else {
-				if(@in_array(@$object["user"]->user["user_lang"], _HIVE_LANG_ARRAY_)) {
-				} else {
-					$_SESSION[_HIVE_SITE_COOKIE_."hive_language"] = _HIVE_LANG_DEFAULT_; 
-				}
-			} 
-		}
+		if(@in_array(@$_GET["hive__change_lang"], _HIVE_LANG_ARRAY_)) { $change_lang = @$_GET["hive__change_lang"];  } 
+		if($change_lang) {  
+			if($object["user"]->user_loggedIn) {
+				hive__user_lang_set($object, $object["user"]->user_id, _HIVE_MODE_, $change_lang); 
+			}	
+			$_SESSION[_HIVE_SITE_COOKIE_."hive_language"] = $change_lang; 
+			
+
+			// Program to display URL of current page.
+			if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on')
+			{$link = "https";}
+			else
+			{$link = "http";}
+				 
+			// Here append the common URL characters.
+			$link .= "://";
+				 
+			// Append the host(domain name, ip) to the URL.
+			$link .= $_SERVER['HTTP_HOST'];
+				 
+			// Append the requested resource location to the URL
+			$link .= $_SERVER['REQUEST_URI'];
+			$link = strtok($link, "hive__change_lang");
+
+			Header("Location: ".$link);  							
+		} 
 		if($_SESSION[_HIVE_SITE_COOKIE_."hive_dashboard_subtheme"] == "dark") {$now_theme = "dark";} else {$now_theme = "false";} ?>
 		<!DOCTYPE html>
 		<html <?php if($_SESSION[_HIVE_SITE_COOKIE_."hive_dashboard_subtheme"] == "dark") { ?> class = "dark" <?php } ?> :class="{ 'theme-dark': <?php echo $now_theme; ?> }" lang="en" x-data="data()" >
@@ -577,8 +610,8 @@
 					<form method="get" action="<?php echo $search; ?>"><input
 					  class="w-full pl-8 pr-2 text-sm text-gray-700 placeholder-gray-600 bg-gray-100 border-0 rounded-md dark:placeholder-gray-500 dark:focus:shadow-outline-gray dark:focus:placeholder-gray-600 dark:bg-gray-700 dark:text-gray-200 focus:placeholder-gray-500 focus:bg-white focus:border-purple-300 focus:outline-none focus:shadow-primary-bugfish form-input"
 					  type="text"
-					  placeholder="Search"
-					  aria-label="Search"
+					  placeholder="<?php echo $object["lang"]->translate("top_bar_search"); ?>"
+					  aria-label="<?php echo $object["lang"]->translate("top_bar_search"); ?>"
 					/></form>
 				  </div>
 				 <?php } ?>
@@ -586,13 +619,13 @@
 			
             <ul class="flex items-center flex-shrink-0 space-x-6">
 			<?php if($theme_menu) {  
-				if(@$_SESSION[_HIVE_SITE_COOKIE_."hive_dashboard_subtheme"] == "dark") { $tmp_uri_theme = ""._HIVE_URL_REL_."?hive__db_cst=light"; }
-				if(@$_SESSION[_HIVE_SITE_COOKIE_."hive_dashboard_subtheme"] == "false") { $tmp_uri_theme = ""._HIVE_URL_REL_."?hive__db_cst=dark"; }
+				if(@$_SESSION[_HIVE_SITE_COOKIE_."hive_dashboard_subtheme"] == "dark") { $tmp_uri_theme = "&hive__db_cst=light"; }
+				if(@$_SESSION[_HIVE_SITE_COOKIE_."hive_dashboard_subtheme"] == "false") { $tmp_uri_theme = "&hive__db_cst=dark"; }
 			?>
 				  <!-- Theme toggler -->
 				  <li class="flex">
 					<a
-					  onClick = "window.location.href= '<?php echo @$tmp_uri_theme; ?>'"
+					  onClick = "window.location.href= '<?php echo hive_get_url_rel(array(_HIVE_URL_CUR_[0], _HIVE_URL_CUR_[1], _HIVE_URL_CUR_[2])); ?><?php echo @$tmp_uri_theme; ?>'"
 					  class="rounded-md focus:outline-none focus:shadow-primary-bugfish xfpe_cursorpointer text-gray-800 dark:text-gray-200"
 					  @click="toggleTheme"
 					  aria-label="Toggle color mode"
@@ -657,7 +690,7 @@
 							<li class="flex">
 							  <a
 								class="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200"
-								href="./?hive__change_lang=<?php echo htmlspecialchars($value["ident"]); ?>"
+								href="<?php echo hive_get_url_rel(array(_HIVE_URL_CUR_[0], _HIVE_URL_CUR_[1], _HIVE_URL_CUR_[2])); ?>&hive__change_lang=<?php echo htmlspecialchars($value["ident"]); ?>"
 							  >
 								<img src='<?php echo $value["img"]; ?>' class='xfpe_marginright5px'></i> 
 								<span><?php echo htmlspecialchars($value["name"]); ?></span>

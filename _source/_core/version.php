@@ -25,10 +25,14 @@
 	*/
 	$x = array();
 	$x["rname"] 		= "_core";
-	$x["version"] 		= "1.03";
-	$x["build"] 		= "100";
+	$x["version"] 		= "2.00";
+	$x["build"] 		= "200";
+	$x["singleuse"] 	= true;
+	$x["short"] 		= "FP2 Core Module";
+	$x["lang"] 			= array("en");
+	$x["cat"] 			= "core";
 	$x["description"] 	= "This stands as the official FP2 Core Version, encompassing all files within the '_core' directory of this website. Please note that files within this folder and scripts in the root website directory might be replaced upon updating the core version. You can also find documentations at https://bugfishtm.github.io!";
-	$x["name"] 			= "FP2 Core";
+	$x["name"] 			= "FP2 Core Module";
 	$x["license"] 		= "GPLv3";
 	$x["autor"] 		= "Jan-Maurice Dahlmanns";
 	$x["pseudo"] 		= "Bugfish";

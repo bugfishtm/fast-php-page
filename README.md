@@ -1,8 +1,8 @@
 ![Bugfish](https://img.shields.io/badge/Bugfish-CMS-orange)
 ![Status](https://img.shields.io/badge/Status-Finished-green)
 ![License](https://img.shields.io/badge/License-GPLv3-black)
-![Version](https://img.shields.io/badge/Version-1.03-white)
-![Version](https://img.shields.io/badge/Build-100-white)
+![Version](https://img.shields.io/badge/Version-2.00-white)
+![Version](https://img.shields.io/badge/Build-200-white)
 
 # Fast PHP Page
 ![Logo](./_images/bugfish-fp2-logo-sm.png)
@@ -39,9 +39,6 @@ Introducing our cutting-edge Multi-Site CMS, a dynamic platform brimming with ad
 
 
 For comprehensive explanations and detailed documentation about fast PHP page development, please visit www.bugfish-github.de/fast-php-page. This website is the primary resource for in-depth information and guides on the topic.
-
-
-![Admin Interface](./_images/admin.png)
 
 ## What is this project about?  
 This repository hosts a framework that is not a complete, out-of-the-box CMS (Content Management System) that can be easily set up in the frontend. Instead, it is designed for individuals with coding expertise who wish to develop their own modules. While there are built-in functionalities available in the administrator interface for various purposes, the primary emphasis of this system lies in its extensibility. Users are encouraged to create and integrate site modules to tailor the framework to their specific requirements, making it a flexible and adaptable solution for those who have the technical skills to harness its potential.
@@ -108,7 +105,7 @@ We deeply appreciate your feedback and contributions as we strive to enhance our
 
 ## Included Libraries
 
-This project relies on third-party libraries stored in the '/_core/_vendor' folder. For more information about these libraries, their respective licenses, and to access their source code, please refer to our GitHub repository, where you can find detailed information and links to each library.
+This project relies on third-party libraries stored in the '/_core/_vendor' folder. For more information about these libraries, their respective licenses, and to access their source code, please refer to our GitHub repository, where you can find detailed information and links to each library. (Eventually not all libraries are listed here)
 
 | Folder Name                   | License  | Github Link                                                |
 |-------------------------------|----------|-----------------------------------------------------------|

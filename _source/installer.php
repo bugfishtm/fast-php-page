@@ -23,7 +23,7 @@
 		You should have received a copy of the GNU General Public License
 		along with this program.  If not, see <https://www.gnu.org/licenses/>.
 	*/ # No Installation Needed
-	if(file_exists("./settings.php")) { @http_response_code(404); Header("Location: ./");  exit(); } 
+	if(file_exists("./settings.php")) { require_once("./settings.php"); hive_error_full("No Installation Required", "Click <a href='./'>here</a> to go back...", "We found a valid settings.php file, which means that this software is already installed!<br /> Tp re-install this software delete the settings.php file in the document root directory.", true, 401);  exit(); } 
 	$object = array(); require_once("./_core/_lib/lib.hive.php");  
 	$object = array(); require_once("./_core/_lib/lib.__installer.php");  
 	$object = array(); require_once("./_core/_lib/lib._simple.php");  
@@ -32,7 +32,7 @@
 	session_start();
 	// Blcok User if Needed
 	if(@$_SESSION["hive_installer_block"] > 100  AND _INSTALLER_CODE_ != false AND _INSTALLER_CODE_ != "") { 
-		hive_error_full("Blocked", "ERROR", "You have been temporarly blocked from this page!", true, 404);}
+		hive_error_full("Temporary Banned", "Too many wrong installation passwords!", "You have been temporarly blocked from this page!<br />Try again later and check to provide the real installation code.", true, 401);}
 	// Installation Start and Fetch
 	$erroremptyr = false;
 	$erroremptyu = false;
@@ -70,7 +70,7 @@
 		} else { $csrf = "<div class='containererror'><b>CSRF Form Protection Error</b><br /> Please Try Again, the form you have executed is expired.</div><br />"; }	
 	}	
 	$_SESSION["csrf_hive_installer"] = mt_rand(1000000, 9999999);
-	hive__simple_start($object, "Installation", '<link rel="icon" type="image/x-icon" href="./_core/_image/favicon.ico">');
+	hive__simple_start($object, "Installation - FP²", '<link rel="icon" type="image/x-icon" href="./_core/_image/favicon.ico">');
 	if(!$do OR $erroremptyr OR $erroremptyu OR $erroremptyd OR !$con OR $coner OR @$erroremptyrcced) {?>
 	<div class="containerbox">
 		<img src='./_core/_image/logo_alpha.png' width='40' style="margin-right: 10px;" > <b style='font-size:36px; padding-bottom: 10px;'>Installation</b>
@@ -107,13 +107,24 @@ Enter your MySQL database credentials and desired database prefix in the provide
 		<?php if($erroremptyr) { echo "<b><div class='containererror'>Please provide a valid document root!</div></b>"; } ?>
 		<input type="text" name="doc_root" value="<?php if(!is_string(@$_POST["doc_root"])) { echo substr(dirname(__FILE__), 0)."/"; } else { echo htmlentities(@$_POST["doc_root"] ?? '');} ?>"> <br />
 		<br />						
-		<b>Website URL</b>:<br /><small> Enter the Website URL it will be reachable online. Enter the URL Name without www/http and without trailing slash. If this website is installed in a subfolder, do add this subfolder into this domain as well. Please add a trailing slash if not existant!</small><br />
-		<?php if($erroremptyu) { echo "<b><div class='containererror'>Please enter the public URL, where this page will run on!</div></b>"; } ?>
+		<b>Website URL</b>:<br /><small> Enter the Website URL it will be reachable online. Enter the URL Name with http/https at the start. System will determine protocol automatically. If this website is installed in a subfolder, do add this subfolder into this domain as well. Please add a trailing slash if not existant!</small><br />
+		<?php if($erroremptyu) { echo "<b><div class='containererror'>Please enter the public URL, where this page will run on!</div></b>"; } 
+		
+		if (isset($_SERVER['HTTPS']) &&
+			($_SERVER['HTTPS'] == 'on' || $_SERVER['HTTPS'] == 1) ||
+			isset($_SERVER['HTTP_X_FORWARDED_PROTO']) &&
+			$_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https') {
+		  $protocol = 'https://';
+		}
+		else {
+		  $protocol = 'http://';
+		}
+		?>
 		<input type="text" name="website_url" value="<?php if(!is_string(@$_POST["website_url"])) { 
 			if(@strlen(@dirname(@trim(@$_SERVER["REQUEST_URI"] ?? ''))) > 2) { 
-				echo $_SERVER["HTTP_HOST"]."".@dirname(@$_SERVER["REQUEST_URI"])."/"; 
+				echo $protocol.$_SERVER["HTTP_HOST"]."".@dirname(@$_SERVER["REQUEST_URI"])."/"; 
 			} else {
-				echo $_SERVER["HTTP_HOST"]."/"; 
+				echo $protocol. $_SERVER["HTTP_HOST"]."/"; 
 			}
 		} else { echo htmlentities(@$_POST["website_url"] ?? '');} ?>"> <br />
 		<br />
@@ -134,7 +145,7 @@ Enter your MySQL database credentials and desired database prefix in the provide
 		<br ><br >
 		<?php
 if(!file_exists("./settings.php")) {
-	$_POST["website_url"] = rtrim($_POST["website_url"], '/') . '/';
+	$_POST["website_url"] = rtrim($_POST["website_url"], '/');
 	if(file_put_contents( "./settings.php", "<?php
 	/* 	__________ ____ ___  ___________________.___  _________ ___ ___  
 		\______   \    |   \/  _____/\_   _____/|   |/   _____//   |   \ 
@@ -185,9 +196,9 @@ if(!file_exists("./settings.php")) {
 	/* Do not change below! */
 	require_once(\$object['path'].\"/_core/init.php\");
 	")) {
-		echo "<p><font color='lime'>OK: </font>Validating Configuration Variables</p>";
-		echo "<p><font color='lime'>OK: </font>Creating Settings.php File</p>";
-		echo "<p><font color='lime'>OK: </font>Installation complete!</p>";
+		echo "<p><font color='lime'>OK: </font>Validating Configuration Variables<br />";
+		echo "<font color='lime'>OK: </font>Creating Settings.php File<br />";
+		echo "<font color='lime'>OK: </font>Installation complete!</p>";
 	} else {  echo "<p><font color='red'>Error: </font> File settings.php could not be created, this may be a permission error.</p>"; }
 } else { echo "<p><font color='red'>Error: </font> File settings.php already exists!</p>"; }
 	?>

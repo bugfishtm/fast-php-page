@@ -25,4 +25,8 @@
 	*/
 	@http_response_code(404);
 	require_once("../settings.php");
-	$object["debug"]->js_error_action($object["mysql"], _TABLE_LOG_JS_, $object["user"]->user_id, _HIVE_MODE_);
+	if(defined("_HIVE_JS_ACTION_ACTIVE_")) { 
+		if(_HIVE_JS_ACTION_ACTIVE_) { 
+			$object["debug"]->js_error_action($object["mysql"], _TABLE_LOG_JS_, $object["user"]->user_id, _HIVE_MODE_);
+		}
+	}

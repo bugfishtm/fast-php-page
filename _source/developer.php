@@ -23,38 +23,27 @@
 		You should have received a copy of the GNU General Public License
 		along with this program.  If not, see <https://www.gnu.org/licenses/>.
 	*/  if(file_exists("./settings.php")) { require_once("./settings.php"); } else { @http_response_code(404); Header("Location: ./"); exit(); } 
-	if(!_HIVE_MOD_CHANGES_) { hive_error_full("Not Available", "ERROR", "This area of the site has been deactivated in internal.php[_HIVE_MOD_CHANGES_]!", true, 404); }
-	hive__simple_start($object, "Developer Tools", '<link rel="icon" type="image/x-icon" href="'._HIVE_URL_REL_.'/_core/_image/favicon.ico">'); ?>
+	if(!_HIVE_MOD_CHANGES_) { hive_error_full("Access Error", "Script is deactivated in ruleset.php!", "Enable _HIVE_MOD_CHANGES_ in ruleset.php or in the _administration interface to enable this files execution!", true, 401); }
+	hive__simple_start($object, "Developer Tools - FP²", '<link rel="icon" type="image/x-icon" href="'._HIVE_URL_REL_.'/_core/_image/favicon.ico">'); ?>
 
 	<div class="containerbox">
 			<img src='./_core/_image/logo_alpha.png' width='40' style="margin-right: 10px;" > <b style='font-size:36px; padding-bottom: 10px;'>Backend Tools</b><br />
-			<b>Change website session settings:</b><br />
-			Here you can change this websites settings if available! <br />
-			This changes will only be relative to your own sessions!<br />
-			No global website configurations here!<br /><br />	
+			Empower your browsing experience with personalized control through our user-centric settings customization feature. Modify website settings exclusively for your sessions, ensuring that changes remain confined to your individual preferences without any impact on global configurations. These developer tools provide a comprehensive suite for inspecting various backend functionalities, facilitating a more streamlined understanding and navigation during the development process. For optimal usage, consider disabling this functionality by turning off HIVE_MOD_CHANGES in ruleset.php or utilizing an associated admin interface designed for this purpose. Your seamless browsing experience starts with tailored settings and efficient developer tools.<br />	
 	</div>
 	<div class="containerbox">
-		<b>Operational URLs:</b><br />Here are some links to usefull backend tools!<br /><br />
+		<b>Operational URLs:</b><br />Explore a suite of invaluable backend tools through the following links, designed to enhance your development and optimization processes!<br /><br />
 		<a href="./_core/_tools/session_destroy.php" class="containerbox-btn">Session Destroy</a> 
 		<a href="./_core/_tools/cookie_destroy.php" class="containerbox-btn">Cookie Destroy</a> <br /><br /><br />
 		<a href="./_core/_tools/phpinfo.php" class="containerbox-btn">PHPInfo</a> 
-		<a href="./_core/admin_switch.php" class="containerbox-btn">Admin Switch</a>
+		<a href="./_core/_tools/admin_switch.php" class="containerbox-btn">Admin Switch</a>
 		<br /><br />
 	</div>
 	<div class="containerbox">
-		<b>Some Benchmark Data:</b><br />Here you can see some background information about this page's loadup!<br /><br />		
-		<b>Memory Load</b>: <?php echo $object["debug"]->memory_usage(); ?><br />
-		<b>Memory Limit</b>: <?php echo $object["debug"]->memory_limit(); ?><br />
-		<b>CPU Load</b>: <?php echo $object["debug"]->cpu_load(); ?><br />
-		<b>Loadup Time</b>: <?php echo $object["debug"]->timer(); ?><br />
-		<b>SQL Queries</b>: <?php echo $object["mysql"]->benchmark_get(); ?><br />
-	</div>
-	<div class="containerbox">
-        <b>Change website mode:</b><br />Here you can change this websites mode if available!<br /><br />
-		<b>Current Site</b>: <?php echo _HIVE_MODE_; ?><br />
-		<b>Session Site</b>: <?php echo @$_SESSION[_HIVE_COOKIE_."hive_mode"]; ?><br />
-		<b>Default Site</b>: <?php echo _HIVE_MODE_DEFAULT_; ?><br />
-		<b>Array Site</b>: <span style='word-break: break-all;'><?php if(is_array(@_HIVE_MODE_ARRAY_)) { foreach(_HIVE_MODE_ARRAY_ as $key => $value) { if($key != 0) {echo ", ";} echo htmlspecialchars($value ?? '');  } }?></span><br /><br />
+        <b>Change website mode:</b><br />Tailor your browsing experience effortlessly with our website's rewriting feature. Easily redefine the landing page based on conditions such as the current browser URL or active user session. Switch seamlessly between different sites (Site Modules) using the administration backend or by configuring ruleset.php through straightforward rewriting and setup. This rewriting capability allows you to personalize your online environment according to your preferences, ensuring a customized and efficient browsing experience!<br /><br />
+		<b>Current Site-Module</b>: <?php echo _HIVE_MODE_; ?><br />
+		<b>Session Site-Module</b>: <?php echo @$_SESSION[_HIVE_COOKIE_."hive_mode"]; ?><br />
+		<b>Default Site-Module</b>: <?php echo _HIVE_MODE_DEFAULT_; ?><br />
+		<b>Available Site-Modules</b>: <span style='word-break: break-all;'><?php if(is_array(@_HIVE_MODE_ARRAY_)) { foreach(_HIVE_MODE_ARRAY_ as $key => $value) { if($key != 0) {echo ", ";} echo htmlspecialchars($value ?? '');  } }?></span><br /><br />
 		<?php 
 			if(@is_string(@$_POST["mod_change"]) AND @in_array(@$_POST["mod_change"], @_HIVE_MODE_ARRAY_)) {
 				$_SESSION[_HIVE_COOKIE_."hive_mode"] = @$_POST["mod_change"];
@@ -73,13 +62,20 @@
 			<input type="hidden" name="update_start" value="set">
 			<button type="submit" class="containerbox-btn">Change Site</button> 		
 		</form>		
+		
+		<br /><b>Current Site Informations</b>:<br />
+		Version: <?php echo @htmlspecialchars(@$object["hive_mode"]["version"] ?? ''); ?><br />
+		Build: <?php echo @htmlspecialchars(@$object["hive_mode"]["build"] ?? ''); ?><br />
+		Rname: <?php echo @htmlspecialchars(@$object["hive_mode"]["rname"] ?? ''); ?><br />
+		Name: <?php echo @htmlspecialchars(@$object["hive_mode"]["name"] ?? ''); ?><br />
+		Short Description: <?php echo @htmlspecialchars(@$object["hive_mode"]["short"] ?? ''); ?><br />
 	</div>
 	<div class="containerbox">
-		<b>Change website language:</b><br />Here you can change this websites language if available!<br /><br />
+		<b>Change website language:</b><br />Customize your language preferences effortlessly on our website. Explore available languages configured within the current activated site modules configuration files. Take control of your linguistic experience, ensuring seamless navigation in a language that suits your preferences. Switch between languages with ease, making your interaction with the website a personalized and user-friendly journey. This functionality is available, if the current loaded site module has different languages enabled.<br /><br />
 		<b>Current Language</b>: <?php echo htmlspecialchars(_HIVE_LANG_ ?? ''); ?><br />
 		<b>Session Language</b>: <?php echo htmlspecialchars(@$_SESSION[_HIVE_SITE_COOKIE_."hive_language"] ?? ''); ?><br />
 		<b>Default Language</b>: <?php echo htmlspecialchars(_HIVE_LANG_DEFAULT_ ?? ''); ?><br />
-		<b>Array Language</b>: <span style='word-break: break-all;'><?php if(is_array(@_HIVE_LANG_ARRAY_)) { foreach(_HIVE_LANG_ARRAY_ as $key => $value) { if($key != 0) {echo ", ";} echo htmlspecialchars($value ?? '');  } }?></span>
+		<b>Available Languages</b>: <span style='word-break: break-all;'><?php if(is_array(@_HIVE_LANG_ARRAY_)) { foreach(_HIVE_LANG_ARRAY_ as $key => $value) { if($key != 0) {echo ", ";} echo htmlspecialchars($value ?? '');  } }?></span>
 		<br />
 		<?php 
 			if(@is_string(@$_POST["lang_change"]) AND @in_array(@$_POST["lang_change"], @_HIVE_LANG_ARRAY_)) {
@@ -101,11 +97,11 @@
 		</form>		
 	</div>
 	<div class="containerbox">
-		<b>Change website theme:</b><br />Here you can change this websites theme if available!<br /><br />
+		<b>Change website theme:</b><br />Elevate your visual experience by selecting a theme that resonates with your style on our website. Explore the array of available themes configured within the current activated site modules configuration files. Tailor the website's appearance to match your preferences, with the flexibility to seamlessly switch between different themes. Immerse yourself in a personalized and visually appealing online environment, where your chosen theme enhances the overall aesthetic and usability of the site! This functionality is available, if the current loaded site module has different themes enabled.<br /><br />
 		<b>Current Theme</b>: <?php echo htmlspecialchars(_HIVE_THEME_ ?? ''); ?><br />
 		<b>Session Theme</b>: <?php echo htmlspecialchars(@$_SESSION[_HIVE_SITE_COOKIE_."hive_theme"] ?? ''); ?><br />
 		<b>Default Theme</b>: <?php echo htmlspecialchars(_HIVE_THEME_DEFAULT_ ?? ''); ?><br />
-		<b>Array Theme</b>: <span style='word-break: break-all;'><?php if(is_array(@_HIVE_THEME_ARRAY_)) { foreach(_HIVE_THEME_ARRAY_ as $key => $value) { if($key != 0) {echo ", ";} echo htmlspecialchars($value ?? '');  } }?></span>	
+		<b>Available Themes</b>: <span style='word-break: break-all;'><?php if(is_array(@_HIVE_THEME_ARRAY_)) { foreach(_HIVE_THEME_ARRAY_ as $key => $value) { if($key != 0) {echo ", ";} echo htmlspecialchars($value ?? '');  } }?></span>	
 		<br />
 		<?php 
 			if(@is_string(@$_POST["thm_change"]) AND @in_array(@$_POST["thm_change"], @_HIVE_THEME_ARRAY_)) {
@@ -127,7 +123,7 @@
 		</form>
 	</div>		
 	<div class="containerbox">
-		<b>Change website color:</b><br />Here you can change this websites color if available!<br /><br />
+		<b>Change website color:</b><br />Immerse yourself in a vibrant online experience by customizing the website's color palette dynamically. Explore a spectrum of colors available within the current activated site modules configuration files, extending beyond predefined options. Your color choices are not restricted, allowing for limitless personalization. Transform the visual aesthetics of the website effortlessly, adapting to your mood and preferences. Embrace the freedom to infuse your online journey with a burst of color that resonates with your unique style and enhances the dynamic themes at your fingertips! This functionality is available, if the current loaded site module has dynamic theme colors enabled.<br /><br />
 		<b>Current Color</b>: <?php echo htmlspecialchars(_HIVE_COLOR_ ?? ''); ?><br />
 		<b>Session Color</b>: <?php echo htmlspecialchars(@$_SESSION[_HIVE_SITE_COOKIE_."hive_color"] ?? ''); ?><br />	
 		<b>Default Color</b>: <?php echo htmlspecialchars(_HIVE_THEME_COLOR_DEFAULT_ ?? ''); ?><br />		
@@ -144,35 +140,8 @@
 			<button type="submit" class="containerbox-btn">Change Theme Color</button> 
 		</form>
 	</div>
-	<div class="containerbox">
-<?php 
-		echo "<p><b>Example Site Modules</b>:<br />You can find the example site modules in the websites _site folder!";	?>
-		
-<ul>
-  <li>
-    <strong>_example-site:</strong> Site module demonstrating File Implementations and Backend Automation Functionalities. This module showcases how the CMS handles file operations and automates backend tasks.
-  </li>
-  <li>
-    <strong>_example-simple:</strong> Site Module showcasing a simple theme for this CMS. It provides an easy-to-understand demonstration of the basic theming capabilities of the system.
-  </li>
-  <li>
-    <strong>_example-complex:</strong> Site Module demonstrating a responsive, complex theme for this CMS. This enhanced version is based on the Windmill Dashboard theme, showcasing the system's capabilities in handling sophisticated, responsive designs.
-  </li>
-  <li>
-    <strong>_administrator:</strong> Site Module designed to demonstrate an administrator interface for controlling CMS functionalities. It serves as a backend control panel for managing various aspects of the CMS, making it useful for both learning purposes and backend control in deployed websites or personal projects.
-  </li>
-  <li>
-    <strong>_documentation:</strong> Site Module designed that holds this CMS Documentation to be viewed any time needed!
-  </li>
-  <li>
-    <strong>_frameworkdocs:</strong> Site Module designed that holds the Bugfish Framework Documentation to be viewed any time needed!
-  </li>
-</ul>
-	</div>
-		
-		
-		<?php echo "</p>";	
+			
 
-
+<?php
 hive__simple_end($object, _HIVE_CREATOR_); ?>
 	

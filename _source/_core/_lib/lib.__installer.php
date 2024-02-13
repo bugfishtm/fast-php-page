@@ -30,4 +30,4 @@
 	define("_INSTALLER_COOKIE_", 	"fp2_");
 	define("_INSTALLER_PREFIX_", 	"fp2_");
 	// Can be false // Code for Installation
-	define("_INSTALLER_CODE_", 		false); 	
+	define("_INSTALLER_CODE_", 		false);

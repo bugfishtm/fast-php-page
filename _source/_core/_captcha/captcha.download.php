@@ -24,5 +24,5 @@
 		along with this program.  If not, see <https://www.gnu.org/licenses/>.
 	*/
 	require_once("../../settings.php"); 
-	if(_CAPTCHA_FONT_PATH_ != false) {$font_path = _CAPTCHA_FONT_PATH_;} else {$font_path = "../_default/captcha.ttf";}
+	if(_CAPTCHA_FONT_PATH_ != false) {$font_path = _CAPTCHA_FONT_PATH_;} else {$font_path = "../_font/_captcha-fallback.ttf";}
 	x_captcha(_HIVE_SITE_COOKIE_."captcha.download", _CAPTCHA_WIDTH_, _CAPTCHA_HEIGHT_, _CAPTCHA_LINES_, _CAPTCHA_SQUARES_, _CAPTCHA_COLORS_, $font_path, _CAPTCHA_CODE_);

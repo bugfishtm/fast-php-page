@@ -22,25 +22,4 @@
 
 		You should have received a copy of the GNU General Public License
 		along with this program.  If not, see <https://www.gnu.org/licenses/>.
-	*/
-	if(!is_array(@$object)) { 
-		if(file_exists("../settings.php")) { require_once("../settings.php"); $hasbeen = false; } else { @http_response_code(404); echo "error"; exit(); }
-	} else { $hasbeen = true; }
-	
-	// Init Array
-	$var = array();
-	
-	// Core Update Informations
-	$var["rname"] 			= "_core";
-	$var["version"] 		= "1.03";
-	$var["build"] 			= "100";
-	$var["description"] 	= "This stands as the official FP2 Core Version, encompassing all files within the '_core' directory of this website. Please note that files within this folder and scripts in the root website directory might be replaced upon updating the core version. You can also find documentations at https://bugfishtm.github.io!";
-	$var["name"] 			= "FP2 Core";
-	$var["license"] 		= "GPLv3";
-	$var["autor"] 			= "Jan-Maurice Dahlmanns";
-	$var["pseudo"] 			= "Bugfish";
-	$var["mail"] 			= "requests@bugfish.eu";
-	$var["website"] 		= "www.bugfish.eu";
-	
-	// Output
-	if(!$hasbeen) { echo serialize($var); }
+	*/ // File has not been set up in _administrator interface!
