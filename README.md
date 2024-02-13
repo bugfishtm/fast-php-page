@@ -18,8 +18,10 @@ https://www.bugfish-github.de/fast-php-page
 
 **You can find Screenshots of templates and the software in this repositories _images folder or at the documentation available in the "docs" folder or at www.bugfish-github.de!**
 
-If you want to support us, add this banner to the project you have created!  
-![Bugfish Framework Banner](./_images/bugfish-framework-banner.jpg) ![Bugfish FP2 Banner](./_images/bugfish-fp2-banner.jpg)
+## CMS Introduction
+Introducing our cutting-edge Multi-Site CMS, a dynamic platform brimming with advanced backend capabilities for developing website modules. Featuring an integrated store for seamless downloading of diverse websites and modules, this CMS revolutionizes the landscape with innovative technology and strategies. Our focus on harnessing new ideas and technologies is evident in every aspect of this CMS, meticulously documented to cater to both seasoned programmers crafting site modules and users navigating its functionalities effortlessly, even without coding expertise. Explore the myriad features detailed below in our comprehensive README, designed to meet the diverse needs of developers and users alike. Our primary goal with this project is to expedite and enhance multi-site deployment and quick development für complex projects.
+
+**This project is not only interesting for coders oder software developers! You have a very lot of functionalities which can be used and configured for your needs in the _administrator site module to maybe achieve some things you need to do!**
 
 ## Repository Folders
 
@@ -30,13 +32,29 @@ If you want to support us, add this banner to the project you have created!
 | docs        | Website documentation               |
 | _releases   | Software releases                   |
 | _images   | Some images for this readme file      |
-| _licenses   | Some informations about used licenses      |
+| _licenses   | Some informations about used licenses     | 
+| _modules   | Site Modules for Fast FP2 CMS, mostly for Documentations and development purposes! | 
 
+## Quick Installation
+- Upload all files out of this repositories _source directory to your webspace public-html folder!
+- View the website which redirects to the folder you just uploaded the files to
+- Go to ./installer.php and Install the CMS by providing required login data.
+- View the url where you installed that CMS and you will be redirected to the _administrator Site module.
+- Visit the store to install site modules, configure the administrator interface for your needs, install site module out of this repository by putting it in the _install folder of the website - or have fun developing!
 
+## Site Modules delivered in _modules folder
 
-## CMS Introduction
-Introducing our cutting-edge Multi-Site CMS, a dynamic platform brimming with advanced backend capabilities for developing website modules. Featuring an integrated store for seamless downloading of diverse websites and modules, this CMS revolutionizes the landscape with innovative technology and strategies. Our focus on harnessing new ideas and technologies is evident in every aspect of this CMS, meticulously documented to cater to both seasoned programmers crafting site modules and users navigating its functionalities effortlessly, even without coding expertise. Explore the myriad features detailed below in our comprehensive README, designed to meet the diverse needs of developers and users alike. Our primary goal with this project is to expedite and enhance multi-site deployment and quick development für complex projects.
+**This modules are also available in the official bugfish.eu FP2 Store you can visit in the _administrator Site Module.** They are also available in this repositories _module folder for easy installing and deployment without using the bugfish store out of the administrator site module (or another one which is capable of store operations)
+| Module      | Description                         |
+| ----------- | ----------------------------------- |
+|_documentation|Documentation Site Module containing the Documentation for the "Fast PHP Page" CMS|
+|_documentation-adminbsb|Documentation Site Module containing the Documentation for the "AdminBSB" Template which is used in the _administrator Site Module.|
+|_documentation-framework| Documentation Site Module containing the Documentation for the "Bugfish Framework"|
+|_example-complex| Complex Site Module Solution with Windmill Theme Responsive Example to deploy on Page to view and understand for development purposes. |
+|_example-minimal| Minimal Site Module Solution with Simple Theme Example to deploy on Page to view and understand for development purposes. |
+|_simple-backend| A Simple backend which can be used together with frontpages (in multi site systems or with a standalone frontpage by setting this up in ruleset.php) or copied and changed for your own purposes! This is also a reference which is here to show you how to develope with the FP2 CMS.|
 
+**In the _site directory of your installed CMS Instance you can find the installed Site Modules. The administrator Module is automatically installed and acts as main administrator backend. You can change this if required or use another administrator interface if one is available or setup.** This _administrator Site Module has a lot of different functionalities which can be used even without coding skills!
 
 For comprehensive explanations and detailed documentation about fast PHP page development, please visit www.bugfish-github.de/fast-php-page. This website is the primary resource for in-depth information and guides on the topic.
 
@@ -177,6 +195,8 @@ This project relies on third-party libraries stored in the '/_core/_vendor' fold
 
 Should you encounter any issues or have questions while using this software, please do not hesitate to reach out to us on our forum at [Bugfish Forum](www.bugfish.eu/forum). Additionally, you can request assistance via email at request@bugfish.eu, and we are dedicated to providing the support you require. We highly value your feedback and are committed to ensuring your success with our web project.
 
+If you want to support us, add this banner to the project you have created!  
+![Bugfish Framework Banner](./_images/bugfish-framework-banner.jpg) ![Bugfish FP2 Banner](./_images/bugfish-fp2-banner.jpg)
 ## Licensing Information
 
 The Fast-PHP-Page Project is released under the GPLv3 License, affording you the freedom to use, modify, and distribute the project as you see fit. It is imperative to note that the "/_core/_vendor" folder contains various libraries, each with its own unique licenses. To ensure full compliance and understanding of the licensing terms associated with these included libraries, we encourage you to consult our comprehensive documentation on our GitHub page. This documentation provides exhaustive information regarding the specific licenses and any additional requirements tied to individual libraries. Your responsible adherence to these licenses is pivotal when utilizing this project. Your interest and collaboration are greatly appreciated.
