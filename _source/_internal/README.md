@@ -1,15 +1,16 @@
 # Internal Files - Backups and Temporary Storage
 
-This directory is intended for internal use and serves as a storage location for backup files and temporary storage of module-related files.
+The Internal Files directory serves as a designated area for internal operations, housing backup files and providing temporary storage for module-related files.
 
 **Contents:**
-- Backups: This folder may contain backup files for critical data. Exercise caution and follow established procedures when dealing with backup files.
+- Backups: This folder stores backup files for critical data. Exercise caution and adhere to established procedures when handling backup files.
   
-- Temporary Storage: Files related to modules may temporarily reside in this folder during specific operations. Regular cleanup may be required to manage storage space.
+- Store Temporary Files: Temporary files from installed store modules or downloaded modules are stored here.
+- Access to this folder should be restricted.
+- Temporary Storage: This folder temporarily houses files related to modules during specific operations. Regular cleanup may be necessary to manage storage space effectively.
 
 **Important:**
-- Avoid manual modifications to files within this directory unless you have a clear understanding of their purpose.
-  
-- Regularly review and manage the contents of this folder to ensure optimal use of storage space.
-
-Please adhere to established guidelines and best practices when interacting with files in this directory to maintain the integrity and reliability of the project.
+- Manual modifications to files within this directory should be avoided unless you fully understand their purpose.
+- This folder may be altered by the administrator module.
+- Files within this folder are not included in any backup functionalities.
+- Deactivated site modules reside within this folder, indicating that they are not backed up but may still be present on the website.

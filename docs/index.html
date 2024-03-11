@@ -78,7 +78,8 @@
 				    <li class="nav-item section-title"><a class="nav-link scrollto active" href="#section-1"><span class="theme-icon-holder me-2"><i class="fas fa-map-signs"></i></span>Fast PHP Page</a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-1-1">Introduction</a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-1-2">Project Goal</a></li>
-				    <li class="nav-item"><a class="nav-link scrollto" href="#item-1-3">Features</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-1-3">Developer Modules</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-1-3-1">Features</a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-1-4">Libraries</a></li>
 					<!-- Various Informations -->
 				    <li class="nav-item section-title mt-3"><a class="nav-link scrollto" href="#section-19"><span class="theme-icon-holder me-2"><i class="fas fa-hashtag"></i></span>Development</a></li>
@@ -118,7 +119,7 @@
 						<h2 class="section-heading">Introduction</h2>
 										<p>Welcome to the Fast-PHP-Page Project, a pioneering web development solution designed to streamline your web development endeavors. This dynamic platform offers a rich set of features, including native support for dynamic CSS, JavaScript, and Cronjobs. It equips you with the essential tools to effortlessly create and maintain web applications. Whether you seek diverse design styles or the convenience of pre-installed, fully functional libraries from the "Bugfish Framework," our project caters to all your web development requirements.</p>
 										
-<div class="callout-block callout-block-info">
+						<div class="callout-block callout-block-info">
                             <div class="content">
                                 <h4 class="callout-title">
 	                                <span class="callout-icon-holder me-1">
@@ -127,6 +128,11 @@
 	                                Initial Login Data
 	                            </h4>
                                 <p>The initial Login data if you are using the _administrator site module or loging functionality by core is as follow:<br /><b>Username:</b> admin@admin.local<br /><b>Password:</b> changeme</p>
+							 </div><!--//content-->
+                        </div>		
+						<div class="alert alert-danger">
+                            <div class="content">
+                                If upper steps for initial login are not working try admin/changeme. It depends on various site module configurations and in standalone mode default initial login can be setup in the site modules config files.
                             </div><!--//content-->
                         </div>
 						
@@ -136,16 +142,25 @@
 										</video> <br><br>-->
 																				
 										<h4>What is this project about?</h4>
-										<p>This repository hosts a framework that is not a complete, out-of-the-box CMS (Content Management System) that can be easily set up in the frontend. Instead, it is designed for individuals with coding expertise who wish to develop their own modules. While there are built-in functionalities available in the administrator interface for various purposes, the primary emphasis of this system lies in its extensibility. Users are encouraged to create and integrate site modules to tailor the framework to their specific requirements, making it a flexible and adaptable solution for those who have the technical skills to harness its potential.</p>
+										<p>This repository hosts a framework is a complete out-of-the-box CMS (Content Management System) that can be easily set up in the frontend. It is  mainly designed for individuals with coding expertise who wish to develop their own modules. While there are built-in functionalities available in the administrator interface for various purposes, the primary emphasis of this system lies in its extensibility. Users are encouraged to create and integrate site modules to tailor the framework to their specific requirements, making it a flexible and adaptable solution for those who have the technical skills to harness its potential.</p>
+										
+						<div class="alert alert-warning">
+                            <div class="content">The _Administrator Module is included in this CMS, but screenhots or explanations are not yet posted on this documentation. This is because the _administrator module is under ongoing development. We will post informations later on our youtube channel @bugfishtm and here in the documentation if the module has been finished. You will automatically be redirected to the _administrator module after you have installed your Fast-PHP-Page instance. You can delete the _administrator module and design the CMS for your purposes, or use the _administrator module site by site with your frontend module/for development debugging. Besides that feel free to use the store and download site templates or module out of it.</div></div>
 										<h4>Screenshots</h4>
 										
 						<div class="simplelightbox-gallery row mb-3">
 							<div class="col-12 col-md-4 mb-3">
-						        <a href="./developer.png"><img class="figure-img img-fluid shadow rounded" src="./developer.png" alt="" title="Developer.php Backend Tools"></a>
+						        <a href="./example-volt1.png"><img class="figure-img img-fluid shadow rounded" src="./example-volt1.png" alt="" title="Volt Module Example"></a>
 							</div>
 							<div class="col-12 col-md-4 mb-3">
-						        <a href="./installation.png"><img class="figure-img img-fluid shadow rounded" src="./installation.png" alt="" title="Installation Screen"></a>
-							</div><!--//col-->
+						        <a href="./example-windmill1.png"><img class="figure-img img-fluid shadow rounded" src="./example-windmill1.png" alt="" title="Windmill Module Example"></a>
+							</div>
+							<div class="col-12 col-md-4 mb-3">
+						        <a href="./windmill-backend1.png"><img class="figure-img img-fluid shadow rounded" src="./windmill-backend3.png" alt="" title="Windmill Backend Example"></a>
+							</div>
+							<div class="col-12 col-md-4 mb-3">
+						        <a href="./adminbsb1.png"><img class="figure-img img-fluid shadow rounded" src="./adminbsb1.png" alt="" title="AdminBSB Template Example"></a>
+							</div>
 						</div>										
 										
 										
@@ -167,19 +182,96 @@ Add this image to your project created with this CMS to support us!<br /><img sr
 										<h2>Project Goal</h2>
 										<p>Our primary goal with this project is to expedite and enhance multi-site deployment. Recognizing the paramount importance of swiftly launching web projects, we are committed to delivering a cutting-edge web hosting solution. We are in the process of implementing these advanced technologies into a new hosting panel, poised to redefine the web hosting landscape. Join us on this thrilling journey as we work towards reshaping web hosting as we know it.</p>
 
-					</section><hr><section class="docs-section" id="item-1-3" style="border-bottom: none;">					
+					</section><hr><section class="docs-section" id="item-1-3" style="border-bottom: none;">				
+						<h2>Developer Modules</h2>
+						<p>Following modules may be interesting for developers to enhance theire knowledge about Fast-PHP-Page Functionalities!</p>
+<table class="table table-bordered table-dark">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Github</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>_documentation-adminbsb</td>
+      <td>Documentation for integrated AdminBSB Template</td>
+      <td><a rel="noopener" target="_blank" href="https://github.com/bugfishtm/fp2-documentation-adminbsb">https://github.com/bugfishtm/fp2-documentation-adminbsb</a></td>
+    </tr>
+    <tr>
+      <td>_documentation-framework</td>
+      <td>Documentation for integrated Bugfish Framework</td>
+      <td><a rel="noopener" target="_blank" href="https://github.com/bugfishtm/fp2-documentation-framework">https://github.com/bugfishtm/fp2-documentation-framework</a></td>
+    </tr>
+    <tr>
+      <td>_documentation-volt</td>
+      <td>Documentation for integrated Volt Administrator Theme</td>
+      <td><a rel="noopener" target="_blank" href="https://github.com/bugfishtm/fp2-documentation-volt">https://github.com/bugfishtm/fp2-documentation-volt</a></td>
+    </tr>
+    <tr>
+      <td>_example-minimal</td>
+      <td>Minimal Site Module Solution for Developers to use as a Template</td>
+      <td><a rel="noopener" target="_blank" href="https://github.com/bugfishtm/fp2-example-minimal">https://github.com/bugfishtm/fp2-example-minimal</a></td>
+    </tr>
+    <tr>
+      <td>_example-windmill</td>
+      <td>Windmill Dashboard Site Module example with some more advanced functionalities</td>
+      <td><a rel="noopener" target="_blank" href="https://github.com/bugfishtm/fp2-example-windmill">https://github.com/bugfishtm/fp2-example-windmill</a></td>
+    </tr>
+    <tr>
+      <td>_example-volt</td>
+      <td>Volt Dashboard Site Module example with some more advanced functionalities</td>
+      <td><a rel="noopener" target="_blank" href="https://github.com/bugfishtm/fp2-example-volt">https://github.com/bugfishtm/fp2-example-volt</a></td>
+    </tr>
+    <tr>
+      <td>_documentation</td>
+      <td>Documentation for this CMS integrated as a Site Module</td>
+      <td><a rel="noopener" target="_blank" href="https://github.com/bugfishtm/fp2-documentation">https://github.com/bugfishtm/fp2-documentation</a></td>
+    </tr>
+    <tr>
+      <td>_windmill-backend</td>
+      <td>Backend to be copied or used side-by-side with your FP2-Page, based on Windmill Dashboard</td>
+      <td><a rel="noopener" target="_blank" href="https://github.com/bugfishtm/fp2-windmill-backend">https://github.com/bugfishtm/fp2-windmill-backend</a></td>
+    </tr>
+    <tr>
+      <td>_skeleton</td>
+      <td>Skeleton of site modules for developers to look into to understand folder functionalities and more!</td>
+      <td><a rel="noopener" target="_blank" href="https://github.com/bugfishtm/fp2-skeleton">https://github.com/bugfishtm/fp2-skeleton</a></td>
+    </tr>
+  </tbody>
+</table>
+
+					
+					</section><hr><section class="docs-section" id="item-1-3-1" style="border-bottom: none;">					
 						<h2>Features</h2>
 						<p>Our web project offers a wide range of powerful features that are designed to simplify your web development journey. These key functionalities provide you with the tools and capabilities you need to create, manage, and customize websites effectively.</p><br />
 							<!--<h2 class="section-heading">Page Styling</h2>-->
 						
+						<h4>Full integrated enhanced Administration Panel</h4>
+						<p>This CMS comes with a fully functioning responsive administration backend, for you to be used in development of site modules or just to enjoy the many functions of it! Included is file management, user management, debugging insights of all available CMS Debugging areas. The _administrator Module Grants you access to our store, or helps you setting up your own store instance of you need one! Functions are included to easily use all advanced theme functionalities of the AdminBSB Material Design! The _administrator module is delivered with the fast-php-page cms by default. You can choose if you want to delete this admin module and built your own standalone website, or if you want to copy if for your own project! You can even use our administrator module site by site with your pages, or you can set up own site by site procedures following our guidelines! Have fun coding!</p>
 						
-						<h4> Copyable and Usable Admin Interface</h4>
-						<p>CMS _administrator Site Module offers a way to navigating the platform, emphasizing a fully copyable and usable admin interface. This feature facilitates efficient content management, user administration, and streamlined control over various system functionalities.</p>
+						<h4>Full features Administration Interface</h4>
+						<p>Full featured Administration Module (undeleteable, but you can delete it if you want to use this framework for a standalone module development or for your purposes). This administrator Module lets you control most functionalities of the framework and CMS and you can easily set up additional pages and themes out of the store.</p>
+						
+						<h4> Copyable Site by Site Backend Lite Modules</h4>
+						<p>CMS _windmill-backend Site Module offers a way to navigating the platform, emphasizing a fully copyable and usable admin interface. This feature facilitates efficient content management, user administration, and streamlined control over various system functionalities.</p>
+						
 						<div class="simplelightbox-gallery row mb-3">
 							<div class="col-12 col-md-4 mb-3">
-						        <a href="./simple-backend.png"><img class="figure-img img-fluid shadow rounded" src="./simple-backend.png" alt="" title="Simple Backend Site Module Screenshot"></a>
-							</div><!--//col-->
-						</div>								
+						        <a href="./windmill-backend11.png"><img class="figure-img img-fluid shadow rounded" src="./windmill-backend11.png" alt="" title="Simple Backend Blacklist"></a>
+							</div>
+							<div class="col-12 col-md-4 mb-3">
+						        <a href="./windmill-backend2.png"><img class="figure-img img-fluid shadow rounded" src="./windmill-backend2.png" alt="" title="Simple Backend Dashboard"></a>
+							</div>
+							<div class="col-12 col-md-4 mb-3">
+						        <a href="./windmill-backend3.png"><img class="figure-img img-fluid shadow rounded" src="./windmill-backend3.png" alt="" title="Simple Backend White Theme Constants"></a>
+							</div>
+							<div class="col-12 col-md-4 mb-3">
+						        <a href="./windmill-backend4.png"><img class="figure-img img-fluid shadow rounded" src="./windmill-backend4.png" alt="" title="Simple Backend Black Theme Constants"></a>
+							</div>
+						</div>		
+						
 						<h4> Store System and Site Module Downloads</h4>
 						<p>Included within the CMS is a complete working store system. Users can either utilize this system independently or integrate it with the official store to access and download diverse site modules, enhancing their websites with customizable features.</p>
 						
@@ -553,6 +645,51 @@ Add this image to your project created with this CMS to support us!<br /><img sr
     <td>MIT</td>
     <td>None</td>
   </tr>
+  <tr>
+    <td>You-Login Resposive Template</td>
+    <td>MIT</td>
+    <td>None</td>
+  </tr>
+  <tr>
+    <td>Volt Administrator Dashboard Lite</td>
+    <td>MIT</td>
+    <td>None</td>
+  </tr>
+  <tr>
+    <td>Notyf</td>
+    <td>MIT</td>
+    <td>None</td>
+  </tr>
+  <tr>
+    <td>Smooth-Scroll</td>
+    <td>MIT</td>
+    <td>None</td>
+  </tr>
+  <tr>
+    <td>onscreen</td>
+    <td>MIT</td>
+    <td>None</td>
+  </tr>
+  <tr>
+    <td>waypoints</td>
+    <td>MIT</td>
+    <td>None</td>
+  </tr>
+  <tr>
+    <td>sass</td>
+    <td>MIT</td>
+    <td>None</td>
+  </tr>
+  <tr>
+    <td>chatist</td>
+    <td>MIT</td>
+    <td>None</td>
+  </tr>
+  <tr>
+    <td>githubbuttons</td>
+    <td>BSD</td>
+    <td>None</td>
+  </tr>
   </tbody>
 						</table>
 					</section><!--//section-->			
@@ -567,7 +704,7 @@ Add this image to your project created with this CMS to support us!<br /><img sr
 					<section class="docs-section" id="item-19-1" style="padding-top: 0px; border-bottom: none;">
 						<br /><h2 class="section-heading">Object Array</h2>
 					    <section class="docs-intro">
-						    <p>Here you can find a list of items, the $object variable does contain. This variable is accessible from most code areas and one of the main pilars, if you plan to use this Framework/CMS in Development!</p><br />
+						    <p>Here you can find a list of items, the $object variable does contain. This variable is accessible from most code areas and one of the main pilars, if you plan to use this Framework/CMS in Development! This array if mostly initialized in _core/_misc/init.php.</p><br />
 						</section>
 						<table class="table table-bordered table-dark" style="font-size: 12px;">
 							<tr>
@@ -575,12 +712,22 @@ Add this image to your project created with this CMS to support us!<br /><img sr
 								<th>Description</th>
 							</tr>
 							<tr>	
+								<td colspan="2" style="background: #242424;">Configuration (settings.php)</td>			
+							</tr>
+							<tr>	
 								<td>$object["prefix"]</td>
 								<td>Hive Database Prefix - DO USE _HIVE_SITE_PREFIX_ for your Site!</td>				
 							</tr>
 							<tr>	
+								<td>$object["hive_mode"]</td>
+								<td>Hive Mod informations out of the current Site Modules version.php!</td>				
+							</tr>
+							<tr>	
 								<td>$object["cookie"]</td>
 								<td>Hive Cookie Prefix - DO USE _HIVE_SITE_COOKIE_ for your Site!</td>				
+							</tr>
+							<tr>	
+								<td colspan="2" style="background: #242424;">Framework Classes</td>			
 							</tr>
 							<tr>	
 								<td>$object["mysql"]</td>
@@ -639,12 +786,22 @@ Add this image to your project created with this CMS to support us!<br /><img sr
 								<td><a href="../bugfish-framework/classes/x_class_redis.html" rel="noopener" target="_blank">x_class_redis</a></td>				
 							</tr>
 							<tr>	
+								<td>$object["comment"]</td>
+								<td><a href="../bugfish-framework/classes/x_class_comment.html" rel="noopener" target="_blank">x_class_comment</a> (Only reserved, not initialized on startup.)</td>				
+							</tr>
+							<tr>	
+								<td colspan="2" style="background: #242424;">Mail Related</td>			
+							</tr>
+							<tr>	
 								<td>$object["mail_template"]</td>
 								<td><a href="../bugfish-framework/classes/x_class_mail_template.html" rel="noopener" target="_blank">x_class_mail_template</a></td>				
 							</tr>
 							<tr>	
 								<td>$object["mail"]</td>
 								<td><a href="../bugfish-framework/classes/x_class_mail.html" rel="noopener" target="_blank">x_class_mail</a></td>				
+							</tr>
+							<tr>	
+								<td colspan="2" style="background: #242424;">Users and Permission Related</td>			
 							</tr>
 							<tr>	
 								<td>$object["user"]</td>
@@ -659,15 +816,31 @@ Add this image to your project created with this CMS to support us!<br /><img sr
 								<td><a href="../bugfish-framework/classes/x_class_perm.html" rel="noopener" target="_blank">x_class_perm</a> - with group permissions</td>				
 							</tr>
 							<tr>	
+								<td>$object["perm_user_glob"]</td>
+								<td><a href="../bugfish-framework/classes/x_class_perm.html" rel="noopener" target="_blank">x_class_perm</a> - with users permissions globally (site mode section "" in database)</td>				
+							</tr>
+							<tr>	
+								<td>$object["perm_group_glob"]</td>
+								<td><a href="../bugfish-framework/classes/x_class_perm.html" rel="noopener" target="_blank">x_class_perm</a> - with group permissions (site mode section "" in database)</td>				
+							</tr>
+							<tr>	
 								<td>$object["user_perm"]</td>
 								<td><a href="../bugfish-framework/classes/x_class_perm.html" rel="noopener" target="_blank">x_class_perm_item</a> for current user</td>				
 							</tr>
 							<tr>	
+								<td>$object["user_perm_glob"]</td>
+								<td><a href="../bugfish-framework/classes/x_class_perm.html" rel="noopener" target="_blank">x_class_perm_item</a> for current user (site mode section "" in database)</td>				
+							</tr>
+							<tr>	
 								<td>$object["user_groups"][X]</td>
-								<td>Group Data out of Users Group Database for Every Group Current Logged In User is Part Of</td>				
+								<td>Group Data out of Users Group Database for Every Group Current Logged In User is Part Of, contains array items with values from group database. Not sorted in a specific order, needs to be looped through and checked for [id] if you want to check single IDs. X is just the array Item key which is non-related to anything of the group itself (it only holds it)</td>				
 							</tr>
 							<tr>	
 								<td>$object["user_groups"][X]["perm_obj"]</td>
+								<td><a href="../bugfish-framework/classes/x_class_perm.html" rel="noopener" target="_blank">x_class_perm_item</a> for specific group</td>				
+							</tr>
+							<tr>	
+								<td>$object["user_groups"][X]["perm_obj_glob"]</td>
 								<td><a href="../bugfish-framework/classes/x_class_perm.html" rel="noopener" target="_blank">x_class_perm_item</a> for specific group</td>				
 							</tr>
 						</table>
@@ -683,6 +856,9 @@ Add this image to your project created with this CMS to support us!<br /><img sr
 							<tr>
 								<th>Constant Name</th>
 								<th>Description</th>
+							</tr>
+							<tr>	
+								<td colspan="2" style="background: #242424;">Logging Functionality Tables</td>			
 							</tr>
 							<tr>	
 								<td>_TABLE_LOG_</td>
@@ -725,6 +901,9 @@ Add this image to your project created with this CMS to support us!<br /><img sr
 								<td>Log Table for Website Hitcounter!</td>				
 							</tr>
 							<tr>	
+								<td colspan="2" style="background: #242424;">Users Related</td>			
+							</tr>
+							<tr>	
 								<td>_TABLE_USER_</td>
 								<td>Table for Users (Multi Site Compatible)</td>				
 							</tr>
@@ -737,12 +916,15 @@ Add this image to your project created with this CMS to support us!<br /><img sr
 								<td>Table for Users Sessions (Multi Site Compatible)</td>				
 							</tr>
 							<tr>	
-								<td>_TABLE_USER_PERM_</td>
-								<td>Table for Users Permission (Multi Site Compatible)</td>				
-							</tr>
-							<tr>	
 								<td>_TABLE_USER_GROUP_</td>
 								<td>Table for Users Groups (Multi Site Compatible)</td>				
+							</tr>
+							<tr>	
+								<td colspan="2" style="background: #242424;">Permission Related</td>			
+							</tr>
+							<tr>	
+								<td>_TABLE_USER_PERM_</td>
+								<td>Table for Users Permission (Multi Site Compatible)</td>				
 							</tr>
 							<tr>	
 								<td>_TABLE_USER_GROUP_PERM_</td>
@@ -753,20 +935,110 @@ Add this image to your project created with this CMS to support us!<br /><img sr
 								<td>Table for User/Group Relation (Multi Site Compatible)</td>				
 							</tr>
 							<tr>	
+								<td colspan="2" style="background: #242424;">Constants Class</td>			
+							</tr>
+							<tr>	
 								<td>_TABLE_VAR_</td>
 								<td>Constant Variables Table for Settings (Multi Site Compatible)</td>				
+							</tr>
+							<tr>	
+								<td colspan="2" style="background: #242424;">Database Language Translations</td>			
 							</tr>
 							<tr>	
 								<td>_TABLE_LANG_</td>
 								<td>Language Translation Table (Multi Site Compatible)</td>				
 							</tr>
 							<tr>	
+								<td colspan="2" style="background: #242424;">Mail Templates</td>			
+							</tr>
+							<tr>	
 								<td>_TABLE_MAIL_TPL_</td>
 								<td>Table for Mail Templates (Multi Site Compatible)</td>				
 							</tr>
 							<tr>	
+								<td colspan="2" style="background: #242424;">API Request and Tokens</td>			
+							</tr>
+							<tr>	
 								<td>_TABLE_API_</td>
-								<td>Table to Log API Requests (Multi Site Compatible)</td>				
+								<td>Table to Log API Requests and Tokens (Multi Site Compatible)</td>				
+							</tr>
+							<tr>	
+								<td colspan="2" style="background: #242424;">Files Tables</td>			
+							</tr>
+							<tr>	
+								<td>_TABLE_FILE_</td>
+								<td>Table to store combined files by administrator module or other administrator modules!</td>				
+							</tr>
+							<tr>	
+								<td>_TABLE_FILE_FOLDER_</td>
+								<td>Table to store File Folders by administrator module or other administrator modules!</td>				
+							</tr>
+							<tr>	
+								<td>_TABLE_FILE_SHARE_</td>
+								<td>Table to store File User/Group Shares by administrator module or other administrator modules!</td>				
+							</tr>
+							<tr>	
+								<td colspan="2" style="background: #242424;">Additional Functionalities Tables</td>			
+							</tr>
+							<tr>	
+								<td>_TABLE_TASK_</td>
+								<td>Table to save task items!</td>				
+							</tr>
+							<tr>	
+								<td>_TABLE_COMMENT_</td>
+								<td>Table for multi Site Comment Class by Bugfish Framework!</td>				
+							</tr>
+							<tr>	
+								<td>_TABLE_WIKI_</td>
+								<td>Table for multi site Wiki for Multi Site Purposes!</td>				
+							</tr>
+							<tr>	
+								<td>_TABLE_NEWSLETTER_</td>
+								<td>Table for multi site newsletter for Multi Site Purposes!</td>				
+							</tr>
+							<tr>	
+								<td>_TABLE_ART_</td>
+								<td>Table for multi site articles for Multi Site Purposes!</td>				
+							</tr>
+							<tr>	
+								<td>_TABLE_ART_CAT_</td>
+								<td>Table for multi site articles categories for Multi Site Purposes!</td>				
+							</tr>
+							<tr>	
+								<td>_TABLE_SHORTENER_</td>
+								<td>URL Shortener Table for Multi Site Purposes!</td>				
+							</tr>
+							<tr>	
+								<td>_TABLE_URL_</td>
+								<td>Link list funtionality / Bookmark Table for Multi Site Purposes!</td>				
+							</tr>
+							<tr>	
+								<td>_TABLE_FINANCE_</td>
+								<td>Accounting Table for Multi Site Purposes!</td>				
+							</tr>
+							<tr>	
+								<td>_TABLE_FORUM_</td>
+								<td>Forum Table for Multi Site Purposes!</td>				
+							</tr>
+							<tr>	
+								<td>_TABLE_STORE_</td>
+								<td>Store Table for Multi Site Purposes!</td>				
+							</tr>
+							<tr>	
+								<td>_TABLE_WFC_</td>
+								<td>WFC Table for Multi Site Purposes!</td>				
+							</tr>
+							<tr>	
+								<td>_TABLE_WFC_LINK_</td>
+								<td>WFC Link Table for Multi Site Purposes!</td>				
+							</tr>
+							<tr>	
+								<td>_TABLE_WFC_DATA_</td>
+								<td>WFC Data Table for Multi Site Purposes!</td>				
+							</tr>
+							<tr>	
+								<td>_TABLE_USER_EVENT_</td>
+								<td>User Event CRM Table for Multi Site Purposes!</td>				
 							</tr>
 						</table>
 						<h3>CMS Related Definitions</h3><p>CMS Definitions for this CMS are declared as constants starting with _HIVE_</p>
@@ -821,20 +1093,8 @@ Add this image to your project created with this CMS to support us!<br /><img sr
 								<td>Full Path to Public Uploaded Folder</td>				
 							</tr>
 							<tr>	
-								<td>_HIVE_PATH_BACKUP_</td>
-								<td>Path to Backup Save Folder</td>				
-							</tr>
-							<tr>	
-								<td>_HIVE_PATH_STORE_CACHE_</td>
-								<td>Path to Store Cache Folder</td>				
-							</tr>
-							<tr>	
-								<td>_HIVE_PATH_STORE_DL_</td>
-								<td>Path to Store Download Folder</td>				
-							</tr>
-							<tr>	
-								<td>_HIVE_PATH_DEACTIVATED_</td>
-								<td>Path to folder with deactivated Site Modules</td>				
+								<td>_HIVE_PATH_INTERNAL_</td>
+								<td>Full Path to Internal System Folder</td>				
 							</tr>
 							
 							<tr>	
@@ -895,22 +1155,6 @@ Add this image to your project created with this CMS to support us!<br /><img sr
 								<td>/_api</td>
 								<td>Store and Core Update functionalities! Also can Include API Functionalities.</td>		
 							</tr>
-							<tr>	
-								<td>/_api/_store_img</td>
-								<td>Contains general Store images for categories and brandings</td>		
-							</tr>
-							<tr>	
-								<td>/_api/_store_lib</td>
-								<td>Contains Store Item Downloads and Images.</td>		
-							</tr>
-							<tr>	
-								<td>/_api/update.php</td>
-								<td>Contains Update Informations on newest version if this Fast PHP Page instance is acting as master instance store for other intances.</td>		
-							</tr>
-							<tr>	
-								<td>/_api/store.php</td>
-								<td>Contains Store Items Informations if this Fast PHP Page instance is acting as master instance store for other intances..</td>		
-							</tr>
 							<tr>
 								<td colspan="2" style="background: #242424;"><b>/_core</b></td>	
 							</tr>
@@ -924,11 +1168,7 @@ Add this image to your project created with this CMS to support us!<br /><img sr
 							</tr>
 							<tr>
 								<td>/_core/_tools</td>
-								<td>Different PHP Scripts for Developers to be used to test functionalities, usage of this scripts can be deactivated in ruleset.php!</td>		
-							</tr>
-							<tr>
-								<td>/_core/_tools/admin_switch.php</td>
-								<td>File can be executed in Browser to switch Between Backend Admin Panel and Frontpage (If Admin Panel is Activated in ruleset.php) and used! This file may gets updated on CMS-Updates.</td>		
+								<td>Different PHP Scripts for Developers to be used to test functionalities, usage of this scripts can be deactivated in ruleset.php!</td>
 							</tr>
 							<tr>
 								<td>/_core/_tools/cookie_destroy.php</td>
@@ -944,11 +1184,35 @@ Add this image to your project created with this CMS to support us!<br /><img sr
 							</tr>
 							<tr>	
 								<td>/_core/_misc</td>
+								<td>Various files to switch between pages!</td>		
+							</tr>
+							<tr>
+								<td>/_core/_action/js_debug_action.php</td>
+								<td>If Javascript Debugging for Site Module is active, this is the action to log errors.</td>		
+							</tr>
+							<tr>
+								<td>/_core/_action/admin_switch.php</td>
+								<td>File can be executed in Browser to switch Between Backend Admin Panel and Frontpage (If Admin Panel is Activated in ruleset.php) and used! This file may gets updated on CMS-Updates.</td>		
+							</tr>
+							<tr>	
+								<td>/_core/_misc</td>
 								<td>Various files needed for this CMS!</td>		
+							</tr>
+							<tr>
+								<td>/_core/_misc/init.php</td>
+								<td>This file is to initialize the CMS and its functionalities! You do not need to touch this file at development. All configurations can be made inside your Sites Modules Folder if you are a Developer.</td>
+							</tr>
+							<tr>
+								<td>/_core/_misc/internal.php</td>
+								<td>Internal Validation file, can be ignored.</td>
 							</tr>
 							<tr>	
 								<td>/_core/_mysql</td>
 								<td>Folder contains auto-installed MySQL Databases for this CMS!</td>		
+							</tr>
+							<tr>	
+								<td>/_core/_api</td>
+								<td>Internal API not related to any Site Module.</td>		
 							</tr>
 							<tr>	
 								<td>/_core/_image</td>
@@ -971,20 +1235,8 @@ Add this image to your project created with this CMS to support us!<br /><img sr
 								<td>Default Error Pages for HTAccess Error Handler!</td>		
 							</tr>
 							<tr>
-								<td>/_core/init.php</td>
-								<td>This file is to initialize the CMS and its functionalities! You do not need to touch this file at development. All configurations can be made inside your Sites Modules Folder if you are a Developer.</td>
-							</tr>
-							<tr>
-								<td>/_core/internal.php</td>
-								<td>Internal Validation file, can be ignored.</td>
-							</tr>
-							<tr>
 								<td>/_core/javascript.php</td>
 								<td>Include file to load current Site Modules _js folder Files! This file may gets updated on CMS-Updates.</td>		
-							</tr>
-							<tr>
-								<td>/_core/js_debug_action.php</td>
-								<td>If Javascript Debugging for Site Module is active, this is the action to log errors.</td>		
 							</tr>
 							<tr>
 								<td>/_core/stylesheet.php</td>
@@ -996,6 +1248,14 @@ Add this image to your project created with this CMS to support us!<br /><img sr
 							</tr>
 							<tr>
 								<td colspan="2" style="background: #242424;"><b>/_cron</b></td>	
+							</tr>
+							<tr>	
+								<td>/_preview</td>
+								<td>Some general preview images about this project, folder may gets overwritten during core updates!</td>		
+							</tr>
+							<tr>	
+								<td>/_images</td>
+								<td>Some general images about this project, folder may gets overwritten during core updates!</td>		
 							</tr>
 							<tr>	
 								<td>/_cron</td>
@@ -1029,22 +1289,6 @@ Add this image to your project created with this CMS to support us!<br /><img sr
 								<td>Folder for internal stored files! This folder will not be touched by CMS Updates or Framework Updates. This folder is for deactivated site module and for the store cache. Folder content should not be visible public as it may also contains backups!</td>		
 							</tr>
 							<tr>
-								<td>/_internal/_backup</td>
-								<td>Folder for Backup Files which has been created by Fast-PHP-Page Site Modules or Administrator Interfaces.</td>		
-							</tr>
-							<tr>
-								<td>/_internal/_cache</td>
-								<td>Cache Folder for different Purposes</td>		
-							</tr>
-							<tr>
-								<td>/_internal/_deactivated</td>
-								<td>Folder in which deactivated site modules will be moved to.</td>		
-							</tr>
-							<tr>
-								<td>/_internal/_downloaded</td>
-								<td>Folder in which site module templates downloaded from store will be stored in!</td>		
-							</tr>
-							<tr>
 								<td colspan="2" style="background: #242424;"><b>/_framework</b></td>	
 							</tr>
 							<tr>
@@ -1066,13 +1310,6 @@ Add this image to your project created with this CMS to support us!<br /><img sr
 								<td>Files for Different Site Modules, which are not public accessible! Data of Site-Modules will be moved in this folder, this makes this folder important for Backup operations! A Folder for every site Modules related files will be created. An Exception is if you for example use the main file class to upload files, these files will be loaded into the folder where the site modules database is located. Files in this folder will not be affected by CMS Updates!</td>		
 							</tr>
 							<tr>
-								<td colspan="2" style="background: #242424;"><b>/_install</b></td>	
-							</tr>
-							<tr>
-								<td>/_install</td>
-								<td>You can put in site modules here, to make them install-able via the _administrator site module! (Or another administrator solution for this panel) </td>		
-							</tr>
-							<tr>
 								<td colspan="2" style="background: #242424;"><b>/_site</b></td>	
 							</tr>
 							<tr>
@@ -1082,6 +1319,13 @@ Add this image to your project created with this CMS to support us!<br /><img sr
 							<tr>
 								<td>/_site/_administrator</td>
 								<td>Full working administrator backenede module with a lot of functionalities to be used in projects or as reference for development.</td>		
+							</tr>
+							<tr>
+								<td colspan="2" style="background: #242424;"><b>/_store</b></td>	
+							</tr>
+							<tr>	
+								<td>/_store</td>
+								<td>Store and Core Update functionalities! Also can Include API Functionalities.</td>		
 							</tr>
 							<tr>
 								<td colspan="2" style="background: #242424;"><b>/</b></td>	
@@ -1107,8 +1351,8 @@ Add this image to your project created with this CMS to support us!<br /><img sr
 								<td>If activated in ruleset.php, developers can override relative user per site options here. With this file you can easily check and test multi site and complex functionalities of the site while developing! It also may give you an impression, on how easily it is with this cms to include own websites with different languages/styles and much more! This file may gets updated by CMS-Updates.</td>		
 							</tr>
 							<tr>
-								<td>/ruleset.php</td>
-								<td>Backend-Developer File to change some important Backend Settings which are not related to a site Module! More informations in the "Site Modules" section below! In this file are settings which control how the Handle will act to determine Site Modes and which Site Mode will be choosen. The Administrator Side Module can run Side by Side with your programmed Site Module to make administration for your website easier if you plan to build a website based on this cms framework! If this file will ever be affected by CMS Updates, than we will save your settings in there and rewrite them. Please do not write custom code in here, just choose Settings for different given Constants!</td>		
+								<td>/cfg_ruleset.php</td>
+								<td>Backend-Developer File to change some important Backend Settings which are not related to a site Module! More informations in the "Site Modules" section below! In this file are settings which control how the Handle will act to determine Site Modes and which Site Mode will be choosen. The Administrator Side Module can run Side by Side with your programmed Site Module to make administration for your website easier if you plan to build a website based on this cms framework! If this file will ever be affected by CMS Updates, than we will save your settings in there and rewrite them. Please do not write custom code in here, just choose Settings for different given Constants! If you want to use this cms with a standalone (no multi site and store able) module, you can change installer parameters here, to fit it for youre needs!</td>		
 							</tr>
 						</table>
 					</section>			
@@ -1122,7 +1366,7 @@ Add this image to your project created with this CMS to support us!<br /><img sr
 						</section>
 						<h3>Folder Structure</h3>
 					    <section class="docs-intro">
-						    <p>Below you can find the Folder-Structure for Site Modules which can be applied to use core functions and let files automatically be executed. All these folders are optional to create and use. See inside the _site/_example-site Module to see implementations and files in different folders with explanations!</p><br />
+						    <p>Below you can find the Folder-Structure for Site Modules which can be applied to use core functions and let files automatically be executed. All these folders are optional to create and use. See inside the _site/_skeleton Module to see implementations and files in different folders with explanations!</p><br />
 						</section>
 						<table class="table table-bordered table-dark" style="font-size: 12px;">
 							<tr>
@@ -1134,56 +1378,56 @@ Add this image to your project created with this CMS to support us!<br /><img sr
 							</tr>
 							<tr>	
 								<td>/_site/*/_cron</td>
-								<td>Put your Cronjob Files here, see example in _example-site example site module to see how this works. Files in this folder will be included when running the related _cron/daily.php (etc) files in the CMS Root Directory! Cronjob files of all site modules found will be run on main cronjob execution!</td>				
+								<td>Put your Cronjob Files here, see example in _skeleton example site module to see how this works. Files in this folder will be included when running the related _cron/daily.php (etc) files in the CMS Root Directory! Cronjob files of all site modules found will be run on main cronjob execution!</td>				
 							</tr>
 							<tr>	
 								<td colspan="2" style="background: #242424;">CSS Loadup Folder</td>		
 							</tr>
 							<tr>	
 								<td>/_site/*/_css</td>
-								<td>Put your CSS Files here, see example in _example-site example site module to see how this works. Files in this folder will be included when including stylesheet.php in the websites root folder. Stylesheet.php will only load CSS Files for current choosen Site Module.</td>				
+								<td>Put your CSS Files here, see example in _skeleton example site module to see how this works. Files in this folder will be included when including stylesheet.php in the websites root folder. Stylesheet.php will only load CSS Files for current choosen Site Module.</td>				
 							</tr>
 							<tr>	
 								<td colspan="2" style="background: #242424;">JS Loadup Folder</td>		
 							</tr>
 							<tr>	
 								<td>/_site/*/_js</td>
-								<td>Put your JS Files here, see example in _example-site example site module to see how this works. Files in this folder will be included when including javascript.php in the websites root folder. Javascript.php will only load CSS Files for current choosen Site Module.</td>				
+								<td>Put your JS Files here, see example in _skeleton example site module to see how this works. Files in this folder will be included when including javascript.php in the websites root folder. Javascript.php will only load CSS Files for current choosen Site Module.</td>				
 							</tr>
 							<tr>	
 								<td colspan="2" style="background: #242424;">Language Loadup Folder</td>		
 							</tr>
 							<tr>	
 								<td>/_site/*/_lang</td>
-								<td>Put your Language Files here, see example in _example-site example site module to see how this works. Files in this folder will be included at site-startup. Language File for Site Mode will be loaded depending on current active Site Mode and Active User Language / Existing Language File.</td>				
+								<td>Put your Language Files here, see example in _skeleton example site module to see how this works. Files in this folder will be included at site-startup. Language File for Site Mode will be loaded depending on current active Site Mode and Active User Language / Existing Language File.</td>				
 							</tr>
 							<tr>	
 								<td colspan="2" style="background: #242424;">Functions Loadup Folder</td>		
 							</tr>
 							<tr>	
 								<td>/_site/*/_lib</td>
-								<td>Put your Libraries Files here, see example in _example-site example site module to see how this works. Files in this folder will be included at site-startup. Lib Files will be loaded of related Site Mode is activated for User.</td>				
+								<td>Put your Libraries Files here, see example in _skeleton example site module to see how this works. Files in this folder will be included at site-startup. Lib Files will be loaded of related Site Mode is activated for User.</td>				
 							</tr>
 							<tr>	
 								<td colspan="2" style="background: #242424;">MySQL Loadup Folder</td>		
 							</tr>
 							<tr>	
 								<td>/_site/*/_mysql</td>
-								<td>Put SQL Files here, see example in _example-site example site module to see how this works. So you can make Tables Auto-Install! Auto Installation and Check if all Database exist will Take place on every site Loadup. Files will be loaded on execution of a site with related site mode by a visiting user.</td>	
+								<td>Put SQL Files here, see example in _skeleton example site module to see how this works. So you can make Tables Auto-Install! Auto Installation and Check if all Database exist will Take place on every site Loadup. Files will be loaded on execution of a site with related site mode by a visiting user.</td>	
 							</tr>
 							<tr>	
 								<td colspan="2" style="background: #242424;">Themes Loadup Folder</td>		
 							</tr>
 							<tr>	
 								<td>/_site/*/_theme</td>
-								<td>In this folder you can put your themes. You can also put your themes in another folder and use _HIVE_THEME_ variable to fetch current selected Theme by user or general Theme selected by default. A Captcha file can be included in this themes sub theme folder, see the _example-site site mode for example on where to put the captcha font. This font will be applied to generated captchas by /_core/captcha if Captcha if executed by activated related site mode.</td>				
+								<td>In this folder you can put your themes. You can also put your themes in another folder and use _HIVE_THEME_ variable to fetch current selected Theme by user or general Theme selected by default. A Captcha file can be included in this themes sub theme folder, see the _skeleton site mode for example on where to put the captcha font. This font will be applied to generated captchas by /_core/captcha if Captcha if executed by activated related site mode.</td>				
 							</tr>
 							<tr>	
 								<td colspan="2" style="background: #242424;">Update Loadup Folder</td>		
 							</tr>
 							<tr>	
 								<td>/_site/*/_update</td>
-								<td>Folder for Updates depending on Build number. See updater.php script or _example-site example site for more informations! Here you can put updates for databases and more for your site! Mind the sample files as there are also some informations inside them. Check _example-site Site Mode to check how updating works, as there is one dummy update included!</td>				
+								<td>Folder for Updates depending on Build number. See updater.php script or _skeleton example site for more informations! Here you can put updates for databases and more for your site! Mind the sample files as there are also some informations inside them. Check _skeleton Site Mode to check how updating works, as there is one dummy update included!</td>				
 							</tr>
 							<tr>	
 								<td colspan="2" style="background: #242424;">Config Loadup Folder</td>		
@@ -1210,7 +1454,7 @@ Add this image to your project created with this CMS to support us!<br /><img sr
 							</tr>
 							<tr>	
 								<td>/_site/*/_config/config.php</td>
-								<td>Configuration for your Site Module. See _example-site Site Module in _site folder for Informations how to Setup this File! (See example config.php file in there! See below for possible Configurations inside that file, mostly made by defining constants!</td>				
+								<td>Configuration for your Site Module. See _skeleton Site Module in _site folder for Informations how to Setup this File! (See example config.php file in there! See below for possible Configurations inside that file, mostly made by defining constants!</td>				
 							</tr>
 							<tr>	
 								<td colspan="2" style="background: #242424;">Site Modules Loadup Files</td>		
@@ -1226,7 +1470,7 @@ Add this image to your project created with this CMS to support us!<br /><img sr
 						</table><br />	
 						<h3>Relative Constants</h3>
 					    <section class="docs-intro">
-						    <p>Below you find a set of constants declared to easier produce and develope site modules! This constants are always relativ for your site Module and so they will come in handy making your life easier developing with this CMS! See inside the _site/_example-site Module to see implementations and files in different folders with explanations!</p><br />
+						    <p>Below you find a set of constants declared to easier produce and develope site modules! This constants are always relativ for your site Module and so they will come in handy making your life easier developing with this CMS! See inside the _site/_skeleton Module to see implementations and files in different folders with explanations!</p><br />
 						</section>
 						<table class="table table-bordered table-dark" style="font-size: 12px;">
 							<tr>
@@ -1268,7 +1512,7 @@ Add this image to your project created with this CMS to support us!<br /><img sr
 						</table><br />	
 						<h3>Site Settings</h3>
 					    <section class="docs-intro">
-						    <p>Below you can find settings which can be applied in your site Modules config.php file! <b>Be sure to define all these values, otherwhise this can lead to unforeseen errors!</b> See inside the _example-site example Site Module to see default configurations and more! See inside the _site/_example-site Module to see implementations and files in different folders with explanations!</p><br />
+						    <p>Below you can find settings which can be applied in your site Modules config.php file! <b>Be sure to define all these values, otherwhise this can lead to unforeseen errors!</b> See inside the _skeleton example Site Module to see default configurations and more! See inside the _site/_skeleton Module to see implementations and files in different folders with explanations!</p><br />
 						</section>
 						<table class="table table-bordered table-dark" style="font-size: 12px;">
 							<tr>
@@ -1321,11 +1565,11 @@ Add this image to your project created with this CMS to support us!<br /><img sr
 							</tr>
 							<tr>	
 								<td>$object["set"]["permission"]</td>
-								<td>Here you can add permissions to easy be used with the administrator interface or other modules of your site! Check the example _example-site in the _site directory to see how you need to set up this variable. In the _administrator site you can see an implementation of this functionality.</td>				
+								<td>Here you can add permissions to easy be used with the administrator interface or other modules of your site! Check the example _skeleton in the _site directory to see how you need to set up this variable. In the _administrator site you can see an implementation of this functionality.</td>				
 							</tr>
 							<tr>	
 								<td>$object["nav"]</td>
-								<td>Array to create easy navigations on templates! See _example-site or other sites as example on how to use this array. It is stored in the config.php files of a site!</td>				
+								<td>Array to create easy navigations on templates! See _skeleton or other sites as example on how to use this array. It is stored in the config.php files of a site!</td>				
 							</tr>
 							<tr>	
 								<td colspan="2" style="background: #242424;">User Settings</td>		
@@ -1381,6 +1625,33 @@ Add this image to your project created with this CMS to support us!<br /><img sr
 							<tr>	
 								<td>_USER_PF_NUMSIGNS_</td>
 								<td>Passwordfilter: Min Numeric Signs</td>				
+							</tr>
+							<tr>	
+								<td colspan="2" style="background: #242424;">Default Activation Scripts Config</td>		
+							</tr>
+							<tr>	
+								<td>_HIVE_USR_ACT_DISABLE_</td>
+								<td>Disable the general User Activation page? (0/1)</td>				
+							</tr>
+							<tr>	
+								<td>_HIVE_USR_ACT_REFER_</td>
+								<td>Refer to this path if you want to use special User Activation page for Site Mode</td>				
+							</tr>
+							<tr>	
+								<td>_HIVE_USR_REC_REFER_</td>
+								<td>Refer to this path if you want to use special Recover Execution page for Site Mode</td>				
+							</tr>
+							<tr>	
+								<td>_HIVE_USR_REC_DISABLE_</td>
+								<td>Disable the general Recover Activation page? (0/1)</td>				
+							</tr>
+							<tr>	
+								<td>_HIVE_USR_MC_REFER_</td>
+								<td>Refer to this path if you want to use special Mail Activation page for Site Mode</td>				
+							</tr>
+							<tr>	
+								<td>_HIVE_USR_MC_DISABLE_</td>
+								<td>Disable the general Mail Activation page? (0/1)</td>				
 							</tr>
 							<tr>	
 								<td colspan="2" style="background: #242424;">Create Initial Files</td>		
@@ -1623,19 +1894,22 @@ Add this image to your project created with this CMS to support us!<br /><img sr
 						</table>
 						
 						<h3>Windmill Theme</h3>
-						<b>The "_example-complex" / "_simple-backend" Site Module does feature this theme and show its functionalitites to be used in development. This also contains some more advanced functionality implementations of the FP2 CMS to be used as reference!</b>
+						<b>Windmill is a TailwindCSS Theme. The "_example-windmill" / "_windmill-backend" Site Module does feature this theme and show its functionalitites to be used in development. This also contains some more advanced functionality implementations of the FP2 CMS to be used as reference!</b>
 						<p>This is another more advanced and responsive theme created out of the Windmill Dashboard theme! It comes fully integrated with functions for alert boxes and more! <a href="https://github.com/estevanmaito/windmill-dashboard" rel="noopener" target="_blank">Here you can find the Repository of the integrated more enhanced "Windmill" Dashboard.</a> This is just a credit for the developer, stick to this documentation here for informations on how to use this template!
-						<b>See Example Site Module _example-complex to get insights on how to use this templates functions!</b> You can dynamically change the navigation of the theme by changing the nav array. An example of this array can be seen at the end of the _example-complex config.php File! <b>This will give you the possibility, to easy spawn a responsive navigation!</b></p>
+						<b>See Example Site Module _example-windmill to get insights on how to use this templates functions!</b> You can dynamically change the navigation of the theme by changing the nav array. An example of this array can be seen at the end of the _example-windmill config.php File! <b>This will give you the possibility, to easy spawn a responsive navigation!</b></p>
 						
 						<div class="simplelightbox-gallery row mb-3">
 							<div class="col-12 col-md-4 mb-3">
-						        <a href="./example-complex.png"><img class="figure-img img-fluid shadow rounded" src="./example-complex.png" alt="" title="Example-Complex Site Module Screenshot"></a>
+						        <a href="./example-windmill11.png"><img class="figure-img img-fluid shadow rounded" src="./example-windmill11.png" alt="" title="Windmill Dark Dashboard"></a>
 							</div><!--//col-->
 							<div class="col-12 col-md-4 mb-3">
-						        <a href="./example-complex-dark.png"><img class="figure-img img-fluid shadow rounded" src="./example-complex-dark.png" alt="" title="Example-Complex Site Module Screenshot Dark"></a>
+						        <a href="./example-windmill4.png"><img class="figure-img img-fluid shadow rounded" src="./example-windmill4.png" alt="" title="Windmill Light Forms"></a>
 							</div><!--//col-->
 							<div class="col-12 col-md-4 mb-3">
-						        <a href="./example-complex-white.png"><img class="figure-img img-fluid shadow rounded" src="./example-complex-white.png" alt="" title="Example-Complex Site Module Screenshot Light"></a>
+						        <a href="./example-windmill2.png"><img class="figure-img img-fluid shadow rounded" src="./example-windmill2.png" alt="" title="Windmill Dark Charts"></a>
+							</div><!--//col-->
+							<div class="col-12 col-md-4 mb-3">
+						        <a href="./example-windmill3.png"><img class="figure-img img-fluid shadow rounded" src="./example-windmill3.png" alt="" title="Windmill Dark Tables"></a>
 							</div><!--//col-->
 						</div>		
 						
@@ -1651,191 +1925,395 @@ Add this image to your project created with this CMS to support us!<br /><img sr
   <tbody>
     <!-- Alert Boxes -->
 							<tr>
-								<td colspan="2" style="background: #242424;"><b>Alerts</b></td>	
+								<td colspan="3" style="background: #242424;"><b>Alerts</b></td>	
 							</tr>
     <tr>
-      <td>hive__dashboard_alert_danger($message, $classes)</td>
+      <td>hive__windmill_alert_danger($message, $classes)</td>
       <td>Generates a danger alert box.</td>
       <td>$message (string), $classes (string, optional)</td>
     </tr>
     <tr>
-      <td>hive__dashboard_alert_success($message, $classes)</td>
+      <td>hive__windmill_alert_success($message, $classes)</td>
       <td>Generates a success alert box.</td>
       <td>$message (string), $classes (string, optional)</td>
     </tr>
     <tr>
-      <td>hive__dashboard_alert_warning($message, $classes)</td>
+      <td>hive__windmill_alert_warning($message, $classes)</td>
       <td>Generates a warning alert box.</td>
       <td>$message (string), $classes (string, optional)</td>
     </tr>
     <tr>
-      <td>hive__dashboard_alert_info($message, $classes)</td>
+      <td>hive__windmill_alert_info($message, $classes)</td>
       <td>Generates an info alert box.</td>
       <td>$message (string), $classes (string, optional)</td>
     </tr>
     <tr>
-      <td>hive__dashboard_alert_primary($message, $classes)</td>
+      <td>hive__windmill_alert_primary($message, $classes)</td>
       <td>Generates a primary alert box.</td>
       <td>$message (string), $classes (string, optional)</td>
     </tr>
     <tr>
-      <td>hive__dashboard_alert_url($message, $image, $url, $newtab, $rel, $more, $classes)</td>
+      <td>hive__windmill_alert_url($message, $image, $url, $newtab, $rel, $more, $classes)</td>
       <td>Generates an alert box with a link.</td>
       <td>$message (string), $image (string), $url (string), $newtab (boolean), $rel (boolean), $more (string, optional), $classes (string)</td>
     </tr>
     
     <!-- Heading Elements -->
 							<tr>
-								<td colspan="2" style="background: #242424;"><b>Headings</b></td>	
+								<td colspan="3" style="background: #242424;"><b>Headings</b></td>	
 							</tr>
     <tr>
-      <td>hive__dashboard_h2($text, $classes)</td>
+      <td>hive__windmill_h2($text, $classes)</td>
       <td>Generates an h2 heading element.</td>
       <td>$text (string), $classes (string, optional)</td>
     </tr>
     <tr>
-      <td>hive__dashboard_h4($text, $classes)</td>
+      <td>hive__windmill_h4($text, $classes)</td>
       <td>Generates an h4 heading element.</td>
       <td>$text (string), $classes (string, optional)</td>
     </tr>
     
     <!-- Button Elements -->
 							<tr>
-								<td colspan="2" style="background: #242424;"><b>Buttons</b></td>	
+								<td colspan="3" style="background: #242424;"><b>Buttons</b></td>	
 							</tr>
     <tr>
-      <td>hive__dashboard_button($text, $icon, $color, $tcolor, $type, $url, $name, $js, $classes)</td>
+      <td>hive__windmill_button($text, $icon, $color, $tcolor, $type, $url, $name, $js, $classes)</td>
       <td>Generates a button element.</td>
       <td>$text (string), $icon (string), $color (string), $tcolor (string), $type (string), $url (string), $name (string), $js (string), $classes (string)</td>
     </tr>
     <tr>
-      <td>hive__dashboard_button_icright($text, $icon, $color, $tcolor, $type, $url, $name, $js, $classes)</td>
+      <td>hive__windmill_button_icright($text, $icon, $color, $tcolor, $type, $url, $name, $js, $classes)</td>
       <td>Generates a button element with icon on the right.</td>
       <td>$text (string), $icon (string), $color (string), $tcolor (string), $type (string), $url (string), $name (string), $js (string), $classes (string)</td>
     </tr>
     <tr>
-      <td>hive__dashboard_button_icleft($text, $icon, $color, $tcolor, $type, $url, $name, $js, $classes)</td>
+      <td>hive__windmill_button_icleft($text, $icon, $color, $tcolor, $type, $url, $name, $js, $classes)</td>
       <td>Generates a button element with icon on the left.</td>
       <td>$text (string), $icon (string), $color (string), $tcolor (string), $type (string), $url (string), $name (string), $js (string), $classes (string)</td>
     </tr>
     <tr>
-      <td>hive__dashboard_button_small_round($icon, $color, $tcolor, $type, $url, $name, $js, $classes)</td>
+      <td>hive__windmill_button_small_round($icon, $color, $tcolor, $type, $url, $name, $js, $classes)</td>
       <td>Generates a small round button element.</td>
       <td>$icon (string), $color (string), $tcolor (string), $type (string), $url (string), $name (string), $js (string), $classes (string)</td>
     </tr>
     <tr>
-      <td>hive__dashboard_button_small($icon, $color, $tcolor, $type, $url, $name, $js, $classes)</td>
+      <td>hive__windmill_button_small($icon, $color, $tcolor, $type, $url, $name, $js, $classes)</td>
       <td>Generates a small button element.</td>
       <td>$icon (string), $color (string), $tcolor (string), $type (string), $url (string), $name (string), $js (string), $classes (string)</td>
     </tr>
     
     <!-- Box Elements -->
 							<tr>
-								<td colspan="2" style="background: #242424;"><b>Boxes / Containers</b></td>	
+								<td colspan="3" style="background: #242424;"><b>Boxes / Containers</b></td>	
 							</tr>
     <tr>
-      <td>hive__dashboard_box_start($header, $classes, $headerclasses)</td>
+      <td>hive__windmill_box_start($header, $classes, $headerclasses)</td>
       <td>Starts a box element.</td>
       <td>$header (string, optional), $classes (string), $headerclasses (string, optional)</td>
     </tr>
     <tr>
-      <td>hive__dashboard_box_end()</td>
+      <td>hive__windmill_box_end()</td>
       <td>Ends a box element.</td>
       <td>No parameters</td>
     </tr>
     <tr>
-      <td>hive__dashboard_box_full($text, $classes)</td>
+      <td>hive__windmill_box_full($text, $classes)</td>
       <td>Generates a full box element.</td>
       <td>$text (string), $classes (string)</td>
     </tr>
     <tr>
-      <td>hive__dashboard_box($text, $header, $classes, $headerclasses)</td>
+      <td>hive__windmill_box($text, $header, $classes, $headerclasses)</td>
       <td>Generates a box element with text and header.</td>
       <td>$text (string), $header (string, optional), $classes (string), $headerclasses (string, optional)</td>
     </tr>
     <tr>
-      <td>hive__dashboard_box_colored($text, $header, $classes, $headerclasses)</td>
+      <td>hive__windmill_box_colored($text, $header, $classes, $headerclasses)</td>
       <td>Generates a colored box element with text and header.</td>
       <td>$text (string), $header (string, optional), $classes (string), $headerclasses (string, optional)</td>
     </tr>
     <tr>
-      <td>hive__dashboard_box_card($text, $value, $color, $icon, $classes)</td>
+      <td>hive__windmill_box_card($text, $value, $color, $icon, $classes)</td>
       <td>Generates a box card element with text, value, color, and icon.</td>
       <td>$text (string), $value (string), $color (string), $icon (string), $classes (string)</td>
     </tr>
     
     <!-- Modal Elements -->
 							<tr>
-								<td colspan="2" style="background: #242424;"><b>Modals</b></td>	
+								<td colspan="3" style="background: #242424;"><b>Modals</b></td>	
 							</tr>
     <tr>
-      <td>hive__dashboard_modal($text, $title, $icon, $closebutton)</td>
+      <td>hive__windmill_modal($text, $title, $icon, $closebutton)</td>
       <td>Generates a modal element.</td>
       <td>$text (string), $title (string, optional), $icon (string, optional), $closebutton (string, optional)</td>
     </tr>
     
     <!-- Main Elements -->
 							<tr>
-								<td colspan="2" style="background: #242424;"><b>Main Elements</b></td>	
+								<td colspan="3" style="background: #242424;"><b>Main Elements</b></td>	
 							</tr>
     <tr>
-      <td>hive__dashboard_404($object, $text, $title, $classes)</td>
-      <td>Generates a 404 error box.</td>
-      <td>$object, $text (string), $title (string, optional), $classes (string)</td>
-    </tr>
-    <tr>
-      <td>hive__dashboard_401($object, $text, $title, $classes)</td>
-      <td>Generates a 401 error box.</td>
-      <td>$object, $text (string), $title (string, optional), $classes (string)</td>
-    </tr>
-    <tr>
-      <td>hive__dashboard_footer($object, $footer, $classes, $end_div)</td>
+      <td>hive__windmill_footer($object, $footer, $classes, $end_div)</td>
       <td>Generates the dashboard footer.</td>
       <td>$object, $footer (string, optional), $classes (string), $end_div (boolean, optional)</td>
     </tr>
     <tr>
-      <td>hive__dashboard_end($object)</td>
+      <td>hive__windmill_end($object)</td>
       <td>Ends the dashboard.</td>
       <td>$object</td>
     </tr>
     <tr>
-      <td>hive__dashboard_start($object, $classes)</td>
+      <td>hive__windmill_start($object, $classes)</td>
       <td>Starts the dashboard.</td>
       <td>$object, $classes (string, optional)</td>
     </tr>
     <tr>
-      <td>hive__dashboard_content_start($object, $classes_main, $classes_wrapper)</td>
+      <td>hive__windmill_content_start($object, $classes_main, $classes_wrapper)</td>
       <td>Starts the dashboard content.</td>
       <td>$object, $classes_main (string), $classes_wrapper (string)</td>
     </tr>
     <tr>
-      <td>hive__dashboard_content_end($object)</td>
+      <td>hive__windmill_content_end($object)</td>
       <td>Ends the dashboard content.</td>
       <td>$object</td>
     </tr>
     <tr>
-      <td>hive__dashboard_header</td>
+      <td>hive__windmill_header</td>
       <td>Creates the dashboard header.</td>
       <td>$object, $tabtitle = "", $metaextensions = "", $theme_default = "dark", $mainclass = "flex h-screen bg-gray-50 dark:bg-gray-900"</td>
     </tr>
     <tr>
-      <td>hive__dashboard_nav</td>
+      <td>hive__windmill_nav</td>
       <td>Creates the dashboard navigation.</td>
       <td>$object, $title = "", $button = false</td>
     </tr>
     <tr>
-      <td>hive__dashboard_topbar</td>
+      <td>hive__windmill_topbar</td>
       <td>Creates the dashboard topbar.</td>
       <td>$object, $profile_menu = false, $theme_menu = false, $search = false, $title = false, $img = "", $lang_ar = false</td>
+    </tr>
+							<tr>
+								<td colspan="3" style="background: #242424;"><b>Templates</b></td>	
+							</tr>
+    <tr>
+      <td>hive__windmill_404($object, $text, $title, $classes)</td>
+      <td>Generates a 404 error box.</td>
+      <td>$object, $text (string), $title (string, optional), $classes (string)</td>
+    </tr>
+    <tr>
+      <td>hive__windmill_401($object, $text, $title, $classes)</td>
+      <td>Generates a 401 error box.</td>
+      <td>$object, $text (string), $title (string, optional), $classes (string)</td>
+    </tr>
+    <tr>
+      <td>hive__windmill_login</td>
+      <td>Generates a Login Form.</td>
+      <td>$object, $cookies_allow = false, $recover_url = false, $image_light =  _HIVE_URL_REL_."/_core/_image/bugfish-framework-logo.jpg", $image_dark =  _HIVE_URL_REL_."/_core/_image/bugfish-framework-logo.jpg"</td>
+    </tr>
+    <tr>
+      <td>hive__windmill_recover</td>
+      <td>Generates a Recover Account Form.</td>
+      <td>$object, $back_url = false, $rec_url = false, $get_token = "rec_token", $get_user = "rec_user", $image_light =  _HIVE_URL_REL_."/_core/_image/bugfish-framework-logo.jpg", $image_dark =  _HIVE_URL_REL_."/_core/_image/bugfish-framework-logo.jpg"</td>
     </tr>
   </tbody>
 </table></div>
 						
 						<h3>AdminBSB Theme</h3>
 						<p>This is the most advanced theme integrated in this CMS for free! <a href="https://github.com/gurayyarar/AdminBSBMaterialDesign" rel="noopener" target="_blank">Here you can find the Repository of the integrated more enhanced "AdminBSB Material Design" Dashboard.</a> This is just a credit for the developer, stick to this documentation here for informations on how to use this template!
-						<b>See Example Site Module _administrator to get insights on how to use this templates functions! This is also the advanced administrator module to be used in that CMS!</b> You can dynamically change the navigation of the theme by changing the nav array. An example of this array can be seen at the end of the _administrator config.php File! <b>This will give you the possibility, to easy spawn a responsive and enhanced navigation as much more, which is included here!</b> This is also the most enhanced skeleton for modules with explanation readmes in it! They maybe help you in develop your own modules. <b>Functions of AdminBSB are not explained here yet. Look up the files of the default _administration site module to get insights!</b></p>
+						<b>See Example Site Module _administrator to get insights on how to use this templates functions! This is also the advanced administrator module to be used in that CMS!</b> You can dynamically change the navigation of the theme by changing the nav array. An example of this array can be seen at the end of the _administrator config.php File! <b>This will give you the possibility, to easy spawn a responsive and enhanced navigation as much more, which is included here!</b> This is also the most enhanced skeleton for modules with explanation readmes in it! They maybe help you in develop your own modules. <b>Functions of AdminBSB are not explained here yet. Look up the files of the default _administration site module to get insights! You can copy and reuse the administrator module if you need it. You can even modify it, but watch out to not update it, as this may removes your changes.</b></p>
 						
-								
+						
+						<div class="simplelightbox-gallery row mb-3">
+							<div class="col-12 col-md-4 mb-3">
+						        <a href="./adminbsb11.png"><img class="figure-img img-fluid shadow rounded" src="./adminbsb11.png" alt="" title="AdminBSB Theme Dashboard"></a>
+							</div>
+							<div class="col-12 col-md-4 mb-3">
+						        <a href="./adminbsb2.png"><img class="figure-img img-fluid shadow rounded" src="./adminbsb2.png" alt="" title="AdminBSB Theme Boxes"></a>
+							</div>
+							<div class="col-12 col-md-4 mb-3">
+						        <a href="./adminbsb3.png"><img class="figure-img img-fluid shadow rounded" src="./adminbsb3.png" alt="" title="AdminBSB Theme Charts"></a>
+							</div>
+						</div>										
+						
+						
+						
+						<h3>Volt Theme</h3>
+						<p>This is an alternative for the windmill theme in bootstrap 5! <a href="https://github.com/themesberg/volt-bootstrap-5-dashboard" rel="noopener" target="_blank">Here you can find the Repository of the integrated more enhanced "Volt Administrator Dashboard".</a> This is just a credit for the developer, stick to this documentation here for informations on how to use this template!
+						<b>See Example Site Module _example-volt to get insights on how to use this templates functions! </b>Functions of Volt Template are similar to the windmill dashboard functions but are not explained here yet. Look up the files of the default _example-volt site module to get insights! You can copy and reuse the module if you need it. You can even modify it, but watch out to not update it, as this may removes your changes.</p>
+						
+						
+						<div class="simplelightbox-gallery row mb-3">
+							<div class="col-12 col-md-4 mb-3">
+						        <a href="./example-volt1x.png"><img class="figure-img img-fluid shadow rounded" src="./example-volt1x.png" alt="" title="Volt Theme Dashboard"></a>
+							</div>
+							<div class="col-12 col-md-4 mb-3">
+						        <a href="./example-volt2.png"><img class="figure-img img-fluid shadow rounded" src="./example-volt2.png" alt="" title="Volt Theme Forms"></a>
+							</div>
+							<div class="col-12 col-md-4 mb-3">
+						        <a href="./example-volt3.png"><img class="figure-img img-fluid shadow rounded" src="./example-volt3.png" alt="" title="Volt Theme ChartJS"></a>
+							</div>
+						</div>										
+												
+
+
+
+
+						<div style="overflow-x: scroll; max-width: 100%;">
+						<table class="table table-bordered table-dark" style="font-size: 12px; ">
+ <thead>
+    <tr>
+      <th>Function</th>
+      <th>Description</th>
+      <th>Parameters</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- Alert Boxes -->
+							<tr>
+								<td colspan="3" style="background: #242424;"><b>Alerts</b></td>	
+							</tr>
+    <tr>
+      <td>hive__volt_alert_danger($message, $classes)</td>
+      <td>Generates a danger alert box.</td>
+      <td>$message (string), $classes (string, optional)</td>
+    </tr>
+    <tr>
+      <td>hive__volt_alert_success($message, $classes)</td>
+      <td>Generates a success alert box.</td>
+      <td>$message (string), $classes (string, optional)</td>
+    </tr>
+    <tr>
+      <td>hive__volt_alert_warning($message, $classes)</td>
+      <td>Generates a warning alert box.</td>
+      <td>$message (string), $classes (string, optional)</td>
+    </tr>
+    <tr>
+      <td>hive__volt_alert_info($message, $classes)</td>
+      <td>Generates an info alert box.</td>
+      <td>$message (string), $classes (string, optional)</td>
+    </tr>
+    <tr>
+      <td>hive__volt_alert_primary($message, $classes)</td>
+      <td>Generates a primary alert box.</td>
+      <td>$message (string), $classes (string, optional)</td>
+    </tr>
+    <tr>
+      <td>hive__volt_alert_secondary($message, $classes)</td>
+      <td>Generates a Secondary alert box.</td>
+      <td>$message (string), $classes (string, optional)</td>
+    </tr>
+    
+    <!-- Heading Elements -->
+							<tr>
+								<td colspan="3" style="background: #242424;"><b>Headings</b></td>	
+							</tr>
+    <tr>
+      <td>hive__volt_h2($text, $classes)</td>
+      <td>Generates an h2 heading element.</td>
+      <td>$text (string), $classes (string, optional)</td>
+    </tr>
+    <tr>
+      <td>hive__volt_h4($text, $classes)</td>
+      <td>Generates an h4 heading element.</td>
+      <td>$text (string), $classes (string, optional)</td>
+    </tr>
+    
+    <!-- Box Elements -->
+							<tr>
+								<td colspan="3" style="background: #242424;"><b>Boxes / Containers</b></td>	
+							</tr>
+    <tr>
+      <td>hive__volt_box_start($header, $classes, $headerclasses, $subtitle = false)</td>
+      <td>Starts a box element.</td>
+      <td>$header (string, optional), $classes (string), $headerclasses (string, optional)</td>
+    </tr>
+    <tr>
+      <td>hive__volt_box_end()</td>
+      <td>Ends a box element.</td>
+      <td>No parameters</td>
+    </tr>
+    <tr>
+      <td>hive__volt_box_full($text, $classes)</td>
+      <td>Generates a full box element.</td>
+      <td>$text (string), $classes (string)</td>
+    </tr>
+    <tr>
+      <td>hive__volt_box($text, $classes)</td>
+      <td>Generates a box element with text and header.</td>
+      <td>$text (string), $header (string, optional), $classes (string), $headerclasses (string, optional)</td>
+    </tr>
+    
+    <!-- Modal Elements -->
+							<tr>
+								<td colspan="3" style="background: #242424;"><b>Modals</b></td>	
+							</tr>
+    <tr>
+      <td>hive__volt_modal($text, $title, $icon, $closebutton)</td>
+      <td>Generates a modal element.</td>
+      <td>$text (string), $title (string, optional), $icon (string, optional), $closebutton (string, optional)</td>
+    </tr>
+    
+    <!-- Main Elements -->
+							<tr>
+								<td colspan="3" style="background: #242424;"><b>Main Elements</b></td>	
+							</tr>
+    <tr>
+      <td>hive__volt_footer($object, $footer, $classes, $end_div)</td>
+      <td>Generates the dashboard footer.</td>
+      <td>$object, $footer (string, optional), $classes (string), $end_div (boolean, optional)</td>
+    </tr>
+    <tr>
+      <td>hive__volt_header</td>
+      <td>Creates the dashboard header.</td>
+      <td>$object, $tabtitle = "", $metaextensions = "", $theme_default = "dark", $mainclass = "flex h-screen bg-gray-50 dark:bg-gray-900"</td>
+    </tr>
+    <tr>
+      <td>hive__volt_topbar</td>
+      <td>Creates the dashboard topbar.</td>
+      <td>$object, $profile_menu = false, $theme_menu = false, $search = false, $title = false, $img = "", $lang_ar = false, $noty_ar = false, $notify_url_all = "", $user_name = "User Profile"</td>
+    </tr>
+    <tr>
+      <td>hive__volt_nav</td>
+      <td>Creates the dashboard navigation.</td>
+      <td>$object, $title = "", $button = false, $logo_url = false, $user_login = false</td>
+    </tr>
+    <tr>
+      <td>hive__volt_downbar</td>
+      <td>Creates the dashboard extenable lower display box.</td>
+      <td>$object, $buttontext, $text</td>
+    </tr>
+							<tr>
+								<td colspan="3" style="background: #242424;"><b>Templates</b></td>	
+							</tr>
+    <tr>
+      <td>hive__volt_404($object, $text, $title, $classes)</td>
+      <td>Generates a 404 error box.</td>
+      <td>$object, $text (string), $title (string, optional), $classes (string)</td>
+    </tr>
+    <tr>
+      <td>hive__volt_401($object, $text, $title, $classes)</td>
+      <td>Generates a 401 error box.</td>
+      <td>$object, $text (string), $title (string, optional), $classes (string)</td>
+    </tr>
+    <tr>
+      <td>hive__volt_login</td>
+      <td>Generates a Login Form.</td>
+      <td>$object, $cookies_allow = false, $recover_url = false, $image_light =  _HIVE_URL_REL_."/_core/_image/bugfish-framework-logo.jpg", $image_dark =  _HIVE_URL_REL_."/_core/_image/bugfish-framework-logo.jpg"</td>
+    </tr>
+    <tr>
+      <td>hive__volt_recover</td>
+      <td>Generates a Recover Account Form.</td>
+      <td>$object, $back_url = false, $rec_url = false, $get_token = "rec_token", $get_user = "rec_user", $image_light =  _HIVE_URL_REL_."/_core/_image/bugfish-framework-logo.jpg", $image_dark =  _HIVE_URL_REL_."/_core/_image/bugfish-framework-logo.jpg"</td>
+    </tr>
+	
+  </tbody>
+</table></div>
+
+
+
+
+
+
 						
 					</section><hr>	<br>
 					<section class="docs-section" id="item-19-6" style="padding-top: 0px; ">
@@ -1846,13 +2324,19 @@ Add this image to your project created with this CMS to support us!<br /><img sr
 								<th>Function</th>
 								<th>Description</th>
 								<th>Parameters</th>
-							</tr>						
+							</tr>	
+							<tr>	
+								<td colspan="3" style="background: #242424;">Get Relative Current URL (Usable for very purposes on navigations and more!)</td>		
+							</tr>					
 						
   <tr>
     <td>`hive_get_url_rel($array)`</td>
     <td>Generates a relative URL based on an array of values.</td>
     <td>$array - An array of values used to construct the URL.</td>
   </tr>
+							<tr>	
+								<td colspan="3" style="background: #242424;">Full Error Page Display</td>		
+							</tr>			
   <tr>
     <td>`hive_error_full($title, $subtitle, $description, $exit, $code)`</td>
     <td>Generates an HTML error page with custom information.</td>
@@ -1864,6 +2348,9 @@ Add this image to your project created with this CMS to support us!<br /><img sr
       - $code - An optional HTTP response code (numeric).
     </td>
   </tr>
+							<tr>	
+								<td colspan="3" style="background: #242424;">Check for Access Function</td>		
+							</tr>			
   <tr>
     <td>`hive__access($object, $rights, $displayerror = false)`</td>
     <td>Checks access rights for a user with optional groups and can display an error page.</td>
@@ -1873,13 +2360,19 @@ Add this image to your project created with this CMS to support us!<br /><img sr
       - $displayerror - A boolean indicating whether to display an error page on access denial.
     </td>
   </tr>		
+							<tr>	
+								<td colspan="3" style="background: #242424;">Get Relative Folder (Internal Use)</td>		
+							</tr>			
   <tr>
     <td>`hive_get_url_rel($array)`</td>
     <td>Ger Relative Folder if website is in a relative folder</td>
     <td>
       - $array - Current URL Array
     </td>
-  </tr>			
+  </tr>		
+							<tr>	
+								<td colspan="3" style="background: #242424;">Set Site Session User Default Values</td>		
+							</tr>	
   <tr>
     <td>`hive__user_lang_set($object, $user_id, $hive_mode, $lang_name)`</td>
     <td>Save a default lang for the user in the given site mode in the users database (will be validated with available lang array)</td>
@@ -1920,6 +2413,36 @@ Add this image to your project created with this CMS to support us!<br /><img sr
       - $color_code - Change color for this user in this site mode to this value
     </td>
   </tr>	
+							<tr>
+								<td colspan="3" style="background: #242424;"><b>Login and Account Execution Functions</b></td>	
+							</tr>
+  <tr>
+    <td>hive__template_mail_activate</td>
+    <td>Execution to activate new mail</td>
+    <td>$object, $get_token = "mai_token", $get_user = "mai_user", $message = true, $redirect = _HIVE_URL_REL_
+    </td>
+  </tr>	
+  <tr>
+    <td>hive__template_user_activate</td>
+    <td>Execution to activate a user</td>
+    <td>$object, $get_token = "act_token", $get_user = "act_user", $message = true, $redirect = _HIVE_URL_REL_
+    </td>
+  </tr>	
+  <tr>
+    <td>hive__template_recover_exec</td>
+    <td>Recover with or without new pass account /Activate Function Execution</td>
+    <td>$object, $rec_url = false, $get_token = "rec_token", $get_user = "rec_user", $mailtemplate = "_RECOVER_", $message = true, $redirect = _HIVE_URL_REL_
+    </td>
+  </tr>	
+  <tr>
+    <td>hive__template_login_exec</td>
+    <td>Login Executions</td>
+    <td>$object, $cookies_allow = false
+    </td>
+  </tr>	
+							
+							
+							
 						</table></div>	
 					</section>				
 				</article>

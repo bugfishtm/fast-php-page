@@ -22,7 +22,7 @@
 
 		You should have received a copy of the GNU General Public License
 		along with this program.  If not, see <https://www.gnu.org/licenses/>.
-	*/ require_once("../internal.php");
+	*/ if(file_exists("../../settings.php")) { require_once("../../settings.php"); } else { @http_response_code(404); Header("Location: ./"); exit(); }
 	
 	function hive_error_full_out($title, $subtitle, $description, $exit, $code) { 
 		if(is_numeric($code)) { @http_response_code($code); }?>	
@@ -30,7 +30,6 @@
 
 	<?php if($exit) { exit(); } }
 	if(!_HIVE_ALLOW_TOOLS_) { hive_error_full_out("Access Error", "Script is deactivated in ruleset.php!", "Enable _HIVE_ALLOW_TOOLS_ in ruleset.php or in the _administration interface to enable this files execution!", true, 401);}
-	session_start();
 	session_destroy();?>
 <html>
 <head>

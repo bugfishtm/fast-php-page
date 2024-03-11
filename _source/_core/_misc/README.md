@@ -1,16 +1,16 @@
 # Additional Website Files and Cache
 
-DO NOT CHANGE FILES IN THAT FOLDER, THEY MAY GET OVERWRITTEN DURING CORE UPDATES!
+**DO NOT MODIFY FILES WITHIN THIS FOLDER, AS THEY MAY BE OVERWRITTEN DURING CORE UPDATES!**
 
-This directory serves as a storage location for additional files used by the website, as well as caching files that are not actively utilized by the core code.
+The Additional Website Files and Cache directory functions as a storage location for additional files utilized by the website, along with caching files that are not actively employed by the core code.
 
 **Caching Files:**
-- Unused caching files, generated during various processes, can be stored here temporarily.
+- Initialization files and various caching and lockfiles.
 
 **Important Notes:**
-- Avoid modifying or deleting files unless you are certain about their purpose.
+- Refrain from modifying or deleting files unless their purpose is fully understood.
 - Document the purpose of additional files for future reference.
 
 **Caution:**
-- Regularly review and clean up unused caching files to prevent unnecessary storage usage.
-- Ensure that additional files are referenced correctly in the core code.
+- Regularly review and clean up unused caching files to mitigate unnecessary storage usage.
+- Ensure that additional files are accurately referenced within the core code.

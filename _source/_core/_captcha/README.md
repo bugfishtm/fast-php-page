@@ -1,21 +1,21 @@
 # CAPTCHA Files
 
-DO NOT CHANGE FILES IN THAT FOLDER, THEY MAY GET OVERWRITTEN DURING CORE UPDATES!
+**DO NOT MODIFY FILES WITHIN THIS FOLDER, AS THEY MAY BE OVERWRITTEN DURING CORE UPDATES!**
 
-This directory contains CAPTCHA PHP files designed for inclusion in projects. These CAPTCHAs can be displayed using an HTML image tag, and the session key with the code is `_HIVE_SITE_COOKIE_."captcha.XXXX"`.
+The CAPTCHA Files directory contains PHP files designed for CAPTCHA functionality inclusion in projects. These CAPTCHAs can be displayed using an HTML image tag, with the session key containing the code as `_HIVE_SITE_COOKIE_."captcha.XXXX"`.
 
 **Usage:**
-- Include the CAPTCHA PHP files in your project to enable CAPTCHA functionality.
+- Integrate the CAPTCHA PHP files into your project to enable CAPTCHA functionality.
 - Display the CAPTCHA image using an HTML image tag with the appropriate source.
 
 **Integration:**
-- Ensure that session handling is appropriately configured in your project.
-- Use the session key `_HIVE_SITE_COOKIE_."captcha.XXXX"` to associate CAPTCHA codes with user sessions.
+- Ensure proper configuration of session handling in your project.
+- Utilize the session key `_HIVE_SITE_COOKIE_."captcha.XXXX"` to link CAPTCHA codes with user sessions.
 
 **Important Notes:**
-- Securely handle session keys to prevent abuse.
-- Customize the CAPTCHA appearance or complexity based on project requirements.
+- Handle session keys securely to prevent misuse or abuse.
+- Customize CAPTCHA appearance or complexity to align with project requirements.
 
 **Caution:**
-- Regularly update and review the CAPTCHA implementation for security enhancements.
-- Implement server-side validation to verify CAPTCHA input.
+- Regularly update and review the CAPTCHA implementation for enhanced security.
+- Implement server-side validation to validate CAPTCHA input securely.

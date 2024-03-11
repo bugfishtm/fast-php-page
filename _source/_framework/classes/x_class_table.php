@@ -33,20 +33,20 @@
 		private $csrfobj    = false;
 		
 		// Constructor
-		function __construct($mysql, $table_name, $id = "none", $id_field = "id") {
+		function __construct($mysql, $table_name, $id = false, $id_field = "id") {
 			$this->mysql 	= $mysql;
 			$this->table 	= $table_name;
 			$this->idf 		= $id_field;
-			$this->id 		= $id;
+			if(!$id) { $this->id 		= ""; } else { $this->id 		= $id; }
 			// Check last CSRF or Renew
-			$this->csrfobj = new x_class_csrf("x_class_table".$id);
+			$this->csrfobj = new x_class_csrf("x_class_table".$this->id);
 			if($this->csrfobj->check(@$_POST["x_class_table_exec_csrf".$this->id])) { $this->csrf = true; }}	
 
 		// Spawn Deleting Exec
-		public function exec_delete() {
+		public function exec_delete($ovr_csrf = false) {
 			if(isset($_POST["x_class_table_exec_del_submit".$this->id])) {  
 				if(@is_numeric(@$_POST["x_class_table_exec_delete".$this->id])) { 
-					if($this->csrf) { 
+					if($this->csrf OR $ovr_csrf) { 
 						$this->mysql->query("DELETE FROM `".$this->table."` WHERE `".$this->idf."` = '".$_POST["x_class_table_exec_delete".$this->id]."'");
 						return "deleted";
 					} else { return "csrf"; }
@@ -86,8 +86,23 @@
 					if(@is_numeric(@$_POST["x_class_table_exec_edit".$this->id])) {  
 						if($this->csrf) { 
 							foreach($this->edit_array as $key => $value) {
-								if(!isset($_POST["x_class_table_post_".$this->id."_".$value["field_name"]])) { $value_now = ""; }
-								else {$value_now = @$_POST["x_class_table_post_".$this->id."_".$value["field_name"]]; }
+								
+								
+								if(!isset($_POST["x_class_table_post_".$this->id."_".$value["field_name"]]) AND $value["field_type"] != "int") {
+									if(!@$value["field_default"] AND !is_numeric(@$value["field_default"])) { $value_now = ""; }
+									else {  $value_now = $value["field_default"]; }
+								} elseif(!is_numeric($_POST["x_class_table_post_".$this->id."_".$value["field_name"]]) AND $value["field_type"] == "int") {
+									if(!@$value["field_default"]) { $value_now = 0; }
+									else {  $value_now = $value["field_default"]; }
+									
+									if(is_numeric($value["field_int_min"])) { 
+										if($value["field_int_min"] > $value["field_default"]) { 
+											$value_now = $value["field_int_min"];
+										}
+									}
+								} else {$value_now = @$_POST["x_class_table_post_".$this->id."_".$value["field_name"]]; }
+								
+								
 								$b[0]["value"] = $value_now;
 								$b[0]["type"] = "s";
 								$this->mysql->query("UPDATE `".$this->table."` SET `".$value["field_name"]."` = ? WHERE `".$this->idf."` = '".$_POST["x_class_table_exec_edit".$this->id]."'", $b);
@@ -107,8 +122,24 @@
 						$bt = "";
 						$bs = "";
 						foreach($this->create_array as $key => $value) {
-							if(!isset($_POST["x_class_table_post_".$this->id."_".$value["field_name"]])) { $value_now = ""; }
-							else {$value_now = @$_POST["x_class_table_post_".$this->id."_".$value["field_name"]]; }
+							
+							
+								
+								if(!isset($_POST["x_class_table_post_".$this->id."_".$value["field_name"]]) AND $value["field_type"] != "int") {
+									if(!@$value["field_default"] AND !is_numeric(@$value["field_default"])) { $value_now = ""; }
+									else {  $value_now = $value["field_default"]; }
+								} elseif(!is_numeric($_POST["x_class_table_post_".$this->id."_".$value["field_name"]]) AND $value["field_type"] == "int") {
+									if(!@$value["field_default"]) { $value_now = 0; }
+									else {  $value_now = $value["field_default"]; }
+									
+									if(is_numeric($value["field_int_min"])) { 
+										if($value["field_int_min"] > $value["field_default"]) { 
+											$value_now = $value["field_int_min"];
+										}
+									}
+								} else {$value_now = @$_POST["x_class_table_post_".$this->id."_".$value["field_name"]]; }
+							
+							
 							$b[$key]["value"] = $value_now;
 							$b[$key]["type"] = "s";		
 							if($key != 0) { $bs .=	", ? ";	} else { $bs .=	" ? "; } 				
@@ -152,28 +183,30 @@
 					echo "<form method='post' action='".$this->rel_url."'><input type='hidden' name='x_class_table_exec_csrf".$this->id."' value='".$this->csrfobj->get()."'>"; 
 						foreach($this->create_array as $key => $value) { if(isset($value["field_title"])) { echo "<b>".$value["field_title"]."</b><br />"; } if(isset($value["field_descr"])) { echo $value["field_descr"]."<br />"; }?>
 								<?php 
-									if($value["field_label"]) {
+									if(@$value["field_label"]) {
 										echo '<span class="x_class_table_label">';
 										echo $value["field_label"]; 
 										echo '</span>'; 
 									}
 								?>
 							<!-- Int -->
-							<?php if($value["field_type"] == "int") { ?> <input class="<?php echo $value["field_classes"]; ?>" placeholder="<?php echo $value["field_ph"]; ?>"  type="number" value="" name="x_class_table_post_<?php echo $this->id."_".$value["field_name"]; ?>"><br /><?php } ?>				
+							<?php if($value["field_type"] == "int") { ?> <input class="<?php echo @$value["field_classes"]; ?>" placeholder="<?php echo @$value["field_ph"]; ?>"  type="number" value="<?php echo $value["field_pre"]; ?>" name="x_class_table_post_<?php echo $this->id."_".$value["field_name"]; ?>"><br /><?php } ?>				
 							<!-- String -->
-							<?php if($value["field_type"] == "string") { ?> <input class="<?php echo $value["field_classes"]; ?>" placeholder="<?php echo $value["field_ph"]; ?>"  type="text" value="" name="x_class_table_post_<?php echo $this->id."_".$value["field_name"]; ?>"><br /><?php } ?>					
+							<?php if($value["field_type"] == "string") { ?> <input class="<?php echo @$value["field_classes"]; ?>" placeholder="<?php echo @$value["field_ph"]; ?>"  type="text" value="<?php echo @$value["field_pre"]; ?>" name="x_class_table_post_<?php echo $this->id."_".$value["field_name"]; ?>"><br /><?php } ?>					
 							<!-- Text -->
-							<?php if($value["field_type"] == "text") { ?> <textarea class="<?php echo $value["field_classes"]; ?>" placeholder="<?php echo $value["field_ph"]; ?>"  name="x_class_table_post_<?php echo $this->id."_".$value["field_name"]; ?>"></textarea><br /><?php } ?>
+							<?php if($value["field_type"] == "text") { ?> <textarea class="<?php echo @$value["field_classes"]; ?>" placeholder="<?php echo @$value["field_ph"]; ?>"  name="x_class_table_post_<?php echo $this->id."_".$value["field_name"]; ?>"><?php echo @$value["field_pre"]; ?></textarea><br /><?php } ?>
 							<!-- Bool -->
-							<?php if(false) { ?>Configure: <input class="<?php echo $value["field_classes"]; ?>" type="checkbox" name="x_class_table_post_<?php echo $this->id."_".$value["field_name"]; ?>" ><br /><?php } ?>		
+							<?php if(false) { ?>Configure: <input class="<?php echo @$value["field_classes"]; ?>" type="checkbox" name="x_class_table_post_<?php echo $this->id."_".$value["field_name"]; ?>" ><br /><?php } ?>		
 							<!-- Select -->
 							<?php if($value["field_type"] == "select") { ?>
 								<select class="<?php echo $value["field_classes"]; ?>"  name="x_class_table_post_<?php echo $this->id."_".$value["field_name"]; ?>">
 									<?php
-										 foreach($value["select_array"] AS $key => $value) { if(is_array($value)) {
-											echo '<option value="'.$value[1].'">'.$value[0]."</option>";
+										 foreach($value["select_array"] AS $key => $valuex) { if(is_array($valuex)) {
+												if($valuex[1] == @$value["field_pre"]) { $seltmp = "selected"; } else { $seltmp = ""; }
+											echo '<option value="'.$valuex[1].'" '.$seltmp.'>'.$valuex[0]."</option>";
 										} else {
-												echo '<option value="'.$value.'">'.$value."</option>";	
+												if($valuex == @$value["field_pre"]) { $seltmp = "selected"; } else { $seltmp = ""; }
+												echo '<option value="'.$valuex.'" '.$seltmp.'>'.$valuex."</option>";	
 										} }
 									?>
 								</select><br />
@@ -215,13 +248,13 @@
 								<!-- Select -->
 								<?php if($value["field_type"] == "select") { ?>
 									<select class="<?php echo $value["field_classes"]; ?>"  name="x_class_table_post_<?php echo $this->id."_".$value["field_name"]; ?>">
-										<option value="<?php echo htmlentities($current[$value["field_name"]]); ?>">Actual: <?php 
-											$nochange = @htmlentities($current[$value["field_name"]]);
+										<option value="<?php echo htmlentities($current[$value["field_name"]] ?? ''); ?>"><?php 
+											$nochange = @htmlentities($current[$value["field_name"]] ?? '');
 											if(is_array($value["select_array"])) {
 												foreach($value["select_array"] AS $kk => $vv) {
 													if(is_array($vv)) {
 														if($vv[1] == $current[$value["field_name"]]) {
-															$nochange = @htmlentities($vv[0]);
+															$nochange = @htmlentities($vv[0] ?? '');
 														}
 													}
 												}

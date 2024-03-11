@@ -1,24 +1,24 @@
 # Default Images
 
-DO NOT CHANGE FILES IN THAT FOLDER, THEY MAY GET OVERWRITTEN DURING CORE UPDATES!
+**DO NOT MODIFY FILES WITHIN THIS FOLDER, AS THEY MAY BE OVERWRITTEN DURING CORE UPDATES!**
 
-This directory contains default images essential for the core system and templates used by the website.
+The Default Images directory contains essential default images utilized by the core system and templates within the website.
 
 **Usage:**
-- Default images stored here serve as placeholders or fallbacks for the core system and various templates.
-- Ensure these images are appropriately referenced in your templates and stylesheets.
+- Default images stored here act as placeholders or fallbacks for the core system and various templates.
+- Ensure proper referencing of these images in your templates and stylesheets.
 
 **Organizing Images:**
-- Keep images organized based on their purpose or usage.
-- Maintain a clear folder structure for easy access and reference.
+- Organize images based on their purpose or usage to maintain clarity.
+- Maintain a structured folder hierarchy for efficient access and reference.
 
 **Image Formats:**
-- Include images in various formats (e.g., PNG, JPEG) to accommodate different requirements.
+- Include images in multiple formats (e.g., PNG, JPEG) to cater to diverse requirements.
 
 **Important Notes:**
 - Verify the licensing terms of each image and adhere to usage restrictions.
-- Regularly check for updates or newer versions of default images.
+- Regularly monitor for updates or newer versions of default images.
 
 **Caution:**
-- Avoid unnecessary modifications to default image files.
-- Backup images regularly to prevent accidental loss.
+- Refrain from unnecessary modifications to default image files.
+- Regularly backup images to mitigate the risk of accidental loss.

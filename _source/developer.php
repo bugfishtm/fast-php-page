@@ -22,7 +22,14 @@
 
 		You should have received a copy of the GNU General Public License
 		along with this program.  If not, see <https://www.gnu.org/licenses/>.
-	*/  if(file_exists("./settings.php")) { require_once("./settings.php"); } else { @http_response_code(404); Header("Location: ./"); exit(); } 
+	*/  
+	
+	////////////////////////////////////////////////////////////////////////////////////
+	// Updater Script to deploy site module updates if build number has been increased.
+	// File may gets overwritten during core updates!
+	////////////////////////////////////////////////////////////////////////////////////
+	
+	if(file_exists("./settings.php")) { require_once("./settings.php"); } else { @http_response_code(404); Header("Location: ./"); exit(); } 
 	if(!_HIVE_MOD_CHANGES_) { hive_error_full("Access Error", "Script is deactivated in ruleset.php!", "Enable _HIVE_MOD_CHANGES_ in ruleset.php or in the _administration interface to enable this files execution!", true, 401); }
 	hive__simple_start($object, "Developer Tools - FP²", '<link rel="icon" type="image/x-icon" href="'._HIVE_URL_REL_.'/_core/_image/favicon.ico">'); ?>
 
@@ -35,7 +42,8 @@
 		<a href="./_core/_tools/session_destroy.php" class="containerbox-btn">Session Destroy</a> 
 		<a href="./_core/_tools/cookie_destroy.php" class="containerbox-btn">Cookie Destroy</a> <br /><br /><br />
 		<a href="./_core/_tools/phpinfo.php" class="containerbox-btn">PHPInfo</a> 
-		<a href="./_core/_tools/admin_switch.php" class="containerbox-btn">Admin Switch</a>
+		<a href="./_core/_action/admin_switch.php" class="containerbox-btn">Admin Switch</a>
+		<a href="./_core/_action/admin_switch_fast.php" class="containerbox-btn">Admin Switch Fast</a>
 		<br /><br />
 	</div>
 	<div class="containerbox">

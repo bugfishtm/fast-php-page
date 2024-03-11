@@ -1,0 +1,45 @@
+<?php
+	/* 	__________ ____ ___  ___________________.___  _________ ___ ___  
+		\______   \    |   \/  _____/\_   _____/|   |/   _____//   |   \ 
+		 |    |  _/    |   /   \  ___ |    __)  |   |\_____  \/    ~    \
+		 |    |   \    |  /\    \_\  \|     \   |   |/        \    Y    /
+		 |______  /______/  \______  /\___  /   |___/_______  /\___|_  / 
+				\/                 \/     \/                \/       \/  	
+							www.bugfish.eu
+							
+	    Bugfish Fast PHP Page Framework
+		Copyright (C) 2024 Jan Maurice Dahlmanns [Bugfish]
+
+		This program is free software: you can redistribute it and/or modify
+		it under the terms of the GNU General Public License as published by
+		the Free Software Foundation, either version 3 of the License, or
+		(at your option) any later version.
+
+		This program is distributed in the hope that it will be useful,
+		but WITHOUT ANY WARRANTY; without even the implied warranty of
+		MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+		GNU General Public License for more details.
+
+		You should have received a copy of the GNU General Public License
+		along with this program.  If not, see <https://www.gnu.org/licenses/>.
+		
+		File Description:
+			File in this folder with mysql.**table_name**.php will be installed automatically if you use syntax below.
+			Use CREATE TABLE IF NOT EXISTS - to prevent performance lowagen through handler errors.
+			File name shall not create the Prefix which has been set at the installation, prefix of tables will
+			automatically be included!
+	*/ if(!is_array($object)) { @http_response_code(404); Header("Location: ../"); exit(); }	
+		$object["mysql"]->multi_query("
+			CREATE TABLE IF NOT EXISTS `"._HIVE_PREFIX_."sys_file_folder` (
+			  `id` int(10) NOT NULL AUTO_INCREMENT,
+			  `folder_name` varchar(256) NULL,
+			  `fk_user` int(10) DEFAULT NULL,
+			  `fk_folder` int(10) DEFAULT NULL,
+			  `folder_type` VARCHAR(256) DEFAULT NULL,
+			  `folder_sortnumber` int(10) DEFAULT '1',
+			  `section` VARCHAR(64) DEFAULT NULL,
+			  `site_data` text DEFAULT NULL COMMENT 'Additional Data for Site Modules',
+			  `creation` datetime DEFAULT current_timestamp(),
+			  `modification` datetime DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+			  PRIMARY KEY (`id`));
+		");

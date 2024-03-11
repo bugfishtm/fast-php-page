@@ -27,20 +27,47 @@
 	if(_CRON_ONLY_CLI_) { if(!x_inCLI()) { hive_error_full("Not Allowed", "Cronjob hardlink not allowed!", "Cron execution in browser has been disabled in configuration by _CRON_ONLY_CLI_.", true, 401);  exit(); } }
 	$php_space = "\r\n"; if(!x_inCLI()) { $php_space = "<br />"; }
 	ob_start();
-	echo "// Starting Monthly Fast-PHP-Page Cronjob".$php_space.$php_space;
+	echo "// Monthly FP² Cronjob".$php_space.$php_space;
 	if(is_dir($object["path"]."/_site/")) {
 		$scan = scandir($object["path"]."/_site/");
 		foreach($scan as $file) {
 		   if (is_dir($object["path"]."/_site/".$file."/_cron/_monthly") AND $file != "." AND $file != "..") {
 			   foreach (glob($object["path"]."/_site/".$file."/_cron/_monthly/cron.*.php") as $filename){ 
-					echo "// Starting Site: ".$file." Cronjob: ".basename($filename)."".$php_space.$php_space;
+			   
+					$object["cron_var"] = new x_class_var($object["mysql"], _TABLE_VAR_, @trim($file));
+					$hive_mode_cron = @trim($file);
+					
+					$tmp = $object["cron_var"]->get("_SMTP_HOST_"); if(!$tmp) { $tmp  = false; } 
+					$tmp1 = $object["cron_var"]->get("_SMTP_PORT_"); if(!$tmp1) { $tmp1  = false; } 
+					$tmp2 = $object["cron_var"]->get("_SMTP_AUTH_"); if(!$tmp2) { $tmp2  = false; } 
+					$tmp3 = $object["cron_var"]->get("_SMTP_USER_"); if(!$tmp3) { $tmp3  = false; } 
+					$tmp4 = $object["cron_var"]->get("_SMTP_PASS_"); if(!$tmp4) { $tmp4  = false; } 
+					$tmpx = $object["cron_var"]->get("_SMTP_SENDER_MAIL_"); if(!$tmpx) { $tmpx  = false; } 
+					$tmp1x = $object["cron_var"]->get("_SMTP_SENDER_NAME_"); if(!$tmp1x) { $tmp1x  = false; } 
+					$object["cron_mail"] = new x_class_mail($tmp, $tmp1, $tmp2, $tmp3, $tmp4, $tmpx, $tmp1x);
+					$object["cron_mail"]->initReplyTo($tmpx, $tmp1x);
+					
+					$object["cron_mail"]->all_default_html(true);	
+					$object["cron_mail"]->smtpdebuglevel(0);	
+					$object["cron_mail"]->allow_insecure_ssl_connections(true);		
+					$object["cron_mail"]->logging($object["mysql"], _TABLE_LOG_MAIL_, false, $hive_mode_cron);	
+					
+					$object["cron_mail_template"] = new x_class_mail_template($object["mysql"], _TABLE_MAIL_TPL_, $hive_mode_cron);
+					$tmp = $object["cron_var"]->get("_SMTP_MAILS_HEADER_"); if(!$tmp) { $tmp  = false; } 
+					$object["cron_mail_template"]->set_header($tmp);
+					$tmp1 = $object["cron_var"]->get("_SMTP_MAILS_FOOTER_"); if(!$tmp1) { $tmp1  = false; } 
+					$object["cron_mail_template"]->set_footer($tmp1);	
+					$object["cron_mail"]->change_default_template($tmp, $tmp1);	
+					
+					
+					echo "// Execution - Site: ".$file." Cronjob File: ".basename($filename)."".$php_space.$php_space;
 					require_once($filename);
 			   }
 		   }
 		}	
 	}
 	$content = ob_get_contents();
-	$cron_log = new x_class_log($object["mysql"], _TABLE_LOG_CRON_, "");
+	$cron_log = new x_class_log($object["mysql"], _TABLE_LOG_CRON_, "monthly");
 	$cron_log->message($content);
 	ob_end_clean();
 	echo $content;

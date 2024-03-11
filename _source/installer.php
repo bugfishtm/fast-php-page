@@ -22,12 +22,22 @@
 
 		You should have received a copy of the GNU General Public License
 		along with this program.  If not, see <https://www.gnu.org/licenses/>.
-	*/ # No Installation Needed
+	*/
+	
+	////////////////////////////////////////////////////////////////////////////////////
+	// Install Software Script if settings.php is not existant
+	// This file may gets updated during core updates.
+	////////////////////////////////////////////////////////////////////////////////////
 	if(file_exists("./settings.php")) { require_once("./settings.php"); hive_error_full("No Installation Required", "Click <a href='./'>here</a> to go back...", "We found a valid settings.php file, which means that this software is already installed!<br /> Tp re-install this software delete the settings.php file in the document root directory.", true, 401);  exit(); } 
-	$object = array(); require_once("./_core/_lib/lib.hive.php");  
-	$object = array(); require_once("./_core/_lib/lib.__installer.php");  
+	$object = array(); require_once("./_core/_lib/lib._hive.php");  
+	if(file_exists("./cfg_ruleset.php")) { $object = array(); require_once("./cfg_ruleset.php");  }
 	$object = array(); require_once("./_core/_lib/lib._simple.php");  
 	define("_HIVE_COLOR_", "#ff5707");
+	if(!defined("_INSTALLER_TITLE_"))  { define("_INSTALLER_TITLE_", "Installation"); }
+	if(!defined("_INSTALLER_COOKIE_")) { define("_INSTALLER_COOKIE_", "fp2_"); }
+	if(!defined("_INSTALLER_PREFIX_")) { define("_INSTALLER_PREFIX_", "fp2_"); }
+	if(!defined("_INSTALLER_CODE_"))   { define("_INSTALLER_CODE_", false); }
+	
 	// Start Session
 	session_start();
 	// Blcok User if Needed
@@ -73,7 +83,7 @@
 	hive__simple_start($object, "Installation - FP²", '<link rel="icon" type="image/x-icon" href="./_core/_image/favicon.ico">');
 	if(!$do OR $erroremptyr OR $erroremptyu OR $erroremptyd OR !$con OR $coner OR @$erroremptyrcced) {?>
 	<div class="containerbox">
-		<img src='./_core/_image/logo_alpha.png' width='40' style="margin-right: 10px;" > <b style='font-size:36px; padding-bottom: 10px;'>Installation</b>
+		<img src='./_core/_image/logo_alpha.png' width='40' style="margin-right: 10px;" > <b style='font-size:36px; padding-bottom: 10px;'><?php echo _INSTALLER_TITLE_; ?></b>
 		<small><br />Welcome to the website installer script! This script aims to simplify the setup process by generating a 'settings.php' file for your website's root folder. Should the 'settings.php' file be absent, this installer will assist in configuring MySQL data and prefixes necessary for your website's functionality.<br><br>
 
 Enter your MySQL database credentials and desired database prefix in the provided form. For additional email functionalities, manual setup within 'settings.php' or through the administration interface can be undertaken post-installation.</small>
@@ -81,7 +91,7 @@ Enter your MySQL database credentials and desired database prefix in the provide
 		<form method="post">
 		<input type="hidden" name="csrf" value="<?php echo $_SESSION["csrf_hive_installer"]; ?>">
 		<?php if(_INSTALLER_CODE_ != false AND _INSTALLER_CODE_ != "") { ?>
-		<b>Installation Code</b>:<br /><small>Provide Installation Code to install this software!<br /> You can find the installer code in /_core/_lib/lib.__installer.php!</small><br />
+		<b>Installation Code</b>:<br /><small>Provide Installation Code to install this software!<br /> You can find the installer code in /cfg_installer.php!</small><br />
 		<?php if(@$erroremptyrcced) { echo "<b><div class='containererror'>Please provide a valid installer code!</div></b>"; } ?>
 		<input type="text" name="installer_code"  placeholder="Installer Code" value="<?php if(!is_string(@$_POST["installer_code"])) { echo ""; } else { echo htmlentities(@$_POST["installer_code"] ?? '');} ?>"> <br />
 		<br />
@@ -187,14 +197,14 @@ if(!file_exists("./settings.php")) {
 	\$object['url'] 	= '".str_replace("'", "\\'",str_replace("\\", "\\\\",$_POST["website_url"]))."'; # Full URL
 	
 	/* Mail Settings - Can also be defined in Sites Module (Setting will be overwritten by Site Module Setting) */
-	\$smtp['_SMTP_HOST_'] 			= 'localhost';  # Mail Host Server
-	\$smtp['_SMTP_PORT_'] 			= '465';  # Mail Server Port
-	\$smtp['_SMTP_AUTH_'] 			= 'ssl';  # can be ssl/tls/false
-	\$smtp['_SMTP_USER_'] 			= '_______ENTER___MAIL___USERNAME____'; # Username to Login (can be false)
-	\$smtp['_SMTP_PASS_'] 			= '_______ENTER___MAIL___PASSWORD____'; # Password to Login (can be false)
+	\$smtp['_SMTP_HOST_'] 			= 'localhost';  # Mail Host Server (better to be setup in site module.)
+	\$smtp['_SMTP_PORT_'] 			= '465';  # Mail Server Port (better to be setup in site module.)
+	\$smtp['_SMTP_AUTH_'] 			= 'ssl';  # can be ssl/tls/false (better to be setup in site module.)
+	\$smtp['_SMTP_USER_'] 			= '_______ENTER___MAIL___USERNAME____'; # Username to Login (can be false) (better to be setup in site module.)
+	\$smtp['_SMTP_PASS_'] 			= '_______ENTER___MAIL___PASSWORD____'; # Password to Login (can be false) (better to be setup in site module.)
 	
 	/* Do not change below! */
-	require_once(\$object['path'].\"/_core/init.php\");
+	require_once(\$object['path'].\"/_core/_misc/init.php\");
 	")) {
 		echo "<p><font color='lime'>OK: </font>Validating Configuration Variables<br />";
 		echo "<font color='lime'>OK: </font>Creating Settings.php File<br />";

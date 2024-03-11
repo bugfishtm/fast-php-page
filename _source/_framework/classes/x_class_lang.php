@@ -47,6 +47,10 @@
 		// Construct the Class		
 		private $filemode = false;
 		function __construct($mysql = false, $table = false, $lang = "none", $section = "none", $file_name = false) {
+			if($lang == false AND $section = false AND $file_name = false) {
+				if(is_object($mysql)) { if(!$this->mysql->table_exists($table)) { $this->create_table(); $this->mysql->free_all();  } }
+				return 0;
+			}
 			$this->mysql = $mysql;
 			$this->table = $table;
 			$this->lang = $lang;
@@ -141,5 +145,13 @@
 		// Translate for the current Loaded Language 
 		public function translate($key) {
 			if(isset($this->array[$key])) { return $this->array[$key]; } else { return $key; }
-		}		
+		}	
+		// Translate for the current Loaded Language Extension
+		public function extend($key, $value, $overwrite = true) {
+			if($overwrite) {
+				$this->array[$key] = $value;
+			} else {
+				if(!isset($this->array[$key])) { return $this->array[$key]; }
+			}
+		}			
 	}

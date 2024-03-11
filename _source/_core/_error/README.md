@@ -1,22 +1,22 @@
 # Error Pages
 
-DO NOT CHANGE FILES IN THAT FOLDER, THEY MAY GET OVERWRITTEN DURING CORE UPDATES!
+**DO NOT MODIFY FILES WITHIN THIS FOLDER, AS THEY MAY BE OVERWRITTEN DURING CORE UPDATES!**
 
-This directory contains custom error pages for the website, including the essential 404 and 503 pages.
+The Error Pages directory hosts custom error pages for the website, including crucial pages like 404 and 503 errors.
 
 **Pages:**
-- `error.404.php`: Page displayed when a resource is not found (404 error).
-- `error.503.php`: Page shown during temporary server unavailability (503 error).
+- `error.404.php`: Displayed when a requested resource is not found (404 error).
+- `error.503.php`: Shown during temporary server unavailability (503 error).
 
 **Custom Error Handling:**
 - Other error pages are dynamically called through PHP functions.
-- Ensure that PHP functions are appropriately configured for error handling.
+- Ensure proper configuration of PHP functions for error handling.
 
 **Important Notes:**
-- Check server logs for insights into recurring errors.
+- Monitor server logs to identify and address recurring errors.
 
 **Caution:**
-- Avoid excessive details on error pages for security reasons.
-- Keep error pages concise and user-friendly.
+- Refrain from including excessive details on error pages for security reasons.
+- Maintain concise and user-friendly error pages.
 
-By maintaining effective error pages, you can enhance the user experience and provide helpful information in case of unexpected issues.
+By maintaining effective error pages, you can improve the user experience and provide valuable information in case of unexpected issues.

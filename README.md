@@ -1,20 +1,16 @@
 ![Bugfish](https://img.shields.io/badge/Bugfish-CMS-orange)
 ![Status](https://img.shields.io/badge/Status-Finished-green)
 ![License](https://img.shields.io/badge/License-GPLv3-black)
-![Version](https://img.shields.io/badge/Version-2.00-white)
-![Version](https://img.shields.io/badge/Build-200-white)
+![Version](https://img.shields.io/badge/Version-2.100-white)
 
 # Fast PHP Page
 ![Logo](./_images/bugfish-fp2-logo-sm.png)
 
 **Repository:** [Fast-PHP-Page Project](https://github.com/bugfishtm/fast-php-page)  
 **Documentation:** [Comprehensive Documentation](https://bugfishtm.github.io/fast-php-page/)  
-The detailed documentation, elucidating each function and class, can be found in this repository's "docs" folder. For a deeper understanding of the "Bugfish Framework," its complete integration, and functionalities, please visit [Bugfish-GitHub](https://www.bugfish-github.de). This project has been created with the "Bugfish Framework" and "Fast-PHP-Page" CMS. Besides that full documentation is available and present as a site module to be displayed in this CMS.
-
-Documentation Bugfish Framework:  
-https://www.bugfish-github.de/bugfish-framework  
-Documentation Fast-PHP-Page:  
-https://www.bugfish-github.de/fast-php-page    
+**Documentation Bugfish Framework**:  
+https://bugfishtm.github.io/bugfish-framework  
+The detailed documentation, elucidating each function and class, can be found in this repository's "docs" folder. For a deeper understanding of the "Bugfish Framework," its complete integration, and functionalities, please visit [Bugfish-GitHub](https://bugfishtm.github.io). This project has been created with the "Bugfish Framework" and "Fast-PHP-Page" CMS. Besides that full documentation is available and present as a site module to be displayed in this CMS.
 
 **You can find Screenshots of templates and the software in this repositories _images folder or at the documentation available in the "docs" folder or at www.bugfish-github.de!**
 
@@ -23,6 +19,7 @@ Introducing our cutting-edge Multi-Site CMS, a dynamic platform brimming with ad
 
 **This project is not only interesting for coders oder software developers! You have a very lot of functionalities which can be used and configured for your needs in the _administrator site module to maybe achieve some things you need to do!**
 
+
 ## Repository Folders
 
 | Folder      | Description                         |
@@ -30,10 +27,30 @@ Introducing our cutting-edge Multi-Site CMS, a dynamic platform brimming with ad
 | .github     | Files for sponsorship information   |
 | _source     | Source code for deployment          |
 | docs        | Website documentation               |
+| docs-ext        | 3rd Party Documentation               |
 | _releases   | Software releases                   |
 | _images   | Some images for this readme file      |
 | _licenses   | Some informations about used licenses     | 
-| _modules   | Site Modules for Fast FP2 CMS, mostly for Documentations and development purposes! | 
+| _preview   | Preview Screenshots about this project     | 
+| _module   | Example Site Modules for developers to be tried out for educational purposes and as skeleton to copy over to your own projects!    | 
+
+## Interesting Modules
+If you are a developer trying to look into functionalities, you maybe should take a look at this template modules:
+
+
+| Name      | Description                         | Github|
+| ----------- | ----------------------------------- |-------|
+| _documentation-adminbsb     | Documentation for integrated AdminBSB Template   | https://github.com/bugfishtm/fp2-documentation-adminbsb |
+| _documentation-volt     | Documentation for integrated Volt Template   | https://github.com/bugfishtm/fp2-documentation-volt |
+| _documentation-framework     | Documentation for integrated Bugish Framework         | https://github.com/bugfishtm/fp2-documentation-framework |
+| _example-minimal        | Minimal Site Module Solution for Developers to use as a Template               | https://github.com/bugfishtm/fp2-example-minimal |
+| _example-windmill   | Windmill Dashboard Site Module example with some more advanced functionalities                   | https://github.com/bugfishtm/fp2-example-windmill |
+| _example-volt   | Volt Dashboard Site Module example with some more advanced functionalities                   | https://github.com/bugfishtm/fp2-example-volt |
+| _documentation   | Documentation for this CMS integrated as a Site Module      | https://github.com/bugfishtm/fp2-documentation |
+| _windmill-backend   | Backend to be copied or used side-by-side with your FP2-Page, based on Windmill Dashboard     | https://github.com/bugfishtm/fp2-windmill-backend |
+| _skeleton   | Skeleton of site modules for developers to look into to understand folder functionalities and more!     | https://github.com/bugfishtm/fp2-skeleton |
+
+Take a look at the _administrator site module which is delivered in the fast-php-page cms and acts as a default backend for all operations. You can copy the _administrator site module and modify it to fit your needs.
 
 ## Quick Installation
 - Upload all files out of this repositories _source directory to your webspace public-html folder!
@@ -42,21 +59,18 @@ Introducing our cutting-edge Multi-Site CMS, a dynamic platform brimming with ad
 - View the url where you installed that CMS and you will be redirected to the _administrator Site module.
 - Visit the store to install site modules, configure the administrator interface for your needs, install site module out of this repository by putting it in the _install folder of the website - or have fun developing!
 
-## Site Modules delivered in _modules folder
-
-**This modules are also available in the official bugfish.eu FP2 Store you can visit in the _administrator Site Module.** They are also available in this repositories _module folder for easy installing and deployment without using the bugfish store out of the administrator site module (or another one which is capable of store operations)
-| Module      | Description                         |
-| ----------- | ----------------------------------- |
-|_documentation|Documentation Site Module containing the Documentation for the "Fast PHP Page" CMS|
-|_documentation-adminbsb|Documentation Site Module containing the Documentation for the "AdminBSB" Template which is used in the _administrator Site Module.|
-|_documentation-framework| Documentation Site Module containing the Documentation for the "Bugfish Framework"|
-|_example-complex| Complex Site Module Solution with Windmill Theme Responsive Example to deploy on Page to view and understand for development purposes. |
-|_example-minimal| Minimal Site Module Solution with Simple Theme Example to deploy on Page to view and understand for development purposes. |
-|_simple-backend| A Simple backend which can be used together with frontpages (in multi site systems or with a standalone frontpage by setting this up in ruleset.php) or copied and changed for your own purposes! This is also a reference which is here to show you how to develope with the FP2 CMS.|
-
-**In the _site directory of your installed CMS Instance you can find the installed Site Modules. The administrator Module is automatically installed and acts as main administrator backend. You can change this if required or use another administrator interface if one is available or setup.** This _administrator Site Module has a lot of different functionalities which can be used even without coding skills!
 
 For comprehensive explanations and detailed documentation about fast PHP page development, please visit www.bugfish-github.de/fast-php-page. This website is the primary resource for in-depth information and guides on the topic.
+
+- If you want to use this software normaly, just go straight into the administration area by visiting the website and take setup there.
+- If you want to develop or use this cms as standalone for deployment, use cfg_ruleset.php and cfg_installer.php to setup the installer and the rules for multi/single site for your needs.
+
+### Requirements
+- PHP 8 or higher is required.
+- A MySQL connection is necessary for database operations.
+- Missing Modules or Failure in Database Connection will be displayed on website.
+- If something went wrong during installation, delete the settings.php file to re-install the software.
+- Website will ask for MySQL Data and for may missing PHP Modules!
 
 ## What is this project about?  
 This repository hosts a framework that is not a complete, out-of-the-box CMS (Content Management System) that can be easily set up in the frontend. Instead, it is designed for individuals with coding expertise who wish to develop their own modules. While there are built-in functionalities available in the administrator interface for various purposes, the primary emphasis of this system lies in its extensibility. Users are encouraged to create and integrate site modules to tailor the framework to their specific requirements, making it a flexible and adaptable solution for those who have the technical skills to harness its potential.
@@ -109,12 +123,39 @@ For users with coding expertise, the platform offers the freedom to create advan
 
 ## Initial Login
 If you are using user login functionality, the initial created user for the backend is as follow:  
-Username: admin@admin.local  
-Password: changeme
+**Username**: admin@admin.local  
+**Password**: changeme
+
+In case that you have configured your site to NOT use the mail adr. to login, the initial login data may also can be:  
+**Username**: admin  
+**Password**: changeme  
+
+**Do change your administrative password after login to close this potential security leak**
+## Integrated Themes
+Some screenshots of integrated themes which can be used in development or are used in integrated modules!
+### Windmill Dashboard
+
+<img src="./_preview/_example-windmill1.png" style="max-width: 500px;">
+
+### AdminBSB Dashboard
+
+<img src="./_preview/_adminbsb1.png" style="max-width: 500px;">
+
+### Volt Dashboard
+
+<img src="./_preview/_example-volt1.png" style="max-width: 500px;">
+
+### Simple Template
+
+<img src="./_preview/_example-minimal.png" style="max-width: 500px;">
 
 ## Extensive Project Documentation
 
 Our project is meticulously documented, providing comprehensive guidance and information every step of the way. From installation instructions to in-depth explanations of features and functionalities, our documentation ensures a smooth and informed user experience. You'll find detailed resources, tutorials, and examples to assist you in harnessing the full potential of our platform, empowering you to create, manage, and optimize your projects effectively.
+
+### Developers
+- For deeper insights, refer to the documentation located in the `docs` folder of the repository, this is also included as a site module which can be downloaded in the official bugfish store or out of the fp2 repository (just some default modules are to be found there).
+- Documentations can be downloaded as modules out of the store or on github!
 
 ## Documentation Progress and Collaboration
 
@@ -158,12 +199,11 @@ This project relies on third-party libraries stored in the '/_core/_vendor' fold
 | bootstrap-notify           | MIT      | None   |
 | bootstrap-select           | MIT      | None   |
 | bootstrap-tagsinput           | MIT      | None   |
-| bugfish-dashboard           | GPLv3      | None   |
 | chosen           | MIT      | None   |
-| dropzone           | MIT      | None   |
+| dropzone           | MIT      | [Link](https://github.com/dropzone/dropzone)   |
 | editable-table           | MIT      | None   |
-| flot-charts           | MIT      | None   |
-| gmaps           | MIT      | None   |
+| flot-charts           | MIT      | [Link](https://github.com/flot/flot)    |
+| gmaps           | MIT      | [Link](https://github.com/hpneo/gmaps)   |
 | ion-rangeslider           | MIT      | None   |
 | jquery-cookie           | MIT      | None   |
 | jquery-countto           | MIT      | None   |
@@ -185,10 +225,19 @@ This project relies on third-party libraries stored in the '/_core/_vendor' fold
 | node-waves           | MIT      | None   |
 | nouislider           | MIT      | None   |
 | raphael           | MIT      | None   |
-| waitme           | MIT      | None   |
-| Windmill Theme           | MIT      | None   |
-| Responsive Mail Template          | MIT      | None   |
+| waitme           | MIT      | [Link](https://github.com/vadimsva/waitMe)   |
+| Windmill Theme           | MIT      | [Link](https://github.com/estevanmaito/windmill-dashboard)   |
+| Responsive Mail Template          | MIT      | [Link](https://github.com/leemunroe/responsive-html-email-template)   |
 | Responsive Error Page          | MIT      | None   |
+| You-Login Responsive Login Pages          | MIT      | [Link](https://github.com/dropways/you-login)   |
+| Volt Dashboard Theme          | MIT      | [Link](https://github.com/themesberg/volt-bootstrap-5-dashboard)   |
+| Notyf          | MIT      | None   |
+| Smooth-Scroll          | MIT      | None   |
+| onscreen          | MIT      | None   |
+| waypoints          | MIT      | None   |
+| sass          | MIT      | None   |
+| chatist          | MIT      | None   |
+| githubbuttons          | BSD      | None   |
 
 
 ## Get Support

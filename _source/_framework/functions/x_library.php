@@ -49,7 +49,9 @@
 	function x_getRelativeFolderFromURL($url) {
 			if(strpos($url, "http://")) { $url = substr($url, 7); }
 			elseif(strpos($url, "https://")) { $url = substr($url, 8); }
-			$url = substr($url, strpos($url, "/")); return $url;}	
+			if(strpos($url, "/") > 1) { $url = substr($url, strpos($url, "/")); return $url; }
+			else { return "/"; }
+	}	
 	
 	function x_firstimagetext($text, $all = false) {
 		@preg_match_all('/<img[^>]+>/i', $text, $result11); 
@@ -64,8 +66,9 @@
 		return false;}
 		
 	function x_inCLI() {
-		$sapi_type = php_sapi_name(); 
-		if (substr($sapi_type, 0, 3) == 'cgi' || substr($sapi_type, 0, 3) == 'cli') { return true;
+		$sapi_type = php_sapi_name();  
+		if ( substr($sapi_type, 0, 3) == 'cli' /*|| substr($sapi_type, 0, 3) == 'cli'*/) { 
+			return true;
 		} else { return false; }}
 
 	function x_rmdir($dir) {
@@ -108,6 +111,8 @@
 	function x_isset($val) {if(trim(@$val ?? '') != '' AND strlen(@$val) > 0 ) {return true;} else {return false;}} ## Check if a value is not null and strlen more than 1
 	function x_imgValid($url) {if(!isset($url)) {return false;}else {if(is_string(trim($url ?? '')) AND strlen($url) > 3) {return @getimagesize($url);} else {return false;}} }
 	function x_hsc($string) { return htmlspecialchars(@$string ?? ''); }
+	function x_het($string) { return htmlentities(@$string ?? ''); }
+	function x_trim($string) { return trim(@$string ?? ''); }
 	function x_contains_cyrillic($val)  ## Check if a String contains cyrillic chars
 		{$contains_cyrillic = (bool) preg_match('/[\p{Cyrillic}]/u', $val);if ($contains_cyrillic) { return true; } else {return false;}}
 	function x_contains_bad_word($val) { ## Check if String Contains bad Words by Filter

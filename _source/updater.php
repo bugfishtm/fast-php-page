@@ -24,11 +24,27 @@
 		along with this program.  If not, see <https://www.gnu.org/licenses/>.
 	*/ if(file_exists("./settings.php")) { require_once("./settings.php"); } else { @http_response_code(404); Header("Location: ./"); exit(); }
 	
+	////////////////////////////////////////////////////////////////////////////////////
+	// Updater Script to deploy site module updates if build number has been increased.
+	// File may gets updated during core updates.
+	////////////////////////////////////////////////////////////////////////////////////
+	
+	$version = explode('.', PHP_VERSION);
+	if($version[0] <= 7) {  
+		hive_error_full("Critical Error", "This software does need at least PHP8.X to run properly!", "Your system is running PHP ".$version[0].", which is NOT supported!", true, 503);		
+	}		
+	unset($version);
+		
 	if(_HIVE_RNAME_ != _HIVE_RNAME_ACTIVE_ OR _HIVE_RNAME_ == 0) { 
 		hive_error_full("Wrong Site Module", "The site module used seems to have been replaced with another site module on the same location! Please restore the old site module and execute your operations on the administrator module!", "This is a critical error which should been taken care of!", true, 401); }
 	// Show Update Notification
 	if(_HIVE_BUILD_ == _HIVE_BUILD_ACTIVE_ AND _HIVE_VERSION_ == _HIVE_VERSION_ACTIVE_ ) { 
 		hive_error_full("No Update Required", "This software is already updated!", "Click <a href='./'>here</a> to go back!", true, 401); }	
+	// Show Update Notification
+	if(_HIVE_BUILD_ < _HIVE_BUILD_ACTIVE_ OR _HIVE_VERSION_ < _HIVE_VERSION_ACTIVE_ ) { 
+		hive_error_full("Not supported", "You are trying to downgrade this module!", "This is not supported by this updater functionality...", true, 401); }	
+		
+	
 	if(!@is_numeric(@$_SESSION["hive_installer_block"])) { $_SESSION["hive_installer_block"] = 0; }
 	if(@$_SESSION["hive_installer_block"] > 100 AND _UPDATER_CODE_ != false AND _UPDATER_CODE_ != "") { 
 		hive_error_full("Temporary Banned", "Too many wrong installation passwords!", "You have been temporarly blocked from this page!<br />Try again later and check to provide the real updater code.", true, 401);}

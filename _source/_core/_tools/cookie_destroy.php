@@ -22,7 +22,7 @@
 
 		You should have received a copy of the GNU General Public License
 		along with this program.  If not, see <https://www.gnu.org/licenses/>.
-	*/ require_once("../internal.php");
+	*/ if(file_exists("../../settings.php")) { require_once("../../settings.php"); } else { @http_response_code(404); Header("Location: ./"); exit(); }
 	
 	function hive_error_full_out($title, $subtitle, $description, $exit, $code) { 
 		if(is_numeric($code)) { @http_response_code($code); }?>	

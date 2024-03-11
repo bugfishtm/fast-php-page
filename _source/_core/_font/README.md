@@ -1,26 +1,26 @@
 # Default Website Fonts
 
-DO NOT CHANGE FILES IN THAT FOLDER, THEY MAY GET OVERWRITTEN DURING CORE UPDATES!
+**DO NOT MODIFY FILES WITHIN THIS FOLDER, AS THEY MAY BE OVERWRITTEN DURING CORE UPDATES!**
 
-This directory contains the default fonts used for the website.
+The Default Website Fonts directory houses the default fonts utilized for the website.
 
 **Usage:**
-- The fonts stored here serve as the default typography for the website.
-- Ensure that these fonts are appropriately referenced in your website's CSS.
+- These fonts serve as the default typography for the website.
+- Ensure proper referencing of these fonts in your website's CSS.
 
 **Organizing Fonts:**
-- Keep fonts organized based on their types or styles if there are multiple.
-- Maintain a clear hierarchy to facilitate easy reference in your stylesheets.
+- Organize fonts based on their types or styles if multiple are used.
+- Maintain a clear hierarchy for easy reference in your stylesheets.
 
 **Font Formats:**
-- Include different font formats (e.g., TTF, EOT, WOFF) to ensure cross-browser compatibility.
+- Include various font formats (e.g., TTF, EOT, WOFF) for cross-browser compatibility.
 
 **Important Notes:**
-- Verify the licensing terms of each font and adhere to usage restrictions.
+- Verify the licensing terms of each font and comply with usage restrictions.
 - Regularly check for updates or newer versions of default fonts.
 
 **Caution:**
-- Avoid unnecessary modifications to font files.
+- Refrain from unnecessary modifications to font files.
 - Backup fonts regularly to prevent accidental loss.
 
-By keeping default website fonts organized and up-to-date, you can maintain a consistent and visually appealing typography for your website.
+By ensuring default website fonts are organized and up-to-date, you can maintain consistent and visually appealing typography for your website.
