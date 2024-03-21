@@ -899,7 +899,7 @@
 					  <?php
 						if($backtoadmin) {
 							?>
-								<a href="<?php echo _HIVE_URL_REL_; ?>/_core/_tools/admin_switch.php"><?php echo $backtoadmin; ?></a>
+								<a href="<?php echo _HIVE_URL_REL_; ?>/_core/_action/admin_switch.php"><?php echo $backtoadmin; ?></a>
 							<?php
 						}
 						?>

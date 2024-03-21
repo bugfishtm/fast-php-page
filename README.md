@@ -2,6 +2,7 @@
 ![Status](https://img.shields.io/badge/Status-Finished-green)
 ![License](https://img.shields.io/badge/License-GPLv3-black)
 ![Version](https://img.shields.io/badge/Version-2.100-white)
+![Administrator Version](https://img.shields.io/badge/Administrator_Module_Version-NONE-red)
 
 # Fast PHP Page
 ![Logo](./_images/bugfish-fp2-logo-sm.png)

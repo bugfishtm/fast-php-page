@@ -2,6 +2,7 @@
 ![Status](https://img.shields.io/badge/Status-Finished-green)
 ![License](https://img.shields.io/badge/License-GPLv3-black)
 ![Version](https://img.shields.io/badge/Version-2.100-white)
+![Administrator Version](https://img.shields.io/badge/Administrator_Module_Version-NONE-red)
 
 # Fast PHP Page
 ![Logo](./_images/bugfish-fp2-logo-sm.png)
@@ -32,6 +33,7 @@ Introducing our cutting-edge Multi-Site CMS, a dynamic platform brimming with ad
 | _images   | Some images for this readme file      |
 | _licenses   | Some informations about used licenses     | 
 | _preview   | Preview Screenshots about this project     | 
+| _module   | Example Site Modules for developers to be tried out for educational purposes and as skeleton to copy over to your own projects!    | 
 
 ## Interesting Modules
 If you are a developer trying to look into functionalities, you maybe should take a look at this template modules:
