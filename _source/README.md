@@ -3,6 +3,7 @@
 ![License](https://img.shields.io/badge/License-GPLv3-black)
 ![Version](https://img.shields.io/badge/Version-2.100-white)
 ![Administrator Version](https://img.shields.io/badge/Administrator_Module_Version-NONE-red)
+![Framework Version](https://img.shields.io/badge/Framework_Version-3.00-white)
 
 # Fast PHP Page
 ![Logo](./_images/bugfish-fp2-logo-sm.png)
