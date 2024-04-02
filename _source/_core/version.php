@@ -23,12 +23,20 @@
 		You should have received a copy of the GNU General Public License
 		along with this program.  If not, see <https://www.gnu.org/licenses/>.
 	*/
+	
+	########################################################
+	// Initialize Array for Versioning Informations
+	########################################################
 	$x = array();
-	$x["rname"] 		= "_core";
-	$x["build"] 		= "100";
-	$x["version"] 		= "2.".$x["build"];
-	$x["name"] 			= "Fast-PHP-Page: Codename Hive";
-	$x["autor"] 		= "Jan-Maurice Dahlmanns";
-	$x["pseudo"] 		= "Bugfish";
-	$x["mail"] 			= "requests@bugfish.eu";
-	$x["website"] 		= "www.bugfish.eu";
+	
+	########################################################
+	// Version Information
+	########################################################
+	$x["version"] 		= "2.200";
+	
+	########################################################
+	// Beta Version Information
+	// True = Beta Version | False = Productive Version
+	########################################################
+	$x["beta"] 			= false;
+	

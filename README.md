@@ -1,9 +1,9 @@
 ![Bugfish](https://img.shields.io/badge/Bugfish-CMS-orange)
 ![Status](https://img.shields.io/badge/Status-Finished-green)
 ![License](https://img.shields.io/badge/License-GPLv3-black)
-![Version](https://img.shields.io/badge/Version-2.100-white)
-![Administrator Version](https://img.shields.io/badge/Administrator_Module_Version-NONE-red)
-![Framework Version](https://img.shields.io/badge/Framework_Version-3.00-white)
+![Version](https://img.shields.io/badge/Version-2.200-white)
+![Administrator Version](https://img.shields.io/badge/Administrator_Module_Version-1.100-white)
+![Framework Version](https://img.shields.io/badge/Framework_Version-3.10-white)
 
 # Fast PHP Page
 ![Logo](./_images/bugfish-fp2-logo-sm.png)
@@ -31,10 +31,8 @@ Introducing our cutting-edge Multi-Site CMS, a dynamic platform brimming with ad
 | docs        | Website documentation               |
 | docs-ext        | 3rd Party Documentation               |
 | _releases   | Software releases                   |
-| _images   | Some images for this readme file      |
+| _images   | Some images for this readme file and screenshots    |
 | _licenses   | Some informations about used licenses     | 
-| _preview   | Preview Screenshots about this project     | 
-| _module   | Example Site Modules for developers to be tried out for educational purposes and as skeleton to copy over to your own projects!    | 
 
 ## Interesting Modules
 If you are a developer trying to look into functionalities, you maybe should take a look at this template modules:
@@ -49,8 +47,10 @@ If you are a developer trying to look into functionalities, you maybe should tak
 | _example-windmill   | Windmill Dashboard Site Module example with some more advanced functionalities                   | https://github.com/bugfishtm/fp2-example-windmill |
 | _example-volt   | Volt Dashboard Site Module example with some more advanced functionalities                   | https://github.com/bugfishtm/fp2-example-volt |
 | _documentation   | Documentation for this CMS integrated as a Site Module      | https://github.com/bugfishtm/fp2-documentation |
-| _windmill-backend   | Backend to be copied or used side-by-side with your FP2-Page, based on Windmill Dashboard     | https://github.com/bugfishtm/fp2-windmill-backend |
+| _windmill-backend   | Backend to be copied or used side-by-side with your FP2-Page, based on TailwindCSS Windmill Dashboard     | https://github.com/bugfishtm/fp2-windmill-backend |
+| _volt-backend   | Backend to be copied or used side-by-side with your FP2-Page, based on Volt Bootstrap 5 Dashboard     | https://github.com/bugfishtm/fp2-volt-backend |
 | _skeleton   | Skeleton of site modules for developers to look into to understand folder functionalities and more!     | https://github.com/bugfishtm/fp2-skeleton |
+| _administrator   | Advanced Backend CMS system to be copied, modified or used!     | Include in this repository as default module. |
 
 Take a look at the _administrator site module which is delivered in the fast-php-page cms and acts as a default backend for all operations. You can copy the _administrator site module and modify it to fit your needs.
 
@@ -137,19 +137,19 @@ In case that you have configured your site to NOT use the mail adr. to login, th
 Some screenshots of integrated themes which can be used in development or are used in integrated modules!
 ### Windmill Dashboard
 
-<img src="./_preview/_example-windmill1.png" style="max-width: 500px;">
+<img src="./_images/_example-windmill1.png" style="max-width: 500px;">
 
 ### AdminBSB Dashboard
 
-<img src="./_preview/_adminbsb1.png" style="max-width: 500px;">
+<img src="./_images/_adminbsb1.png" style="max-width: 500px;">
 
 ### Volt Dashboard
 
-<img src="./_preview/_example-volt1.png" style="max-width: 500px;">
+<img src="./_images/_example-volt1.png" style="max-width: 500px;">
 
 ### Simple Template
 
-<img src="./_preview/_example-minimal.png" style="max-width: 500px;">
+<img src="./_images/_example-minimal.png" style="max-width: 500px;">
 
 ## Extensive Project Documentation
 

@@ -43,7 +43,6 @@
 		<a href="./_core/_tools/cookie_destroy.php" class="containerbox-btn">Cookie Destroy</a> <br /><br /><br />
 		<a href="./_core/_tools/phpinfo.php" class="containerbox-btn">PHPInfo</a> 
 		<a href="./_core/_action/admin_switch.php" class="containerbox-btn">Admin Switch</a>
-		<a href="./_core/_action/admin_switch_fast.php" class="containerbox-btn">Admin Switch Fast</a>
 		<br /><br />
 	</div>
 	<div class="containerbox">

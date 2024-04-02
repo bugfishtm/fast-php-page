@@ -34,8 +34,8 @@
 	$object = array(); require_once("./_core/_lib/lib._simple.php");  
 	define("_HIVE_COLOR_", "#ff5707");
 	if(!defined("_INSTALLER_TITLE_"))  { define("_INSTALLER_TITLE_", "Installation"); }
-	if(!defined("_INSTALLER_COOKIE_")) { define("_INSTALLER_COOKIE_", "fp2_"); }
-	if(!defined("_INSTALLER_PREFIX_")) { define("_INSTALLER_PREFIX_", "fp2_"); }
+	if(!defined("_INSTALLER_COOKIE_")) { define("_INSTALLER_COOKIE_", "hive_"); }
+	if(!defined("_INSTALLER_PREFIX_")) { define("_INSTALLER_PREFIX_", "hive_"); }
 	if(!defined("_INSTALLER_CODE_"))   { define("_INSTALLER_CODE_", false); }
 	
 	// Start Session

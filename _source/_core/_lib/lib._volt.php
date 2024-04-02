@@ -264,12 +264,14 @@
 			<meta name="title" content="<?php echo htmlentities($tabtitle); ?><?php if(_HIVE_TITLE_SPACER_ != false) { echo _HIVE_TITLE_SPACER_; } ?><?php if(is_string(_HIVE_TITLE_)) { echo @htmlentities(_HIVE_TITLE_); } ?>">
 			<title><?php echo $tabtitle; ?><?php if(_HIVE_TITLE_SPACER_ != false) { echo _HIVE_TITLE_SPACER_; } ?><?php if(is_string(_HIVE_TITLE_)) { echo _HIVE_TITLE_; } ?></title>
 			
-			<!-- Sweet Alert -->
+			<!-- Default CSS Includes -->
 			<link rel="stylesheet" href="<?php echo _HIVE_URL_REL_; ?>/_core/_vendor/notyf/notyf.min.css">
 			<link rel="stylesheet" href="<?php echo _HIVE_URL_REL_; ?>/_core/_vendor/boxicons/boxicons.css">
 			<link rel="stylesheet" href="<?php echo _HIVE_URL_REL_; ?>/_core/_vendor/volt/volt.css">
-			<link rel="stylesheet" href="<?php echo _HIVE_URL_REL_; ?>/_core/stylesheet.php">
 			<link rel="stylesheet" href="<?php echo _HIVE_URL_REL_; ?>/_core/_vendor/bugfish-jquery-sortselect/jquery.multiselect.sortable.js.css">
+			<link rel="stylesheet" href="<?php echo _HIVE_URL_REL_; ?>/_core/stylesheet.php">
+			
+			<!-- Default Javascript Includes -->
 			<script src="<?php echo _HIVE_URL_REL_; ?>/_core/_vendor/jquery/jq.3.6.min.js"></script>	
 			<script src="<?php echo _HIVE_URL_REL_; ?>/_core/_vendor/@popperjs/core/dist/umd/popper.min.js"></script>	
 			<script src="<?php echo _HIVE_URL_REL_; ?>/_core/_vendor/bootstrap5/dist/js/bootstrap.min.js"></script>	
@@ -324,7 +326,7 @@
         <li class="nav-item dropdown ms-lg-3">
           <a class="nav-link dropdown-toggle pt-1 px-0" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             <div class="media d-flex align-items-center">
-              <img class="avatar rounded-circle" alt="Image placeholder" src="<?php echo $lang_ar[0]["current_img"]; ?>">
+              <img class="avatar rounded-circle hive__volt_image_language" alt="Image placeholder" src="<?php echo $lang_ar[0]["current_img"]; ?>">
               <div class="media-body ms-2 text-dark align-items-center d-none d-lg-block">
               </div>
             </div>

@@ -38,6 +38,12 @@
 	if(file_exists($object["path"]."/_core/_misc/internal.php")) { 
 		require_once($object["path"]."/_core/_misc/internal.php"); 
 	} else { hive_error_full("Critical Error", "Document Root Setting may be wrong!", "Not able to find internal.php, this is mostly caused by a false object['path'] variable in the settings.php file. Try deleting this file to re-install the software.", true, 503);}	
+	
+	if(defined("_HIVE_MAINTENANCE_")) {
+		if(_HIVE_MAINTENANCE_ == 1) {
+			hive_error_full("Maintenance", "Site is in maintenance mode!", "Please come back later.", true, 503);
+		}
+	}
 
 	## Error Reporting
 	error_reporting(E_ALL); 
@@ -255,7 +261,11 @@
 	
 	// Instance Settings
 	if(!defined("_HIVE_CRIT_ER_")) { if(file_exists($object["path"]."/_site/"._HIVE_MODE_."/_config/config.php")) { require_once($object["path"]."/_site/"._HIVE_MODE_."/_config/config.php"); } }	
+	if(!defined("_HIVE_CRIT_ER_")) { if(file_exists($object["path"]."/_site/"._HIVE_MODE_."/_config/permission.php")) { require_once($object["path"]."/_site/"._HIVE_MODE_."/_config/permission.php"); } }	
 
+	// Classes Initializations	
+	$object["var"]->init_constant();	
+	
 	// Some Variables
 	if(!defined("_HIVE_URL_GET_")) { define('_HIVE_URL_GET_', array("fp2_l1", "fp2_l2", "fp2_l3", "fp2_l4", "fp2_l5")); }
 	if(!defined("_HIVE_CURL_LOGGING_")) { define('_HIVE_CURL_LOGGING_', false); }
@@ -783,3 +793,8 @@ Disallow: "._HIVE_URL_REL_."/developer.php");
 	## multiple seperator is |
 	###############################################################
 		RewriteRule ^(_restricted|_internal|_preview|_images) - [F,L]");}	
+		
+	// Define Relative Site Mode
+	define("_HIVE_SITE_REL_", _HIVE_URL_REL_."/_site/"._HIVE_MODE_."/");
+	define("_HIVE_SITE_PRIVATE_", _HIVE_PATH_PRIVATE_."/"._HIVE_MODE_."/");
+	define("_HIVE_SITE_PUBLIC_", _HIVE_PATH_PUBLIC_."/"._HIVE_MODE_."/");

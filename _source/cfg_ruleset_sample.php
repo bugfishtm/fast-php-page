@@ -1,106 +1,174 @@
 <?php
-	/* 	__________ ____ ___  ___________________.___  _________ ___ ___  
-		\______   \    |   \/  _____/\_   _____/|   |/   _____//   |   \ 
-		 |    |  _/    |   /   \  ___ |    __)  |   |\_____  \/    ~    \
-		 |    |   \    |  /\    \_\  \|     \   |   |/        \    Y    /
-		 |______  /______/  \______  /\___  /   |___/_______  /\___|_  / 
-				\/                 \/     \/                \/       \/  	
-							www.bugfish.eu
-							
-	    Bugfish Fast PHP Page Framework
-		Copyright (C) 2024 Jan Maurice Dahlmanns [Bugfish]
+	##############################################################################################	
+	// Informations about this file
+	##############################################################################################	
 
-		This program is free software: you can redistribute it and/or modify
-		it under the terms of the GNU General Public License as published by
-		the Free Software Foundation, either version 3 of the License, or
-		(at your option) any later version.
+		##########################################################################################
+		// intial Rules for this CMS.
+		// All this rules can also be setup in the _administrator interface.
+		// This file is only meant to be used by active module or cms developers.
+		// You can do all required stuff in the website itself if you are a regular user..
+		##########################################################################################	
+		// Change File name to cfg_ruleset.php if you want to edit something here!
+		// This file is optional and only executed if it exists.
+		##########################################################################################	
+	
+	##############################################################################################	
+	// Initial Loadup and Site Module Setup
+	##############################################################################################	
+	
+		##########################################################################################
+		// Allow Parallel Site Module to be switched to by admin switch action? 
+		// Default value is: true
+		// Its recommended to set this to false for standalone cms site module instances.
+		// This are instances which are not using the _administrator or another parallel
+		// Administrator site module.
+		##########################################################################################
+		// define('_HIVE_ALLOW_ADMIN_', true);
+	
+		##########################################################################################
+		// Name of the administrative Site Module with possibilities to switch to by 
+		// file in _core/_action/admin_switch.php
+		// Default value is: "_administrator"
+		##########################################################################################
+		// define('_HIVE_ADMIN_SITE_', "_administrator");
+	
+		##########################################################################################
+		// Default Site mode to be loaded, if no other has been switched to
+		// and if no other one has been determined by url with: _HIVE_MOD_FETCH_
+		// Default value is: "_administrator"
+		// This will be the frontend site module. As default _administrator is set 
+		// because no other site module is installed to be displayed at the frontend.
+		##########################################################################################
+		// $hive_mode_default = "_administrator";
 
-		This program is distributed in the hope that it will be useful,
-		but WITHOUT ANY WARRANTY; without even the implied warranty of
-		MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-		GNU General Public License for more details.
-
-		You should have received a copy of the GNU General Public License
-		along with this program.  If not, see <https://www.gnu.org/licenses/>.
-	*/
-	##########################################################################################
-	// intial Rules for this CMS
-	// To run standalone or in normal CMS mode with Administrator Interface
-	// File will NOT get overwritten with core updates
-	// File WILL be overwritten by _administrator modules if this file gets updated 
-	// to fit certain purposes.
-	// If you are not updating this file in an administrator interface or using this cms 
-	// to deploy standalone websites you can use this file for setup without an admninistrator interface.
-	##########################################################################################	
-	##########################################################################################	
-	##########################################################################################	
-	# IMPORTANT!!!!!!
-	# Change File name to cfg_ruleset.php if you want to edit something here!
-	# This file is optional and only executed if it exists.
-	##########################################################################################	
-	##########################################################################################	
-	##########################################################################################
-	// Enable the Internal Administration Backend? - Important for Standalone pages!
-	##########################################################################################	
-	// define('_HIVE_ALLOW_ADMIN_', true);
-	# You can change the Administrator Site Module for the Switch Functionality
-	// define('_HIVE_ADMIN_SITE_', "_administrator");
-	
-	##########################################################################################
-	// Setting Types to fetch Site Mode - Important for Standalone pages!
-	##########################################################################################
-	// Default Site mode to use:	
-	// $hive_mode_default = "_administrator";
-		
-	##########################################################################################
-	// You can use your own update and store server by using the _site/_internal/_store folder!
-	// Only change if you know what you are doing!
-	// Otherwhise Core Updates and Store in the Administrator Site Module wont work...
-	// It is recommended to leave the default update server.
-	// But you can provide the url to your own store (running on an instance of this cms which comes with it)
-	##########################################################################################	
-	//define("_HIVE_SERVER_", "https://www.bugfish.eu");
-	
-	##########################################################################################
-	// 1 / Yes - 0 / No // Display Errors before Startup procedure? (and warnings)
-	##########################################################################################
-	// define('_HIVE_PHP_DISPLAY_ERROR_ON_START_', 1); 
-	
-	##########################################################################################
-	// PHP Logfile Location to Write (false to leave default)
-	##########################################################################################
-	// define('_HIVE_PHP_LOG_PATH_', $object["path"]."/_internal/php_error.log");
-	// define('_HIVE_PHP_LOG_PATH_', false);
-
-	##########################################################################################
-	// Default Public Folder
-	##########################################################################################	
-	// define('_HIVE_PATH_PUBLIC_', @$object["path"]."/_public");
-
-	##########################################################################################
-	// Default Private Folder
-	##########################################################################################	
-	// define('_HIVE_PATH_PRIVATE_', @$object["path"]."/_restricted");
-	
-	##########################################################################################
-	// Default Internal Folder
-	##########################################################################################	
-	// define('_HIVE_PATH_INTERNAL_', @$object["path"]."/_internal");
-	
-	##########################################################################################
-	// Allow the use of /developer.php?
-	##########################################################################################		
-	// define('_HIVE_MOD_CHANGES_', false); 
-	
-	##########################################################################################
-	// Allow the use of files in _core/_tools folder for development?
-	##########################################################################################		
-	// define('_HIVE_ALLOW_TOOLS_', false);
-	
-	##########################################################################################	
+	##############################################################################################	
 	// Installer Options
-	##########################################################################################	
-	// define("_INSTALLER_TITLE_", 		"Installation");
-	// define("_INSTALLER_COOKIE_", 	"fp2_");
-	// define("_INSTALLER_PREFIX_", 	"fp2_");
-	// define("_INSTALLER_CODE_", 		false);
+	##############################################################################################	
+	
+		##########################################################################################
+		// Title for Installation Window at initial CMS Startup 
+		// Default value is: "Installation"
+		##########################################################################################
+		// define("_INSTALLER_TITLE_", 		"Installation");
+		
+		##########################################################################################
+		// Default Prefix for Cookies and Sessions
+		// CAUTION: Users are able to change these values at installation procedure.
+		// Default value is: "hive_"
+		##########################################################################################
+		// define("_INSTALLER_COOKIE_", 	"hive_");
+		
+		##########################################################################################
+		// Default Prefix for Database Tables
+		// CAUTION: Users are able to change these values at installation procedure.
+		// Default value is: "hive_"
+		##########################################################################################
+		// define("_INSTALLER_PREFIX_", 	"hive_");
+	
+		##########################################################################################
+		// Password requirement for installation procedure.
+		// Default value is: false
+		// False = Do not use installation password.
+		// "PASSWORD" = Do use String "PASSWORD" as installation password.
+		##########################################################################################
+		// define("_INSTALLER_CODE_", 		false);
+
+	##############################################################################################	
+	// Site Mode determination per URL
+	##############################################################################################	
+	
+		##########################################################################################
+		// You can automatically choose a site mode by the value of 
+		// PHP Variable: _SERVER[HTTP_HOST]
+		// Default value is: false (This will disable this functionality)
+			# ARRAY to enable URL Site Mode Determination
+			# Example Array:
+			# array(
+			# 	array("url" => "x.domain", "mode" => "xdomainmod"), 
+			# 	array("url" => "x1.domain", "mode" => "xdomainmod1"), 
+			# 	array("url" => "x2.domain", "mode" => "xdomainmod2")
+			# )	
+		##########################################################################################
+		// define("_HIVE_MOD_FETCH_", 		false);
+
+	##############################################################################################	
+	// PHP Error Functionalities
+	##############################################################################################	
+	
+		##########################################################################################
+		// PHP Logfile Location to Write (false to leave webserver default)
+		// Default value is: false
+		// This will leave the default PHP logfile location.
+		##########################################################################################
+		// define('_HIVE_PHP_LOG_PATH_', false);
+	
+		##########################################################################################
+		// Activate CMS PHP Errors for Debugging on Initialization?
+		// Recommended for PHP Error 500 Malfunction debugging.
+		// Default value is: false
+		// It is advised to set this on false productive, to net let visitors see any php errors.
+		// Uncomment this to allow PHP Errors on initialization!
+		##########################################################################################
+		// define('_HIVE_PHP_DISPLAY_ERROR_ON_START_', 1);
+	
+	##############################################################################################	
+	// Store Functionality
+	##############################################################################################		
+	
+		##########################################################################################
+		// You can use your own update and store server!
+		// Use different store server instances at the same time and switch between them 
+		// In the administrator module!
+		// Only change if you know what you are doing, otherwhise store wont work anymore!
+		// Default Value: array("https://www.bugfish.eu")
+		// Store domain may change if we change our own store domain.
+		// But newest domains will always be implented in core updates as default option.
+		// If nothing is changed in this ruleset file regarding this setting.
+		// Uncomment to add own store url (you can add ours beside yours to still use our store)
+		##########################################################################################	
+		// define("_HIVE_SERVER_", array("https://STOREURL"));	
+		
+		
+		##########################################################################################
+		// This URL is for Automatic Core Updates.
+		// You can connect your own server instance. To control which core updates will be avail.
+		// Default Value is: "https://www.bugfish.eu"
+		// Be sure you know what you do!
+		// Otherwhise Core Updates wont work...
+		// It is recommended to leave the default update server.
+		// But you can provide the url to your own store to provide core updates.
+		// Uncomment to add own core update url.
+		##########################################################################################	
+		// define("_HIVE_SERVER_CORE_", "https://COREUPDATEURL");	
+
+	##############################################################################################	
+	// Specialized Path Settings
+	##############################################################################################		
+	
+		##########################################################################################
+		// Default Private Folder for restricted files. Should not be public accessible.
+		// Default Value is: @$object["path"]."/_restricted"
+		// You can use your own Restricted Folder Path.
+		// Be sure to move files before changing the directory and put website in maintenance mode.
+		// Check if permissions are okay to be used by website unix user.
+		##########################################################################################	
+		// define('_HIVE_PATH_PRIVATE_', @$object["path"]."/_restricted");	
+
+	##############################################################################################	
+	// Developer Functions Activation Settings
+	##############################################################################################	
+	
+		##########################################################################################
+		// Allow the use of /developer.php?
+		// Default Value is: false
+		// Uncomment to Allow use of developer.php!
+		##########################################################################################		
+		// define('_HIVE_MOD_CHANGES_', true); 
+		
+		##########################################################################################
+		// Allow the use of files in _core/_tools folder for development?
+		// Default Value is: false
+		// Uncomment to Allow use of files in /_core/_tool which are linked in developer.php!
+		##########################################################################################		
+		// define('_HIVE_ALLOW_TOOLS_', true);

@@ -1,6 +1,6 @@
 # Site Modules
 
-The Site Modules directory houses modules installed by the store module or uploaded automatically. These modules are accessible via the integrated admin panel or by adjusting the `ruleset.php` file.
+The Site Modules directory houses modules installed by the store module or uploaded automatically. These modules are accessible via the integrated admin panel or by adjusting the `cfg_ruleset.php` file.
 
 **Installation:**
 - Modules can be installed through the store module or uploaded automatically based on your configuration.
@@ -10,9 +10,9 @@ The Site Modules directory houses modules installed by the store module or uploa
 - Utilize the integrated admin panel to manage and configure installed site modules.
 - Enable, disable, or customize modules to suit your needs.
 
-**Manual Configuration (ruleset.php):**
-- Alternatively, manage modules by modifying settings in the `ruleset.php` file.
-- Follow provided guidelines for configuring modules within the `ruleset.php` file.
+**Manual Configuration (cfg_ruleset.php):**
+- Alternatively, manage modules by modifying settings in the `cfg_ruleset.php` file.
+- Follow provided guidelines for configuring modules within the `cfg_ruleset.php` file.
 
 **Important Notes:**
 - Regularly check for updates or new releases of site modules to ensure optimal performance and security.

@@ -235,9 +235,19 @@ Add this image to your project created with this CMS to support us!<br /><img sr
       <td><a rel="noopener" target="_blank" href="https://github.com/bugfishtm/fp2-windmill-backend">https://github.com/bugfishtm/fp2-windmill-backend</a></td>
     </tr>
     <tr>
+      <td>_volt-backend</td>
+      <td>Backend to be copied or used side-by-side with your FP2-Page, based on Volt Dashboard</td>
+      <td><a rel="noopener" target="_blank" href="https://github.com/bugfishtm/fp2-volt-backend">https://github.com/bugfishtm/fp2-volt-backend</a></td>
+    </tr>
+    <tr>
       <td>_skeleton</td>
       <td>Skeleton of site modules for developers to look into to understand folder functionalities and more!</td>
       <td><a rel="noopener" target="_blank" href="https://github.com/bugfishtm/fp2-skeleton">https://github.com/bugfishtm/fp2-skeleton</a></td>
+    </tr>
+    <tr>
+      <td>_administrator</td>
+      <td>Default advanced Administrator Interface module to be used/reused/copied and more!</td>
+      <td>Included inside this CMS in _site folder!</td>
     </tr>
   </tbody>
 </table>
@@ -1151,10 +1161,6 @@ Add this image to your project created with this CMS to support us!<br /><img sr
 							<tr>
 								<td colspan="2" style="background: #242424;"><b>/_api</b></td>	
 							</tr>
-							<tr>	
-								<td>/_api</td>
-								<td>Store and Core Update functionalities! Also can Include API Functionalities.</td>		
-							</tr>
 							<tr>
 								<td colspan="2" style="background: #242424;"><b>/_core</b></td>	
 							</tr>
@@ -1248,14 +1254,6 @@ Add this image to your project created with this CMS to support us!<br /><img sr
 							</tr>
 							<tr>
 								<td colspan="2" style="background: #242424;"><b>/_cron</b></td>	
-							</tr>
-							<tr>	
-								<td>/_preview</td>
-								<td>Some general preview images about this project, folder may gets overwritten during core updates!</td>		
-							</tr>
-							<tr>	
-								<td>/_images</td>
-								<td>Some general images about this project, folder may gets overwritten during core updates!</td>		
 							</tr>
 							<tr>	
 								<td>/_cron</td>
@@ -1352,7 +1350,11 @@ Add this image to your project created with this CMS to support us!<br /><img sr
 							</tr>
 							<tr>
 								<td>/cfg_ruleset.php</td>
-								<td>Backend-Developer File to change some important Backend Settings which are not related to a site Module! More informations in the "Site Modules" section below! In this file are settings which control how the Handle will act to determine Site Modes and which Site Mode will be choosen. The Administrator Side Module can run Side by Side with your programmed Site Module to make administration for your website easier if you plan to build a website based on this cms framework! If this file will ever be affected by CMS Updates, than we will save your settings in there and rewrite them. Please do not write custom code in here, just choose Settings for different given Constants! If you want to use this cms with a standalone (no multi site and store able) module, you can change installer parameters here, to fit it for youre needs!</td>		
+								<td>Backend-Developer File to change some important Backend Settings which are not related to a site Module! More informations in the "Site Modules" section below! In this file are settings which control how the Handle will act to determine Site Modes and which Site Mode will be choosen. The Administrator Side Module can run Side by Side with your programmed Site Module to make administration for your website easier if you plan to build a website based on this cms framework! If this file will ever be affected by CMS Updates, than we will save your settings in there and rewrite them. Please do not write custom code in here, just choose Settings for different given Constants! If you want to use this cms with a standalone (no multi site and store able) module, you can change installer parameters here, to fit it for youre needs! This file is optional for developers.</td>		
+							</tr>
+							<tr>
+								<td>/cfg_ruleset_sample.php</td>
+								<td>If you want to change primary CMS definitions, see this file. After you made your changed change the filename to cfg_ruleset.php. This file is only meant for developers who want to develop side modules or standalone webpages with that cms system and optional.</td>		
 							</tr>
 						</table>
 					</section>			
@@ -1430,6 +1432,13 @@ Add this image to your project created with this CMS to support us!<br /><img sr
 								<td>Folder for Updates depending on Build number. See updater.php script or _skeleton example site for more informations! Here you can put updates for databases and more for your site! Mind the sample files as there are also some informations inside them. Check _skeleton Site Mode to check how updating works, as there is one dummy update included!</td>				
 							</tr>
 							<tr>	
+								<td colspan="2" style="background: #242424;">Licenses and Readme Folder</td>		
+							</tr>
+							<tr>	
+								<td>/_site/*/_various</td>
+								<td>This folder is only there to store license and readme files belonging to the site module. It is optional and not necessary for cms functionalities!</td>				
+							</tr>
+							<tr>	
 								<td colspan="2" style="background: #242424;">Config Loadup Folder</td>		
 							</tr>
 							<tr>	
@@ -1447,6 +1456,10 @@ Add this image to your project created with this CMS to support us!<br /><img sr
 							<tr>	
 								<td>/_site/*/_config/config_global_pre.php</td>
 								<td>Your Configuration to be loaded after Initial Site Startup (optional). This file will be loaded globally for every Site Module, no matter which one a user has loaded!</td>				
+							</tr>
+							<tr>	
+								<td>/_site/*/_config/permission.php</td>
+								<td>Declare Permission set with object[permission] in here. This will give the administrator module the possibility to control that permissions (if implemented)!</td>				
 							</tr>
 							<tr>	
 								<td>/_site/*/_config/config_global_post.php</td>
@@ -1481,6 +1494,23 @@ Add this image to your project created with this CMS to support us!<br /><img sr
 								<td>_HIVE_SITE_PATH_</td>
 								<td>Path to Site Modules Folder (Full). This Constant can be used inside your site modules development, as this will be relative to the current visible front module. So this path will always lead to the site module you are actively in!</td>				
 							</tr>
+							
+							
+							<tr>	
+								<td>_HIVE_SITE_PUBLIC_</td>
+
+								<td>Path to absolute Site Data Public folder!</td>									
+							</tr>
+							<tr>	
+								<td>_HIVE_SITE_PRIVATE_</td>
+								<td>Path to absolute Site Data Private/Restricted folder!</td>				
+							</tr>
+							<tr>	
+								<td>_HIVE_SITE_REL_</td>
+								<td>Relative Path to Website Site Folder for URL Redirectss!</td>				
+							</tr>
+							
+							
 							<tr>	
 								<td>_HIVE_SITE_COOKIE_</td>
 								<td>Cookie Prefix to use for Site Module. This Constant can be used inside your site modules development, as this will be relative to the current visible front module. So this path will always lead to the site module you are actively in!</td>				
