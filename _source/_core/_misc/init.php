@@ -87,22 +87,19 @@
 	
 	// Misc
 	define("_TABLE_FORUM_", 			$object["prefix"]."sys_forum");
-	define("_TABLE_SHORTENER_", 		$object["prefix"]."sys_forward");
 	define("_TABLE_STORE_", 			$object["prefix"]."sys_store");
 	define("_TABLE_FILE_SHARE_", 		$object["prefix"]."sys_file_share");
 	define("_TABLE_URL_", 				$object["prefix"]."sys_link");
 	define("_TABLE_TASK_", 				$object["prefix"]."sys_task");
 	define("_TABLE_WIKI_", 				$object["prefix"]."sys_wiki");
 	define("_TABLE_FINANCE_", 			$object["prefix"]."sys_finance");
-	define("_TABLE_NEWSLETTER_", 		$object["prefix"]."sys_newsletter");
 	define("_TABLE_FILE_", 				$object["prefix"]."sys_file");
 	define("_TABLE_FILE_FOLDER_", 		$object["prefix"]."sys_file_folder");
 	define("_TABLE_ART_", 				$object["prefix"]."sys_article");
 	define("_TABLE_ART_CAT_", 			$object["prefix"]."sys_article_cat");
-	define("_TABLE_WFC_", 				$object["prefix"]."sys_wfc");
-	define("_TABLE_WFC_LINK_",			$object["prefix"]."sys_wfc_link");
-	define("_TABLE_WFC_DATA_",			$object["prefix"]."sys_wfc_data");
 	define("_TABLE_USER_EVENT_",		$object["prefix"]."sys_user_event");
+	define("_TABLE_USER_CAL_",			$object["prefix"]."sys_cal");
+	define("_TABLE_TOKEN_",				$object["prefix"]."sys_token");
 	
 	// Some Variables
 	define("_HIVE_PREFIX_", 				@$mysql["prefix"]);
@@ -261,7 +258,6 @@
 	
 	// Instance Settings
 	if(!defined("_HIVE_CRIT_ER_")) { if(file_exists($object["path"]."/_site/"._HIVE_MODE_."/_config/config.php")) { require_once($object["path"]."/_site/"._HIVE_MODE_."/_config/config.php"); } }	
-	if(!defined("_HIVE_CRIT_ER_")) { if(file_exists($object["path"]."/_site/"._HIVE_MODE_."/_config/permission.php")) { require_once($object["path"]."/_site/"._HIVE_MODE_."/_config/permission.php"); } }	
 
 	// Classes Initializations	
 	$object["var"]->init_constant();	
@@ -514,15 +510,12 @@
 			file_put_contents($object["path"]."/robots.txt", "".$url."User-Agent: *
 Disallow: "._HIVE_URL_REL_."/_store/*
 Disallow: "._HIVE_URL_REL_."/_core/*
-Disallow: "._HIVE_URL_REL_."/_images/*
-Disallow: "._HIVE_URL_REL_."/_preview/*
 Disallow: "._HIVE_URL_REL_."/_restricted/*
+Disallow: "._HIVE_URL_REL_."/_cron/*
 Disallow: "._HIVE_URL_REL_."/_framework/*
 Disallow: "._HIVE_URL_REL_."/_internal/*
 Disallow: "._HIVE_URL_REL_."/cfg_ruleset.php
 Disallow: "._HIVE_URL_REL_."/cfg_ruleset_sample.php
-Disallow: "._HIVE_URL_REL_."/cfg_installer.php
-Disallow: "._HIVE_URL_REL_."/cfg_installer_sample.php
 Disallow: "._HIVE_URL_REL_."/updater.php
 Disallow: "._HIVE_URL_REL_."/installer.php
 Disallow: "._HIVE_URL_REL_."/developer.php");
@@ -612,15 +605,7 @@ Disallow: "._HIVE_URL_REL_."/developer.php");
 	  Order Allow,Deny
 	  Deny from all
 	</Files>
-	<Files \"cfg_installer.php\">  
-	  Order Allow,Deny
-	  Deny from all
-	</Files>
 	<Files \"cfg_ruleset_sample.php\">  
-	  Order Allow,Deny
-	  Deny from all
-	</Files>
-	<Files \"cfg_installer_sample.php\">  
 	  Order Allow,Deny
 	  Deny from all
 	</Files>
@@ -638,7 +623,7 @@ Disallow: "._HIVE_URL_REL_."/developer.php");
 	ErrorDocument 503 "._HIVE_URL_REL_."/_core/_error/error.503.php
 	
 	## Lock Folders (multiple seperator is |)
-	RewriteRule ^(_restricted|_internal|_install|_preview|_images) - [F,L]");}	 
+	RewriteRule ^(_restricted|_internal) - [F,L]");}	 
 	unset($seo);
 	unset($www);
 	unset($refresh);
@@ -659,6 +644,7 @@ Disallow: "._HIVE_URL_REL_."/developer.php");
 
 	// Site Post Configuration
 	if(!defined("_HIVE_CRIT_ER_")) { if(file_exists(_HIVE_SITE_PATH_."/_config/config_post.php")) { require_once(_HIVE_SITE_PATH_."/_config/config_post.php"); }	}
+	if(!defined("_HIVE_CRIT_ER_")) { if(file_exists($object["path"]."/_site/"._HIVE_MODE_."/_config/permission.php")) { require_once($object["path"]."/_site/"._HIVE_MODE_."/_config/permission.php"); } }	
 	
 	// Unset Constant Fixes
 	if(!defined("_HIVE_SITE_URL_")) { define('_HIVE_SITE_URL_', _HIVE_URL_); }
@@ -701,7 +687,14 @@ Disallow: "._HIVE_URL_REL_."/developer.php");
 	###############################################################
 		#	RewriteCond %{HTTPS} !=on
 		#	RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
-	
+
+	###############################################################
+	## Non-WWW -> WWW Rewritew
+	## Remove comment below to activate automatic non www to www forward
+	###############################################################
+		#	RewriteCond %{HTTP_HOST} ^[^.]+\.[^.]+$
+		#	RewriteRule ^(.*)$ http://www.%{HTTP_HOST}/$1 [L,R=301]	
+		
 	###############################################################
 	## SEO Url Rewrite
 	###############################################################
@@ -757,19 +750,11 @@ Disallow: "._HIVE_URL_REL_."/developer.php");
 		  Order Allow,Deny
 		  Deny from all
 		</Files>
-		<Files \"cfg_installer.php\">  
-		  Order Allow,Deny
-		  Deny from all
-		</Files>
 		<Files \".htaccess\">  
 		  Order Allow,Deny
 		  Deny from all
 		</Files>
 		<Files \"cfg_ruleset_sample.php\">  
-		  Order Allow,Deny
-		  Deny from all
-		</Files>
-		<Files \"cfg_installer_sample.php\">  
 		  Order Allow,Deny
 		  Deny from all
 		</Files>
@@ -792,7 +777,7 @@ Disallow: "._HIVE_URL_REL_."/developer.php");
 	## Even if you do these folders are protected by an own htaccess file
 	## multiple seperator is |
 	###############################################################
-		RewriteRule ^(_restricted|_internal|_preview|_images) - [F,L]");}	
+		RewriteRule ^(_restricted|_internal) - [F,L]");}	
 		
 	// Define Relative Site Mode
 	define("_HIVE_SITE_REL_", _HIVE_URL_REL_."/_site/"._HIVE_MODE_."/");

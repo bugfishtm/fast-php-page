@@ -72,7 +72,7 @@
 	
 	function hive_site_acces($object, $rights, $displayerror = false) { return hive__access($object, $rights, $displayerror);}
 	function hive__access($object, $rights, $displayerror = false) { 
-		if($object["user"]->user["user_initial"] == 1) { return true; }
+		if(@$object["user"]->user["user_initial"] == 1) { return true; }
 		// Check if Type is OR (In Group and User Permissions)
 		if(is_array($rights)) {
 			foreach($rights AS $key => $value) {

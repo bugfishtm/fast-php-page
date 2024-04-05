@@ -1,8 +1,8 @@
 ![Bugfish](https://img.shields.io/badge/Bugfish-CMS-orange)
 ![Status](https://img.shields.io/badge/Status-Finished-green)
 ![License](https://img.shields.io/badge/License-GPLv3-black)
-![Version](https://img.shields.io/badge/Version-2.200-white)
-![Administrator Version](https://img.shields.io/badge/Administrator_Module_Version-1.100-white)
+![Version](https://img.shields.io/badge/Version-2.300-white)
+![Administrator Version](https://img.shields.io/badge/Administrator_Module_Version-NONE-white)
 ![Framework Version](https://img.shields.io/badge/Framework_Version-3.10-white)
 
 # Fast PHP Page

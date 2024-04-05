@@ -39,7 +39,7 @@
 			    `mod_iframe` TEXT DEFAULT '',  
 			    `mod_view` TEXT DEFAULT '', 
 			    `mod_singleuse` TEXT DEFAULT '',  
-			    `mod_cat` TEXT DEFAULT '',  
+			    `mod_tags` TEXT DEFAULT '',  
 			    `mod_lang` TEXT DEFAULT '',   
 			    `mod_license` TEXT DEFAULT '', 
 			    `mod_autor` TEXT DEFAULT '',  
