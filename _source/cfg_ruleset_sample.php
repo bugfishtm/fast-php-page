@@ -76,6 +76,9 @@
 
 	##############################################################################################	
 	// Site Mode determination per URL
+	// You can also set environment variable in apache vhost to force override site mode
+	// So you can deploy different websites with same symbolic linked folder
+	// SetEnv FP2_HIVE_MODE_OVR_ENV_658 MODULENAMETOOVERRIDE
 	##############################################################################################	
 	
 		##########################################################################################
@@ -172,3 +175,9 @@
 		// Uncomment to Allow use of files in /_core/_tool which are linked in developer.php!
 		##########################################################################################		
 		// define('_HIVE_ALLOW_TOOLS_', true);
+		
+		##########################################################################################
+		// Allow the use of _core/_action/token_switch.php folder for Token Based Switches?
+		// Default Value is: true
+		##########################################################################################		
+		// define('_HIVE_ALLOW_TOKEN_', true);

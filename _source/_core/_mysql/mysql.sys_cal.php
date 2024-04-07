@@ -34,6 +34,7 @@
 	  `cal_title` text NULL DEFAULT '' COMMENT 'Title for Cal Entry',
 	  `cal_text` text NULL DEFAULT '' COMMENT 'Text for Cal Entry',
 	  `fk_user` int(11) NULL DEFAULT '0' COMMENT 'Autor ID',
+	  `cal_status` int(11) NULL DEFAULT '0' COMMENT 'Calender Item Status',
 	  `site_data` text DEFAULT NULL COMMENT 'Additional Data for Site Modules',
 	  `section` varchar(128) DEFAULT NULL COMMENT 'Related Multi Site Section',
 	  `expiredate` datetime DEFAULT NULL COMMENT 'Task Event Date',

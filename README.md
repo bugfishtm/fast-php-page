@@ -1,7 +1,7 @@
 ![Bugfish](https://img.shields.io/badge/Bugfish-CMS-orange)
 ![Status](https://img.shields.io/badge/Status-Finished-green)
 ![License](https://img.shields.io/badge/License-GPLv3-black)
-![Version](https://img.shields.io/badge/Version-2.300-white)
+![Version](https://img.shields.io/badge/Version-2.400-white)
 ![Administrator Version](https://img.shields.io/badge/Administrator_Module_Version-NONE-white)
 ![Framework Version](https://img.shields.io/badge/Framework_Version-3.10-white)
 
@@ -18,6 +18,8 @@ The detailed documentation, elucidating each function and class, can be found in
 
 ## CMS Introduction
 Introducing our cutting-edge Multi-Site CMS, a dynamic platform brimming with advanced backend capabilities for developing website modules. Featuring an integrated store for seamless downloading of diverse websites and modules, this CMS revolutionizes the landscape with innovative technology and strategies. Our focus on harnessing new ideas and technologies is evident in every aspect of this CMS, meticulously documented to cater to both seasoned programmers crafting site modules and users navigating its functionalities effortlessly, even without coding expertise. Explore the myriad features detailed below in our comprehensive README, designed to meet the diverse needs of developers and users alike. Our primary goal with this project is to expedite and enhance multi-site deployment and quick development für complex projects.
+
+![Admin Login](./_images/administrator_login.png)
 
 **This project is not only interesting for coders oder software developers! You have a very lot of functionalities which can be used and configured for your needs in the _administrator site module to maybe achieve some things you need to do!**
 
@@ -48,7 +50,6 @@ If you are a developer trying to look into functionalities, you maybe should tak
 | _example-volt   | Volt Dashboard Site Module example with some more advanced functionalities                   | https://github.com/bugfishtm/fp2-example-volt |
 | _documentation   | Documentation for this CMS integrated as a Site Module      | https://github.com/bugfishtm/fp2-documentation |
 | _windmill-backend   | Backend to be copied or used side-by-side with your FP2-Page, based on TailwindCSS Windmill Dashboard     | https://github.com/bugfishtm/fp2-windmill-backend |
-| _volt-backend   | Backend to be copied or used side-by-side with your FP2-Page, based on Volt Bootstrap 5 Dashboard     | https://github.com/bugfishtm/fp2-volt-backend |
 | _skeleton   | Skeleton of site modules for developers to look into to understand folder functionalities and more!     | https://github.com/bugfishtm/fp2-skeleton |
 | _administrator   | Advanced Backend CMS system to be copied, modified or used!     | Include in this repository as default module. |
 
@@ -76,6 +77,8 @@ For comprehensive explanations and detailed documentation about fast PHP page de
 
 ## What is this project about?  
 This repository hosts a framework that is not a complete, out-of-the-box CMS (Content Management System) that can be easily set up in the frontend. Instead, it is designed for individuals with coding expertise who wish to develop their own modules. While there are built-in functionalities available in the administrator interface for various purposes, the primary emphasis of this system lies in its extensibility. Users are encouraged to create and integrate site modules to tailor the framework to their specific requirements, making it a flexible and adaptable solution for those who have the technical skills to harness its potential.
+
+![Admin Overview](./_images/administrator_overview.png)
 
 ## Key Features
 Below you can see key features of this software! This are functionalities which are built in and available for development or to be used in downloaded site modules.

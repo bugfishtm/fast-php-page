@@ -37,6 +37,7 @@
 			  `event_description` text NULL,
 			  `event_data` text NULL,
 			  `event_type` int(11) DEFAULT NULL,
+			  `event_status` int(11) DEFAULT NULL,
 			  `fk_user` int(11) DEFAULT NULL, 
 			  `fk_creator` int(11) DEFAULT NULL, 
 			  `site_data` text DEFAULT NULL COMMENT 'Additional Data for Site Modules',

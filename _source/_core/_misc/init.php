@@ -100,6 +100,8 @@
 	define("_TABLE_USER_EVENT_",		$object["prefix"]."sys_user_event");
 	define("_TABLE_USER_CAL_",			$object["prefix"]."sys_cal");
 	define("_TABLE_TOKEN_",				$object["prefix"]."sys_token");
+	define("_TABLE_FRIENDS_",			$object["prefix"]."sys_user_connect");
+	define("_TABLE_MSG_",				$object["prefix"]."sys_user_msg");
 	
 	// Some Variables
 	define("_HIVE_PREFIX_", 				@$mysql["prefix"]);
@@ -163,7 +165,22 @@
 		} else {
 			$_SESSION[_HIVE_COOKIE_."hive_mode"] = $hive_mode_override;
 		}
-	} unset($hive_mode_override);  define("_HIVE_MODE_", $_SESSION[_HIVE_COOKIE_."hive_mode"]);	
+	} unset($hive_mode_override);  
+	
+	// Check for Hive Mode per SetEnv Variable 
+	$ovr_hive_mode_getenv = @getenv("FP2_HIVE_MODE_OVR_ENV_658"); 
+	if(strlen($ovr_hive_mode_getenv) > 0 AND trim($ovr_hive_mode_getenv ?? '') != "") { 
+		if(@in_array($ovr_hive_mode_getenv, _HIVE_MODE_ARRAY_)) {
+			$_SESSION[_HIVE_COOKIE_."hive_mode"] = $ovr_hive_mode_getenv;
+		} else { 
+			echo "You have set the Apache2 Environment Variable: 'FP2_HIVE_MODE_OVR_ENV_658' to '".@$ovr_hive_mode_getenv."', but this site module does not exist. Please fix the Environment Variable Value to fit a valid site module!";
+			exit();
+		}
+	}
+	
+	
+	define("_HIVE_MODE_", $_SESSION[_HIVE_COOKIE_."hive_mode"]);	
+	
 	
 	// Current Site Related
 	define('_HIVE_SITE_PATH_', 			$object["path"]."/_site/"._HIVE_MODE_."/");	
@@ -242,7 +259,16 @@
 	/* Set Up The Rel URL as Configured in Settings.php */	
 	if(!defined("_HIVE_URL_")) { define("_HIVE_URL_", $object["url"]); }
 	$object["url"] = _HIVE_URL_;	 
-	define('_HIVE_URL_REL_', parse_url(_HIVE_URL_, PHP_URL_PATH));	
+	$tmprel = parse_url(_HIVE_URL_, PHP_URL_PATH);
+	if(!$tmprel OR $tmprel == "") { $tmprel = "/"; }
+	if (isset($_SERVER['HTTPS']) && @$_SERVER['HTTPS'] === 'on')
+			{$link = "https://";}
+			else
+			{$link = "http://";}
+	$tmprel = $link.@$_SERVER["HTTP_HOST"].$tmprel;
+	define('_HIVE_URL_REL_', $tmprel);	
+	unset($tmprel);
+	unset($link);
 	
 	// Classes Initializations
 	$object["debug"] 		= 	new x_class_debug();

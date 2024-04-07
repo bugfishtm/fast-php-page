@@ -23,7 +23,6 @@
 		You should have received a copy of the GNU General Public License
 		along with this program.  If not, see <https://www.gnu.org/licenses/>.
 	*/
-	@http_response_code(404);
 	require_once("../../settings.php");
 	if(defined("_HIVE_JS_ACTION_ACTIVE_")) { 
 		if(_HIVE_JS_ACTION_ACTIVE_) { 

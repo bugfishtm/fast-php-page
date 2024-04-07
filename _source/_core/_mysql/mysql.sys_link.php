@@ -34,6 +34,7 @@
 		  `link_name` text NOT NULL COMMENT 'URL Name',
 		  `link_url` text NOT NULL COMMENT 'URL',
 		  `link_cat` text NOT NULL COMMENT 'URL Cat',
+		  `link_public` int(9) DEFAULT 0 COMMENT '1 - Public | 2 - Not Public',
 		  `fk_user` int(9) NOT NULL COMMENT 'Related Creating User',
 		  `site_data` text DEFAULT NULL COMMENT 'Additional Data for Site Modules',
 		  `section` varchar(128) DEFAULT NULL COMMENT 'Related Multi Site Section',

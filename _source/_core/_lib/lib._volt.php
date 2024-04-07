@@ -326,7 +326,7 @@
         <li class="nav-item dropdown ms-lg-3">
           <a class="nav-link dropdown-toggle pt-1 px-0" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             <div class="media d-flex align-items-center">
-              <img class="avatar rounded-circle hive__volt_image_language" alt="Image placeholder" src="<?php echo $lang_ar[0]["current_img"]; ?>">
+              <img class="avatar rounded-circle hive__volt_image_language" alt="Image placeholder" style="object-fit: cover;" src="<?php echo $lang_ar[0]["current_img"]; ?>">
               <div class="media-body ms-2 text-dark align-items-center d-none d-lg-block">
               </div>
             </div>

@@ -9,6 +9,7 @@
 	if(!defined("_HIVE_ALLOW_TOOLS_")) { define('_HIVE_ALLOW_TOOLS_', false); }
 	if(!defined("_HIVE_MAINTENANCE_")) { define('_HIVE_MAINTENANCE_', false); }
 	if(!defined("_HIVE_ALLOW_ADMIN_")) { define('_HIVE_ALLOW_ADMIN_', true);	 }
+	if(!defined("_HIVE_ALLOW_TOKEN_")) { define('_HIVE_ALLOW_TOKEN_', true);	 }
 	if(!defined("_HIVE_ADMIN_SITE_")) { define('_HIVE_ADMIN_SITE_', "_administrator");	 }
 	if(!@$hive_mode_default) { $hive_mode_default = "_administrator"; }
 	if(!defined("_HIVE_MOD_FETCH_")) { define('_HIVE_MOD_FETCH_',   false); }
