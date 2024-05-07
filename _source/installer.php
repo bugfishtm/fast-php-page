@@ -1,13 +1,11 @@
 <?php
-	/* 	__________ ____ ___  ___________________.___  _________ ___ ___  
-		\______   \    |   \/  _____/\_   _____/|   |/   _____//   |   \ 
-		 |    |  _/    |   /   \  ___ |    __)  |   |\_____  \/    ~    \
-		 |    |   \    |  /\    \_\  \|     \   |   |/        \    Y    /
-		 |______  /______/  \______  /\___  /   |___/_______  /\___|_  / 
-				\/                 \/     \/                \/       \/  	
-							www.bugfish.eu
-							
-	    Bugfish Fast PHP Page Framework
+	/* 
+		 _               __ _    _    ___ __  __ ___ 
+		| |__ _  _ __ _ / _(_)__| |_ / __|  \/  / __|
+		| '_ \ || / _` |  _| (_-< ' \ (__| |\/| \__ \
+		|_.__/\_,_\__, |_| |_/__/_||_\___|_|  |_|___/
+				  |___/                              
+
 		Copyright (C) 2024 Jan Maurice Dahlmanns [Bugfish]
 
 		This program is free software: you can redistribute it and/or modify
@@ -22,6 +20,9 @@
 
 		You should have received a copy of the GNU General Public License
 		along with this program.  If not, see <https://www.gnu.org/licenses/>.
+		
+		File Description:
+			Installation Startup File
 	*/
 	
 	////////////////////////////////////////////////////////////////////////////////////
@@ -80,7 +81,7 @@
 		} else { $csrf = "<div class='containererror'><b>CSRF Form Protection Error</b><br /> Please Try Again, the form you have executed is expired.</div><br />"; }	
 	}	
 	$_SESSION["csrf_hive_installer"] = mt_rand(1000000, 9999999);
-	hive__simple_start($object, "Installation - FP²", '<link rel="icon" type="image/x-icon" href="./_core/_image/favicon.ico">');
+	hive__simple_start($object, "Installation - CMS", '<link rel="icon" type="image/x-icon" href="./_core/_image/favicon.ico">');
 	if(!$do OR $erroremptyr OR $erroremptyu OR $erroremptyd OR !$con OR $coner OR @$erroremptyrcced) {?>
 	<div class="containerbox">
 		<img src='./_core/_image/logo_alpha.png' width='40' style="margin-right: 10px;" > <b style='font-size:36px; padding-bottom: 10px;'><?php echo _INSTALLER_TITLE_; ?></b>
@@ -147,7 +148,7 @@ Enter your MySQL database credentials and desired database prefix in the provide
 		<input type="text" name="website_prefix" value="<?php if(!is_string(@$_POST["website_prefix"])) { echo _INSTALLER_PREFIX_; } else { echo htmlentities(@$_POST["website_prefix"] ?? '');} ?>"> <br />			
 		<button type="submit" class="containerbox-btn">Start Installation</button>			 
 	</div>
-	<?php hive__simple_end($object, 'Powered by <a href="https://github.com/bugfishtm" rel="noopener" target="_blank" style="color: yellow!important;">Bugfish</a> Fast-PHP Framework!'); ?>
+	<?php hive__simple_end($object, 'Powered by <a href="https://github.com/bugfishtm/bugfish-cms" rel="noopener" target="_blank" style="color: yellow!important;">Bugfish CMS</a>!'); ?>
 	<?php } else { ?>
 	<div class="containerbox">
 		<img src='./_core/_image/logo_alpha.png' width='40' style="margin-right: 10px;" > <b style='font-size:36px; padding-bottom: 10px;'>Installation</b><br />
@@ -157,15 +158,13 @@ Enter your MySQL database credentials and desired database prefix in the provide
 if(!file_exists("./settings.php")) {
 	$_POST["website_url"] = rtrim($_POST["website_url"], '/');
 	if(file_put_contents( "./settings.php", "<?php
-	/* 	__________ ____ ___  ___________________.___  _________ ___ ___  
-		\______   \    |   \/  _____/\_   _____/|   |/   _____//   |   \ 
-		 |    |  _/    |   /   \  ___ |    __)  |   |\_____  \/    ~    \
-		 |    |   \    |  /\    \_\  \|     \   |   |/        \    Y    /
-		 |______  /______/  \______  /\___  /   |___/_______  /\___|_  / 
-				\/                 \/     \/                \/       \/  	
-							www.bugfish.eu
-							
-	    Bugfish Fast PHP Page Framework
+	/* 
+		 _               __ _    _    ___ __  __ ___ 
+		| |__ _  _ __ _ / _(_)__| |_ / __|  \/  / __|
+		| '_ \ || / _` |  _| (_-< ' \ (__| |\/| \__ \
+		|_.__/\_,_\__, |_| |_/__/_||_\___|_|  |_|___/
+				  |___/                              
+
 		Copyright (C) 2024 Jan Maurice Dahlmanns [Bugfish]
 
 		This program is free software: you can redistribute it and/or modify
@@ -180,8 +179,8 @@ if(!file_exists("./settings.php")) {
 
 		You should have received a copy of the GNU General Public License
 		along with this program.  If not, see <https://www.gnu.org/licenses/>.
-	*/
-	/* Generated Settings.php File by Installer at ".date("Y-m-d H:i")." */
+		
+		Generated Settings.php File by Installer at ".date("Y-m-d H:i")." */
 	
 	/* Generated MySQL Settings */
 	\$mysql['host'] = '".str_replace("'", "\\'",str_replace("\\", "\\\\", $_POST["mysql_host"]))."'; # MySQL Hostname
@@ -215,5 +214,5 @@ if(!file_exists("./settings.php")) {
 							
 		<br /><a type="submit" class="containerbox-btn" href="./">Finish Installation</a>	<br />	<br />					
 	</div>
-	<?php hive__simple_end($object, 'Powered by <a href="https://github.com/bugfishtm" rel="noopener" target="_blank" style="color: yellow!important;">Bugfish</a> Fast-PHP Framework!'); ?>
+	<?php hive__simple_end($object, 'Powered by <a href="https://github.com/bugfishtm/bugfish-cms" rel="noopener" target="_blank" style="color: yellow!important;">Bugfish CMS</a>!'); ?>
 <?php } ?>

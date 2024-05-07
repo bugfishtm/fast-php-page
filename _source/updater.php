@@ -1,13 +1,11 @@
 <?php
-	/* 	__________ ____ ___  ___________________.___  _________ ___ ___  
-		\______   \    |   \/  _____/\_   _____/|   |/   _____//   |   \ 
-		 |    |  _/    |   /   \  ___ |    __)  |   |\_____  \/    ~    \
-		 |    |   \    |  /\    \_\  \|     \   |   |/        \    Y    /
-		 |______  /______/  \______  /\___  /   |___/_______  /\___|_  / 
-				\/                 \/     \/                \/       \/  	
-							www.bugfish.eu
-							
-	    Bugfish Fast PHP Page Framework
+	/* 
+		 _               __ _    _    ___ __  __ ___ 
+		| |__ _  _ __ _ / _(_)__| |_ / __|  \/  / __|
+		| '_ \ || / _` |  _| (_-< ' \ (__| |\/| \__ \
+		|_.__/\_,_\__, |_| |_/__/_||_\___|_|  |_|___/
+				  |___/                              
+
 		Copyright (C) 2024 Jan Maurice Dahlmanns [Bugfish]
 
 		This program is free software: you can redistribute it and/or modify
@@ -22,6 +20,9 @@
 
 		You should have received a copy of the GNU General Public License
 		along with this program.  If not, see <https://www.gnu.org/licenses/>.
+		
+		File Description:
+			Site Module Updater File
 	*/ if(file_exists("./settings.php")) { require_once("./settings.php"); } else { @http_response_code(404); Header("Location: ./"); exit(); }
 	
 	////////////////////////////////////////////////////////////////////////////////////
@@ -38,10 +39,10 @@
 	if(_HIVE_RNAME_ != _HIVE_RNAME_ACTIVE_ OR _HIVE_RNAME_ == 0) { 
 		hive_error_full("Wrong Site Module", "The site module used seems to have been replaced with another site module on the same location! Please restore the old site module and execute your operations on the administrator module!", "This is a critical error which should been taken care of!", true, 401); }
 	// Show Update Notification
-	if(_HIVE_BUILD_ == _HIVE_BUILD_ACTIVE_ AND _HIVE_VERSION_ == _HIVE_VERSION_ACTIVE_ ) { 
+	if(_HIVE_BUILD_ == _HIVE_BUILD_ACTIVE_ ) { 
 		hive_error_full("No Update Required", "This software is already updated!", "Click <a href='./'>here</a> to go back!", true, 401); }	
 	// Show Update Notification
-	if(_HIVE_BUILD_ < _HIVE_BUILD_ACTIVE_ OR _HIVE_VERSION_ < _HIVE_VERSION_ACTIVE_ ) { 
+	if(_HIVE_BUILD_ < _HIVE_BUILD_ACTIVE_ ) { 
 		hive_error_full("Not supported", "You are trying to downgrade this module!", "This is not supported by this updater functionality...", true, 401); }	
 		
 	
@@ -58,8 +59,7 @@
 			<b>Site RName</b>: <?php echo htmlspecialchars(_HIVE_RNAME_ ?? ''); ?><br />
 			<b>Active Build</b>: <?php echo htmlspecialchars(_HIVE_BUILD_ACTIVE_ ?? ''); ?><br />
 			<b>Target Build</b>: <?php echo htmlspecialchars(_HIVE_BUILD_ ?? ''); ?><br />
-			<b>Active Version</b>: <?php echo htmlspecialchars(_HIVE_VERSION_ACTIVE_ ?? ''); ?><br />
-			<b>Target Version</b>: <?php echo htmlspecialchars(_HIVE_VERSION_ ?? ''); ?><br /><br />
+			<b>Current Module Version</b>: <?php echo htmlspecialchars(_HIVE_VERSION_ ?? ''); ?><br /><br />
 			<?php
 				$ar = array();
 				foreach (glob("./_site/"._HIVE_MODE_."/_update/*.php") as $filename) {
@@ -105,11 +105,9 @@
 				}						
 				echo "<p><b><font color='lime'>OK: </font>Installing Build: ".htmlspecialchars($y ?? '')."</b><br />";
 				if(!$x) { $y = _HIVE_BUILD_; }			
-				$object["var"]->set("_HIVE_BUILD_ACTIVE_", htmlspecialchars($y ?? ''));			
-				$object["var"]->set("_HIVE_VERSION_ACTIVE_", _HIVE_VERSION_);			
+				$object["var"]->set("_HIVE_BUILD_ACTIVE_", htmlspecialchars($y ?? ''));		
 				if(file_exists("./_site/"._HIVE_MODE_."/_update/".htmlspecialchars($y ?? '').".php") AND $x) { require_once("./_site/"._HIVE_MODE_."/_update/".htmlspecialchars($y ?? '').".php"); }			
-				echo "<font color='lime'>OK: </font>Version Number has been changed to ".htmlspecialchars($y ?? '')."!";
-				echo "<br /><font color='lime'>OK: </font>Version Number has been changed to "._HIVE_VERSION_."!";
+				echo "<font color='lime'>OK: </font>Build Number has been changed to ".htmlspecialchars($y ?? '')."!";
 				echo "<br /><b><font color='lime'>OK: </font>Build Installed!</b></p>";
 			?> <form method="post">							
 				<button type="submit" class="containerbox-btn">Finish Update</button> 

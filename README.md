@@ -1,173 +1,173 @@
 ![Bugfish](https://img.shields.io/badge/Bugfish-CMS-orange)
 ![Status](https://img.shields.io/badge/Status-Finished-green)
-![License](https://img.shields.io/badge/License-GPLv3-black)
-![Version](https://img.shields.io/badge/Version-2.400-white)
-![Administrator Version](https://img.shields.io/badge/Administrator_Module_Version-NONE-white)
-![Framework Version](https://img.shields.io/badge/Framework_Version-3.10-white)
+![License](https://img.shields.io/badge/License-GPLv3-black) 
+![CMS Version](https://img.shields.io/badge/CMS--Version-2.10-white)
+![Framework Version](https://img.shields.io/badge/Framework--Version-3.20-white)
+![Admin Module Version](https://img.shields.io/badge/Administrator--Version-0.00.000-white)
 
-# Fast PHP Page
-![Logo](./_images/bugfish-fp2-logo-sm.png)
+# bugfish-CMS
+**Version Number Format**:  
+CMSVersion-FrameworkVersion-AdminModuleVersion
 
-**Repository:** [Fast-PHP-Page Project](https://github.com/bugfishtm/fast-php-page)  
-**Documentation:** [Comprehensive Documentation](https://bugfishtm.github.io/fast-php-page/)  
-**Documentation Bugfish Framework**:  
-https://bugfishtm.github.io/bugfish-framework  
-The detailed documentation, elucidating each function and class, can be found in this repository's "docs" folder. For a deeper understanding of the "Bugfish Framework," its complete integration, and functionalities, please visit [Bugfish-GitHub](https://bugfishtm.github.io). This project has been created with the "Bugfish Framework" and "Fast-PHP-Page" CMS. Besides that full documentation is available and present as a site module to be displayed in this CMS.
+**Interesting Links to documentation and more!**
+- **Repository:** https://github.com/bugfishtm/bugfish-cms  
+- **Documentation CMS:** https://bugfishtm.github.io/bugfish-cms/  
+- **Documentation Framework**: https://bugfishtm.github.io/bugfish-framework/  
+- **All Documentations**: https://bugfishtm.github.io  
+- **Online Store URL**: https://store.bugfish.eu
 
-**You can find Screenshots of templates and the software in this repositories _images folder or at the documentation available in the "docs" folder or at www.bugfish-github.de!**
 
-## CMS Introduction
-Introducing our cutting-edge Multi-Site CMS, a dynamic platform brimming with advanced backend capabilities for developing website modules. Featuring an integrated store for seamless downloading of diverse websites and modules, this CMS revolutionizes the landscape with innovative technology and strategies. Our focus on harnessing new ideas and technologies is evident in every aspect of this CMS, meticulously documented to cater to both seasoned programmers crafting site modules and users navigating its functionalities effortlessly, even without coding expertise. Explore the myriad features detailed below in our comprehensive README, designed to meet the diverse needs of developers and users alike. Our primary goal with this project is to expedite and enhance multi-site deployment and quick development für complex projects.
+## Introduction
+Bugfish-CMS represents a cutting-edge Multi-Site CMS offering advanced backend capabilities for website module development. With an integrated store facilitating seamless downloading of various modules, this CMS stands out for its innovative technology and user-friendly approach. Its comprehensive README caters to both seasoned programmers and non-coders alike, emphasizing expedited multi-site deployment and development for complex projects.
 
-![Admin Login](./_images/administrator_login.png)
+Bugfish-CMS is not just for coders or developers; it offers a plethora of functionalities configurable via the administrator site module, catering to diverse needs. Unlike traditional CMS solutions, this framework isn't a ready-made system but a platform designed for individuals with coding expertise to develop custom modules. While it provides built-in functionalities in the administrator interface, its main focus is on extensibility, allowing users to create and integrate site modules to tailor the framework according to their specific requirements.
 
-**This project is not only interesting for coders oder software developers! You have a very lot of functionalities which can be used and configured for your needs in the _administrator site module to maybe achieve some things you need to do!**
-
+Below you can see a preview image of the _Administrator Site Module integrated in that cms!
+<img src="./_preview/preview.png">
 
 ## Repository Folders
+Here you can find Information about this repositories Folder and File Structure!
 
 | Folder      | Description                         |
 | ----------- | ----------------------------------- |
-| .github     | Files for sponsorship information   |
+| .github     | Files for sponsorship information and Issue and Fork Templates   |
+| _docker     | Docker Files for Apache2 vhost inside the docker Container if you are Using Installation Method 2 in this readme.          |
+| _images   | Images related to the project |
+| _licenses   | 3rd Party Licenses     | 
+| _module     | Example CMS Modules which are more explained below in the "integrated modules" section |
+| _preview   | Preview Images about the Project for the readme.md file |
+| _releases   | Versioned Releases of this CRM Software |
 | _source     | Source code for deployment          |
 | docs        | Website documentation               |
-| docs-ext        | 3rd Party Documentation               |
-| _releases   | Software releases                   |
-| _images   | Some images for this readme file and screenshots    |
-| _licenses   | Some informations about used licenses     | 
+| docs-ext        | 3rd Party Documentation         |
+|.env | Docker Environment File for Installation Method 2 |
+|.gitattributes | Internal File for this Repository |
+|.gitignore | Internal File for this Repository |
+|.gitkeep | Internal File for this Repository |
+|CONTRIBUTING.md | Information about Project Contributing to Github |
+| docker-compose.yml | Compose File for Installation Method 2 |
+| Dockerfile | Docker File for Installation Method 2 |
+| docker-init-windows.bat | Windows Installation File for Installation Method 2 |
+| docker-init-linux.bat | Linux Installation File for Installation Method 2 |
+| LICENSE.md | GPLv3 License for this project |
+| README.md | The file you are actually reading! :) |
 
-## Interesting Modules
-If you are a developer trying to look into functionalities, you maybe should take a look at this template modules:
+## Installation
+Here you can find information on how to install the bugfishCMS Web Software!
+For comprehensive explanations and detailed documentation about fast PHP page development, please visit www.bugfish-github.de/bugfish-cms. This website is the primary resource for in-depth information and guides on the topic.
 
+### Method 1: Manual Installation
+You can manually install this software on any webserver which is conform to requirements below!
 
-| Name      | Description                         | Github|
-| ----------- | ----------------------------------- |-------|
-| _documentation-adminbsb     | Documentation for integrated AdminBSB Template   | https://github.com/bugfishtm/fp2-documentation-adminbsb |
-| _documentation-volt     | Documentation for integrated Volt Template   | https://github.com/bugfishtm/fp2-documentation-volt |
-| _documentation-framework     | Documentation for integrated Bugish Framework         | https://github.com/bugfishtm/fp2-documentation-framework |
-| _example-minimal        | Minimal Site Module Solution for Developers to use as a Template               | https://github.com/bugfishtm/fp2-example-minimal |
-| _example-windmill   | Windmill Dashboard Site Module example with some more advanced functionalities                   | https://github.com/bugfishtm/fp2-example-windmill |
-| _example-volt   | Volt Dashboard Site Module example with some more advanced functionalities                   | https://github.com/bugfishtm/fp2-example-volt |
-| _documentation   | Documentation for this CMS integrated as a Site Module      | https://github.com/bugfishtm/fp2-documentation |
-| _windmill-backend   | Backend to be copied or used side-by-side with your FP2-Page, based on TailwindCSS Windmill Dashboard     | https://github.com/bugfishtm/fp2-windmill-backend |
-| _skeleton   | Skeleton of site modules for developers to look into to understand folder functionalities and more!     | https://github.com/bugfishtm/fp2-skeleton |
-| _administrator   | Advanced Backend CMS system to be copied, modified or used!     | Include in this repository as default module. |
+#### Requirements
+- Apache2 Webserver Recommended
+- Apache2 Modules: Rewrite, Header
+- PHP 8 Recommended
+- Website will ask for missing PHP Modules
+- MariaDB Database Connection
 
-Take a look at the _administrator site module which is delivered in the fast-php-page cms and acts as a default backend for all operations. You can copy the _administrator site module and modify it to fit your needs.
-
-## Quick Installation
+#### Steps to Install
 - Upload all files out of this repositories _source directory to your webspace public-html folder!
-- View the website which redirects to the folder you just uploaded the files to
-- Go to ./installer.php and Install the CMS by providing required login data.
-- View the url where you installed that CMS and you will be redirected to the _administrator Site module.
-- Visit the store to install site modules, configure the administrator interface for your needs, install site module out of this repository by putting it in the _install folder of the website - or have fun developing!
+- Visit your URL in a Webbrowser, which points to the folder you just uploaded the files to.
+- Go to ./installer.php and Install the CMS by providing required data.
+- After the Installation you will be redirected to the CMS Login Page
+- Login with data provided below in "Initial Login"
+- You can now use the CMS and install new modules or extensions out of our official store! You can deploy your own modules to the _site folder, or use the installation manager at the administrator interface! You can develop own modules and remove the optional administrator module. You can even use standalone modules for single site instances. This CMS will be the only thing you need to accomplish every possible PHP Website goal!
 
+### Method 2: Docker Installation
+Docker Files are included to install this software with a docker container.
 
-For comprehensive explanations and detailed documentation about fast PHP page development, please visit www.bugfish-github.de/fast-php-page. This website is the primary resource for in-depth information and guides on the topic.
+- Check docker-compose.yml
+- Check .env for internal container mysql password (needed for cms installation)
+- Windows: Execute the .bat file in the repositories Root Folder.
+- Linux: Execute the .sh file in the repositories Root Folder
+- The Docker container should now start to initialize
+- If the docker container have been initialized go to your domain:658 (port 658) and you can see the deployed docker image featuring the bugfishcms. You can change the exposed port in the docker-compose.yml
+- Go to ./installer.php and Install the CMS by providing required data.
+- After the Installation you will be redirected to the CMS Login Page
+- Login with data provided below in "Initial Login"
+- You can now use the CMS and install new modules or extensions out of our official store! You can deploy your own modules to the _site folder, or use the installation manager at the administrator interface! You can develop own modules and remove the optional administrator module. You can even use standalone modules for single site instances. This CMS will be the only thing you need to accomplish every possible PHP Website goal!
 
-- If you want to use this software normaly, just go straight into the administration area by visiting the website and take setup there.
-- If you want to develop or use this cms as standalone for deployment, use cfg_ruleset.php and cfg_installer.php to setup the installer and the rules for multi/single site for your needs.
+### Initial Login
+After you have initialized the CMS, a superuser with administrator privilegues will be created. This first created user is always an administrator and can always use all permissions without the need to obtain them. The initial user is the only user with that superuser privilegue, other users can be make to administrators by assigning permissions to them. If you are using user login functionality, the initial created user login data for the backend is as follows:  
 
-### Requirements
-- PHP 8 or higher is required.
-- A MySQL connection is necessary for database operations.
-- Missing Modules or Failure in Database Connection will be displayed on website.
-- If something went wrong during installation, delete the settings.php file to re-install the software.
-- Website will ask for MySQL Data and for may missing PHP Modules!
-
-## What is this project about?  
-This repository hosts a framework that is not a complete, out-of-the-box CMS (Content Management System) that can be easily set up in the frontend. Instead, it is designed for individuals with coding expertise who wish to develop their own modules. While there are built-in functionalities available in the administrator interface for various purposes, the primary emphasis of this system lies in its extensibility. Users are encouraged to create and integrate site modules to tailor the framework to their specific requirements, making it a flexible and adaptable solution for those who have the technical skills to harness its potential.
-
-![Admin Overview](./_images/administrator_overview.png)
-
-## Key Features
-Below you can see key features of this software! This are functionalities which are built in and available for development or to be used in downloaded site modules.
-
-### Multi-Site Management
-Effortlessly manage multiple websites from a centralized platform, ensuring convenience and efficiency in overseeing various online properties.
-
-### Debugging Functionalities
-Empowering both website and module development, the platform provides robust debugging tools, aiding in backend operations for enhanced performance.
-
-### Rights and User Management
-Granular control over user permissions and rights, facilitating secure access and management of resources within the CMS environment.
-
-### Bugfish Framework Integration
-Seamless integration of the Bugfish Framework into our CMS, enhancing its capabilities and extending its functionalities.
-
-### Dynamic Theme and Theme Color Management
-Customize themes and manage colors dynamically, enabling tailored visual experiences for websites created within the CMS.
-
-### Streamlined Site Building with Templates
-Utilize templates and pre-designed responsive CSS site styles, simplifying the creation of complex websites with ease.
-
-### Diverse Functions and Templates
-Access a wide array of functions and templates to expedite the development of sophisticated website backends and frontends.
-
-### Multi-Language Support
-Easily create multilingual websites, reaching diverse audiences through comprehensive language support.
-
-### Database Change Updater
-Effortlessly update deployed site modules and extensions, ensuring smooth transitions and maintenance.
-
-### Installer Script
-Deploy websites seamlessly with an installer script, simplifying the installation process for users.
-
-### Integrated Store Functionality
-Access an integrated store for module updates or leverage your own deployed store, expanding the capabilities of the CMS.
-
-### Module Downloads within CMS
-Conveniently download site modules directly within the CMS for various purposes, enhancing functionality and versatility.
-
-### No Coding Knowledge Required
-Users can leverage integrated software site modules without the need for coding knowledge, enabling quick implementation.
-
-### Coding Flexibility
-For users with coding expertise, the platform offers the freedom to create advanced functionalities rapidly.
-
-
-## Initial Login
-If you are using user login functionality, the initial created user for the backend is as follow:  
-**Username**: admin@admin.local  
+**Username**: admin@admin.local (sometimes it is just "admin")  
 **Password**: changeme
 
-In case that you have configured your site to NOT use the mail adr. to login, the initial login data may also can be:  
-**Username**: admin  
-**Password**: changeme  
+## Integrated Modules
+If you are a developer trying to look into functionalities, you maybe should take a look at this template modules, you can find them inside this repositories _module  folder:
 
-**Do change your administrative password after login to close this potential security leak**
+| Name      | Description                         | 
+| --------- | ----------------------------------- |
+| _administrator   | Advanced Backend CMS (featuring AdminBSB) system to be copied, modified or used! This Module is automatically integrated into the crm and can optionaly be removed. You can find the Module in the _site folder, where all Site Modules (active ones) are stored.     | 
+| _documentation-adminbsb     | Documentation for integrated AdminBSB Template.   |
+| _documentation-volt     | Documentation for integrated Volt Template.   | 
+| _documentation-framework     | Documentation for integrated Bugish Framework.   |
+| _documentation   | Documentation for this CMS integrated as a Site Module.      |
+| _example-minimal        | Minimal Site Module Example.               | 
+| _example-windmill   | Windmill Dashboard Site Module example.   | 
+| _example-volt   | Volt Dashboard Site Module example.     | 
+| _windmill-backend   | Backend to be copied or used side-by-side with your FP2-Page, based on TailwindCSS Windmill Dashboard     | 
+| _skeleton   | Skeleton of site modules for developers to look into to understand folder functionalities and more!     | 
+| _storepage   | Site Module of the store we use on https://store.bugfish.eu!     | 
+
+Take a look at the _administrator site module which is delivered in the bugfish cms and acts as a default backend for all operations. You can copy the _administrator site module and modify it to fit your needs.
+
+
+## Integrated Functionalities
+Here you can see a list and overview of the backend functionalities of this CMS. They are included to be used in different site modules, and you can even use data between site modules if required. See the example modules to explore on how to use the functionalities. They will help you achieve great goals and milestones on your project if you are able to master them.
+
+| Functionality | Description |
+|--------|-------|
+|Multi-Site Management | Effortlessly manage multiple websites from a centralized platform, ensuring convenience and efficiency in overseeing various online properties.|
+| User Management | Enables administrators to control user access and permissions within the CMS. This feature facilitates the creation, modification, and deletion of user accounts, as well as the assignment of roles and permissions. Effective user management ensures the security of the CMS and allows for tailored access levels, optimizing content collaboration and workflow efficiency. |
+| Permission Management | This feature empowers administrators to finely control access to various functionalities and content within the CMS. Through permission management, administrators can assign specific permissions to individual users or groups, dictating their ability to view, edit, publish, or delete content. This granular control ensures data security, compliance with regulations, and facilitates efficient collaboration among users with distinct roles and responsibilities. |
+| Groups Management | Groups management functionality allows administrators to organize users into distinct groups for streamlined access control and collaboration within the CMS. Administrators can create, modify, and delete groups, assigning specific permissions and access levels to each group as needed. This feature enhances efficiency by enabling bulk permission assignments and simplifies user management by categorizing users based on roles, departments, or projects.|
+| Debug Functionalities | Empowering both website and module development, the platform provides robust debugging tools, aiding in backend operations for enhanced performance. |
+| Framework Integration | This feature highlights seamless integration with the Bugfish Framework, providing robust bug tracking and debugging capabilities directly within the CMS interface. Users can efficiently report bugs, track their resolution status, and collaborate with developers, enhancing the overall quality and performance of the system.|
+| Dynamic Themes | Allows for the dynamic switching of website themes, providing flexibility in design customization and user experience adaptation.|
+| Dynamic Theme Colors | Enables dynamic adjustment of theme colors, empowering users to personalize the visual appearance of their website on-the-fly.|
+| Dynamic CSS/JS Loadup | Facilitates the dynamic loading of CSS and JavaScript files, optimizing website performance and allowing for efficient resource management. |
+| Dynamic Languages | Supports the dynamic addition and management of multiple languages, catering to diverse multilingual audiences and enhancing accessibility. |
+| Installer | Streamlines the installation process of the CMS, ensuring easy setup and configuration for users, even with minimal technical expertise. |
+| Updater | Automates the process of updating the CMS to the latest version, ensuring security patches, bug fixes, and new features are seamlessly integrated. |
+| Extension Store | Provides a centralized marketplace for users to discover, install, and manage extensions, plugins, and add-ons, expanding the functionality of the CMS. |
+| Own Dedicated Store | Offers users the option to set up their dedicated extension store, allowing for customization and monetization of extensions developed for the CMS. |
+| Integrated Templates | Offers a selection of pre-designed templates integrated directly into the CMS, simplifying website design and customization processes. |
+| Dynamic Code Loadup | Supports the dynamic loading of code snippets or scripts, enhancing flexibility and customization options for advanced users and developers. |
+| Dynamic Cronjobs |  Enables the scheduling and execution of dynamic cronjobs within the CMS, automating routine tasks and optimizing system performance. |
+| File Management | Provides robust file management capabilities within the CMS, allowing users to upload, organize, and manage files and media assets effectively. |
+| CRM Functionalities | Integrates simple customer relationship management functionalities within the CMS.|
+| Calender | Includes a built-in calendar feature for scheduling events, appointments, and reminders directly within the CMS interface, enhancing productivity and organization. |
+| Task Management | Offers task management capabilities, allowing users to create, assign, and track tasks and workflows, streamlining project management processes. |
+| Example Modules | Provides a collection of example modules showcasing various functionalities and capabilities of the CMS, serving as reference and inspiration for users and developers. |
+
 ## Integrated Themes
-Some screenshots of integrated themes which can be used in development or are used in integrated modules!
+Some screenshots of integrated themes which can be used in development or are used in integrated modules! You can find explanations and functions for the different themes in the documentation at the "docs" folder inside this repository! All these themes are MIT-Licensed and can be used for different purposes!
+
+### Simple Responsive Template
+This template is integrated for easy use for developers inside the bugfishCMS. You can find function libraries to use this theme in the documentation (inside the docs folder)! This is the "Simple Responsive Email Template" from Github: https://github.com/leemunroe/responsive-html-email-template. This template is only html/css and does not feature bootstrap or other theming and frontend libraries! You can find example Modules in the repository on how to develop with that template style.
+
+<img src="./_preview/_minimal.png" style="max-width: 500px;">
+
 ### Windmill Dashboard
+This template is integrated with functions for easy use. See documentation for more informations. This template has been integrated out of the "Windmill Dashboard Theme" you can find on Github: https://github.com/estevanmaito/windmill-dashboard. It features TailwindCSS and has a ready to use theme which you can customize via custom css and more for your specific needs! You can find example Modules in the repository on how to develop with that template style.
 
-<img src="./_images/_example-windmill1.png" style="max-width: 500px;">
+<img src="./_preview/_windmill.png" style="max-width: 500px;">
 
-### AdminBSB Dashboard
-
-<img src="./_images/_adminbsb1.png" style="max-width: 500px;">
 
 ### Volt Dashboard
+The integrated Volt Theme features a full responsive and widely useable bootstrap 5 admin dashboard theme. You can find example Modules in the repository on how to develop with that template style. See the documentation for function use and explanation. The official github page of this theme is: https://github.com/themesberg/volt-bootstrap-5-dashboard  
 
-<img src="./_images/_example-volt1.png" style="max-width: 500px;">
-
-### Simple Template
-
-<img src="./_images/_example-minimal.png" style="max-width: 500px;">
-
-## Extensive Project Documentation
-
-Our project is meticulously documented, providing comprehensive guidance and information every step of the way. From installation instructions to in-depth explanations of features and functionalities, our documentation ensures a smooth and informed user experience. You'll find detailed resources, tutorials, and examples to assist you in harnessing the full potential of our platform, empowering you to create, manage, and optimize your projects effectively.
-
-### Developers
-- For deeper insights, refer to the documentation located in the `docs` folder of the repository, this is also included as a site module which can be downloaded in the official bugfish store or out of the fp2 repository (just some default modules are to be found there).
-- Documentations can be downloaded as modules out of the store or on github!
-
-## Documentation Progress and Collaboration
-
-We deeply appreciate your feedback and contributions as we strive to enhance our documentation and make the project more accessible to all. Your support and understanding are invaluable to us.
+<img src="./_preview/_volt.png" style="max-width: 500px;">
 
 
-## Included Libraries
+### AdminBSB Dashboard
+The most enhanced and functional theme is the AdminBSB Dashboard. It features a Bootstrap 3 environment with different libraries and pre-defined styles. This is the Material theme, it is used in the "Administrator" default Administration Module and the documentation is included in this repository. The official github page for this dashboard template is: https://github.com/gurayyarar/AdminBSBMaterialDesign   
+
+<img src="./_preview/_adminbsb.png" style="max-width: 500px;">
+
+## 3rd Party Libraries
 
 This project relies on third-party libraries stored in the '/_core/_vendor' folder. For more information about these libraries, their respective licenses, and to access their source code, please refer to our GitHub repository, where you can find detailed information and links to each library. (Eventually not all libraries are listed here)
 
@@ -193,7 +193,7 @@ This project relies on third-party libraries stored in the '/_core/_vendor' fold
 | focustrap                      | MIT     | [Link](https://github.com/focus-trap/focus-trap)       |
 | chartjs                        | MIT     | [Link](https://github.com/chartjs)                     |
 | boxicons (<a href="https://boxicons.com" rel="noopener" target="_blank">Image List</a>) | MIT | [Link](https://github.com/atisawd/boxicons) |
-| bugfish-dashboard              | GPLv3      | [Link](https://github.com/bugfishtm/bugfish-dashboard)    |
+| bugfish-dashboard              | GPLv3      | None    |
 | country-flags-icons           | MIT      | [Link](https://github.com/ashhitch/ISO-country-flags-icons)    |
 | animate-css           | HYP      | None   |
 | autosize           | MIT      | None   |
@@ -243,14 +243,22 @@ This project relies on third-party libraries stored in the '/_core/_vendor' fold
 | sass          | MIT      | None   |
 | chatist          | MIT      | None   |
 | githubbuttons          | BSD      | None   |
+| animated-calender          | MIT      | None   |
+| login-template          | MIT      | None   |
+| AdminBSB Theme          | MIT      | [Link](https://github.com/gurayyarar/AdminBSBMaterialDesign)   |
 
 
-## Get Support
+## How to get help?
 
 Should you encounter any issues or have questions while using this software, please do not hesitate to reach out to us on our forum at [Bugfish Forum](www.bugfish.eu/forum). Additionally, you can request assistance via email at request@bugfish.eu, and we are dedicated to providing the support you require. We highly value your feedback and are committed to ensuring your success with our web project.
 
+
+## Support us
 If you want to support us, add this banner to the project you have created!  
-![Bugfish Framework Banner](./_images/bugfish-framework-banner.jpg) ![Bugfish FP2 Banner](./_images/bugfish-fp2-banner.jpg)
+<img src="./_images/bugfish-cms-banner.jpg" width="200">
+<img src="./_images/bugfish-framework-banner.jpg" width="200">
+
+
 ## Licensing Information
 
-The Fast-PHP-Page Project is released under the GPLv3 License, affording you the freedom to use, modify, and distribute the project as you see fit. It is imperative to note that the "/_core/_vendor" folder contains various libraries, each with its own unique licenses. To ensure full compliance and understanding of the licensing terms associated with these included libraries, we encourage you to consult our comprehensive documentation on our GitHub page. This documentation provides exhaustive information regarding the specific licenses and any additional requirements tied to individual libraries. Your responsible adherence to these licenses is pivotal when utilizing this project. Your interest and collaboration are greatly appreciated.
+The bugfishCMS Project is released under the GPLv3 License, affording you the freedom to use, modify, and distribute the project as you see fit. It is imperative to note that the "/_core/_vendor" folder contains various libraries, each with its own unique licenses. To ensure full compliance and understanding of the licensing terms associated with these included libraries, we encourage you to consult our comprehensive documentation on our GitHub page. This documentation provides exhaustive information regarding the specific licenses and any additional requirements tied to individual libraries. Your responsible adherence to these licenses is pivotal when utilizing this project. Your interest and collaboration are greatly appreciated.

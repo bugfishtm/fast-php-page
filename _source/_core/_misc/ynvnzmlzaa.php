@@ -1,13 +1,11 @@
 <?php
-	/* 	__________ ____ ___  ___________________.___  _________ ___ ___  
-		\______   \    |   \/  _____/\_   _____/|   |/   _____//   |   \ 
-		 |    |  _/    |   /   \  ___ |    __)  |   |\_____  \/    ~    \
-		 |    |   \    |  /\    \_\  \|     \   |   |/        \    Y    /
-		 |______  /______/  \______  /\___  /   |___/_______  /\___|_  / 
-				\/                 \/     \/                \/       \/  	
-							www.bugfish.eu
-							
-	    Bugfish Fast PHP Page Framework
+	/* 
+		 _               __ _    _    ___ __  __ ___ 
+		| |__ _  _ __ _ / _(_)__| |_ / __|  \/  / __|
+		| '_ \ || / _` |  _| (_-< ' \ (__| |\/| \__ \
+		|_.__/\_,_\__, |_| |_/__/_||_\___|_|  |_|___/
+				  |___/                              
+
 		Copyright (C) 2024 Jan Maurice Dahlmanns [Bugfish]
 
 		This program is free software: you can redistribute it and/or modify
@@ -22,6 +20,10 @@
 
 		You should have received a copy of the GNU General Public License
 		along with this program.  If not, see <https://www.gnu.org/licenses/>.
+		
+		File Description:
+			Do not touch or change this file. It is a lockfile for Installation
+			Procedures. Removing of this file will break the CMS System completely.
 	*/
 	@http_response_code(404); @Header("Location: ../"); exit(); ?>
-# Do not remove this Lock File!
+	# Do not remove this Lock File!

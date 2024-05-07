@@ -1,10 +1,10 @@
 # Cronjobs Files
 
-The Cronjobs Files directory contains essential files responsible for executing various tasks at specified intervals within the Bugfish Fast PHP Page Framework. These cronjobs, including `daily.php` and `monthly.php`, are crucial for maintaining the functionality of the system. The timing of cronjob execution can be adjusted to meet specific requirements, with different intervals tailored to the needs of individual site modules.
+The Cronjobs Files directory contains essential files responsible for executing various tasks at specified intervals within the Bugfish CMS. These cronjobs, including `daily.php` and `monthly.php`, are crucial for maintaining the functionality of the system. The timing of cronjob execution can be adjusted to meet specific requirements, with different intervals tailored to the needs of individual site modules.
 
 ## Description
 
-The PHP script in this directory functions as a robust cronjob handler within the Bugfish Fast PHP Page Framework. It orchestrates various tasks scheduled for execution at different intervals across the framework's managed sites. These tasks range from daily maintenance routines to monthly or yearly administrative operations. The script encompasses environment checks, SMTP email configuration, and logging functionalities to ensure seamless operation.
+The PHP script in this directory functions as a robust cronjob handler within the Bugfish CMS. It orchestrates various tasks scheduled for execution at different intervals across the framework's managed sites. These tasks range from daily maintenance routines to monthly or yearly administrative operations. The script encompasses environment checks, SMTP email configuration, and logging functionalities to ensure seamless operation.
 
 ## Usage
 

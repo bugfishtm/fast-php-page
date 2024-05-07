@@ -1,13 +1,11 @@
 <?php
-	/* 	__________ ____ ___  ___________________.___  _________ ___ ___  
-		\______   \    |   \/  _____/\_   _____/|   |/   _____//   |   \ 
-		 |    |  _/    |   /   \  ___ |    __)  |   |\_____  \/    ~    \
-		 |    |   \    |  /\    \_\  \|     \   |   |/        \    Y    /
-		 |______  /______/  \______  /\___  /   |___/_______  /\___|_  / 
-				\/                 \/     \/                \/       \/  	
-							www.bugfish.eu
-							
-	    Bugfish Fast PHP Page Framework
+	/* 
+		 _               __ _    _    ___ __  __ ___ 
+		| |__ _  _ __ _ / _(_)__| |_ / __|  \/  / __|
+		| '_ \ || / _` |  _| (_-< ' \ (__| |\/| \__ \
+		|_.__/\_,_\__, |_| |_/__/_||_\___|_|  |_|___/
+				  |___/                              
+
 		Copyright (C) 2024 Jan Maurice Dahlmanns [Bugfish]
 
 		This program is free software: you can redistribute it and/or modify
@@ -22,8 +20,15 @@
 
 		You should have received a copy of the GNU General Public License
 		along with this program.  If not, see <https://www.gnu.org/licenses/>.
-	*/
-	
-	// This file will be modified to serve a store setup by the _aministrator or another interface.
-	// It is recommended to not change this file manually.
-	// it wont be overwritten during core updates, but maybe by the _administrator module by setting up store functionalities.
+		
+		File Description:
+			Updater and listing Script for external Stores!
+	*/ if(file_exists("../settings.php")) { require_once("../settings.php"); }
+		else { echo "Store is currently not available! [Error x1]"; exit(); }
+			
+		$x_array = $object["mysql"]->select("SELECT * FROM "._TABLE_STORE_." WHERE is_active = 1 ORDER BY mod_rname, mod_version ASC", true);
+		if(is_array($x_array)) { 
+			echo serialize($x_array);
+		} else {
+			echo serialize(array());
+		}

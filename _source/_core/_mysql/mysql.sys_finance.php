@@ -1,13 +1,11 @@
 <?php
-	/* 	__________ ____ ___  ___________________.___  _________ ___ ___  
-		\______   \    |   \/  _____/\_   _____/|   |/   _____//   |   \ 
-		 |    |  _/    |   /   \  ___ |    __)  |   |\_____  \/    ~    \
-		 |    |   \    |  /\    \_\  \|     \   |   |/        \    Y    /
-		 |______  /______/  \______  /\___  /   |___/_______  /\___|_  / 
-				\/                 \/     \/                \/       \/  	
-							www.bugfish.eu
-							
-	    Bugfish Fast PHP Page Framework
+	/* 
+		 _               __ _    _    ___ __  __ ___ 
+		| |__ _  _ __ _ / _(_)__| |_ / __|  \/  / __|
+		| '_ \ || / _` |  _| (_-< ' \ (__| |\/| \__ \
+		|_.__/\_,_\__, |_| |_/__/_||_\___|_|  |_|___/
+				  |___/                              
+
 		Copyright (C) 2024 Jan Maurice Dahlmanns [Bugfish]
 
 		This program is free software: you can redistribute it and/or modify
@@ -31,7 +29,7 @@
 	*/ if(!is_array($object)) { @http_response_code(404); Header("Location: ../"); exit(); }	
 	$object["mysql"]->multi_query("CREATE TABLE IF NOT EXISTS `"._HIVE_PREFIX_."sys_finance` (
 		  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Unique ID',
-			`acc_type` varchar(12) NOT NULL COMMENT 'Transaction Type',
+			`acc_type` varchar(12) NOT NULL COMMENT '1 - Incoming One | 2 - Incoming Reocc | 3 - Outgoing Once | 4 - Outgoing Reoccuring | 5 - Account',
 			`acc_value` float(7,2) DEFAULT '0.00' COMMENT 'Transaction Value',
 			`acc_name` varchar(256) NOT NULL COMMENT 'Transaction Name',
 			`acc_data` text COMMENT 'Transaction Data',

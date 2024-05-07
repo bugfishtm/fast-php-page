@@ -1,13 +1,11 @@
 <?php
-	/* 	__________ ____ ___  ___________________.___  _________ ___ ___  
-		\______   \    |   \/  _____/\_   _____/|   |/   _____//   |   \ 
-		 |    |  _/    |   /   \  ___ |    __)  |   |\_____  \/    ~    \
-		 |    |   \    |  /\    \_\  \|     \   |   |/        \    Y    /
-		 |______  /______/  \______  /\___  /   |___/_______  /\___|_  / 
-				\/                 \/     \/                \/       \/  	
-							www.bugfish.eu
-							
-	    Bugfish Fast PHP Page Framework
+	/* 
+		 _               __ _    _    ___ __  __ ___ 
+		| |__ _  _ __ _ / _(_)__| |_ / __|  \/  / __|
+		| '_ \ || / _` |  _| (_-< ' \ (__| |\/| \__ \
+		|_.__/\_,_\__, |_| |_/__/_||_\___|_|  |_|___/
+				  |___/                              
+
 		Copyright (C) 2024 Jan Maurice Dahlmanns [Bugfish]
 
 		This program is free software: you can redistribute it and/or modify
@@ -34,8 +32,8 @@
 		  `seo_url` text NULL DEFAULT '' COMMENT 'Unique URL Name for SEO',
 		  `item_name` text NULL COMMENT 'Content Name',
 		  `item_text` text NULL COMMENT 'Content Text',
-		  `item_status` int(11) NULL COMMENT 'Content Status',
-		  `item_type` int(11) NULL COMMENT 'Content Type',
+		  `item_status` int(11) NULL COMMENT 'For Threads: 1 - Open | 2 - Closed',
+		  `item_type` int(11) NULL COMMENT '1 - Forum Category | 2 - Forum | 3 - Thread | 4 - Post',
 		  `fk_user` int(11) NULL COMMENT 'Creater',
 		  `fk_parent` int(11) NULL COMMENT 'Parent ID',
 		  `site_data` text DEFAULT NULL COMMENT 'Additional Data for Site Modules',

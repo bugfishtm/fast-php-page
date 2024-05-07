@@ -1,4 +1,32 @@
 <?php
+	/* 
+		 _               __ _    _    ___ __  __ ___ 
+		| |__ _  _ __ _ / _(_)__| |_ / __|  \/  / __|
+		| '_ \ || / _` |  _| (_-< ' \ (__| |\/| \__ \
+		|_.__/\_,_\__, |_| |_/__/_||_\___|_|  |_|___/
+				  |___/                              
+
+		Copyright (C) 2024 Jan Maurice Dahlmanns [Bugfish]
+
+		This program is free software: you can redistribute it and/or modify
+		it under the terms of the GNU General Public License as published by
+		the Free Software Foundation, either version 3 of the License, or
+		(at your option) any later version.
+
+		This program is distributed in the hope that it will be useful,
+		but WITHOUT ANY WARRANTY; without even the implied warranty of
+		MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+		GNU General Public License for more details.
+
+		You should have received a copy of the GNU General Public License
+		along with this program.  If not, see <https://www.gnu.org/licenses/>.
+		
+		File Description:
+			Rulset for specific CMS Settings. With this file you can change 
+			some primary CMS Functionalities in Site Module determination
+			and more. Take a look at the configuration below and change it if you
+			need to. After you made changes, rename the file to cfg_ruleset.php
+	*/
 	##############################################################################################	
 	// Informations about this file
 	##############################################################################################	
@@ -181,3 +209,14 @@
 		// Default Value is: true
 		##########################################################################################		
 		// define('_HIVE_ALLOW_TOKEN_', true);
+
+	##############################################################################################	
+	// Session Cookie Domain Settings
+	##############################################################################################			
+
+		##########################################################################################
+		// Change the general PHP Session Cookie Domains
+		// Leave undefined to not change session domain php value.
+		##########################################################################################		
+		// define("_HIVE_COOKIE_DOMAIN_", ".example.domain");
+	

@@ -1,13 +1,11 @@
 <?php
-	/* 	__________ ____ ___  ___________________.___  _________ ___ ___  
-		\______   \    |   \/  _____/\_   _____/|   |/   _____//   |   \ 
-		 |    |  _/    |   /   \  ___ |    __)  |   |\_____  \/    ~    \
-		 |    |   \    |  /\    \_\  \|     \   |   |/        \    Y    /
-		 |______  /______/  \______  /\___  /   |___/_______  /\___|_  / 
-				\/                 \/     \/                \/       \/  	
-							www.bugfish.eu
-							
-	    Bugfish Fast PHP Page Framework
+	/* 
+		 _               __ _    _    ___ __  __ ___ 
+		| |__ _  _ __ _ / _(_)__| |_ / __|  \/  / __|
+		| '_ \ || / _` |  _| (_-< ' \ (__| |\/| \__ \
+		|_.__/\_,_\__, |_| |_/__/_||_\___|_|  |_|___/
+				  |___/                              
+
 		Copyright (C) 2024 Jan Maurice Dahlmanns [Bugfish]
 
 		This program is free software: you can redistribute it and/or modify
@@ -22,12 +20,15 @@
 
 		You should have received a copy of the GNU General Public License
 		along with this program.  If not, see <https://www.gnu.org/licenses/>.
+		
+		File Description:
+			General Site Initialization File
 	*/ if(!is_array($object)) { 
 		@http_response_code(404); echo "Startup Error - Please delete your settings.php file and re-install this instance..."; exit(); 
 	}
 	
 	// Define Defaults
-	define("_HIVE_CREATOR_", 'Powered by <a href="https://github.com/bugfishtm" rel="noopener" target="_blank">Bugfish</a> Fast-PHP Framework!');
+	define("_HIVE_CREATOR_", 'Powered by <a href="https://github.com/bugfishtm/bugfish-cms" rel="noopener" target="_blank">Bugfish CMS</a>!');
 	
 	// Includes and Requirements
 	foreach (glob($object["path"]."/_framework/classes/x_*.php") as $filename) { if(@basename($filename) == "index.php") { continue; } require_once $filename;}
@@ -58,25 +59,25 @@
 	$object["prefix"]						= @$mysql["prefix"];
 
 	// Default Table Constants - LOG
-	define("_TABLE_LOG_", 				$object["prefix"]."sys_log");
-	define("_TABLE_LOG_IP_", 			$object["prefix"]."sys_ip");
-	define("_TABLE_LOG_BENCHMARK_", 	$object["prefix"]."sys_benchmark");
-	define("_TABLE_LOG_CURL_", 			$object["prefix"]."sys_curl");
-	define("_TABLE_LOG_MAIL_", 			$object["prefix"]."sys_mail");
-	define("_TABLE_LOG_MYSQL_", 		$object["prefix"]."sys_mysql");
-	define("_TABLE_LOG_REFERER_", 		$object["prefix"]."sys_referer");
-	define("_TABLE_LOG_CRON_", 			$object["prefix"]."sys_cron");
-	define("_TABLE_LOG_JS_", 			$object["prefix"]."sys_js");
-	define("_TABLE_LOG_VISIT_", 		$object["prefix"]."sys_hitcounter");
+	define("_TABLE_LOG_", 				$object["prefix"]."log");
+	define("_TABLE_LOG_IP_", 			$object["prefix"]."log_ip");
+	define("_TABLE_LOG_BENCHMARK_", 	$object["prefix"]."log_benchmark");
+	define("_TABLE_LOG_CURL_", 			$object["prefix"]."log_curl");
+	define("_TABLE_LOG_MAIL_", 			$object["prefix"]."log_mail");
+	define("_TABLE_LOG_MYSQL_", 		$object["prefix"]."log_mysql");
+	define("_TABLE_LOG_REFERER_", 		$object["prefix"]."log_referer");
+	define("_TABLE_LOG_CRON_", 			$object["prefix"]."log_cron");
+	define("_TABLE_LOG_JS_", 			$object["prefix"]."log_js");
+	define("_TABLE_LOG_VISIT_", 		$object["prefix"]."log_hitcounter");
 	
 	// Default Table Constants - User	
-	define("_TABLE_USER_", 				$object["prefix"]."sys_user");
-	define("_TABLE_USER_EXTRAFIELDS_", 	$object["prefix"]."sys_user_extrafields");
-	define("_TABLE_USER_SESSION_",		$object["prefix"]."sys_user_session");
-	define("_TABLE_USER_PERM_",			$object["prefix"]."sys_user_perm");
-	define("_TABLE_USER_GROUP_",		$object["prefix"]."sys_user_group");
-	define("_TABLE_USER_GROUP_PERM_",	$object["prefix"]."sys_user_group_perm");
-	define("_TABLE_USER_GROUP_LINK_",	$object["prefix"]."sys_user_group_link");
+	define("_TABLE_USER_", 				$object["prefix"]."user");
+	define("_TABLE_USER_EXTRAFIELDS_", 	$object["prefix"]."user_extrafields");
+	define("_TABLE_USER_SESSION_",		$object["prefix"]."user_session");
+	define("_TABLE_USER_PERM_",			$object["prefix"]."user_perm");
+	define("_TABLE_USER_GROUP_",		$object["prefix"]."user_group");
+	define("_TABLE_USER_GROUP_PERM_",	$object["prefix"]."user_group_perm");
+	define("_TABLE_USER_GROUP_LINK_",	$object["prefix"]."user_group_link");
 	
 	// Default Table Constants - System	
 	define("_TABLE_VAR_", 				$object["prefix"]."sys_var");
@@ -86,22 +87,20 @@
 	define("_TABLE_COMMENT_", 			$object["prefix"]."sys_comment");
 	
 	// Misc
-	define("_TABLE_FORUM_", 			$object["prefix"]."sys_forum");
-	define("_TABLE_STORE_", 			$object["prefix"]."sys_store");
-	define("_TABLE_FILE_SHARE_", 		$object["prefix"]."sys_file_share");
-	define("_TABLE_URL_", 				$object["prefix"]."sys_link");
-	define("_TABLE_TASK_", 				$object["prefix"]."sys_task");
-	define("_TABLE_WIKI_", 				$object["prefix"]."sys_wiki");
-	define("_TABLE_FINANCE_", 			$object["prefix"]."sys_finance");
-	define("_TABLE_FILE_", 				$object["prefix"]."sys_file");
-	define("_TABLE_FILE_FOLDER_", 		$object["prefix"]."sys_file_folder");
-	define("_TABLE_ART_", 				$object["prefix"]."sys_article");
-	define("_TABLE_ART_CAT_", 			$object["prefix"]."sys_article_cat");
-	define("_TABLE_USER_EVENT_",		$object["prefix"]."sys_user_event");
-	define("_TABLE_USER_CAL_",			$object["prefix"]."sys_cal");
 	define("_TABLE_TOKEN_",				$object["prefix"]."sys_token");
-	define("_TABLE_FRIENDS_",			$object["prefix"]."sys_user_connect");
-	define("_TABLE_MSG_",				$object["prefix"]."sys_user_msg");
+	define("_TABLE_URL_", 				$object["prefix"]."sys_url");
+	define("_TABLE_WIKI_", 				$object["prefix"]."sys_wiki");
+	define("_TABLE_FORUM_", 			$object["prefix"]."sys_forum");
+	define("_TABLE_FINANCE_", 			$object["prefix"]."sys_finance");
+	define("_TABLE_MSG_",				$object["prefix"]."sys_msg");
+	define("_TABLE_USER_EVENT_",		$object["prefix"]."user_event");
+	define("_TABLE_USER_CAL_",			$object["prefix"]."user_cal");
+	define("_TABLE_ART_", 				$object["prefix"]."article");
+	define("_TABLE_ART_CAT_", 			$object["prefix"]."article_cat");
+	define("_TABLE_STORE_", 			$object["prefix"]."sys_store");
+	define("_TABLE_TASK_", 				$object["prefix"]."task");
+	define("_TABLE_FILE_", 				$object["prefix"]."file");
+	define("_TABLE_FILE_FOLDER_", 		$object["prefix"]."file_folder");
 	
 	// Some Variables
 	define("_HIVE_PREFIX_", 				@$mysql["prefix"]);
@@ -173,7 +172,7 @@
 		if(@in_array($ovr_hive_mode_getenv, _HIVE_MODE_ARRAY_)) {
 			$_SESSION[_HIVE_COOKIE_."hive_mode"] = $ovr_hive_mode_getenv;
 		} else { 
-			echo "You have set the Apache2 Environment Variable: 'FP2_HIVE_MODE_OVR_ENV_658' to '".@$ovr_hive_mode_getenv."', but this site module does not exist. Please fix the Environment Variable Value to fit a valid site module!";
+			hive_error_full("Module Missing", "A Site Module is missing, which has been overrided by Apache2 Environment Variables!", "You have set the Apache2 Environment Variable: 'FP2_HIVE_MODE_OVR_ENV_658' to '".@$ovr_hive_mode_getenv."', but this site module does not exist. Please fix the Environment Variable Value to fit a valid site module!", true, 503);
 			exit();
 		}
 	}
@@ -186,6 +185,16 @@
 	define('_HIVE_SITE_PATH_', 			$object["path"]."/_site/"._HIVE_MODE_."/");	
 	define('_HIVE_SITE_COOKIE_', 		_HIVE_COOKIE_."_"._HIVE_MODE_."_");	
 	define('_HIVE_SITE_PREFIX_', 		_HIVE_PREFIX_."_"._HIVE_MODE_."_");	
+	
+	// Get Current Core Data
+	if(file_exists($object["path"]."/_core/version.php")) { 
+		require_once($object["path"]."/_core/version.php");
+		$object["core_mode"] = $x;
+		unset($x);
+	} else { 
+		hive_error_full("Core Error", "Core version.php is missing!", "This is a critical core error. The version.php in _core is missing and the system cannot proceed!", true, 503);
+		exit();
+	}
 	
 	// Get Current Hive Mode Data
 	if(file_exists($object["path"]."/_site/"._HIVE_MODE_."/version.php")) { 
@@ -228,15 +237,14 @@
 
 	if(!defined("_HIVE_CRIT_ER_")) { 
 		$object["var"]->setup("_HIVE_BUILD_ACTIVE_",@htmlspecialchars( _HIVE_BUILD_ ?? ''), "Current Installed Site Modules Build Number");	
-		$object["var"]->setup("_HIVE_VERSION_ACTIVE_",@htmlspecialchars( _HIVE_VERSION_ ?? ''), "Current Installed Site Modules Version Number");	
 		$object["var"]->setup("_HIVE_RNAME_ACTIVE_",@htmlspecialchars( _HIVE_RNAME_ ?? ''), "Current Installed Site Modules RNAME");	}	
 
 	$tmp_version = $object["var"]->get("_HIVE_VERSION_ACTIVE_");
 	$tmp_build = $object["var"]->get("_HIVE_BUILD_ACTIVE_");
 	$tmp_rname = $object["var"]->get("_HIVE_RNAME_ACTIVE_");
-	if(_HIVE_BUILD_ == 0 OR _HIVE_VERSION_ == 0 OR _HIVE_RNAME_ == 0 OR _HIVE_BUILD_ != $tmp_build OR _HIVE_VERSION_ != $tmp_version OR _HIVE_RNAME_ != $tmp_rname) {
+	if(_HIVE_BUILD_ == 0 OR _HIVE_VERSION_ == 0 OR _HIVE_RNAME_ == 0 OR _HIVE_BUILD_ != $tmp_build OR _HIVE_RNAME_ != $tmp_rname) {
 		if(!defined("_HIVE_CRIT_ER_")) { define("_HIVE_CRIT_ER_", 1); }
-	} unset($tmp_version);unset($tmp_build);unset($tmp_rname);
+	} unset($tmp_build);unset($tmp_rname);
 
 	if(!defined("_HIVE_CRIT_ER_"))  {
 	// Global Sites Configuration
@@ -265,8 +273,11 @@
 			{$link = "https://";}
 			else
 			{$link = "http://";}
-	$tmprel = $link.@$_SERVER["HTTP_HOST"].$tmprel;
-	define('_HIVE_URL_REL_', $tmprel);	
+	$tmprelx = $link.@$_SERVER["HTTP_HOST"].$tmprel;
+	define('_HIVE_URL_REL_', $tmprelx);	
+	$tmprelx = $tmprel;
+	define('_HIVE_URLC_REL_', $tmprelx);	
+	unset($tmprelx);
 	unset($tmprel);
 	unset($link);
 	
@@ -534,17 +545,17 @@
 		if(_HIVE_SITEMAP_URL_) { $url = "Sitemap: "._HIVE_SITEMAP_URL_."\r\n"; } else { $url = "";}
 		if(!file_exists($object["path"]."/robots.txt")) {
 			file_put_contents($object["path"]."/robots.txt", "".$url."User-Agent: *
-Disallow: "._HIVE_URL_REL_."/_store/*
-Disallow: "._HIVE_URL_REL_."/_core/*
-Disallow: "._HIVE_URL_REL_."/_restricted/*
-Disallow: "._HIVE_URL_REL_."/_cron/*
-Disallow: "._HIVE_URL_REL_."/_framework/*
-Disallow: "._HIVE_URL_REL_."/_internal/*
-Disallow: "._HIVE_URL_REL_."/cfg_ruleset.php
-Disallow: "._HIVE_URL_REL_."/cfg_ruleset_sample.php
-Disallow: "._HIVE_URL_REL_."/updater.php
-Disallow: "._HIVE_URL_REL_."/installer.php
-Disallow: "._HIVE_URL_REL_."/developer.php");
+Disallow: "._HIVE_URLC_REL_."/_store/*
+Disallow: "._HIVE_URLC_REL_."/_core/*
+Disallow: "._HIVE_URLC_REL_."/_restricted/*
+Disallow: "._HIVE_URLC_REL_."/_cron/*
+Disallow: "._HIVE_URLC_REL_."/_framework/*
+Disallow: "._HIVE_URLC_REL_."/_internal/*
+Disallow: "._HIVE_URLC_REL_."/cfg_ruleset.php
+Disallow: "._HIVE_URLC_REL_."/cfg_ruleset_sample.php
+Disallow: "._HIVE_URLC_REL_."/updater.php
+Disallow: "._HIVE_URLC_REL_."/installer.php
+Disallow: "._HIVE_URLC_REL_."/developer.php");
 		}		
 	}
 	if(_HIVE_ROBOT_SPAWN_ == 2) {
@@ -641,12 +652,12 @@ Disallow: "._HIVE_URL_REL_."/developer.php");
 	</Files>
 
 	## Error Pages
-	ErrorDocument 400 "._HIVE_URL_REL_."/_core/_error/error.400.php
-	ErrorDocument 401 "._HIVE_URL_REL_."/_core/_error/error.401.php
-	ErrorDocument 403 "._HIVE_URL_REL_."/_core/_error/error.403.php
-	ErrorDocument 404 "._HIVE_URL_REL_."/_core/_error/error.404.php
-	ErrorDocument 500 "._HIVE_URL_REL_."/_core/_error/error.500.php
-	ErrorDocument 503 "._HIVE_URL_REL_."/_core/_error/error.503.php
+	ErrorDocument 400 "._HIVE_URLC_REL_."/_core/_error/error.400.php
+	ErrorDocument 401 "._HIVE_URLC_REL_."/_core/_error/error.401.php
+	ErrorDocument 403 "._HIVE_URLC_REL_."/_core/_error/error.403.php
+	ErrorDocument 404 "._HIVE_URLC_REL_."/_core/_error/error.404.php
+	ErrorDocument 500 "._HIVE_URLC_REL_."/_core/_error/error.500.php
+	ErrorDocument 503 "._HIVE_URLC_REL_."/_core/_error/error.503.php
 	
 	## Lock Folders (multiple seperator is |)
 	RewriteRule ^(_restricted|_internal) - [F,L]");}	 
@@ -790,12 +801,12 @@ Disallow: "._HIVE_URL_REL_."/developer.php");
 	## Change this if you want own error pages
 	## Comment this out if you dont want custom error pages to be used
 	###############################################################
-		ErrorDocument 400 "._HIVE_URL_REL_."/_core/_error/error.400.php
-		ErrorDocument 401 "._HIVE_URL_REL_."/_core/_error/error.401.php
-		ErrorDocument 403 "._HIVE_URL_REL_."/_core/_error/error.403.php
-		ErrorDocument 404 "._HIVE_URL_REL_."/_core/_error/error.404.php
-		ErrorDocument 500 "._HIVE_URL_REL_."/_core/_error/error.500.php
-		ErrorDocument 503 "._HIVE_URL_REL_."/_core/_error/error.503.php
+		ErrorDocument 400 "._HIVE_URLC_REL_."/_core/_error/error.400.php
+		ErrorDocument 401 "._HIVE_URLC_REL_."/_core/_error/error.401.php
+		ErrorDocument 403 "._HIVE_URLC_REL_."/_core/_error/error.403.php
+		ErrorDocument 404 "._HIVE_URLC_REL_."/_core/_error/error.404.php
+		ErrorDocument 500 "._HIVE_URLC_REL_."/_core/_error/error.500.php
+		ErrorDocument 503 "._HIVE_URLC_REL_."/_core/_error/error.503.php
 	
 	###############################################################
 	## Lock Folders which should not be public accessible
@@ -807,5 +818,6 @@ Disallow: "._HIVE_URL_REL_."/developer.php");
 		
 	// Define Relative Site Mode
 	define("_HIVE_SITE_REL_", _HIVE_URL_REL_."/_site/"._HIVE_MODE_."/");
+	define("_HIVE_SITEC_REL_", _HIVE_URLC_REL_."/_site/"._HIVE_MODE_."/");
 	define("_HIVE_SITE_PRIVATE_", _HIVE_PATH_PRIVATE_."/"._HIVE_MODE_."/");
 	define("_HIVE_SITE_PUBLIC_", _HIVE_PATH_PUBLIC_."/"._HIVE_MODE_."/");
