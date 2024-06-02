@@ -448,7 +448,7 @@
 							  <ul class="flex-column nav">
 								  <?php foreach($value["nav_sub"] as $key => $valuex) { ?>
 									<li class="nav-item <?php if(_HIVE_URL_CUR_[1] == $valuex["nav_act"] AND _HIVE_URL_CUR_[0] == $value["nav_act"]) { echo "active";} ?>">
-									  <a class="nav-link" href="<?php echo $valuex["nav_loc"]; ?>">
+									  <a class="nav-link" href="<?php echo $valuex["nav_loc"]; ?>" >
 										<span class="sidebar-text"><?php echo $valuex["nav_title"]; ?></span>
 									  </a>
 									</li>
@@ -460,7 +460,7 @@
 					<?php } else { ?>	
 					
 						  <li class="nav-item  <?php if(_HIVE_URL_CUR_[0] == $value["nav_act"]) { echo "active";} ?> ">
-							<a href="<?php echo $value["nav_loc"]; ?>" class="nav-link">
+							<a href="<?php echo $value["nav_loc"]; ?>" class="nav-link" <?php if(@$value["nav_target"]) { echo " target='".$value["nav_target"]."' "; } ?>>
 							  <span class="sidebar-icon">
 								<i class='icon icon-xs me-2 <?php echo $value["nav_img"]; ?>'></i>
 							  </span> 

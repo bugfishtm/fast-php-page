@@ -1,9 +1,9 @@
 ![Bugfish](https://img.shields.io/badge/Bugfish-CMS-orange)
 ![Status](https://img.shields.io/badge/Status-Finished-green)
 ![License](https://img.shields.io/badge/License-GPLv3-black) 
-![CMS Version](https://img.shields.io/badge/CMS--Version-2.10-white)
+![CMS Version](https://img.shields.io/badge/CMS--Version-2.11-white)
 ![Framework Version](https://img.shields.io/badge/Framework--Version-3.20-white)
-![Admin Module Version](https://img.shields.io/badge/Administrator--Version-0.00.000-white)
+![Admin Module Version](https://img.shields.io/badge/Administrator--Version-1.10.100-white)
 
 # bugfish-CMS
 **Version Number Format**:  
@@ -107,9 +107,7 @@ If you are a developer trying to look into functionalities, you maybe should tak
 | _example-minimal        | Minimal Site Module Example.               | 
 | _example-windmill   | Windmill Dashboard Site Module example.   | 
 | _example-volt   | Volt Dashboard Site Module example.     | 
-| _windmill-backend   | Backend to be copied or used side-by-side with your FP2-Page, based on TailwindCSS Windmill Dashboard     | 
 | _skeleton   | Skeleton of site modules for developers to look into to understand folder functionalities and more!     | 
-| _storepage   | Site Module of the store we use on https://store.bugfish.eu!     | 
 
 Take a look at the _administrator site module which is delivered in the bugfish cms and acts as a default backend for all operations. You can copy the _administrator site module and modify it to fit your needs.
 

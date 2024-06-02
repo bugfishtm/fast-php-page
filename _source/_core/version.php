@@ -34,7 +34,7 @@
 	// Version Information
 	########################################################
 	// Not interesting for System. Just for Versioning
-	$x["version"] 		= "2.10"; 
+	$x["version"] 		= "2.11"; 
 	
 	########################################################
 	// Beta Version Information
