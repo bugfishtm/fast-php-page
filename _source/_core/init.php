@@ -814,7 +814,7 @@ unset($https);
 	// Unset Constant Fixes
 	#################################################################################################################################################
 		if(!defined("_HIVE_SITE_URL_")) { define('_HIVE_SITE_URL_', _HIVE_URL_); }
-		if(!defined("_HIVE_TITLE_")) { define('_HIVE_TITLE_', "FP²"); }
+		if(!defined("_HIVE_TITLE_")) { define('_HIVE_TITLE_', "CMS"); }
 		if(!defined("_UPDATER_TITLE_")) { define("_UPDATER_TITLE_", _HIVE_TITLE_); }
 		if(!defined("_CAPTCHA_FONT_PATH_")) { define("_CAPTCHA_FONT_PATH_", false); }
 		if(!defined("_CAPTCHA_WIDTH_")) { define("_CAPTCHA_WIDTH_", "200"); }

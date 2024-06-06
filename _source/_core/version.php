@@ -37,4 +37,4 @@
 	// Version Information
 	########################################################
 	// Not interesting for System. Just for Versioning
-	$x["version"] 		= "2.12"; 
+	$x["version"] 		= "2.13"; 
