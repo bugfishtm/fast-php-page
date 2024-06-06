@@ -79,7 +79,6 @@
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-1-1">Introduction</a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-1-2">Project Goal</a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-1-2-1">Installation</a></li>
-				    <li class="nav-item"><a class="nav-link scrollto" href="#item-1-3">Integrated Modules</a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-1-3-1">Features</a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-1-4">Libraries</a></li>
 					<!-- Various Informations -->
@@ -113,7 +112,8 @@
 					    <section class="docs-intro">
 						    <p>This is the Documentation for "Bugfish bugfishCMS"</p>
 						<a href="https://github.com/bugfishtm/bugfish-cms/archive/refs/heads/main.zip" class="btn btn-primary"  target="_blank"><i class="fas fa-download me-2"></i> Download</a>
-						<a href="https://github.com/bugfishtm/bugfish-cms" class="btn btn-info"  target="_blank"><i class="fas fa-link me-2"></i> Github</a>
+						<a href="https://github.com/bugfishtm/bugfish-cms" class="btn btn-info" rel="noopener" target="_blank"><i class="fas fa-link me-2"></i> Github</a>
+						<a href="https://store.bugfish.eu" class="btn btn-warning"  target="_blank" rel="noopener"><i class="fas fa-link me-2"></i> CMS Website / Store</a>
 						</section><!--//docs-intro-->
 				    </header><br ><hr>
 				    <section class="docs-section" style="border-bottom: none;" id="item-1-1">
@@ -169,7 +169,7 @@ Add this image to your project created with this CMS to support us!<br /><img sr
 										<p>This software is powered by the bugfish-framework software! You can find the dedicated php/js/css bugfish framwork on github.<br /><img src="./bugfish-framework-banner.jpg" style="max-width: 100%; width: 200px;"></p>
 										<h4>bugfishCMS Logo</h4>
 										<p>Below you can see the current Logo of this bugfish-cms System!</p>
-						<img src="./bugfish-cms-logo.jpg" style="max-width: 100%; width: 200px;"><br /><br />
+						<img src="./logo_alpha_color.png" style="max-width: 100%; width: 200px;"><br /><br />
 					</section><hr><section class="docs-section" style="border-bottom: none;" id="item-1-2">
 										<h3>Project Goal</h3>
 										<p>Our primary goal with this project is to expedite and enhance multi-site deployment. Recognizing the paramount importance of swiftly launching web projects, we are committed to delivering a cutting-edge web hosting solution. We are in the process of implementing these advanced technologies into a new hosting panel, poised to redefine the web hosting landscape. Join us on this thrilling journey as we work towards reshaping web hosting as we know it.</p>
@@ -178,16 +178,19 @@ Add this image to your project created with this CMS to support us!<br /><img sr
 						<h2>Installation</h2>
 						<p>Here you can find some information about the installation process!</p>
 						
-						<h3>Requirements</h3>
+					
+						<h3>Method 1: Manual Installation</h3>
+
+						<b>Requirements</b>
     <ul>
         <li>Apache2 Webserver Recommended</li>
         <li>Apache2 Modules: Rewrite, Header</li>
         <li>PHP 8 Recommended</li>
         <li>Website will ask for missing PHP Modules</li>
         <li>MariaDB Database Connection</li>
-    </ul>						
-						<h3>Method 1: Manual Installation</h3>
-						Here you can see a list of steps on how to install the cms manually. This method is recommended!
+    </ul>	
+	
+						<b>Installation Steps</b>
     <ol>
         <li>Upload all files out of this repositories _source directory to your webspace public-html folder!</li>
         <li>Visit your URL in a Webbrowser, which points to the folder you just uploaded the files to.</li>
@@ -259,61 +262,6 @@ Add this image to your project created with this CMS to support us!<br /><img sr
 							<li>Go the System/Module/Store section and choose a module/extension you want to download</li>
 							<li>Active / deploy the Downloaded Module in the Administrator Interface.</li>
 						</ol>
-					</section><hr><section class="docs-section" id="item-1-3" style="border-bottom: none;">				
-						<h3>Integrated Modules</h3>
-						<p>Following modules may be interesting for developers to enhance theire knowledge about bugfish-cms Functionalities! You can find these modules in the repositories _module folder and deploy them by 
-						copying them into the websites _site folder! You should never manually rename a deployed site module, as this will result in data loss and missing links. Use our administration or another administration interface module to deploy and manage modules! For developres use cfg_ruleset_sample.php to achieve your needs!</p>
-						<button class="btn btn-info" onClick="showNext($(this))">Show Content</button>
-						<div style="overflow-x: auto; max-width: 100%;" class="autohide"><br />
-<table class="table table-bordered table-dark">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>_documentation-adminbsb</td>
-      <td>Documentation for integrated AdminBSB Template</td>
-    </tr>
-    <tr>
-      <td>_documentation-framework</td>
-      <td>Documentation for integrated Bugfish Framework</td>
-    </tr>
-    <tr>
-      <td>_documentation-volt</td>
-      <td>Documentation for integrated Volt Administrator Theme</td>
-    </tr>
-    <tr>
-      <td>_example-minimal</td>
-      <td>Minimal Site Module Solution for Developers to use as a Template</td>
-    </tr>
-    <tr>
-      <td>_example-windmill</td>
-      <td>Windmill Dashboard Site Module example with some more advanced functionalities</td>
-    </tr>
-    <tr>
-      <td>_example-volt</td>
-      <td>Volt Dashboard Site Module example with some more advanced functionalities</td>
-    </tr>
-    <tr>
-      <td>_documentation</td>
-      <td>Documentation for this CMS integrated as a Site Module</td>
-    </tr>
-    <tr>
-      <td>_skeleton</td>
-      <td>Skeleton of site modules for developers to look into to understand folder functionalities and more!</td>
-    </tr>
-    <tr>
-      <td>_administrator</td>
-      <td>Default advanced Administrator Interface module to be used/reused/copied and more!</td>
-    </tr>
-  </tbody>
-</table></div>
-
-
-					
 					</section><hr><section class="docs-section" id="item-1-3-1" style="border-bottom: none;">					
 						<h3>Features</h3>
 						<p>Our web project offers a wide range of powerful features that are designed to simplify your web development journey. These key functionalities provide you with the tools and capabilities you need to create, manage, and customize websites effectively.</p>
@@ -755,6 +703,11 @@ Add this image to your project created with this CMS to support us!<br /><img sr
     <td>BSD</td>
     <td>None</td>
   </tr>
+  <tr>
+    <td>Google Fonts</td>
+    <td>OTF/Apache2</td>
+    <td>None</td>
+  </tr>
   </tbody>
 						</table></div><br><br>
 					</section><!--//section-->			
@@ -1036,70 +989,15 @@ Add this image to your project created with this CMS to support us!<br /><img sr
 								<td>Table to Log API Requests and Tokens (Multi Site Compatible)</td>				
 							</tr>
 							<tr>	
-								<td colspan="2" style="background: #242424;">Files Tables</td>			
-							</tr>
-							<tr>	
-								<td>_TABLE_FILE_</td>
-								<td>Table to store combined files by administrator module or other administrator modules!</td>				
-							</tr>
-							<tr>	
-								<td>_TABLE_FILE_FOLDER_</td>
-								<td>Table to store File Folders by administrator module or other administrator modules!</td>				
-							</tr>
-							<tr>	
 								<td colspan="2" style="background: #242424;">Additional Functionalities Tables</td>			
-							</tr>
-							<tr>	
-								<td>_TABLE_TASK_</td>
-								<td>Table to save task items!</td>				
-							</tr>
-							<tr>	
-								<td>_TABLE_COMMENT_</td>
-								<td>Table for multi Site Comment Class by Bugfish Framework!</td>				
-							</tr>
-							<tr>	
-								<td>_TABLE_WIKI_</td>
-								<td>Table for multi site Wiki for Multi Site Purposes!</td>				
-							</tr>
-							<tr>	
-								<td>_TABLE_ART_</td>
-								<td>Table for multi site articles for Multi Site Purposes!</td>				
-							</tr>
-							<tr>	
-								<td>_TABLE_ART_CAT_</td>
-								<td>Table for multi site articles categories for Multi Site Purposes!</td>				
-							</tr>
-							<tr>	
-								<td>_TABLE_URL_</td>
-								<td>Link list funtionality / Bookmark Table for Multi Site Purposes!</td>				
-							</tr>
-							<tr>	
-								<td>_TABLE_FINANCE_</td>
-								<td>Accounting Table for Multi Site Purposes!</td>				
-							</tr>
-							<tr>	
-								<td>_TABLE_FORUM_</td>
-								<td>Forum Table for Multi Site Purposes!</td>				
 							</tr>
 							<tr>	
 								<td>_TABLE_STORE_</td>
 								<td>Store Table for Multi Site Purposes!</td>				
 							</tr>
 							<tr>	
-								<td>_TABLE_USER_EVENT_</td>
-								<td>User Event/Notification CRM Table for Multi Site Purposes!</td>				
-							</tr>
-							<tr>	
-								<td>_TABLE_USER_CAL_</td>
-								<td>User Calender CRM Table for Multi Site Purposes!</td>				
-							</tr>
-							<tr>	
 								<td>_TABLE_TOKEN_</td>
 								<td>Table for Tokens to let visitors view hidden site modules with a token provided before!</td>				
-							</tr>
-							<tr>	
-								<td>_TABLE_MSG_</td>
-								<td>Table for Messages Between Users!</td>				
 							</tr>
 						</table></div><br><br>
 						<h3>CMS Related Definitions</h3><p>CMS Definitions for this CMS are declared as constants starting with _HIVE_</p>
@@ -2211,13 +2109,275 @@ Add this image to your project created with this CMS to support us!<br /><img sr
 						<b>See Example Site Module _administrator to get insights on how to use this templates functions! This is also the advanced administrator module to be used in that CMS!</b> You can dynamically change the navigation of the theme by changing the nav array. An example of this array can be seen at the end of the _administrator config.php File! <b>This will give you the possibility, to easy spawn a responsive and enhanced navigation as much more, which is included here!</b> This is also the most enhanced skeleton for modules with explanation readmes in it! They maybe help you in develop your own modules. <b>Functions of AdminBSB are not explained here yet. Look up the files of the default _administration site module to get insights! You can copy and reuse the administrator module if you need it. You can even modify it, but watch out to not update it, as this may removes your changes.</b></p>
 						
 						
-						<div class="simplelightbox-gallery row mb-3">
+						<div class="simplelightbox-gallery row mb-1">
 							<div class="col-12 col-md-4 mb-3">
 						        <a href="./adminbsb.png"><img class="figure-img img-fluid shadow rounded" src="./adminbsb.png" alt="" title="AdminBSB Theme Dashboard"></a>
 							</div>
 						</div>										
 						
-						
+						<button class="btn btn-info" onClick="showNext($(this))">Show Content</button>
+						<div style="overflow-x: auto; max-width: 100%;" class="autohide"><br>
+						<table class="table table-bordered table-dark" style="font-size: 12px; ">
+ <thead>
+    <tr>
+      <th>Function</th>
+      <th>Description</th>
+      <th>Parameters</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- Alert Boxes -->
+							<tr>
+								<td colspan="3" style="background: #242424;"><b>Text Heading</b></td>	
+							</tr>
+    <tr>
+      <td>hive__adminbsb_h1($message, $classes = "")</td>
+      <td>Generates a h1 Heading Text.</td>
+      <td>$message (string), $classes (string, optional)</td>
+    </tr>
+    <tr>
+      <td>hive__adminbsb_h2($message, $classes = "")</td>
+      <td>Generates a h2 Heading Text.</td>
+      <td>$message (string), $classes (string, optional)</td>
+    </tr>
+    <tr>
+      <td>hive__adminbsb_h3($message, $classes = "")</td>
+      <td>Generates a h3 Heading Text.</td>
+      <td>$message (string), $classes (string, optional)</td>
+    </tr>
+    <tr>
+      <td>hive__adminbsb_h4($message, $classes = "")</td>
+      <td>Generates a h4 Heading Text.</td>
+      <td>$message (string), $classes (string, optional)</td>
+    </tr>
+    <tr>
+      <td>hive__adminbsb_h5($message, $classes = "")</td>
+      <td>Generates a h5 Heading Text.</td>
+      <td>$message (string), $classes (string, optional)</td>
+    </tr>
+    
+    <!-- Heading Elements -->
+							<tr>
+								<td colspan="3" style="background: #242424;"><b>Error Functions</b></td>	
+							</tr>
+							
+    <tr>
+      <td>hive__adminbsb_404($object, $text = "The requested page does not exist.", $title = "ERROR 404\", $mainclass = "", $headerclass = "", $bodyclass = "")</td>
+      <td>Generates an 404 Error Box.</td>
+      <td>See Function Name</td>
+    </tr>
+    <tr>
+      <td>hive__adminbsb_401($object, $text = "You do not have permission to view this page! :(", $title = "ERROR 401", $mainclass = "", $headerclass = "", $bodyclass = "")</td>
+      <td>Generates an 401 Error Box.</td>
+      <td>See Function Name</td>
+    </tr>
+							
+							
+
+							<tr>
+								<td colspan="3" style="background: #242424;"><b>Buttons</b></td>	
+							</tr>
+    <tr>
+      <td>hive__adminbsb_button_danger($text , $type = "button", $name = "", $js = "", $classes = "")</td>
+      <td>Generates a Button.</td>
+      <td>See Function Name</td>
+    </tr>
+    <tr>
+      <td>hive__adminbsb_button_success($text , $type = "button", $name = "", $js = "", $classes = "")</td>
+      <td>Generates a Button.</td>
+      <td>See Function Name</td>
+    </tr>
+    <tr>
+      <td>hive__adminbsb_button_warning($text , $type = "button", $name = "", $js = "", $classes = "")</td>
+      <td>Generates a Button.</td>
+      <td>See Function Name</td>
+    </tr>
+    <tr>
+      <td>hive__adminbsb_button_info($text , $type = "button", $name = "", $js = "", $classes = "")</td>
+      <td>Generates a Button.</td>
+      <td>See Function Name</td>
+    </tr>
+    <tr>
+      <td>hive__adminbsb_button_primary($text , $type = "button", $name = "", $js = "", $classes = "")</td>
+      <td>Generates a Button.</td>
+      <td>See Function Name</td>
+    </tr>
+    <tr>
+      <td>hive__adminbsb_button_secondary($text , $type = "button", $name = "", $js = "", $classes = "")</td>
+      <td>Generates a Button.</td>
+      <td>See Function Name</td>
+    </tr>
+
+							<tr>
+								<td colspan="3" style="background: #242424;"><b>Boxes</b></td>	
+							</tr>
+
+    <tr>
+      <td>hive__adminbsb_box($text, $header = false, $mainclass = "", $headerclass = "", $bodyclass = "")</td>
+      <td>Create a full box with content.</td>
+      <td>See Function Name</td>
+    </tr>
+    <tr>
+      <td>hive__adminbsb_box_start($header = false, $mainclass = "", $headerclass = "", $bodyclass = "")</td>
+      <td>Start a Box.</td>
+      <td>See Function Name</td>
+    </tr>
+    <tr>
+      <td>hive__adminbsb_box_end()</td>
+      <td>End a Box.</td>
+      <td>See Function Name</td>
+    </tr>
+    
+							<tr>
+								<td colspan="3" style="background: #242424;"><b>Badges</b></td>	
+							</tr>
+
+    <tr>
+      <td>hive__adminbsb_badge_danger($message, $classes = "")</td>
+      <td>Generates a Badge.</td>
+      <td>See Function Name</td>
+    </tr>
+    <tr>
+      <td>hive__adminbsb_badge_success($message, $classes = "")</td>
+      <td>Generates a Badge.</td>
+      <td>See Function Name</td>
+    </tr>
+    <tr>
+      <td>hive__adminbsb_badge_info($message, $classes = "")</td>
+      <td>Generates a Badge.</td>
+      <td>See Function Name</td>
+    </tr>
+    <tr>
+      <td>hive__adminbsb_badge_warning($message, $classes = "")</td>
+      <td>Generates a Badge.</td>
+      <td>See Function Name</td>
+    </tr>
+    <tr>
+      <td>hive__adminbsb_badge_primary($message, $classes = "")</td>
+      <td>Generates a Badge.</td>
+      <td>See Function Name</td>
+    </tr>
+    <tr>
+      <td>hive__adminbsb_badge_secondary($message, $classes = "")</td>
+      <td>Generates a Badge.</td>
+      <td>See Function Name</td>
+    </tr>
+
+
+
+
+							<tr>
+								<td colspan="3" style="background: #242424;"><b>Alerts</b></td>	
+							</tr>
+
+    <tr>
+      <td>hive__adminbsb_alert_danger($message, $classes = "")</td>
+      <td>Generates an Alert.</td>
+      <td>See Function Name</td>
+    </tr>
+    <tr>
+      <td>hive__adminbsb_alert_success($message, $classes = "")</td>
+      <td>Generates an Alert.</td>
+      <td>See Function Name</td>
+    </tr>
+    <tr>
+      <td>hive__adminbsb_alert_info($message, $classes = "")</td>
+      <td>Generates an Alert.</td>
+      <td>See Function Name</td>
+    </tr>
+    <tr>
+      <td>hive__adminbsb_alert_warning($message, $classes = "")</td>
+      <td>Generates an Alert.</td>
+      <td>See Function Name</td>
+    </tr>
+    <tr>
+      <td>hive__adminbsb_alert_primary($message, $classes = "")</td>
+      <td>Generates an Alert.</td>
+      <td>See Function Name</td>
+    </tr>
+    <tr>
+      <td>hive__adminbsb_alert_secondary($message, $classes = "")</td>
+      <td>Generates an Alert.</td>
+      <td>See Function Name</td>
+    </tr>
+
+							<tr>
+								<td colspan="3" style="background: #242424;"><b>Label</b></td>	
+							</tr>
+
+    <tr>
+      <td>hive__adminbsb_label_danger($message, $classes = "")</td>
+      <td>Generates a Label.</td>
+      <td>See Function Name</td>
+    </tr>
+    <tr>
+      <td>hive__adminbsb_label_success($message, $classes = "")</td>
+      <td>Generates a Label.</td>
+      <td>See Function Name</td>
+    </tr>
+    <tr>
+      <td>hive__adminbsb_label_info($message, $classes = "")</td>
+      <td>Generates a Label.</td>
+      <td>See Function Name</td>
+    </tr>
+    <tr>
+      <td>hive__adminbsb_label_warning($message, $classes = "")</td>
+      <td>Generates a Label.</td>
+      <td>See Function Name</td>
+    </tr>
+    <tr>
+      <td>hive__adminbsb_label_primary($message, $classes = "")</td>
+      <td>Generates a Label.</td>
+      <td>See Function Name</td>
+    </tr>
+    <tr>
+      <td>hive__adminbsb_label_secondary($message, $classes = "")</td>
+      <td>Generates a Label.</td>
+      <td>See Function Name</td>
+    </tr>
+
+							<tr>
+								<td colspan="3" style="background: #242424;"><b>Modals</b></td>	
+							</tr>
+
+    <tr>
+      <td>hive__adminbsb_modal($text, $title = false, $icon = "info", $closebutton = "true")</td>
+      <td>Spawn a Popup Window.</td>
+      <td>See Function Name</td>
+    </tr>	
+	
+							<tr>
+								<td colspan="3" style="background: #242424;"><b>Buildup Functions</b></td>	
+							</tr>
+							
+    <tr>
+      <td> hive__adminbsb_end($object)</td>
+      <td colspan="2">End AdminBSB Content</td>
+    </tr>			
+    <tr>
+      <td>hive__adminbsb_start($object)</td>
+      <td colspan="2">Start AdminBSB Content</td>
+    </tr>			
+    <tr>
+      <td>hive__adminbsb_footer($object)</td>
+      <td colspan="2">Spawn Footer</td>
+    </tr>			
+    <tr>
+      <td>hive__adminbsb_header($object, $tabtitle = "", $metaextensions = "")</td>
+      <td colspan="2">Spawn Header.</td>
+    </tr>			
+    <tr>
+      <td>hive__adminbsb_nav($object, $pfm = false, $footertext = false)</td>
+      <td colspan="2">Spawn Nav.</td>
+    </tr>		
+    <tr>
+      <td>hive__adminbsb_topbar($object, $title = "", $theme_changer = false, $lang_ar = false, $notify_ar = false, $modulechooser = false)</td>
+      <td colspan="2">Spawn Topbar.</td>
+    </tr>	
+
+	
+  </tbody>
+</table></div>	<br />		<br />					
 						
 						<h3>Volt Theme</h3>
 						<p>This is an alternative for the windmill theme in bootstrap 5! <a href="https://github.com/themesberg/volt-bootstrap-5-dashboard" rel="noopener" target="_blank">Here you can find the Repository of the integrated more enhanced "Volt Administrator Dashboard".</a> This is just a credit for the developer, stick to this documentation here for informations on how to use this template!
@@ -2522,7 +2682,7 @@ Add this image to your project created with this CMS to support us!<br /><img sr
 							
 						</table></div>	
 <script>
-	$(".autohide").toggle();
+	$(".autohide").prev().toggle();
 	function showNext(thisbutton) {
 		if(thisbutton.text() == "Show Content") { thisbutton.html("Hide Content"); }
 		else { thisbutton.html("Show Content"); }

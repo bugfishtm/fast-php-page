@@ -1,17 +1,21 @@
 # Public Folder
 
-The Public Folder serves as a designated directory for storing files associated with site modules. Access to this folder is open and unrestricted, allowing for various necessary operations.
+The Public Folder is designated for storing files associated with site modules. This directory is openly accessible, allowing for various necessary operations.
 
-**Important Notes:**
-- Direct access to files within this directory is permitted.
-- Hardlinking to files is feasible.
-- Files are included in Backup Functionality.
-- Files may be relocated if the site module is moved within the admin panel.
+## Important Notes
 
-**Usage Guide**:  
-Utilize the following path for your site module, if required:  
-`./_public/SITE_MOD_NAME/*`
+- **Direct Access**: Files within this directory can be accessed directly.
+- **Hardlinking**: Hardlinking to files is supported.
+- **Backup Inclusion**: Files are included in backup operations.
+- **Relocation**: Files may be moved if the corresponding site module is relocated within the admin panel.
 
-Please ensure that only non-critical files are stored in this folder, as its accessibility allows for hardlinking, and anyone can access files since they are not protected in any way.
+## Usage Guide
 
-This folder remains untouched during framework/core updates. However, if a site module is employed, the internal folders may undergo renaming to align with changes in the site modules.
+To use this folder for your site module, follow this path:
+```plaintext
+./_public/SITE_MOD_NAME/*
+```
+
+## Important Information
+Core Updates wont touch Files in this folder as they may be important for running Site Modules. If a Site modules name does change, the related folder / file names related in this folder may needs to be changed to, to not loose data. (Site Module Folder Names are the relation to Folder Name in this Directory.)
+

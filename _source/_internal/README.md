@@ -1,16 +1,13 @@
-# Internal Files - Backups and Temporary Storage
+# Internal Files 
 
-The Internal Files directory serves as a designated area for internal operations, housing backup files and providing temporary storage for module-related files.
+The Internal Files directory serves as a designated area for internal operations, housing backup files and providing temporary storage for module-related files. Files here are mostly used by the _administrator Site Module.
 
-**Contents:**
-- Backups: This folder stores backup files for critical data. Exercise caution and adhere to established procedures when handling backup files.
-  
-- Store Temporary Files: Temporary files from installed store modules or downloaded modules are stored here.
-- Access to this folder should be restricted.
-- Temporary Storage: This folder temporarily houses files related to modules during specific operations. Regular cleanup may be necessary to manage storage space effectively.
+## Contents
 
-**Important:**
-- Manual modifications to files within this directory should be avoided unless you fully understand their purpose.
-- This folder may be altered by the administrator module.
-- Files within this folder are not included in any backup functionalities.
-- Deactivated site modules reside within this folder, indicating that they are not backed up but may still be present on the website.
+- **Backups**: This folder stores backup files for critical data. Exercise caution and adhere to established procedures when handling backup files.
+- **Store Temporary Files**: Temporary files from installed store modules or downloaded modules are stored here. Access to this folder should be restricted.
+- **Temporary Storage**: This folder temporarily houses files related to modules during specific operations. Regular cleanup may be necessary to manage storage space effectively.
+
+
+## Important Information
+Core Updates wont touch Files in this folder as they may be important for running Site Modules. If a Site modules name does change, the related folder / file names related in this folder may needs to be changed to, to not loose data. (Site Module Folder Names are the relation to Folder Name in this Directory.)

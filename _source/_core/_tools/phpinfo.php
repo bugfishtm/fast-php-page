@@ -23,9 +23,7 @@
 		
 		File Description:
 			Tool Script for PHPInfo
-	*/if(file_exists("../../settings.php")) { require_once("../../settings.php"); } else { @http_response_code(404); Header("Location: ./"); exit(); }
-
-	
+	*/if(file_exists("../../settings.php")) { require_once("../../settings.php"); } else { @http_response_code(404); Header("Location: ./"); exit(); }	
 	if(!_HIVE_ALLOW_TOOLS_) { hive_error_full("Access Error", "Script is deactivated in ruleset.php!", "Enable _HIVE_ALLOW_TOOLS_ in ruleset.php or in the _administration interface to enable this files execution!", true, 401); }
 	echo '<link rel="icon" type="image/x-icon" href="../_image/favicon.ico">';
 	echo '<title>PHP Informations - CMS</title>';

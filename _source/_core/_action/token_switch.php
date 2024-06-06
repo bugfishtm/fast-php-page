@@ -68,7 +68,7 @@
 		</head>
 		<body>
 		  <div id="countdown-box">
-			<img src="../_image/logo_alpha.png" width="100">
+			<img src="../_image/logo_alpha_color.png" width="100">
 			<p>You may have been invited to visit a page, which is hidden on this platform!<br>
 			Currently you are active on site module: <b><?php echo htmlspecialchars(_HIVE_MODE_ ?? ""); ?></b></p><br />
 

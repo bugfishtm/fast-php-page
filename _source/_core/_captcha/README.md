@@ -12,10 +12,5 @@ The CAPTCHA Files directory contains PHP files designed for CAPTCHA functionalit
 - Ensure proper configuration of session handling in your project.
 - Utilize the session key `_HIVE_SITE_COOKIE_."captcha.XXXX"` to link CAPTCHA codes with user sessions.
 
-**Important Notes:**
-- Handle session keys securely to prevent misuse or abuse.
-- Customize CAPTCHA appearance or complexity to align with project requirements.
-
-**Caution:**
-- Regularly update and review the CAPTCHA implementation for enhanced security.
-- Implement server-side validation to validate CAPTCHA input securely.
+Happy Captchaing!  
+Bugfish <3

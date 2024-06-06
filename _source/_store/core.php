@@ -31,19 +31,12 @@
 	// Get all files in the folder
 	$files = glob($folder . '*.zip');
 
-	// Function to extract version number from filename
-	function extractVersion($filename) {
-		preg_match('/(\d+\.\d+)/', $filename, $matches);
-		return $matches[1];
-	}
-
 	// Array to store version numbers
 	$versions = [];
 
 	// Extract version numbers from filenames
 	foreach ($files as $file) {
-		$version = extractVersion(basename($file));
-		$versions[] = $version;
+		$versions[] = basename($file);
 	}
 
 	// Sort the version numbers in descending order

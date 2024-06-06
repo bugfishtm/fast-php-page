@@ -23,98 +23,10 @@
 		
 		File Description:
 			Function Library for Volt Dashboard Theme
-	*/ if(!is_array(@$object)) { @http_response_code(@404); @Header("Location: ../"); exit(); }
+	*/ if(!is_array(@$object)) { @http_response_code(@404); @Header("Location: ../"); exit(); }			
 	#############################################################################################################################################
-	// Alert Boxes
-	#############################################################################################################################################
-	function hive__volt_alert_danger($message, $classes = "alert alert-danger") {
-		return '<div class="'.$classes.'" role="alert">'.$message.'</div>';
-	}
-	function hive__volt_alert_success($message, $classes = "alert alert-success") { 
-		return '<div class="'.$classes.'" role="alert">'.$message.'</div>';
-	}
-	function hive__volt_alert_warning($message, $classes = "alert alert-warning") { 
-		return '<div class="'.$classes.'" role="alert">'.$message.'</div>';
-	}
-	function hive__volt_alert_info($message, $classes = "alert alert-info") { 
-		return '<div class="'.$classes.'" role="alert">'.$message.'</div>';
-	 }
-	function hive__volt_alert_primary($message, $classes = "alert alert-primary") { 
-		return '<div class="'.$classes.'" role="alert">'.$message.'</div>';
-	}
-	function hive__volt_alert_secondary($message, $classes = "alert alert-secondary") { 
-		return '<div class="'.$classes.'" role="alert">'.$message.'</div>';
-	}
-	function hive__volt_alert_light($message, $classes = "alert alert-light") { 
-		return '<div class="'.$classes.'" role="alert">'.$message.'</div>';
-	}
-	#############################################################################################################################################
-	// Heading Elements
-	#############################################################################################################################################
-	function hive__volt_h2($text, $classes = "h2") {
-		return '<h2 class="'.$classes.'">'.$text.'</h2>';
-	}	
-	function hive__volt_h4($text, $classes = "h4 ") {
-		return '<h4 class="'.$classes.'">'.$text.'</h4>';
-	}	
-	#############################################################################################################################################
-	// Box Elements
-	#############################################################################################################################################
-	function hive__volt_box_start($header = false, $classes = "", $headerclasses = "", $subtitle = false) { ?>
-	  <?php if($header) {  ?>     
-			<div class="d-flex justify-content-between w-100 flex-wrap">
-				<div class="mb-3 mb-lg-0">
-					<h1 class="h4 <?php echo $headerclasses; ?>"> <?php echo $header; ?></h1>
-				   <?php if($subtitle) {  ?> <p class="mb-0"><?php echo $subtitle; ?></p>  <?php } ?>
-				</div>
-			</div>
-	  <?php } ?>
-			
-		<div class="card <?php echo $classes; ?>">
-			  <div class="card-body"> 
-	<?php }
-	function hive__volt_box_end() { ?>
-		  </div>		
-		</div>		
-	<?php }	
-	function hive__volt_box_full($text, $classes = "") { ?>
-		<div class="card <?php echo $classes; ?>">
-            <div class="card-body"> 
-			<?php echo $text; ?>
-		  </div>		
-		</div>		
-	<?php }		
-	function hive__volt_box($text, $classes = "") { ?>
-		<div class="card <?php echo $classes; ?>">
-            <div class="card-body"> 
-			<?php echo $text; ?>
-		  </div>		
-		</div>		
-	<?php }		
-	#############################################################################################################################################
-	// Modal Elements
-	#############################################################################################################################################
-	function hive__volt_modal($text, $title = false, $icon = "info") { ?>
-		<script>
-			$( document ).ready(function() {
-				Swal.fire({
-				 <?php if($title) { ?> title: '<?php echo $title; ?>', <?php } ?>
-				  <?php if($icon) { ?>icon: '<?php echo $icon; ?>',<?php } ?>
-				  html:
-					'<?php echo str_replace("'", "\\'", $text); ?>',
-				});
-			});
-		</script>
-	<?php }			
-	#############################################################################################################################################
-	// Main Elements
-	#############################################################################################################################################
-	function hive__volt_404($object, $text = "This page has not been found! :(", $title = "ERROR 404", $classes = false) { 
-		hive__volt_box_full($text, $classes);
-	 }	
-	function hive__volt_401($object, $text = "You do not have permission to view this page! :(", $title = "ERROR 401", $classes = false) { 
-		hive__volt_box_full($text, $classes);
-	 }	
+	// Header Elements
+	#############################################################################################################################################	
 	function hive__volt_footer($object, $footer = "", $classes = "bg-white rounded shadow p-5 mb-3 mt-3", $end_div = true) { ?>
 			<?php if($end_div) { ?></div><?php } ?>
 			<!-- End of modal backdrop -->
@@ -126,9 +38,6 @@
 		  </body>
 		</html>	
 	<?php }	
-	#############################################################################################################################################
-	// Header Elements
-	#############################################################################################################################################	
 	function hive__volt_header($object, $tabtitle = "", $metaextensions = "", $theme_default = "dark", $mainclass = "") { 
 		if(!isset($_SESSION[_HIVE_SITE_COOKIE_."hive_dashboard_subtheme"])) {
 			$_SESSION[_HIVE_SITE_COOKIE_."hive_dashboard_subtheme"] = $theme_default; 
@@ -509,3 +418,103 @@
 </div>
 	<?php
 	}		
+	#############################################################################################################################################
+	// Heading Elements
+	#############################################################################################################################################
+	function hive__volt_h1($text, $classes = "h1") {
+		return '<h1 class="'.$classes.'">'.$text.'</h1>';
+	}	
+	function hive__volt_h2($text, $classes = "h2") {
+		return '<h2 class="'.$classes.'">'.$text.'</h2>';
+	}	
+	function hive__volt_h3($text, $classes = "h3 ") {
+		return '<h3 class="'.$classes.'">'.$text.'</h3>';
+	}	
+	function hive__volt_h4($text, $classes = "h4 ") {
+		return '<h4 class="'.$classes.'">'.$text.'</h4>';
+	}	
+	function hive__volt_h5($text, $classes = "h5 ") {
+		return '<h5 class="'.$classes.'">'.$text.'</h5>';
+	}	
+	#############################################################################################################################################
+	// Modal Elements
+	#############################################################################################################################################
+	function hive__volt_modal($text, $title = false, $icon = "info") { ?>
+		<script>
+			$( document ).ready(function() {
+				Swal.fire({
+				 <?php if($title) { ?> title: '<?php echo $title; ?>', <?php } ?>
+				  <?php if($icon) { ?>icon: '<?php echo $icon; ?>',<?php } ?>
+				  html:
+					'<?php echo str_replace("'", "\\'", $text); ?>',
+				});
+			});
+		</script>
+	<?php }	
+	#############################################################################################################################################
+	// Main Elements
+	#############################################################################################################################################
+	function hive__volt_404($object, $text = "This page has not been found! :(", $title = "ERROR 404", $classes = false) { 
+		hive__volt_box_full($text, $classes);
+	 }	
+	function hive__volt_401($object, $text = "You do not have permission to view this page! :(", $title = "ERROR 401", $classes = false) { 
+		hive__volt_box_full($text, $classes);
+	 }	
+	#############################################################################################################################################
+	// Box Elements
+	#############################################################################################################################################
+	function hive__volt_box_start($header = false, $classes = "", $headerclasses = "", $subtitle = false) { ?>
+	  <?php if($header) {  ?>     
+			<div class="d-flex justify-content-between w-100 flex-wrap">
+				<div class="mb-3 mb-lg-0">
+					<h1 class="h4 <?php echo $headerclasses; ?>"> <?php echo $header; ?></h1>
+				   <?php if($subtitle) {  ?> <p class="mb-0"><?php echo $subtitle; ?></p>  <?php } ?>
+				</div>
+			</div>
+	  <?php } ?>
+			
+		<div class="card <?php echo $classes; ?>">
+			  <div class="card-body"> 
+	<?php }
+	function hive__volt_box_end() { ?>
+		  </div>		
+		</div>		
+	<?php }	
+	function hive__volt_box_full($text, $classes = "") { ?>
+		<div class="card <?php echo $classes; ?>">
+            <div class="card-body"> 
+			<?php echo $text; ?>
+		  </div>		
+		</div>		
+	<?php }		
+	function hive__volt_box($text, $classes = "") { ?>
+		<div class="card <?php echo $classes; ?>">
+            <div class="card-body"> 
+			<?php echo $text; ?>
+		  </div>		
+		</div>		
+	<?php }	
+	#############################################################################################################################################
+	// Alert Boxes
+	#############################################################################################################################################
+	function hive__volt_alert_danger($message, $classes = "alert alert-danger") {
+		return '<div class="'.$classes.'" role="alert">'.$message.'</div>';
+	}
+	function hive__volt_alert_success($message, $classes = "alert alert-success") { 
+		return '<div class="'.$classes.'" role="alert">'.$message.'</div>';
+	}
+	function hive__volt_alert_warning($message, $classes = "alert alert-warning") { 
+		return '<div class="'.$classes.'" role="alert">'.$message.'</div>';
+	}
+	function hive__volt_alert_info($message, $classes = "alert alert-info") { 
+		return '<div class="'.$classes.'" role="alert">'.$message.'</div>';
+	 }
+	function hive__volt_alert_primary($message, $classes = "alert alert-primary") { 
+		return '<div class="'.$classes.'" role="alert">'.$message.'</div>';
+	}
+	function hive__volt_alert_secondary($message, $classes = "alert alert-secondary") { 
+		return '<div class="'.$classes.'" role="alert">'.$message.'</div>';
+	}
+	function hive__volt_alert_light($message, $classes = "alert alert-light") { 
+		return '<div class="'.$classes.'" role="alert">'.$message.'</div>';
+	}

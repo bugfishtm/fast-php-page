@@ -1,17 +1,20 @@
 # Restricted Folder
 
-The Restricted Folder is designated for storing files associated with site modules, with access restricted to authorized methods or PHP scripts. It is highly recommended to enforce access restrictions using mechanisms like htaccess.
+The Restricted Folder is designated for storing files associated with site modules, with access restricted to authorized methods or PHP scripts. It is crucial to enforce access restrictions using mechanisms such as `.htaccess`.
 
-**Important Notes:**
-- Direct access to files within this directory should be strictly prohibited.
-- Hardlinking to files should be made impossible.
-- Files are included in Backup Functionality.
-- Files may be relocated if the site module is moved within the admin panel.
+## Important Notes
 
-**Usage Guide**:  
-Utilize the following path for your site module, if required:  
-`./_restricted/SITE_MOD_NAME/*`
+- **Restricted Access**: Direct access to files within this directory must be strictly prohibited.
+- **No Hardlinking**: Hardlinking to files should be prevented.
+- **Backup Inclusion**: Files are included in backup operations.
+- **Relocation**: Files may be moved if the corresponding site module is relocated within the admin panel.
 
-It is imperative to control access to this folder strictly, allowing access only to authorized scripts or methods to uphold the security of your website modules.
+## Usage Guide
 
-This folder remains untouched during framework/core updates. However, if a site module is employed, the internal folders may undergo renaming to align with changes in the site modules.
+To use this folder for your site module, follow this path:
+```plaintext
+./_restricted/SITE_MOD_NAME/*
+```
+
+## Important Information
+Core Updates wont touch Files in this folder as they may be important for running Site Modules. If a Site modules name does change, the related folder / file names related in this folder may needs to be changed to, to not loose data. (Site Module Folder Names are the relation to Folder Name in this Directory.)

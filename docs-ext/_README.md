@@ -5,4 +5,14 @@ Welcome to the Template Documentation Repository! This repository contains a col
 
 Each folder within this repository is dedicated to a specific category or type of documentation. Feel free to explore and utilize these templates to enhance your productivity and creativity. Additionally, we encourage contributions from the community to enrich this repository further.
 
-Happy templating! 📄✨
+## Informations about Folders
+
+|Name|Description|
+|----|----|
+|bugfish-framework|Documentation of the latest integrated Bugfish Framework|
+|template-adminbsb| Documentation of the Integrated AdminBSB Bootstrap 3 Template|
+|template-windmill|Documentation of the Integrated Windmill Tailwind Template|
+|template-volt|Documentation of the Integrated Volt Bootstrap 5 Template|
+
+Happy templating! 📄✨  
+Bugfish <3

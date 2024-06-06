@@ -63,7 +63,7 @@
 </head>
 <body>
   <div id="countdown-box">
-	<img src="../_image/logo_alpha.png" width="100">
+	<img src="../_image/logo_alpha_color.png" width="100">
     <p>Your Session has been destroyed!<br />Click <a href="../../developer.php">here</a> to go back!</p>
   </div>
  </body>

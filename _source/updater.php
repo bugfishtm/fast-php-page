@@ -51,7 +51,7 @@
 		hive_error_full("Temporary Banned", "Too many wrong installation passwords!", "You have been temporarly blocked from this page!<br />Try again later and check to provide the real updater code.", true, 401);}
 	hive__simple_start($object, "Updater - ".@htmlspecialchars(_HIVE_TITLE_ ?? ''), '<link rel="icon" type="image/x-icon" href="'._HIVE_URL_REL_.'/_core/_image/favicon.ico">'); ?>
     <div class="containerbox">
-		<img src='./_core/_image/logo_alpha.png' width='40' style="margin-right: 10px;" > <b style='font-size:36px; padding-bottom: 10px;'><?php echo @htmlspecialchars(_HIVE_TITLE_ ?? ''); ?> Updater</b>
+		<img src='./_core/_image/logo_alpha_color.png' width='40' style="margin-right: 10px;" > <b style='font-size:36px; padding-bottom: 10px;'><?php echo @htmlspecialchars(_HIVE_TITLE_ ?? ''); ?> Updater</b>
         <p><b>You are going to update this website!</b><br />This updater is mandatory to install database updates and more via php scripts! More informations about this updater can be found in this CMS Documentation.</p>   
 			<?php $checkx = false; if(@_UPDATER_CODE_ == @$_POST["installer_code"]) { $checkx = true; } if(@_UPDATER_CODE_ != @$_POST["installer_code"] AND isset($_POST["installer_code"])) {
 			$_SESSION["hive_installer_block"] = $_SESSION["hive_installer_block"] + 1; }if(@$_POST["update_start"] != "set" OR !$checkx) { ?>
@@ -63,6 +63,8 @@
 			<?php
 				$ar = array();
 				foreach (glob("./_site/"._HIVE_MODE_."/_update/*.php") as $filename) {
+					if(basename($filename) == "README.md") { continue; }
+					if(basename($filename) == "readme.md") { continue; }
 					if(basename($filename) == "index.php") { continue; }
 					if(basename($filename) == ".htaccess") { continue; }
 					if(!is_numeric(substr(basename($filename), 0, -4))) { continue; }
@@ -90,6 +92,8 @@
 		<?php } else { 
 			$ar = array();
 				foreach (glob("./_site/"._HIVE_MODE_."/_update/*.php") as $filename) {
+					if(basename($filename) == "README.md") { continue; }
+					if(basename($filename) == "readme.md") { continue; }
 					if(basename($filename) == "index.php") { continue; }
 					if(basename($filename) == ".htaccess") { continue; }
 					if(!is_numeric(substr(basename($filename), 0, -4))) { continue; }

@@ -1,13 +1,11 @@
 <?php
-	/* 	__________ ____ ___  ___________________.___  _________ ___ ___  
-		\______   \    |   \/  _____/\_   _____/|   |/   _____//   |   \ 
-		 |    |  _/    |   /   \  ___ |    __)  |   |\_____  \/    ~    \
-		 |    |   \    |  /\    \_\  \|     \   |   |/        \    Y    /
-		 |______  /______/  \______  /\___  /   |___/_______  /\___|_  / 
-				\/                 \/     \/                \/       \/  	
-							www.bugfish.eu
-							
-	    Bugfish Fast PHP Page Framework
+	/* 
+		 _               __ _    _    ___ __  __ ___ 
+		| |__ _  _ __ _ / _(_)__| |_ / __|  \/  / __|
+		| '_ \ || / _` |  _| (_-< ' \ (__| |\/| \__ \
+		|_.__/\_,_\__, |_| |_/__/_||_\___|_|  |_|___/
+				  |___/                              
+
 		Copyright (C) 2024 Jan Maurice Dahlmanns [Bugfish]
 
 		This program is free software: you can redistribute it and/or modify
@@ -22,12 +20,15 @@
 
 		You should have received a copy of the GNU General Public License
 		along with this program.  If not, see <https://www.gnu.org/licenses/>.
+		
+		File Description:
+			Weekly Cronjob File - Set this up on your server to run at the specific interval!
 	*/
 	if(file_exists(dirname(__FILE__)."/../settings.php")) { require_once(dirname(__FILE__)."/../settings.php"); } else { echo "Not yet installed!"; exit(); }
 	if(_CRON_ONLY_CLI_) { if(!x_inCLI()) { hive_error_full("Not Allowed", "Cronjob hardlink not allowed!", "Cron execution in browser has been disabled in configuration by _CRON_ONLY_CLI_.", true, 401);  exit(); } }
 	$php_space = "\r\n"; if(!x_inCLI()) { $php_space = "<br />"; }
 	ob_start();
-	echo "// Weekly FP² Cronjob".$php_space.$php_space;
+	echo "// Weekly bugfishCMS Cronjob".$php_space.$php_space;
 	if(is_dir($object["path"]."/_site/")) {
 		$scan = scandir($object["path"]."/_site/");
 		foreach($scan as $file) {

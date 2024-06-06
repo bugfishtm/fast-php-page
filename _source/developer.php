@@ -37,7 +37,7 @@
 	hive__simple_start($object, "Developer Tools - CMS", '<link rel="icon" type="image/x-icon" href="'._HIVE_URL_REL_.'/_core/_image/favicon.ico">'); ?>
 
 	<div class="containerbox">
-			<img src='./_core/_image/logo_alpha.png' width='40' style="margin-right: 10px;" > <b style='font-size:36px; padding-bottom: 10px;'>Backend Tools</b><br />
+			<img src='./_core/_image/logo_alpha_color.png' width='40' style="margin-right: 10px;" > <b style='font-size:36px; padding-bottom: 10px;'>Backend Tools</b><br />
 			Empower your browsing experience with personalized control through our user-centric settings customization feature. Modify website settings exclusively for your sessions, ensuring that changes remain confined to your individual preferences without any impact on global configurations. These developer tools provide a comprehensive suite for inspecting various backend functionalities, facilitating a more streamlined understanding and navigation during the development process. For optimal usage, consider disabling this functionality by turning off HIVE_MOD_CHANGES in ruleset.php or utilizing an associated admin interface designed for this purpose. Your seamless browsing experience starts with tailored settings and efficient developer tools.<br />	
 	</div>
 	<div class="containerbox">
@@ -46,6 +46,7 @@
 		<a href="./_core/_tools/cookie_destroy.php" class="containerbox-btn">Cookie Destroy</a> <br /><br /><br />
 		<a href="./_core/_tools/phpinfo.php" class="containerbox-btn">PHPInfo</a> 
 		<a href="./_core/_action/admin_switch.php" class="containerbox-btn">Admin Switch</a>
+		<a href="./_core/_action/token_switch.php" class="containerbox-btn">Token Switch</a>
 		<br /><br />
 	</div>
 	<div class="containerbox">

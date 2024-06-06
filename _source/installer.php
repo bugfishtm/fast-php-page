@@ -30,13 +30,13 @@
 	// This file may gets updated during core updates.
 	////////////////////////////////////////////////////////////////////////////////////
 	if(file_exists("./settings.php")) { require_once("./settings.php"); hive_error_full("No Installation Required", "Click <a href='./'>here</a> to go back...", "We found a valid settings.php file, which means that this software is already installed!<br /> Tp re-install this software delete the settings.php file in the document root directory.", true, 401);  exit(); } 
-	$object = array(); require_once("./_core/_lib/lib._hive.php");  
+	$object = array(); require_once("./_core/_lib/lib.__hive.php");  
 	if(file_exists("./cfg_ruleset.php")) { $object = array(); require_once("./cfg_ruleset.php");  }
 	$object = array(); require_once("./_core/_lib/lib._simple.php");  
 	define("_HIVE_COLOR_", "#ff5707");
-	if(!defined("_INSTALLER_TITLE_"))  { define("_INSTALLER_TITLE_", "Installation"); }
-	if(!defined("_INSTALLER_COOKIE_")) { define("_INSTALLER_COOKIE_", "hive_"); }
-	if(!defined("_INSTALLER_PREFIX_")) { define("_INSTALLER_PREFIX_", "hive_"); }
+	if(!defined("_INSTALLER_TITLE_"))  { define("_INSTALLER_TITLE_", "bugfishCMS"); }
+	if(!defined("_INSTALLER_COOKIE_")) { define("_INSTALLER_COOKIE_", "bcms_"); }
+	if(!defined("_INSTALLER_PREFIX_")) { define("_INSTALLER_PREFIX_", "bcms_"); }
 	if(!defined("_INSTALLER_CODE_"))   { define("_INSTALLER_CODE_", false); }
 	
 	// Start Session
@@ -60,7 +60,7 @@
 					if(@trim(@$_POST["website_url"] ?? '') == "") {  $erroremptyu = true; $do = false;}
 					if(@trim(@$_POST["website_cookie"] ?? '') == "") {  $erroremptyux = true; $do = false;}
 					if(@trim(@$_POST["website_prefix"] ?? '') == "") {  $erroremptyuy = true; $do = false;}
-					if(!file_exists(@$_POST["doc_root"]."_core/_misc/ynvnzmlzaa.php")) { $erroremptyr = true; $do = false;}
+					if(!file_exists(@$_POST["doc_root"]."_core/init.php")) { $erroremptyr = true; $do = false;}
 					if(@trim(@$_POST["mysql_db"] ?? '') == "") {  $erroremptyd = true; $do = false;}
 					if(!is_numeric(@$_POST["mysql_port"])) { $_POST["mysql_port"] = 3306; }
 					if(@trim(@$_POST["mysql_host"] ?? '') == "") { $_POST["mysql_host"] = "localhost"; }
@@ -84,7 +84,7 @@
 	hive__simple_start($object, "Installation - CMS", '<link rel="icon" type="image/x-icon" href="./_core/_image/favicon.ico">');
 	if(!$do OR $erroremptyr OR $erroremptyu OR $erroremptyd OR !$con OR $coner OR @$erroremptyrcced) {?>
 	<div class="containerbox">
-		<img src='./_core/_image/logo_alpha.png' width='40' style="margin-right: 10px;" > <b style='font-size:36px; padding-bottom: 10px;'><?php echo _INSTALLER_TITLE_; ?></b>
+		<img src='./_core/_image/logo_alpha_color.png' width='40' style="margin-right: 10px;" > <b style='font-size:36px; padding-bottom: 10px;'><?php echo _INSTALLER_TITLE_; ?></b>
 		<small><br />Welcome to the website installer script! This script aims to simplify the setup process by generating a 'settings.php' file for your website's root folder. Should the 'settings.php' file be absent, this installer will assist in configuring MySQL data and prefixes necessary for your website's functionality.<br><br>
 
 Enter your MySQL database credentials and desired database prefix in the provided form. For additional email functionalities, manual setup within 'settings.php' or through the administration interface can be undertaken post-installation.</small>
@@ -151,7 +151,7 @@ Enter your MySQL database credentials and desired database prefix in the provide
 	<?php hive__simple_end($object, 'Powered by <a href="https://github.com/bugfishtm/bugfish-cms" rel="noopener" target="_blank" style="color: yellow!important;">Bugfish CMS</a>!'); ?>
 	<?php } else { ?>
 	<div class="containerbox">
-		<img src='./_core/_image/logo_alpha.png' width='40' style="margin-right: 10px;" > <b style='font-size:36px; padding-bottom: 10px;'>Installation</b><br />
+		<img src='./_core/_image/logo_alpha_color.png' width='40' style="margin-right: 10px;" > <b style='font-size:36px; padding-bottom: 10px;'>Installation</b><br />
 		<small>Congratulations! The installation is complete. You can now explore your website. In case of any errors, simply delete the 'settings.php' file to initiate a fresh software installation. Enjoy using your new website!</small>
 		<br ><br >
 		<?php
@@ -183,27 +183,21 @@ if(!file_exists("./settings.php")) {
 		Generated Settings.php File by Installer at ".date("Y-m-d H:i")." */
 	
 	/* Generated MySQL Settings */
-	\$mysql['host'] = '".str_replace("'", "\\'",str_replace("\\", "\\\\", $_POST["mysql_host"]))."'; # MySQL Hostname
-	\$mysql['port'] = '".str_replace("'", "\\'",str_replace("\\", "\\\\",$_POST["mysql_port"]))."'; # Mysql Port
-	\$mysql['user'] = '".str_replace("'", "\\'",str_replace("\\", "\\\\",$_POST["mysql_user"]))."'; # MySQL User
-	\$mysql['pass'] = '".str_replace("'", "\\'",str_replace("\\", "\\\\",$_POST["mysql_pass"]))."'; # MySQL Pass
-	\$mysql['db'] 	= '".str_replace("'", "\\'",str_replace("\\", "\\\\",$_POST["mysql_db"]))."'; # MySQL Database
-	\$mysql['prefix'] 	= '".str_replace("'", "\\'",str_replace("\\", "\\\\",$_POST["website_prefix"]))."'; # MySQL Prefix
+		\$mysql['host'] = '".str_replace("'", "\\'",str_replace("\\", "\\\\", $_POST["mysql_host"]))."'; # MySQL Hostname
+		\$mysql['port'] = '".str_replace("'", "\\'",str_replace("\\", "\\\\",$_POST["mysql_port"]))."'; # Mysql Port
+		\$mysql['user'] = '".str_replace("'", "\\'",str_replace("\\", "\\\\",$_POST["mysql_user"]))."'; # MySQL User
+		\$mysql['pass'] = '".str_replace("'", "\\'",str_replace("\\", "\\\\",$_POST["mysql_pass"]))."'; # MySQL Pass
+		\$mysql['db'] 	= '".str_replace("'", "\\'",str_replace("\\", "\\\\",$_POST["mysql_db"]))."'; # MySQL Database
+		\$mysql['prefix'] 	= '".str_replace("'", "\\'",str_replace("\\", "\\\\",$_POST["website_prefix"]))."'; # MySQL Prefix
 	
 	/* Generated Site Settings */
-	\$object['cookie'] 	= '".str_replace("'", "\\'",str_replace("\\", "\\\\",$_POST["website_cookie"]))."'; # Cookie Prefix
-	\$object['path'] 	= '".str_replace("'", "\\'",str_replace("\\", "\\\\",$_POST["doc_root"]))."'; # Full Path
-	\$object['url'] 	= '".str_replace("'", "\\'",str_replace("\\", "\\\\",$_POST["website_url"]))."'; # Full URL
-	
-	/* Mail Settings - Can also be defined in Sites Module (Setting will be overwritten by Site Module Setting) */
-	\$smtp['_SMTP_HOST_'] 			= 'localhost';  # Mail Host Server (better to be setup in site module.)
-	\$smtp['_SMTP_PORT_'] 			= '465';  # Mail Server Port (better to be setup in site module.)
-	\$smtp['_SMTP_AUTH_'] 			= 'ssl';  # can be ssl/tls/false (better to be setup in site module.)
-	\$smtp['_SMTP_USER_'] 			= '_______ENTER___MAIL___USERNAME____'; # Username to Login (can be false) (better to be setup in site module.)
-	\$smtp['_SMTP_PASS_'] 			= '_______ENTER___MAIL___PASSWORD____'; # Password to Login (can be false) (better to be setup in site module.)
+		\$object['cookie'] 	= '".str_replace("'", "\\'",str_replace("\\", "\\\\",$_POST["website_cookie"]))."'; # Cookie Prefix
+		\$object['path'] 	= '".str_replace("'", "\\'",str_replace("\\", "\\\\",$_POST["doc_root"]))."'; # Full Path
+		\$object['url'] 	= '".str_replace("'", "\\'",str_replace("\\", "\\\\",$_POST["website_url"]))."'; # Full URL
 	
 	/* Do not change below! */
-	require_once(\$object['path'].\"/_core/_misc/init.php\");
+		if(file_exists(\$object['path'].\"/_core/init.php\")) { require_once(\$object['path'].\"/_core/init.php\"); }
+		else { http_response_code(503); echo \"Error at PATH in settings.php.<br />Please check your configuration file.\"; } 
 	")) {
 		echo "<p><font color='lime'>OK: </font>Validating Configuration Variables<br />";
 		echo "<font color='lime'>OK: </font>Creating Settings.php File<br />";

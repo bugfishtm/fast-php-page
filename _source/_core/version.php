@@ -22,7 +22,10 @@
 		along with this program.  If not, see <https://www.gnu.org/licenses/>.
 		
 		File Description:
-			Core CMS Versioning File
+			Versioning Information File of the Core CMS Code.
+			The Framework integrated "Bugfish Framework" has its own versioning
+			and releasing numbers. See inside the _framework folders readme.md to
+			view the framework version number that you are currently using.
 	*/
 	
 	########################################################
@@ -34,11 +37,4 @@
 	// Version Information
 	########################################################
 	// Not interesting for System. Just for Versioning
-	$x["version"] 		= "2.11"; 
-	
-	########################################################
-	// Beta Version Information
-	// True = Beta Version | False = Productive Version
-	########################################################
-	$x["beta"] 			= false;
-	
+	$x["version"] 		= "2.12"; 

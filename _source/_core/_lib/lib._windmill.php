@@ -24,230 +24,10 @@
 		File Description:
 			Function Library for Windmill Dashboard Theme
 	*/ if(!is_array(@$object)) { @http_response_code(@404); @Header("Location: ../"); exit(); }
-	#############################################################################################################################################
-	// Alert Boxes
-	#############################################################################################################################################
-	function hive__windmill_alert_danger($message, $classes = "flex items-center justify-between p-4 mb-4 text-sm font-semibold text-purple-100 rounded-lg shadow-md focus:outline-none focus:shadow-primary-bugfish background-danger") {
-		return '<div class="'.$classes.'"><span>'.$message.'</span></div>';
-	}
-	function hive__windmill_alert_success($message, $classes = "flex items-center justify-between p-4 mb-4 text-sm font-semibold text-purple-100 rounded-lg shadow-md focus:outline-none focus:shadow-primary-bugfish background-success") { 
-		return '<div class="'.$classes.'"><span>'.$message.'</span></div>';
-	}
-	function hive__windmill_alert_warning($message, $classes = "flex items-center justify-between p-4 mb-4 text-sm font-semibold text-purple-100 rounded-lg shadow-md focus:outline-none focus:shadow-primary-bugfish background-warning") { 
-		return '<div class="'.$classes.'"><span>'.$message.'</span></div>';
-	}
-	function hive__windmill_alert_info($message, $classes = "flex items-center justify-between p-4 mb-4 text-sm font-semibold text-purple-100 rounded-lg shadow-md focus:outline-none focus:shadow-primary-bugfish background-info") { 
-		return '<div class="'.$classes.'"><span>'.$message.'</span></div>';
-	 }
-	function hive__windmill_alert_primary($message, $classes = "flex items-center justify-between p-4 mb-4 text-sm font-semibold text-purple-100 rounded-lg shadow-md focus:outline-none focus:shadow-primary-bugfish background-primary") { 
-		return '<div class="'.$classes.'"><span>'.$message.'</span></div>';
-	}
-	function hive__windmill_alert_url($message, $image, $url, $newtab = false, $rel = false, $more = "View more &RightArrow;", $classes = "flex items-center justify-between p-4 mb-4 text-sm font-semibold text-purple-100 bg-primary-bugfish rounded-lg shadow-md focus:outline-none focus:shadow-primary-bugfish ") { 
-		 $stradd = "";
-		if($newtab) {  $stradd .= " target='_blank' "; } 
-		if($rel) {  $stradd .= " rel='".$rel."' "; } 
-		return '<a class="'.$classes.'" href="'.$url.'" '.$stradd.'><div class="flex items-center"><i class="'.$image.' xfpe_marginright10px"></i><span>'.$message.'</span></div><span>'.$more.'</span></a>';
-	}
-	#############################################################################################################################################
-	// Heading Elements
-	#############################################################################################################################################
-	function hive__windmill_h2($text, $classes = "my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200") {
-		return '<h2 class="'.$classes.'">'.$text.'</h2>';
-	}	
-	function hive__windmill_h4($text, $classes = "mb-4 text-lg font-semibold text-gray-600 dark:text-gray-300 ") {
-		return '<h4 class="'.$classes.'">'.$text.'</h4>';
-	}	
-	#############################################################################################################################################
-	// Button Elements
-	#############################################################################################################################################
-	function hive__windmill_button($text, $icon = "bx bxs-pear", $color = "#030303", $tcolor = "#ffffff", $type = "button", $url = "", $name = "", $js = "", $classes = "px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-primary-bugfish border border-transparent rounded-lg active:bg-primary-bugfish hover:bg-primary-bugfish focus:outline-none focus:shadow-primary-bugfish force-white-focus ") { 
-		$stringnew = "";
-		if(!$color) {$color = "#030303";} if(!$tcolor) {$tcolor = "#ffffff";} 
-		
-		if($type == "submit" OR $type == "button") { 
-				$stringnew .= '<button onClick="'.$js.'" name="'.$name.'" type="'.$type.'"  ';  
-			} else { 
-				$stringnew .= '<a href="'.$url.'" name="'.$name.'" onClick="'.$js.'" type="'.$type.'"  ';
-		}
-		$stringnew .= ' class="'.$classes.'" ';		
-		$stringnew .= ' style="background: '.$color.';color: '.$tcolor.';" ';				
-		$stringnew .= '>';		
-			
-		$stringnew .=  '<span>'.$text.'</span>';
-		if($type == "submit" OR $type == "button") { $stringnew .=  '</button>'; } else { $stringnew .=  '</a>'; } 
-			
-		return $stringnew;
-	}		
-	
-	function hive__windmill_button_icright($text, $icon = "bx bxs-pear", $color = "#030303", $tcolor = "#ffffff", $type = "button", $url = "", $name = "", $js = "", $classes = "flex items-center justify-between px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-primary-bugfish border border-transparent rounded-lg active:bg-primary-bugfish hover:bg-primary-bugfish focus:outline-none focus:shadow-primary-bugfish force-white-focus ") { 
-		$stringnew = "";
-		if(!$color) {$color = "#030303";} if(!$tcolor) {$tcolor = "#ffffff";} 
-		
-		if($type == "submit" OR $type == "button") { 
-				$stringnew .= '<button onClick="'.$js.'" name="'.$name.'" type="'.$type.'"  ';  
-			} else { 
-				$stringnew .= '<a href="'.$url.'" name="'.$name.'" onClick="'.$js.'" type="'.$type.'"  ';
-		}
-		
-		$stringnew .= ' class="'.$classes.'" ';		
-		$stringnew .= ' style="background: '.$color.';color: '.$tcolor.';" ';				
-		$stringnew .= '>';		
-		$stringnew .=  '<span>'.$text.'</span>';
-		$stringnew .=  '<i class="'.$icon.' xfpe_marginleft10px"></i>';
-		if($type == "submit" OR $type == "button") { $stringnew .=  '</button>'; } else { $stringnew .=  '</a>'; } 
-		return $stringnew;
-	}		
-
-	function hive__windmill_button_icleft($text, $icon = "bx bxs-pear", $color = "#030303", $tcolor = "#ffffff",  $type = "button", $url = "", $name = "", $js = "", $classes = "flex items-center justify-between px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-primary-bugfish border border-transparent rounded-lg active:bg-primary-bugfish hover:bg-primary-bugfish focus:outline-none focus:shadow-primary-bugfish force-white-focus ") { 
-		$stringnew = "";
-		if(!$color) {$color = "#030303";} if(!$tcolor) {$tcolor = "#ffffff";} 
-		
-		if($type == "submit" OR $type == "button") { 
-				$stringnew .= '<button onClick="'.$js.'" name="'.$name.'" type="'.$type.'"  ';  
-			} else { 
-				$stringnew .= '<a href="'.$url.'" name="'.$name.'" onClick="'.$js.'" type="'.$type.'"  ';
-		}
-		
-		$stringnew .= ' class="'.$classes.'" ';		
-		$stringnew .= ' style="background: '.$color.';color: '.$tcolor.';" ';		
-		$stringnew .= '>';		
-		$stringnew .=  '<i class="'.$icon.' xfpe_marginright10px"></i>';
-		$stringnew .=  '<span>'.$text.'</span>';
-		if($type == "submit" OR $type == "button") { $stringnew .=  '</button>'; } else { $stringnew .=  '</a>'; } 
-		return $stringnew;
-	}		
-
-	function hive__windmill_button_small_round($icon = "bx bxs-pear", $color = "#030303", $tcolor = "#ffffff",  $type = "button", $url = "", $name = "", $js = "", $classes = "flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-primary-bugfish border-transparent rounded-full active:bg-primary-bugfish hover:bg-primary-bugfish focus:outline-none focus:shadow-primary-bugfish force-white-focus ") { 
-		$stringnew = "";
-		if(!$color) {$color = "#030303";} if(!$tcolor) {$tcolor = "#ffffff";} 
-		
-		if($type == "submit" OR $type == "button") { 
-				$stringnew .= '<button onClick="'.$js.'" name="'.$name.'" type="'.$type.'"  ';  
-			} else { 
-				$stringnew .= '<a href="'.$url.'" name="'.$name.'" onClick="'.$js.'" type="'.$type.'"  ';
-		}
-		
-		$stringnew .= ' class="'.$classes.'" ';		
-		$stringnew .= ' style="background: '.$color.';color: '.$tcolor.';" ';		
-		$stringnew .= '  aria-label="Edit" ';		
-		$stringnew .= '>';		
-		
-		$stringnew .= '<i class="'.$icon.' xfpe_paddingleft5px xfpe_paddingright5px xfpe_paddingtop5px xfpe_paddingbottom5px"></i>';
-		if($type == "submit" OR $type == "button") { $stringnew .=  '</button>'; } else { $stringnew .=  '</a>'; } 
-			
-		return $stringnew;
-	}		
-
-	function hive__windmill_button_small($icon = "bx bxs-pear", $color = "#030303", $tcolor = "#ffffff",  $type = "button", $url = "", $name = "", $js = "", $classes = "flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-primary-bugfish border border-transparent rounded-lg active:bg-primary-bugfish hover:bg-primary-bugfish focus:outline-none focus:shadow-primary-bugfish force-white-focus ") { 
-			$stringnew = "";
-			if(!$color) {$color = "#030303";}  if(!$tcolor) {$tcolor = "#ffffff";} 
-		
-		if($type == "submit" OR $type == "button") { 
-				$stringnew .= '<button onClick="'.$js.'" name="'.$name.'" type="'.$type.'"  ';  
-			} else { 
-				$stringnew .= '<a href="'.$url.'" name="'.$name.'" onClick="'.$js.'" type="'.$type.'"  ';
-		}
-		
-		$stringnew .= ' class="'.$classes.' xfpe_padding20px_f" ';		
-		$stringnew .= ' style="background: '.$color.';color: '.$tcolor.';" ';		
-		$stringnew .= '  aria-label="Like" ';		
-		$stringnew .= '>';		
-
-        $stringnew .= '<i class="'.$icon.' xfpe_paddingleft5px xfpe_paddingright5px xfpe_paddingtop5px xfpe_paddingbottom5px"></i>';
 				
-		if($type == "submit" OR $type == "button") { $stringnew .=  '</button>'; } else { $stringnew .=  '</a>'; } 
-		return $stringnew;
-	}			
-	#############################################################################################################################################
-	// Box Elements
-	#############################################################################################################################################
-	function hive__windmill_box_start($header = false, $classes = "min-w-0 p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800", $headerclasses = "mb-4 font-semibold text-gray-600 dark:text-gray-300") { ?>
-		  <div
-			class="<?php echo $classes; ?>"
-		  >
-		  <?php if($header) {  ?> <h4 class="<?php echo $headerclasses; ?>">
-			  <?php echo $header; ?>
-			</h4>
-		  <?php } ?>
-	<?php }
-	function hive__windmill_box_end() { ?>
-		  </div>		
-	<?php }	
-	function hive__windmill_box_full($text, $classes = "px-4 py-3 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800 dark:text-gray-300 ") { ?>
-		<div
-		  class="<?php echo $classes; ?>"
-		>
-			<?php echo $text; ?>
-		</div>	
-	<?php }	
-	function hive__windmill_box($text, $header = false, $classes = "min-w-0 p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800 dark:text-gray-300 ", $headerclasses = "mb-4 font-semibold text-gray-600 dark:text-gray-300") { ?>
-		  <div
-			class="<?php echo $classes; ?>"
-		  >
-		  <?php if($header) {  ?> <h4 class="<?php echo $headerclasses; ?>"> 
-			  <?php echo $header; ?>
-			</h4> 
-		  <?php } ?>
-			  <?php echo $text; ?>
-		  </div>		
-	<?php }
-	function hive__windmill_box_colored($text, $header = false, $classes = "min-w-0 p-4 text-white bg-primary-bugfish rounded-lg shadow-xs ", $headerclasses = "mb-4 font-semibold") { ?>
-		  <div
-			class="<?php echo $classes; ?>"
-		  >
-			<?php if($header) {  ?><h4 class="<?php echo $headerclasses; ?>">
-			  <?php echo $header; ?>
-			</h4> <?php } ?>
-			  <?php echo $text; ?>
-		  </div>		
-	<?php }	
-	function hive__windmill_box_card($text, $value, $color = "orange", $icon = "bx bxs-pear", $classes = "flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800 ") { ?>
-		  <div
-			class="<?php echo $classes; ?>"
-		  >
-			<div
-			  class="p-3 mr-4 text-<?php echo $color; ?>-500 bg-<?php echo $color; ?>-100 rounded-full dark:text-<?php echo $color; ?>-100 dark:bg-<?php echo $color; ?>-500 xfpe_paddingleft15px xfpe_paddingright15px" style="background-color: <?php echo $color; ?>;"
-			>
-			  <i class="<?php echo $icon; ?>"></i>
-			</div>
-			<div>
-			  <p
-				class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400"
-			  >
-				<?php echo $text; ?>
-			  </p>
-			  <p
-				class="text-lg font-semibold text-gray-700 dark:text-gray-200"
-			  >
-				<?php echo $value; ?>
-			  </p>
-			</div>
-		  </div>	
-	<?php }			
-	#############################################################################################################################################
-	// Modal Elements
-	#############################################################################################################################################
-	function hive__windmill_modal($text, $title = false, $icon = "info") { ?>
-		<script>
-			$( document ).ready(function() {
-				Swal.fire({
-				 <?php if($title) { ?> title: '<?php echo $title; ?>', <?php } ?>
-				  <?php if($icon) { ?>icon: '<?php echo $icon; ?>',<?php } ?>
-				  html:
-					'<?php echo str_replace("'", "\\'", $text); ?>',
-				});
-			});
-		</script>
-	<?php }		
 	#############################################################################################################################################
 	// Main Elements
 	#############################################################################################################################################
-	function hive__windmill_404($object, $text = "This page has not been found! :(", $title = "ERROR 404", $classes = "min-w-0 p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800 dark:text-gray-300 xfpe_margintop20px") { 
-		hive__windmill_box($text, $title, $classes);
-	 }	
-	function hive__windmill_401($object, $text = "You do not have permission to view this page! :(", $title = "ERROR 401", $classes = "min-w-0 p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800 dark:text-gray-300 xfpe_margintop20px") { 
-		hive__windmill_box($text, $title, $classes);
-	 }	
 	function hive__windmill_footer($object, $footer = "", $classes = "bg-white dark:bg-gray-800 text-gray-800", $end_div = true) { ?>
 			<?php if($end_div) { ?></div><?php } ?>
 			<!-- End of modal backdrop -->
@@ -1038,4 +818,236 @@
 			  </div>
 		<?php } 		
 	}
+	#############################################################################################################################################
+	// Main Elements
+	#############################################################################################################################################
+	function hive__windmill_404($object, $text = "This page has not been found! :(", $title = "ERROR 404", $classes = "min-w-0 p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800 dark:text-gray-300 xfpe_margintop20px") { 
+		hive__windmill_box($text, $title, $classes);
+	 }	
+	function hive__windmill_401($object, $text = "You do not have permission to view this page! :(", $title = "ERROR 401", $classes = "min-w-0 p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800 dark:text-gray-300 xfpe_margintop20px") { 
+		hive__windmill_box($text, $title, $classes);
+	 }	
+	#############################################################################################################################################
+	// Button Elements
+	#############################################################################################################################################
+	function hive__windmill_button($text, $icon = "bx bxs-pear", $color = "#030303", $tcolor = "#ffffff", $type = "button", $url = "", $name = "", $js = "", $classes = "px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-primary-bugfish border border-transparent rounded-lg active:bg-primary-bugfish hover:bg-primary-bugfish focus:outline-none focus:shadow-primary-bugfish force-white-focus ") { 
+		$stringnew = "";
+		if(!$color) {$color = "#030303";} if(!$tcolor) {$tcolor = "#ffffff";} 
+		
+		if($type == "submit" OR $type == "button") { 
+				$stringnew .= '<button onClick="'.$js.'" name="'.$name.'" type="'.$type.'"  ';  
+			} else { 
+				$stringnew .= '<a href="'.$url.'" name="'.$name.'" onClick="'.$js.'" type="'.$type.'"  ';
+		}
+		$stringnew .= ' class="'.$classes.'" ';		
+		$stringnew .= ' style="background: '.$color.';color: '.$tcolor.';" ';				
+		$stringnew .= '>';		
+			
+		$stringnew .=  '<span>'.$text.'</span>';
+		if($type == "submit" OR $type == "button") { $stringnew .=  '</button>'; } else { $stringnew .=  '</a>'; } 
+			
+		return $stringnew;
+	}		
 	
+	function hive__windmill_button_icright($text, $icon = "bx bxs-pear", $color = "#030303", $tcolor = "#ffffff", $type = "button", $url = "", $name = "", $js = "", $classes = "flex items-center justify-between px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-primary-bugfish border border-transparent rounded-lg active:bg-primary-bugfish hover:bg-primary-bugfish focus:outline-none focus:shadow-primary-bugfish force-white-focus ") { 
+		$stringnew = "";
+		if(!$color) {$color = "#030303";} if(!$tcolor) {$tcolor = "#ffffff";} 
+		
+		if($type == "submit" OR $type == "button") { 
+				$stringnew .= '<button onClick="'.$js.'" name="'.$name.'" type="'.$type.'"  ';  
+			} else { 
+				$stringnew .= '<a href="'.$url.'" name="'.$name.'" onClick="'.$js.'" type="'.$type.'"  ';
+		}
+		
+		$stringnew .= ' class="'.$classes.'" ';		
+		$stringnew .= ' style="background: '.$color.';color: '.$tcolor.';" ';				
+		$stringnew .= '>';		
+		$stringnew .=  '<span>'.$text.'</span>';
+		$stringnew .=  '<i class="'.$icon.' xfpe_marginleft10px"></i>';
+		if($type == "submit" OR $type == "button") { $stringnew .=  '</button>'; } else { $stringnew .=  '</a>'; } 
+		return $stringnew;
+	}		
+
+	function hive__windmill_button_icleft($text, $icon = "bx bxs-pear", $color = "#030303", $tcolor = "#ffffff",  $type = "button", $url = "", $name = "", $js = "", $classes = "flex items-center justify-between px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-primary-bugfish border border-transparent rounded-lg active:bg-primary-bugfish hover:bg-primary-bugfish focus:outline-none focus:shadow-primary-bugfish force-white-focus ") { 
+		$stringnew = "";
+		if(!$color) {$color = "#030303";} if(!$tcolor) {$tcolor = "#ffffff";} 
+		
+		if($type == "submit" OR $type == "button") { 
+				$stringnew .= '<button onClick="'.$js.'" name="'.$name.'" type="'.$type.'"  ';  
+			} else { 
+				$stringnew .= '<a href="'.$url.'" name="'.$name.'" onClick="'.$js.'" type="'.$type.'"  ';
+		}
+		
+		$stringnew .= ' class="'.$classes.'" ';		
+		$stringnew .= ' style="background: '.$color.';color: '.$tcolor.';" ';		
+		$stringnew .= '>';		
+		$stringnew .=  '<i class="'.$icon.' xfpe_marginright10px"></i>';
+		$stringnew .=  '<span>'.$text.'</span>';
+		if($type == "submit" OR $type == "button") { $stringnew .=  '</button>'; } else { $stringnew .=  '</a>'; } 
+		return $stringnew;
+	}		
+
+	function hive__windmill_button_small_round($icon = "bx bxs-pear", $color = "#030303", $tcolor = "#ffffff",  $type = "button", $url = "", $name = "", $js = "", $classes = "flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-primary-bugfish border-transparent rounded-full active:bg-primary-bugfish hover:bg-primary-bugfish focus:outline-none focus:shadow-primary-bugfish force-white-focus ") { 
+		$stringnew = "";
+		if(!$color) {$color = "#030303";} if(!$tcolor) {$tcolor = "#ffffff";} 
+		
+		if($type == "submit" OR $type == "button") { 
+				$stringnew .= '<button onClick="'.$js.'" name="'.$name.'" type="'.$type.'"  ';  
+			} else { 
+				$stringnew .= '<a href="'.$url.'" name="'.$name.'" onClick="'.$js.'" type="'.$type.'"  ';
+		}
+		
+		$stringnew .= ' class="'.$classes.'" ';		
+		$stringnew .= ' style="background: '.$color.';color: '.$tcolor.';" ';		
+		$stringnew .= '  aria-label="Edit" ';		
+		$stringnew .= '>';		
+		
+		$stringnew .= '<i class="'.$icon.' xfpe_paddingleft5px xfpe_paddingright5px xfpe_paddingtop5px xfpe_paddingbottom5px"></i>';
+		if($type == "submit" OR $type == "button") { $stringnew .=  '</button>'; } else { $stringnew .=  '</a>'; } 
+			
+		return $stringnew;
+	}		
+
+	function hive__windmill_button_small($icon = "bx bxs-pear", $color = "#030303", $tcolor = "#ffffff",  $type = "button", $url = "", $name = "", $js = "", $classes = "flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-primary-bugfish border border-transparent rounded-lg active:bg-primary-bugfish hover:bg-primary-bugfish focus:outline-none focus:shadow-primary-bugfish force-white-focus ") { 
+			$stringnew = "";
+			if(!$color) {$color = "#030303";}  if(!$tcolor) {$tcolor = "#ffffff";} 
+		
+		if($type == "submit" OR $type == "button") { 
+				$stringnew .= '<button onClick="'.$js.'" name="'.$name.'" type="'.$type.'"  ';  
+			} else { 
+				$stringnew .= '<a href="'.$url.'" name="'.$name.'" onClick="'.$js.'" type="'.$type.'"  ';
+		}
+		
+		$stringnew .= ' class="'.$classes.' xfpe_padding20px_f" ';		
+		$stringnew .= ' style="background: '.$color.';color: '.$tcolor.';" ';		
+		$stringnew .= '  aria-label="Like" ';		
+		$stringnew .= '>';		
+
+        $stringnew .= '<i class="'.$icon.' xfpe_paddingleft5px xfpe_paddingright5px xfpe_paddingtop5px xfpe_paddingbottom5px"></i>';
+				
+		if($type == "submit" OR $type == "button") { $stringnew .=  '</button>'; } else { $stringnew .=  '</a>'; } 
+		return $stringnew;
+	}			
+	#############################################################################################################################################
+	// Box Elements
+	#############################################################################################################################################
+	function hive__windmill_box_start($header = false, $classes = "min-w-0 p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800", $headerclasses = "mb-4 font-semibold text-gray-600 dark:text-gray-300") { ?>
+		  <div
+			class="<?php echo $classes; ?>"
+		  >
+		  <?php if($header) {  ?> <h4 class="<?php echo $headerclasses; ?>">
+			  <?php echo $header; ?>
+			</h4>
+		  <?php } ?>
+	<?php }
+	function hive__windmill_box_end() { ?>
+		  </div>		
+	<?php }	
+	function hive__windmill_box_full($text, $classes = "px-4 py-3 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800 dark:text-gray-300 ") { ?>
+		<div
+		  class="<?php echo $classes; ?>"
+		>
+			<?php echo $text; ?>
+		</div>	
+	<?php }	
+	function hive__windmill_box($text, $header = false, $classes = "min-w-0 p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800 dark:text-gray-300 ", $headerclasses = "mb-4 font-semibold text-gray-600 dark:text-gray-300") { ?>
+		  <div
+			class="<?php echo $classes; ?>"
+		  >
+		  <?php if($header) {  ?> <h4 class="<?php echo $headerclasses; ?>"> 
+			  <?php echo $header; ?>
+			</h4> 
+		  <?php } ?>
+			  <?php echo $text; ?>
+		  </div>		
+	<?php }
+	function hive__windmill_box_colored($text, $header = false, $classes = "min-w-0 p-4 text-white bg-primary-bugfish rounded-lg shadow-xs ", $headerclasses = "mb-4 font-semibold") { ?>
+		  <div
+			class="<?php echo $classes; ?>"
+		  >
+			<?php if($header) {  ?><h4 class="<?php echo $headerclasses; ?>">
+			  <?php echo $header; ?>
+			</h4> <?php } ?>
+			  <?php echo $text; ?>
+		  </div>		
+	<?php }	
+	function hive__windmill_box_card($text, $value, $color = "orange", $icon = "bx bxs-pear", $classes = "flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800 ") { ?>
+		  <div
+			class="<?php echo $classes; ?>"
+		  >
+			<div
+			  class="p-3 mr-4 text-<?php echo $color; ?>-500 bg-<?php echo $color; ?>-100 rounded-full dark:text-<?php echo $color; ?>-100 dark:bg-<?php echo $color; ?>-500 xfpe_paddingleft15px xfpe_paddingright15px" style="background-color: <?php echo $color; ?>;"
+			>
+			  <i class="<?php echo $icon; ?>"></i>
+			</div>
+			<div>
+			  <p
+				class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400"
+			  >
+				<?php echo $text; ?>
+			  </p>
+			  <p
+				class="text-lg font-semibold text-gray-700 dark:text-gray-200"
+			  >
+				<?php echo $value; ?>
+			  </p>
+			</div>
+		  </div>	
+	<?php }			
+	#############################################################################################################################################
+	// Alert Boxes
+	#############################################################################################################################################
+	function hive__windmill_alert_danger($message, $classes = "flex items-center justify-between p-4 mb-4 text-sm font-semibold text-purple-100 rounded-lg shadow-md focus:outline-none focus:shadow-primary-bugfish background-danger") {
+		return '<div class="'.$classes.'"><span>'.$message.'</span></div>';
+	}
+	function hive__windmill_alert_success($message, $classes = "flex items-center justify-between p-4 mb-4 text-sm font-semibold text-purple-100 rounded-lg shadow-md focus:outline-none focus:shadow-primary-bugfish background-success") { 
+		return '<div class="'.$classes.'"><span>'.$message.'</span></div>';
+	}
+	function hive__windmill_alert_warning($message, $classes = "flex items-center justify-between p-4 mb-4 text-sm font-semibold text-purple-100 rounded-lg shadow-md focus:outline-none focus:shadow-primary-bugfish background-warning") { 
+		return '<div class="'.$classes.'"><span>'.$message.'</span></div>';
+	}
+	function hive__windmill_alert_info($message, $classes = "flex items-center justify-between p-4 mb-4 text-sm font-semibold text-purple-100 rounded-lg shadow-md focus:outline-none focus:shadow-primary-bugfish background-info") { 
+		return '<div class="'.$classes.'"><span>'.$message.'</span></div>';
+	 }
+	function hive__windmill_alert_primary($message, $classes = "flex items-center justify-between p-4 mb-4 text-sm font-semibold text-purple-100 rounded-lg shadow-md focus:outline-none focus:shadow-primary-bugfish background-primary") { 
+		return '<div class="'.$classes.'"><span>'.$message.'</span></div>';
+	}
+	function hive__windmill_alert_url($message, $image, $url, $newtab = false, $rel = false, $more = "View more &RightArrow;", $classes = "flex items-center justify-between p-4 mb-4 text-sm font-semibold text-purple-100 bg-primary-bugfish rounded-lg shadow-md focus:outline-none focus:shadow-primary-bugfish ") { 
+		 $stradd = "";
+		if($newtab) {  $stradd .= " target='_blank' "; } 
+		if($rel) {  $stradd .= " rel='".$rel."' "; } 
+		return '<a class="'.$classes.'" href="'.$url.'" '.$stradd.'><div class="flex items-center"><i class="'.$image.' xfpe_marginright10px"></i><span>'.$message.'</span></div><span>'.$more.'</span></a>';
+	}
+	#############################################################################################################################################
+	// Modal Elements
+	#############################################################################################################################################
+	function hive__windmill_modal($text, $title = false, $icon = "info") { ?>
+		<script>
+			$( document ).ready(function() {
+				Swal.fire({
+				 <?php if($title) { ?> title: '<?php echo $title; ?>', <?php } ?>
+				  <?php if($icon) { ?>icon: '<?php echo $icon; ?>',<?php } ?>
+				  html:
+					'<?php echo str_replace("'", "\\'", $text); ?>',
+				});
+			});
+		</script>
+	<?php }	
+	#############################################################################################################################################
+	// Heading Elements
+	#############################################################################################################################################
+	function hive__windmill_h1($text, $classes = "my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200") {
+		return '<h1 class="'.$classes.'">'.$text.'</h1>';
+	}
+	function hive__windmill_h2($text, $classes = "my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200") {
+		return '<h2 class="'.$classes.'">'.$text.'</h2>';
+	}	
+	function hive__windmill_h3($text, $classes = "mb-4 text-lg font-semibold text-gray-600 dark:text-gray-300 ") {
+		return '<h3 class="'.$classes.'">'.$text.'</h3>';
+	}	
+	function hive__windmill_h4($text, $classes = "mb-4 text-lg font-semibold text-gray-600 dark:text-gray-300 ") {
+		return '<h4 class="'.$classes.'">'.$text.'</h4>';
+	}	
+	function hive__windmill_h5($text, $classes = "mb-4 text-lg font-semibold text-gray-600 dark:text-gray-300 ") {
+		return '<h5 class="'.$classes.'">'.$text.'</h5>';
+	}		

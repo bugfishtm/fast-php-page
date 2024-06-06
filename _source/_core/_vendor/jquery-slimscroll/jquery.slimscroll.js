@@ -367,8 +367,10 @@
 
                 function attachWheel() {
                     if (window.addEventListener) {
-                        this.addEventListener('DOMMouseScroll', _onWheel, false);
-                        this.addEventListener('mousewheel', _onWheel, false);
+                        //this.addEventListener('DOMMouseScroll', _onWheel, false);
+                       // this.addEventListener('mousewheel', _onWheel, false);
+					    this.addEventListener('DOMMouseScroll', _onWheel, { capture: false, passive: false } );
+						this.addEventListener('mousewheel', _onWheel, { capture: false, passive: false } );
                         //this.addEventListener('MozMousePixelScroll', _onWheel, false );
                     }
                     else {

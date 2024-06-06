@@ -67,7 +67,7 @@
 		</head>
 		<body>
 		  <div id="countdown-box">
-			<img src="../_image/logo_alpha.png" width="100">
+			<img src="../_image/logo_alpha_color.png" width="100">
 			<?php if(@$_SESSION[_HIVE_COOKIE_."hive_mode"] == _HIVE_ADMIN_SITE_) { $is_admin = true; } else { $is_admin = false; } ?>
 			<p>You are currently <?php if(@$_SESSION[_HIVE_COOKIE_."hive_mode"] != _HIVE_ADMIN_SITE_) { echo "<b>NOT</b>"; } ?> in Administrator Mode!<br />If you came here by mistake you can leave <a href="../../">here</a>.</p>
 			<?php if($is_admin) { 

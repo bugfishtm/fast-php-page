@@ -5,18 +5,28 @@ This folder stores released versions of the software. Some versions might be mis
 
 ## Note on Release Versions
 
-- **Relevant Versions**: The available releases in this folder are versions deemed relevant for distribution or historical reference.
-- **Missing Versions**: Certain versions might not be present due to being obsolete, deprecated, or irrelevant to current use cases or deployment.
-- **Maintainance and Deletion**: Periodically, older or irrelevant versions might be removed or archived to streamline the repository and prevent clutter.
+The name of the files is as follow:  
+COREVERSION_ADMINMODULEVERSION.zip
 
-## Accessing Available Versions
+**Example**  
+File - 2.10_1.10.100.zip  
+Core Version: 2.10  
+Admin Module Version 1.10.100  
+Admin Module Build 100
 
-- Navigate through the available versions to find the relevant release.
-- Versions might be organized based on release dates, version numbers, or any other relevant criteria.
+## How to Downgrade?
+You can downgrade by deleting all Core Related Files at the _core folder. A downgrade of the Core Version is NOT recommended.
 
-## Important Note
+## How to Upgrade?
+Just copy over the new unzipped files to your running bugfishCMS Installation.
 
-- If a specific version you are searching for is not present in this directory, it might have been deprecated or removed intentionally.
-- Consider using the latest available version or contacting the repository maintainers for further information or clarification regarding missing versions.
+## How to Install?
+- Download the Release File
+- Unzip it
+- Copy the content of the _source folder which has been extracted to your websites root folder.
+- Navigate to your website URL with your web browser.
+- CMS will now ask you to enter required data.
 
-For inquiries related to specific releases or questions about version availability, please contact the repository maintainers or relevant project administrators.
+
+Happy coding and managing!  
+Bugfish <3
