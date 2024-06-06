@@ -40,7 +40,6 @@
 		if($change_mtheme) {
 			if($object["user"]->user_loggedIn) {
 				hive__user_theme_set($object, $object["user"]->user_id, _HIVE_MODE_, $change_mtheme);
-				$object["eventbox"]->ok($object["lang"]->translate("admin_top_t_theme_changed"));
 			}	
 			@$_SESSION[_HIVE_SITE_COOKIE_."hive_theme"] = $change_mtheme;
 			// Program to display URL of current page.
@@ -55,7 +54,7 @@
 			// Append the requested resource location to the URL
 			$link .= $_SERVER['REQUEST_URI'];
 			$link = substr($link, 0, strpos($link, "&hive__db_theme"));
-			$object["eventbox"]->info($object["lang"]->translate("g_themete"));
+			$object["eventbox"]->ok($object["lang"]->translate("admin_top_t_theme_changed"));
 			Header("Location: ".$link);  
 			exit();
 		} 	
@@ -64,8 +63,7 @@
 		if(@in_array(@$_GET["hive__change_lang"], _HIVE_LANG_ARRAY_)) { $change_lang = @$_GET["hive__change_lang"];  } 
 		if($change_lang) {  
 			if($object["user"]->user_loggedIn) {
-				hive__user_lang_set($object, $object["user"]->user_id, _HIVE_MODE_, $change_lang);
-				$object["eventbox"]->ok($object["lang"]->translate("admin_top_t_lang_changed"));				
+				hive__user_lang_set($object, $object["user"]->user_id, _HIVE_MODE_, $change_lang);			
 			} $_SESSION[_HIVE_SITE_COOKIE_."hive_language"] = $change_lang; 
 			
 			// Program to display URL of current page.
@@ -80,7 +78,7 @@
 			// Append the requested resource location to the URL
 			$link .= $_SERVER['REQUEST_URI'];
 			$link = substr($link, 0, strpos($link, "&hive__change_lang"));
-			$object["eventbox"]->info($object["lang"]->translate("g_themela"));
+			$object["eventbox"]->ok($object["lang"]->translate("admin_top_t_lang_changed"));
 			Header("Location: ".$link);
 			exit();			
 		} 	?>
