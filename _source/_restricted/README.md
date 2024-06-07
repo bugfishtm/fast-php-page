@@ -6,7 +6,6 @@ The Restricted Folder is designated for storing files associated with site modul
 
 - **Restricted Access**: Direct access to files within this directory must be strictly prohibited.
 - **No Hardlinking**: Hardlinking to files should be prevented.
-- **Backup Inclusion**: Files are included in backup operations.
 - **Relocation**: Files may be moved if the corresponding site module is relocated within the admin panel.
 
 ## Usage Guide

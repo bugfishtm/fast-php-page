@@ -1,4 +1,4 @@
-# Inactive Site Modules Folder
+# Inactive Modules Folder
 
 This folder is designated for housing currently inactive site modules.
 

@@ -31,7 +31,7 @@
 			CREATE TABLE IF NOT EXISTS `"._HIVE_PREFIX_."store` (
 				`id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ID',
 			    `fk_user` int(11) DEFAULT NULL COMMENT 'ID of User who created this item',
-			    `mod_type` int(9) DEFAULT NULL COMMENT '1 - Site Module | 2 - Site Extension | 3 - Extend Script', 
+			    `mod_type` int(9) DEFAULT NULL COMMENT '1 - Site Module | 2 - Script Extension | 3 - Extension Module', 
 			    `mod_build` int(9) DEFAULT NULL COMMENT 'Build Number of the Module', 
 			    `mod_version` text DEFAULT NULL COMMENT 'Version of the Module',  
 			    `mod_lang` TEXT DEFAULT NULL COMMENT 'Serialized Array of Language Keys for Module',   

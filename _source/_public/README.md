@@ -6,7 +6,6 @@ The Public Folder is designated for storing files associated with site modules. 
 
 - **Direct Access**: Files within this directory can be accessed directly.
 - **Hardlinking**: Hardlinking to files is supported.
-- **Backup Inclusion**: Files are included in backup operations.
 - **Relocation**: Files may be moved if the corresponding site module is relocated within the admin panel.
 
 ## Usage Guide

@@ -174,19 +174,6 @@
 		// define("_HIVE_SERVER_CORE_", "https://COREUPDATEURL");	
 
 	##############################################################################################	
-	// Specialized Path Settings
-	##############################################################################################		
-	
-		##########################################################################################
-		// Default Private Folder for restricted files. Should not be public accessible.
-		// Default Value is: @$object["path"]."/_restricted"
-		// You can use your own Restricted Folder Path.
-		// Be sure to move files before changing the directory and put website in maintenance mode.
-		// Check if permissions are okay to be used by website unix user.
-		##########################################################################################	
-		// define('_HIVE_PATH_PRIVATE_', @$object["path"]."/_restricted");	
-
-	##############################################################################################	
 	// Developer Functions Activation Settings
 	##############################################################################################	
 	

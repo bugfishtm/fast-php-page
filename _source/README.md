@@ -1,12 +1,14 @@
-# Welcome to Bugfish CMS!
-This is the CMS Root folder, upload this folders content to your webservers root folder. If you want to explore our CMS Folder Structure, you are invited to read every readme.md file we have left for you in the single folders, to make it easier for you to understand this CMS Functionalities! Visit our store at http://store.bugfish.eu to get more information!
+# 🐠 Welcome to Bugfish CMS!
+This is the CMS Root folder. Upload this folder's content to your web server's root folder. If you want to explore our CMS Folder Structure, you are invited to read every `readme.md` file we have left for you in the individual folders to make it easier for you to understand this CMS's functionalities! Visit our store at http://store.bugfish.eu for more information!
 
 ## Folders for Core System 
-This folders files will be overwritten during core updates.
+These folders' files will be overwritten during core updates.
 
 |Name|
 |---|
 |_framework|
+|_store/update.php|
+|_store/core.php|
 |_cron|
 |_core|
 |developer.php|
@@ -16,7 +18,7 @@ This folders files will be overwritten during core updates.
 |updater.php|
 
 ## Folders for Extension Modules
-This folders wont be touched during core updates and are holding module / dynamic Files
+These folders won't be touched during core updates and hold module/dynamic files.
 
 |Name|
 |--|
@@ -30,5 +32,5 @@ This folders wont be touched during core updates and are holding module / dynami
 |robots.txt|
 |.htaccess| 
 
-Happy CMSing!  
-Bugfish <3
+Happy CMS-ing!  
+Bugfish <3 🌊✨🚀

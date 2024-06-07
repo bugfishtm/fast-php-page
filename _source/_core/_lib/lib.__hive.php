@@ -132,7 +132,7 @@
             Information:<br /><?php echo $subtitle; ?><br /><br />
 			Details:<br /><?php echo $description; ?>
         </div><br />
-		<a href="../">Click here to get back!</a>
+		<a href="<?php echo _HIVE_URL_REL; ?>/">Click here to get back!</a>
     </div>
     </div>
 </body>
@@ -298,3 +298,13 @@
 			$object["mysql"]->query("UPDATE "._TABLE_USER_." SET hive_extradata = ? WHERE id = '".$user_id."'", $bind);
 		} return false;
 	}		
+	
+	function hive__folder_create($folderpath, $forwardfile = false, $denie_access = false) {
+		if(!is_dir($folderpath)) {  @mkdir($folderpath); }
+		if(is_dir($folderpath)) { 
+			if($forwardfile) {
+				file_put_contents($folderpath."/index.php", "<?php Header('Location: ../'); ?>");
+			}
+			if($denie_access) { x_htaccess_secure($folderpath); }
+		}
+	}

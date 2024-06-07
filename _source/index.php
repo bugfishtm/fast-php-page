@@ -120,6 +120,9 @@
 		
 		// Check for Existant load.php
 		if(file_exists($object["path"]."/_site/"._HIVE_MODE_."/load.php")) {
+			// Create Site Modules Folders
+			hive__folder_create($object["path"]."/_public/"._HIVE_MODE_."/_ext", true, false);
+			hive__folder_create($object["path"]."/_restricted/"._HIVE_MODE_."/", true, true);
 			// Include Load.php
 			require_once("./_site/"._HIVE_MODE_."/load.php"); 
 			// Execute Scripts

@@ -48,3 +48,18 @@
 		foreach (glob($object["path"]."/_site/"._HIVE_MODE_."/_js/js.global.*") as $filename){ require_once $filename; }
 		foreach (glob($object["path"]."/_site/"._HIVE_MODE_."/_js/js.public.*") as $filename){ require_once $filename; }
 	}
+
+	// Include Extension Scripts
+	if(is_dir($object["path"]."/_public/"._HIVE_MODE_."/_ext")) { 
+		foreach (glob($object["path"]."/_public/"._HIVE_MODE_."/_ext/*") as $filename) {
+			if (is_dir($filename."/_js")) {
+				if($object["user"]->loggedIn) {
+					foreach (glob($filename."/_js/css.global.*") as $filenamex){ require_once $filenamex; }
+					foreach (glob($filename."/_js/css.restricted.*") as $filenamex){ require_once $filenamex; }
+				} else {
+					foreach (glob($filename."/_js/css.global.*") as $filenamex){ require_once $filenamex; }
+					foreach (glob($filename."/_js/css.public.*") as $filenamex){ require_once $filenamex; }
+				}
+			}
+		}		
+	}		

@@ -241,3 +241,21 @@ h1, h2, h3 {
 		}
 		
 	}
+	
+
+	.autohide_hover {
+		cursor:pointer;
+		background: #242424;
+	}
+	.autohide_hover h3 {
+		cursor:pointer;
+		color: white !important;
+	}
+	.autohide_hover:hover {
+		background: #121212;
+		color: white !important;
+	}
+	.autohide_hover:hover h3 {
+		background: #121212;
+		color: white !important;
+	}

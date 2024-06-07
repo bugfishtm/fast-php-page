@@ -5,3 +5,5 @@ The Core Changelog Downloadable Files directory contains changelog files for cor
 ## Usage
 
 - **Version Tracking**: Each changelog file documents the changes and updates made to the BugfishCMS core over time. External instances can refer to these files to understand the evolution of the core system and apply updates accordingly.
+
+

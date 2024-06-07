@@ -23,8 +23,7 @@
 		
 		File Description:
 			General Site Initialization File
-	*/ if(!is_array($object)) { @http_response_code(503); echo "Startup Error - Please delete your settings.php file and re-install this instance..."; exit(); }
-	
+	*/ if(!is_array($object)) { @http_response_code(503); echo "Startup Error - Please delete your settings.php file and re-install this instance..."; exit(); }	
 	#################################################################################################################################################
 	// Define Defaults
 	#################################################################################################################################################
@@ -83,6 +82,28 @@
 		require_once($object["path"]."/_core/_lib/lib._simple.php");
 		require_once($object["path"]."/_core/_lib/lib._volt.php");
 		require_once($object["path"]."/_core/_lib/lib._windmill.php");
+		
+	#################################################################################################################################################
+	// Create Maybe lost Folders
+	#################################################################################################################################################
+		hive__folder_create($object["path"]."/_internal", true, true);
+		hive__folder_create($object["path"]."/_internal/_cache", true, true);
+		hive__folder_create($object["path"]."/_internal/_template", true, true);
+		hive__folder_create($object["path"]."/_internal/_inactive", true, true);
+		hive__folder_create($object["path"]."/_internal/_inactive/_script", true, true);
+		hive__folder_create($object["path"]."/_internal/_inactive/_ext", true, true);
+		hive__folder_create($object["path"]."/_internal/_inactive/_site", true, true);
+		hive__folder_create($object["path"]."/_public", true, false);
+		hive__folder_create($object["path"]."/_public/_script", true, false);
+		hive__folder_create($object["path"]."/_domain", true, false);
+		hive__folder_create($object["path"]."/_restricted", true, true);
+		hive__folder_create($object["path"]."/_store", true, false);
+		hive__folder_create($object["path"]."/_store/_core", true, false);
+		hive__folder_create($object["path"]."/_store/_core-cl", true, false);
+		hive__folder_create($object["path"]."/_store/_module-zip", true, false);
+		hive__folder_create($object["path"]."/_store/_module-cache", true, false);
+		hive__folder_create($object["path"]."/_store/_module-cl", true, false);
+		hive__folder_create($object["path"]."/_store/_module-img", true, false);
 		
 	#################################################################################################################################################
 	// Instance Internal Settings
@@ -621,7 +642,12 @@
 						}
 					}
 				}
-			} $object["lang"] = new x_class_lang($object["mysql"], _TABLE_LANG_, @$_SESSION[_HIVE_SITE_COOKIE_."hive_language"], _HIVE_MODE_, false); define("_HIVE_LANG_", $_SESSION[_HIVE_SITE_COOKIE_."hive_language"]);
+			} $object["lang"] = new x_class_lang(false, false, false, false, _HIVE_SITE_PATH_."/_lang/".@$_SESSION[_HIVE_SITE_COOKIE_."hive_language"]); define("_HIVE_LANG_", $_SESSION[_HIVE_SITE_COOKIE_."hive_language"]);	 
+			$object["lang_tmp"] = new x_class_lang($object["mysql"], _TABLE_LANG_, @$_SESSION[_HIVE_SITE_COOKIE_."hive_language"], _HIVE_MODE_, false); define("_HIVE_LANG_", $_SESSION[_HIVE_SITE_COOKIE_."hive_language"]);
+			foreach($object["lang_tmp"]->array as $key => $value) { 
+				$object["lang"]->array[$key] = $value;
+			}
+			unset($object["lang_tmp"]);
 		}	
 	
 	#################################################################################################################################################
