@@ -256,16 +256,6 @@
     </section>	  
 	<?php }
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	function hive__adminbsb_topbar($object, $title = "", $theme_changer = false, $lang_ar = false, $notify_ar = false, $modulechooser = false, $cal_ar = false, $search = false) {  ?>
 		<nav class="navbar">
         <div class="container-fluid">

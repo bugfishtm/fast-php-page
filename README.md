@@ -1,11 +1,17 @@
 ![Bugfish](https://img.shields.io/badge/Bugfish-CMS-orange)
 ![Status](https://img.shields.io/badge/Status-Released-blue)
 ![License](https://img.shields.io/badge/License-GPLv3-black) 
-![CMS Version](https://img.shields.io/badge/CMS-2.16-white)
+![CMS Version](https://img.shields.io/badge/CMS-2.17-white)
 ![Framework Version](https://img.shields.io/badge/Framework-3.21-white)
 ![Admin Module Version](https://img.shields.io/badge/Administrator-1.10.100-white)
 
 # Welcome to bugfishCMS!
+
+Project Languages: 
+[<img src="https://cdn.jsdelivr.net/gh/lipis/flag-icons@main/flags/4x3/gb.svg" alt="English" width="20"/>](#english) 
+[<img src="https://cdn.jsdelivr.net/gh/lipis/flag-icons@main/flags/4x3/de.svg" alt="Deutsch" width="20"/>](#deutsch) 
+[<img src="https://cdn.jsdelivr.net/gh/lipis/flag-icons@main/flags/4x3/es.svg" alt="Español" width="20"/>](#espanol) 
+[<img src="https://cdn.jsdelivr.net/gh/lipis/flag-icons@main/flags/4x3/jp.svg" alt="日本語" width="20"/>](#日本語)
 
 | Title              | Link                                             |
 |--------------------------|--------------------------------------------------|

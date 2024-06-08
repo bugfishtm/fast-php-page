@@ -710,7 +710,7 @@
 					}
 				}
 			} $object["lang"] = new x_class_lang(false, false, false, false, _HIVE_SITE_PATH_."/_lang/".@$_SESSION[_HIVE_SITE_COOKIE_."hive_language"]); define("_HIVE_LANG_", $_SESSION[_HIVE_SITE_COOKIE_."hive_language"]);	 
-			$object["lang_tmp"] = new x_class_lang($object["mysql"], _TABLE_LANG_, @$_SESSION[_HIVE_SITE_COOKIE_."hive_language"], _HIVE_MODE_, false); define("_HIVE_LANG_", $_SESSION[_HIVE_SITE_COOKIE_."hive_language"]);
+			$object["lang_tmp"] = new x_class_lang($object["mysql"], _TABLE_LANG_, @$_SESSION[_HIVE_SITE_COOKIE_."hive_language"], _HIVE_MODE_, false); 
 			foreach($object["lang_tmp"]->array as $key => $value) { 
 				$object["lang"]->array[$key] = $value;
 			}

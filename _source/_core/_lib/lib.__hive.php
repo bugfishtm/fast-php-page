@@ -221,36 +221,44 @@
 	}
 	
 	function hive__template_login_exec($object, $cookies_allow = false) {
-		if($object["user"]->user_loggedIn) { echo "<script>window.location.href= '"._HIVE_URL_REL_."';</script>"; exit(); }
-			if (isset($_POST["loginbutton"])) {
-				if(!$object["ipbl"]->banned()) { 
-					if (!empty($_POST["usermail"]) and !empty($_POST["password"])) {
-						if ($object["csrf"]->check($_POST["token"])) {
-							if(isset($_POST["rememberme"]) AND $cookies_allow) { $stay = true; } else { $stay = false; }
-							$object["user"]->login_request($_POST["usermail"], $_POST["password"], $stay);
-							if ($object["user"]->login_request_code == 1) {			
-								$object["eventbox"]->ok($object["lang"]->translate("hive_login_msg_ok"));
-								echo "<script>window.location.href= '"._HIVE_URL_REL_."';</script>";
-								$object["eventbox"]->skip();
-							} elseif ($object["user"]->login_request_code == 2) {	
-								$object["eventbox"]->error($object["lang"]->translate("hive_login_msg_wrong"));
-								$object["ipbl"]->increase();	
-							} elseif ($object["user"]->login_request_code == 3) {
-								$object["eventbox"]->error($object["lang"]->translate("hive_login_msg_wrong"));
-								$object["ipbl"]->increase();			
-							} elseif ($object["user"]->login_request_code == 4) {
-								$object["eventbox"]->error($object["lang"]->translate("hive_login_msg_blocked"));	
-							} elseif ($object["user"]->login_request_code == 5) {
-								$object["eventbox"]->error($object["lang"]->translate("hive_login_msg_inactive"));	
-							} elseif ($object["user"]->login_request_code == 6) {
-								$object["eventbox"]->error($object["lang"]->translate("hive_login_msg_blockedpwf"));
-							} elseif ($object["user"]->login_request_code == 7) {
-								$object["eventbox"]->error($object["lang"]->translate("hive_login_msg_disabled"));	 
-							}
-						} else { $object["eventbox"]->error($object["lang"]->translate("hive_login_msg_csrf"));	}	
-					} else { $object["eventbox"]->error($object["lang"]->translate("hive_login_msg_empty")); }		
-				} else { $object["eventbox"]->error($object["lang"]->translate("hive_login_msg_banned")); }	
-			}	
+		// Get the current protocol (http or https)
+		$protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https://" : "http://";
+		$domain = $_SERVER['HTTP_HOST'];
+		$uri = $_SERVER['REQUEST_URI'];
+		$current_url = $protocol . $domain . $uri;
+		if ($_SERVER['QUERY_STRING']) {
+			$current_url .= '?' . $_SERVER['QUERY_STRING'];
+		}
+		
+		if (isset($_POST["loginbutton"])) {
+			if(!$object["ipbl"]->banned()) { 
+				if (!empty($_POST["usermail"]) and !empty($_POST["password"])) {
+					if ($object["csrf"]->check($_POST["token"])) {
+						if(isset($_POST["rememberme"]) AND $cookies_allow) { $stay = true; } else { $stay = false; }
+						$object["user"]->login_request($_POST["usermail"], $_POST["password"], $stay);
+						if ($object["user"]->login_request_code == 1) {			
+							$object["eventbox"]->ok($object["lang"]->translate("hive_login_msg_ok"));
+							return true;
+						} elseif ($object["user"]->login_request_code == 2) {	
+							$object["eventbox"]->error($object["lang"]->translate("hive_login_msg_wrong"));
+							$object["ipbl"]->increase();	
+						} elseif ($object["user"]->login_request_code == 3) {
+							$object["eventbox"]->error($object["lang"]->translate("hive_login_msg_wrong"));
+							$object["ipbl"]->increase();			
+						} elseif ($object["user"]->login_request_code == 4) {
+							$object["eventbox"]->error($object["lang"]->translate("hive_login_msg_blocked"));	
+						} elseif ($object["user"]->login_request_code == 5) {
+							$object["eventbox"]->error($object["lang"]->translate("hive_login_msg_inactive"));	
+						} elseif ($object["user"]->login_request_code == 6) {
+							$object["eventbox"]->error($object["lang"]->translate("hive_login_msg_blockedpwf"));
+						} elseif ($object["user"]->login_request_code == 7) {
+							$object["eventbox"]->error($object["lang"]->translate("hive_login_msg_disabled"));	 
+						}
+					} else { $object["eventbox"]->error($object["lang"]->translate("hive_login_msg_csrf"));	}	
+				} else { $object["eventbox"]->error($object["lang"]->translate("hive_login_msg_empty")); }		
+			} else { $object["eventbox"]->error($object["lang"]->translate("hive_login_msg_banned")); }	
+		}	
+		return false;
 	}
 	
 	function hive__user_lang_set($object, $user_id, $mode, $theme_name) {
