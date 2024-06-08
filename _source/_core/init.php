@@ -268,6 +268,25 @@
 		define('_HIVE_SITE_PATH_', 			$object["path"]."/_site/"._HIVE_MODE_."/");	
 		define('_HIVE_SITE_COOKIE_', 		_HIVE_COOKIE_."_"._HIVE_MODE_."_");	
 		define('_HIVE_SITE_PREFIX_', 		_HIVE_PREFIX_."_"._HIVE_MODE_."_");	
+		
+	#################################################################################################################################################
+	// Create Site Modules Folders
+	#################################################################################################################################################
+		hive__folder_create($object["path"]."/_public/"._HIVE_MODE_."", true, false);
+		hive__folder_create($object["path"]."/_public/"._HIVE_MODE_."/_ext", true, false);
+		hive__folder_create($object["path"]."/_restricted/"._HIVE_MODE_."/", true, true);
+	
+	#################################################################################################################################################
+	// Get Current Extensions
+	#################################################################################################################################################
+		$object["extensions_path"] = array();
+		if(is_dir($object["path"]."/_public/"._HIVE_MODE_."/_ext")) { 
+			foreach (glob($object["path"]."/_public/"._HIVE_MODE_."/_ext/*") as $filename) {
+				if(is_dir($filename)) { 
+					array_push($object["extensions_path"], $filename);
+				}
+			}		
+		}		
 	
 	#################################################################################################################################################
 	// Get Current Core Data
@@ -354,12 +373,44 @@
 	#################################################################################################################################################
 	// Inject Site Pre Options if there are any
 	#################################################################################################################################################
-		if(!defined("_HIVE_CRIT_ER_"))  { if(file_exists($object["path"]."/_site/"._HIVE_MODE_."/_config/config_pre.php")) { require_once($object["path"]."/_site/"._HIVE_MODE_."/_config/config_pre.php"); }	}	
+		if(!defined("_HIVE_CRIT_ER_"))  { 
+			if(file_exists($object["path"]."/_site/"._HIVE_MODE_."/_config/config_pre.php")) { require_once($object["path"]."/_site/"._HIVE_MODE_."/_config/config_pre.php"); }	
+			// Extension Libraries
+			foreach ($object["extensions_path"] as $filename) {
+				$object["extension"] = array(); $object["extension"]["name"] = basename($filename);
+				$object["extension"]["prefix"] =  $object["extension"]["name"]."_";
+				$object["extension"]["cookie"] =  $object["extension"]["name"]."_";
+				if (file_exists($filename."/_config/config_pre.php")) {
+					require_once $filename."/_config/config_pre.php";
+				}
+			}	
+		}	
 		
 	#################################################################################################################################################
 	// Get Site Mode Library Files
 	#################################################################################################################################################
-		if(!defined("_HIVE_CRIT_ER_")) { foreach (glob($object["path"]."/_site/"._HIVE_MODE_."/_lib/lib.*.php") as $filename) { if(@basename($filename) == "index.php") { continue; } require_once $filename;}	 }	
+		if(!defined("_HIVE_CRIT_ER_")) { 
+			foreach (glob($object["path"]."/_site/"._HIVE_MODE_."/_lib/lib.*.php") as $filename) { if(@basename($filename) == "index.php") { continue; } require_once $filename;}	 
+			foreach (glob($object["path"]."/_site/"._HIVE_MODE_."/_wfc/wfc.*.php") as $filename) { if(@basename($filename) == "index.php") { continue; } require_once $filename;}	 
+			// Extension Libraries
+			foreach ($object["extensions_path"] as $filename) {
+				$object["extension"] = array(); $object["extension"]["name"] = basename($filename);
+				$object["extension"]["prefix"] =  $object["extension"]["name"]."_";
+				$object["extension"]["cookie"] =  $object["extension"]["name"]."_";
+				if (is_dir($filename."/_lib")) {
+						foreach (glob($filename."/_lib/lib.*.php") as $filenamex){ require_once $filenamex; }
+				}		
+			}	
+			// Extension Libraries
+			foreach ($object["extensions_path"] as $filename) {
+				$object["extension"] = array(); $object["extension"]["name"] = basename($filename);
+				$object["extension"]["prefix"] =  $object["extension"]["name"]."_";
+				$object["extension"]["cookie"] =  $object["extension"]["name"]."_";
+				if (is_dir($filename."/_wfc")) {
+						foreach (glob($filename."/_wfc/wfc.*.php") as $filenamex){ require_once $filenamex; }
+				}
+			}	
+		}	
 		
 	#################################################################################################################################################
 	/* Set Up The Rel URL as Configured in Settings.php */	
@@ -433,6 +484,22 @@
 			require_once($filename);
 			$object["mysql"]->free_all();
 		}}	
+		
+		// Extension Libraries
+		foreach ($object["extensions_path"] as $filename) {
+			$object["extension"] = array(); $object["extension"]["name"] = basename($filename);
+			$object["extension"]["prefix"] =  $object["extension"]["name"]."_";
+			$object["extension"]["cookie"] =  $object["extension"]["name"]."_";
+			foreach (glob($filename."/_mysql/mysql.*.php") as $filenamemm){ 
+				if(@basename($filenamemm) == "index.php") { continue; } 
+				if(!$object["mysql"]->table_exists($object["extension"]["prefix"].substr(basename($filenamemm), 6, -4))) {
+					$object["log"]->warning("[CORE] [EXT] ".htmlspecialchars($object["extension"]["name"] ?? '') ." [SQL_INSTALL] [SITE] ".@htmlspecialchars(_HIVE_MODE_ ?? '')." [TABLE] ".@htmlspecialchars($object["extension"]["prefix"].substr(basename($filenamemm), 6, -4) ?? '' )."", "_ext_".$object["extension"]["name"]);
+					require_once($filenamemm);
+					$object["mysql"]->free_all();
+				}
+			}	
+		}	
+			
 	} unset($filename);	unset($object["log_tmp"]);
 		
 	#################################################################################################################################################
@@ -833,7 +900,18 @@ unset($https);
 	#################################################################################################################################################
 	// Site Post Configuration
 	#################################################################################################################################################
-		if(!defined("_HIVE_CRIT_ER_")) { if(file_exists(_HIVE_SITE_PATH_."/_config/config_post.php")) { require_once(_HIVE_SITE_PATH_."/_config/config_post.php"); }	}
+		if(!defined("_HIVE_CRIT_ER_")) { 
+			if(file_exists(_HIVE_SITE_PATH_."/_config/config_post.php")) { require_once(_HIVE_SITE_PATH_."/_config/config_post.php"); }	
+			// Extension Libraries
+			foreach ($object["extensions_path"] as $filename) {
+				$object["extension"] = array(); $object["extension"]["name"] = basename($filename);
+				$object["extension"]["prefix"] =  $object["extension"]["name"]."_";
+				$object["extension"]["cookie"] =  $object["extension"]["name"]."_";
+				if (file_exists($filename."/_config/config_post.php")) {
+					require_once $filename."/_config/config_post.php";
+				}
+			}		
+		}
 		if(!defined("_HIVE_CRIT_ER_")) { if(file_exists($object["path"]."/_site/"._HIVE_MODE_."/_config/permission.php")) { require_once($object["path"]."/_site/"._HIVE_MODE_."/_config/permission.php"); } }	
 	
 	#################################################################################################################################################

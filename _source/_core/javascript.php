@@ -50,16 +50,17 @@
 	}
 
 	// Include Extension Scripts
-	if(is_dir($object["path"]."/_public/"._HIVE_MODE_."/_ext")) { 
-		foreach (glob($object["path"]."/_public/"._HIVE_MODE_."/_ext/*") as $filename) {
-			if (is_dir($filename."/_js")) {
-				if($object["user"]->loggedIn) {
-					foreach (glob($filename."/_js/css.global.*") as $filenamex){ require_once $filenamex; }
-					foreach (glob($filename."/_js/css.restricted.*") as $filenamex){ require_once $filenamex; }
-				} else {
-					foreach (glob($filename."/_js/css.global.*") as $filenamex){ require_once $filenamex; }
-					foreach (glob($filename."/_js/css.public.*") as $filenamex){ require_once $filenamex; }
-				}
+	foreach ($object["extensions_path"] as $filename) {
+		$object["extension"] = array(); $object["extension"]["name"] = basename($filename);
+		$object["extension"]["prefix"] =  $object["extension"]["name"]."_";
+		$object["extension"]["cookie"] =  $object["extension"]["name"]."_";
+		if (is_dir($filename."/_js")) {
+			if($object["user"]->loggedIn) {
+				foreach (glob($filename."/_js/js.global.*") as $filenamex){ require_once $filenamex; }
+				foreach (glob($filename."/_js/js.restricted.*") as $filenamex){ require_once $filenamex; }
+			} else {
+				foreach (glob($filename."/_js/js.global.*") as $filenamex){ require_once $filenamex; }
+				foreach (glob($filename."/_js/js.public.*") as $filenamex){ require_once $filenamex; }
 			}
-		}		
-	}		
+		}
+	}	

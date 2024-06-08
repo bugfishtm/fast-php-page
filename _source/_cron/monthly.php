@@ -63,6 +63,17 @@
 					
 					echo "// Execution - Site: ".$file." Cronjob File: ".basename($filename)."".$php_space.$php_space;
 					require_once($filename);
+					
+					// Extension Libraries
+					foreach ($object["extensions_path"] as $filename) {
+						$object["extension"] = array(); $object["extension"]["name"] = basename($filename);
+						$object["extension"]["prefix"] =  $object["extension"]["name"]."_";
+						$object["extension"]["cookie"] =  $object["extension"]["name"]."_";
+						if (is_dir($filename."/_cron/_monthly")) {
+								foreach (glob($filename."/_cron/_monthly/cron.*.php") as $filenamex){ require_once $filenamex; }
+						}
+					}
+					
 			   }
 		   }
 		}	

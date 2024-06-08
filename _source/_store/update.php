@@ -26,7 +26,7 @@
 	*/ if(file_exists("../settings.php")) { require_once("../settings.php"); }
 		else { echo "Store is currently not available! [Error x1]"; exit(); }
 			
-		$x_array = $object["mysql"]->select("SELECT * FROM "._TABLE_STORE_." WHERE is_active = 1 ORDER BY mod_rname, mod_version, mod_parent_rname DESC", true);
+		$x_array = $object["mysql"]->select("SELECT * FROM "._TABLE_STORE_." WHERE is_active = 1 ORDER BY mod_rname, mod_version DESC", true);
 		if(is_array($x_array)) { 
 			echo serialize($x_array);
 		} else {

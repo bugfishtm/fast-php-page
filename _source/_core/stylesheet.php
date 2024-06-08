@@ -47,19 +47,20 @@
 	}
 	
 	// Include Extension Scripts
-	if(is_dir($object["path"]."/_public/"._HIVE_MODE_."/_ext")) { 
-		foreach (glob($object["path"]."/_public/"._HIVE_MODE_."/_ext/*") as $filename) {
-			if (is_dir($filename."/_css")) {
-				if($object["user"]->loggedIn) {
-					foreach (glob($filename."/_css/css.global.*") as $filenamex){ require_once $filenamex; }
-					foreach (glob($filename."/_css/css.restricted.*") as $filenamex){ require_once $filenamex; }
-				} else {
-					foreach (glob($filename."/_css/css.global.*") as $filenamex){ require_once $filenamex; }
-					foreach (glob($filename."/_css/css.public.*") as $filenamex){ require_once $filenamex; }
-				}
+	foreach ($object["extensions_path"] as $filename) {
+		$object["extension"] = array(); $object["extension"]["name"] = basename($filename);
+		$object["extension"]["prefix"] =  $object["extension"]["name"]."_";
+		$object["extension"]["cookie"] =  $object["extension"]["name"]."_";
+		if (is_dir($filename."/_css")) {
+			if($object["user"]->loggedIn) {
+				foreach (glob($filename."/_css/css.global.*") as $filenamex){ require_once $filenamex; }
+				foreach (glob($filename."/_css/css.restricted.*") as $filenamex){ require_once $filenamex; }
+			} else {
+				foreach (glob($filename."/_css/css.global.*") as $filenamex){ require_once $filenamex; }
+				foreach (glob($filename."/_css/css.public.*") as $filenamex){ require_once $filenamex; }
 			}
-		}		
-	}		
+		}	
+	}	
 	  
 	// Include Framework CSS File
 	require_once("../_framework/css/xcss_xfpe.css");	  

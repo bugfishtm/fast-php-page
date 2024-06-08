@@ -81,8 +81,7 @@
 			$object["eventbox"]->ok($object["lang"]->translate("admin_top_t_lang_changed"));
 			Header("Location: ".$link);
 			exit();			
-		} 	?>
-		<!DOCTYPE html>
+		} 	?><!DOCTYPE html>
 		<html>
 		<head>
 			<!-- Charset -->
@@ -182,14 +181,15 @@
 			<div class="overlay"></div>
 			<!-- #END# Overlay For Sidebars -->		
 	<?php }
-	function hive__adminbsb_nav($object, $pfm = false, $footertext = false) {  ?>
+	function hive__adminbsb_nav($object, $pfm = false, $footertext = false, $hideuserarea = false, $userimg = "/_core/_image/user_image.png") {  ?>
     <section>
         <!-- Left Sidebar -->
         <aside id="leftsidebar" class="sidebar">
             <!-- User Info -->
+			<?php if(!$hideuserarea) { ?>
             <div class="user-info" style="background: url(./_core/_image/user-admin-background.jpg);">
                 <div class="image">
-                    <img src="<?php echo _HIVE_URL_REL_; ?>/_core/_image/user_image.png" width="48" height="48" alt="User" />
+                    <img src="<?php echo _HIVE_URL_REL_.$userimg; ?>" width="48" height="48" alt="User" />
                 </div>
                 <div class="info-container">
                     <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo $object["lang"]->translate("admin_top_t_ident"); ?>: #<?php echo htmlspecialchars($object["user"]->user["id"]); ?></div>
@@ -207,6 +207,7 @@
 					<?php } ?>
                 </div>
             </div>
+			<?php } ?>
             <!-- #User Info -->
             <!-- Menu -->
             <div class="menu">
