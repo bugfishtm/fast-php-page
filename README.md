@@ -29,11 +29,7 @@ Explore our extension store for additional functionalities, manage files and med
 Whether you're building a personal blog, an e-commerce platform, or a corporate website, bugfishCMS provides the flexibility, scalability, and developer-friendly interface you need to bring your vision to life. Get started with bugfishCMS today and unlock the full potential of your online presence!
 
 
-<img src="./_images/preview.png" style="max-height: 130px;">
-<img src="./_images/_minimal.png" style="max-height: 130px;">
-<img src="./_images/_windmill.png" style="max-height: 130px;">
-<img src="./_images/_volt.png" style="max-height: 130px;">
-<img src="./_images/_adminbsb.png" style="max-height: 130px;">
+<img src="./_images/preview.png">
 
 ### Repository Folders
 
