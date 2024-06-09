@@ -89,13 +89,17 @@
 		hive__folder_create($object["path"]."/_internal", true, true);
 		hive__folder_create($object["path"]."/_internal/_cache", true, true);
 		hive__folder_create($object["path"]."/_internal/_template", true, true);
+		hive__folder_create($object["path"]."/_internal/_docker", true, true);
+		hive__folder_create($object["path"]."/_internal/_image", true, true);
 		hive__folder_create($object["path"]."/_internal/_inactive", true, true);
+		hive__folder_create($object["path"]."/_internal/_inactive/_image", true, true);
 		hive__folder_create($object["path"]."/_internal/_inactive/_script", true, true);
 		hive__folder_create($object["path"]."/_internal/_inactive/_ext", true, true);
 		hive__folder_create($object["path"]."/_internal/_inactive/_site", true, true);
 		hive__folder_create($object["path"]."/_public", true, false);
-		hive__folder_create($object["path"]."/_public/_script", true, false);
 		hive__folder_create($object["path"]."/_domain", true, false);
+		hive__folder_create($object["path"]."/_script", true, false);
+		hive__folder_create($object["path"]."/_image", true, false);
 		hive__folder_create($object["path"]."/_restricted", true, true);
 		hive__folder_create($object["path"]."/_store", true, false);
 		hive__folder_create($object["path"]."/_store/_core", true, false);
@@ -766,13 +770,18 @@ if(!defined("_HIVE_CRIT_ER_")) {
 		if(_HIVE_SITEMAP_URL_) { $url = "Sitemap: "._HIVE_SITEMAP_URL_."\r\n"; } else { $url = "";}
 		if(!file_exists($object["path"]."/robots.txt")) {
 			file_put_contents($object["path"]."/robots.txt", "".$url."User-Agent: *
-Disallow: "._HIVE_URLC_REL_."/_store/*
 Disallow: "._HIVE_URLC_REL_."/_core/*
-Disallow: "._HIVE_URLC_REL_."/_restricted/*
 Disallow: "._HIVE_URLC_REL_."/_cron/*
+Disallow: "._HIVE_URLC_REL_."/_domain/*
 Disallow: "._HIVE_URLC_REL_."/_framework/*
+Disallow: "._HIVE_URLC_REL_."/_image/*
 Disallow: "._HIVE_URLC_REL_."/_internal/*
+Disallow: "._HIVE_URLC_REL_."/_restricted/*
+Disallow: "._HIVE_URLC_REL_."/_script/*
+Disallow: "._HIVE_URLC_REL_."/_store/*
 Disallow: "._HIVE_URLC_REL_."/cfg_ruleset.php
+Disallow: "._HIVE_URLC_REL_."/README.md
+Disallow: "._HIVE_URLC_REL_."/LICENSE.md
 Disallow: "._HIVE_URLC_REL_."/cfg_ruleset_sample.php
 Disallow: "._HIVE_URLC_REL_."/updater.php
 Disallow: "._HIVE_URLC_REL_."/installer.php

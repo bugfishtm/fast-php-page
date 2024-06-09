@@ -1,7 +1,7 @@
 ![Bugfish](https://img.shields.io/badge/Bugfish-CMS-orange)
 ![Status](https://img.shields.io/badge/Status-Released-blue)
 ![License](https://img.shields.io/badge/License-GPLv3-black) 
-![CMS Version](https://img.shields.io/badge/CMS-2.17-white)
+![CMS Version](https://img.shields.io/badge/CMS-2.18-white)
 ![Framework Version](https://img.shields.io/badge/Framework-3.21-white)
 ![Admin Module Version](https://img.shields.io/badge/Administrator-0.00.000-white)
 

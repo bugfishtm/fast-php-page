@@ -33,5 +33,11 @@ Use cfg_ruleset.php in the website's Root Folders to access deep CMS functionali
 ## Important Information
 Core Updates won't touch Files in this folder as they may be important for running Site Modules. If a Site module's name does change, the related folder / file names related in this folder may need to be changed too, to not lose data. (Site Module Folder Names are the relation to Folder Name in this Directory.)
 
+## Important Rules
+- Do not start a site module with a number!
+- Do not start a site module with _! This is only for the main creators to be used for core modules!
+- Do only use alphanumeric chars.
+- Not more than 10 Signs on Modules Rname and Foldername!
+
 Happy Site-ing!  
 Bugfish <3

@@ -83,16 +83,18 @@
 		##########################################################################################
 		// Default Prefix for Cookies and Sessions
 		// CAUTION: Users are able to change these values at installation procedure.
-		// Default value is: "hive_"
+		// Default value is: "bcms_"
+		// MAX 10 SIGNS! DO NOT START WITH NUMBER OR SPECIAL CHAR!
 		##########################################################################################
-		// define("_INSTALLER_COOKIE_", 	"hive_");
+		// define("_INSTALLER_COOKIE_", 	"bcms_");
 		
 		##########################################################################################
 		// Default Prefix for Database Tables
 		// CAUTION: Users are able to change these values at installation procedure.
 		// Default value is: "hive_"
+		// MAX 10 SIGNS! DO NOT START WITH NUMBER OR SPECIAL CHAR!
 		##########################################################################################
-		// define("_INSTALLER_PREFIX_", 	"hive_");
+		// define("_INSTALLER_PREFIX_", 	"bcms_");
 	
 		##########################################################################################
 		// Password requirement for installation procedure.

@@ -141,11 +141,11 @@ Enter your MySQL database credentials and desired database prefix in the provide
 		<br />
 		<b>Cookie Prefix</b>:<br /><small> Cookie Prefix, does not need to be changed.</small><br />
 		<?php if(@$erroremptyux) { echo "<b><div class='containererror'>Please enter a valid Cookie Prefix!</div></b>"; } ?>
-		<input type="text" name="website_cookie" value="<?php if(!is_string(@$_POST["website_cookie"])) {  echo _INSTALLER_COOKIE_;} else { echo htmlentities(@$_POST["website_cookie"] ?? '');} ?>"> <br />
+		<input type="text" maxlength="10" name="website_cookie" value="<?php if(!is_string(@$_POST["website_cookie"])) {  echo _INSTALLER_COOKIE_;} else { echo htmlentities(@$_POST["website_cookie"] ?? '');} ?>"> <br />
 		<br />
 		<b>Table Prefix</b>:<br /><small> MySQL Tables Prefix, does not need to be changed.</small><br />
 		<?php if(@$erroremptyuy) { echo "<b><div class='containererror'>Please enter a valid Table Prefix!</div></b>"; } ?>				
-		<input type="text" name="website_prefix" value="<?php if(!is_string(@$_POST["website_prefix"])) { echo _INSTALLER_PREFIX_; } else { echo htmlentities(@$_POST["website_prefix"] ?? '');} ?>"> <br />			
+		<input type="text" maxlength="10" name="website_prefix" value="<?php if(!is_string(@$_POST["website_prefix"])) { echo _INSTALLER_PREFIX_; } else { echo htmlentities(@$_POST["website_prefix"] ?? '');} ?>"> <br />			
 		<button type="submit" class="containerbox-btn">Start Installation</button>			 
 	</div>
 	<?php hive__simple_end($object, 'Powered by <a href="https://github.com/bugfishtm/bugfish-cms" rel="noopener" target="_blank" style="color: yellow!important;">Bugfish CMS</a>!'); ?>
