@@ -1,5 +1,8 @@
-# Default Website Fonts
+📁 **Font Library Folder**
 
-**DO NOT MODIFY FILES WITHIN THIS FOLDER, AS THEY MAY BE OVERWRITTEN DURING CORE UPDATES!**
+In this folder you find integrated fonts which are delivered with this CMS for you to  be used. Just include them in your CSS File and choose them as font family on your website if necessary! Look up the licenses in the different folders our at our documentation if required.
 
-In this folders you can find fonts included in this CMS!
+**Note:** Changes in this folder are NOT persistent and will be overwritten by core updates.
+
+Happy coding and have a great one!  
+🐟 Bugfish <3

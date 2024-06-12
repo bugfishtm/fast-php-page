@@ -1,51 +1,58 @@
-![Bugfish](https://img.shields.io/badge/Bugfish-Template-orange)
-![Status](https://img.shields.io/badge/Status-Finished-green)
-![License](https://img.shields.io/badge/License-GPLv3-black)
-![Version](https://img.shields.io/badge/Version-1.0-white)
+# Windmill Dashboard
 
-# Bugfish Dashboard
-Visit for demo: https://bugfishtm.github.io/bugfish-dashboard/page_index.html  
-Repository: https://github.com/bugfishtm/bugfish-dashboard  
+A multi theme, completely accessible, with components and pages examples, ready for production dashboard.
 
-This is the "Bugfish Dashboard". A free to use Dashboard Template, which has been enhanced out of the "Windmill" Dashboard Template! You can find different color schemes in this repositories "style" folder. Needed files for include and some libraries are located in the assets folder! This Project comes with MIT License and you can use it for whatever you want!
-				
-A simple Dashboard Template which is a modification of "Windmill" Dashboard Template. Added new Style functionalities and a few new Elements. This project has initially created out of this project:  
-https://github.com/estevanmaito/windmill-dashboard
+🧪 [See it live](https://windmill-dashboard.vercel.app/)
 
-## Color Schemes
-This dashboard comes in color schemes "purple", "orange" and "lime".  
-You can find related CSS Files in the styles folder!
+- 🦮 Thoroughly accessible
+- 🌗 Light and dark themes
+- 💅 Styled with Tailwind CSS
+- 🧩 Various components
+- (soon React and Vue versions)
 
-Screenshot:
-![Image](./image.png)
+## 🚀 Usage
 
-## Included Libraries
-Included in this repository are some MIT Libraries which you may can use with your software if needed.  
+Clone or download this repo and everything you need is inside the `public` folder.
 
-|Name|License|Description|
-|--|--|--|
-|alpine|MIT|Needed Library for Dashboard|
-|css / tailwindcss|MIT|Needed CSS Library for Dashboard|
-|chartjs | MIT|Library to Display Charts|
-|datatables|MIT|Library to Display Datatables|
-|focustrap|MIT|Library for Dashboard Elements|
-|jquery|MIT| jquery 3.5 Library|
-|resumable|MIT|Chunk Upload JS Library|
-|TinyMCE|MIT|Advanced Textarea Boxes Library|
+## 🦮 Accessibility
 
-## Support and Requests
+This dashboard was developed with a11y in mind since the beginning.
 
-In the event that you encounter any challenges or have inquiries while using this software, we encourage you to reach out for assistance. Our dedicated support platform is available through our forum located at https://forum.bugfish.eu. This specialized forum serves as a central hub for addressing any issues, seeking solutions, and engaging in discussions related to the software's functionality.
+1. Every text passes the WCAG Level AA (at least)
+2. It is completely keyboard navigable
+3. I actually used [NVDA](https://www.nvaccess.org/) to read my screen during development
 
-Rest assured that our team is committed to promptly addressing your concerns and providing the guidance necessary to ensure a seamless software experience. Your feedback is invaluable in our ongoing efforts to refine and enhance the software, and we welcome your contributions to our community.
+Everybody can benefit with good accessibility practices, like the modal, for example ([test it live](https://windmill-dashboard.vercel.app/modals.html)). It uses focus trap techniques to not loose focus when navigating via keyboard and thinking of mobile users with large screen devices, it is placed in the bottom of the screen.
 
-You can also write us at request@bugfish.eu if you encounter any errors using this software. We will try the best to help you!
+## 🌗 Multi theme
 
-## Included Libraries with MIT Licenses
+It uses Tailwind CSS for styling, and some may say it is totally biased, but it uses the most simple theming plugin there is for it, [Tailwind Multi Theme plugin](https://github.com/estevanmaito/tailwindcss-multi-theme#tailwind-css-multi-theme) (made by me). The result is that, as with regular Tailwind, you have control over every style in your pages.
 
-This project includes several third-party libraries, each distributed under the MIT License. You can find the contents of these libraries in the "assets" folder, along with their respective license files. This ensures compliance with licensing requirements and provides transparency regarding the usage of third-party code in the project.
+You can see that by navigating through the examples, changing theme and going visiting pages like login or create account, to see different images served for different themes.
 
+Theme auto detection based on user's OS preferences and local settings storage are enabled by default.
 
-## License Information
+## 🔮 Future
 
-The license details for this Bugfish Dashboard project can be found in the "license.md" file within the project repository. Please review this file to understand the terms and conditions of use and distribution. It is essential to comply with the project's license to ensure legal and ethical usage of the provided resources. This project is a fork of the Windmill Dashboard theme. You can find the Root License at ROOT_LICENSE.md inside that repository. We have choosen the license to prevent damaging patenting of this software. You are allowed to use this software commercial and private, enhanced version of the software even closed source! You are not allowed to patent any part of this given repository.
+In the next days I'll release the React _and_ Vue versions of it, soon after finishing these tasks:
+
+TODO
+
+- [ ] Make charts accessible through hidden data
+- [ ] Refactor and split `shadow-outline-<color>` plugin
+- [ ] Paginate tables with Alpine
+- [ ] Focus first element when dropdowns are opened
+- [x] Add roles to the table
+
+## OSS used
+
+(TODO: add links)
+
+- Tailwind CSS
+- Tailwind Multi Theme
+- Tailwind Custom Forms
+- PostCSS
+- Alpine.js
+- Chart.js (charts)
+- UI Faces (avatars)
+- Heroicons (icons)

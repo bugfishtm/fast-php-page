@@ -1,8 +1,9 @@
-# Template Cache Folder
+📁 **Internal Cache Folder**
 
-This folder serves as a cache for downloaded module templates obtained from the store.
+Folder to cache modules downloaded at the administrator module store!
 
-**Purpose:**
-- Store cached copies of downloaded module templates for quicker access.
+**Important Information**  
+Core Updates wont touch Files in this folder.
 
-Please note that the contents of this folder are generated automatically and should not be modified manually.
+Happy coding and have a great one!  
+🐟 Bugfish <3

@@ -1,6 +1,4 @@
-# CAPTCHA Files
-
-**DO NOT MODIFY FILES WITHIN THIS FOLDER, AS THEY MAY BE OVERWRITTEN DURING CORE UPDATES!**
+📁 **Captcha Folder**
 
 The CAPTCHA Files directory contains PHP files designed for CAPTCHA functionality inclusion in projects. These CAPTCHAs can be displayed using an HTML image tag, with the session key containing the code as `_HIVE_SITE_COOKIE_."captcha.XXXX"`.
 
@@ -12,5 +10,7 @@ The CAPTCHA Files directory contains PHP files designed for CAPTCHA functionalit
 - Ensure proper configuration of session handling in your project.
 - Utilize the session key `_HIVE_SITE_COOKIE_."captcha.XXXX"` to link CAPTCHA codes with user sessions.
 
-Happy Captchaing!  
-Bugfish <3
+**Note:** Changes in this folder are NOT persistent and will be overwritten by core updates.
+
+Happy coding and have a great one!  
+🐟 Bugfish <3

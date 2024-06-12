@@ -8,6 +8,8 @@ This folder houses modules for development, testing, or use, split into three se
 
 **3. Script Modules:** Modules usable independently of any website module.
 
+**4. Image Modules:** Image modules to be deployed, this can be full other website projects not related to this cms like wordpress and misc.
+
 Feel free to explore and utilize these modules to enhance your projects!
 
 🐟 Bugfish <3

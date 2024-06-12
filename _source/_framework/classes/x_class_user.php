@@ -1,13 +1,17 @@
 <?php
-	/* 	__________ ____ ___  ___________________.___  _________ ___ ___  
-		\______   \    |   \/  _____/\_   _____/|   |/   _____//   |   \ 
-		 |    |  _/    |   /   \  ___ |    __)  |   |\_____  \/    ~    \
-		 |    |   \    |  /\    \_\  \|     \   |   |/        \    Y    /
-		 |______  /______/  \______  /\___  /   |___/_______  /\___|_  / 
-				\/                 \/     \/                \/       \/  	
-							www.bugfish.eu
+	/* 
+			bb                       fff iii       hh      
+			bb      uu   uu  gggggg ff        sss  hh      
+			bbbbbb  uu   uu gg   gg ffff iii s     hhhhhh  
+			bb   bb uu   uu ggggggg ff   iii  sss  hh   hh 
+			bbbbbb   uuuu u      gg ff   iii     s hh   hh 
+							 ggggg            sss          
+
+			 ____  ____    __    __  __  ____  _    _  _____  ____  _  _ 
+			( ___)(  _ \  /__\  (  \/  )( ___)( \/\/ )(  _  )(  _ \( )/ )
+			 )__)  )   / /(__)\  )    (  )__)  )    (  )(_)(  )   / )  ( 
+			(__)  (_)\_)(__)(__)(_/\/\_)(____)(__/\__)(_____)(_)\_)(_)\_)
 							
-	    Bugfish Framework
 		Copyright (C) 2024 Jan Maurice Dahlmanns [Bugfish]
 
 		This program is free software: you can redistribute it and/or modify
@@ -470,6 +474,7 @@ class x_class_user {
 								  `user_initial` int(1) DEFAULT 0 COMMENT '1 if this user is initial created user',
 								  `user_pass` varchar(512) DEFAULT NULL COMMENT 'Users Pass for Login',
 								  `user_mail` varchar(512) NULL COMMENT 'Users Mail for Login if Ref',
+								  `user_2fa` text DEFAULT NULL COMMENT 'Users 2FA key',
 								  `user_shadow` varchar(512) DEFAULT NULL COMMENT 'Users Store for Mail if Renew',
 								  `user_rank` int(9) NULL DEFAULT NULL COMMENT 'Users Rank',
 								  `user_confirmed` tinyint(1) DEFAULT '0' COMMENT 'User Activation Status',

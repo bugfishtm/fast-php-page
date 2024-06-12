@@ -1,26 +1,46 @@
-📁 **Script Modules Repository**
+📁 **Script Modules Folder**
 
-Modules usable independently of any website module.  
-You can also find downloadable Script Modules in the Store!  
-You need a Site Module which can display the Script Module like the Administration Interface Module.
+The **Script Modules** directory houses script modules installed by the administrator module or uploaded manually. These modules are accessible by hardlinking to them if they have a public.php file, or by accessing threm trough the administrator interface or a fitting extension or module.
 
-**How to Install Script Modules?**
-| Method | Description                                                                                                                                                                              |
-|--------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 1      | **Upload in Administrator Module**                                                                                                                                                      |
-|        | - Open the Administrator Module of your bugfishCMS Instance in your web browser.                                                                                                         |
-|        | - Log in as Administrator or Privileged user to control Modules/Extensions.                                                                                                               |
-|        | - Go to the Store area and choose "Upload Manually" from the top bar.                                                                                                                     |
-|        | - Select your obtained module's .zip file and upload it by choosing the file in the file browser that appears upon clicking "choose file".                                                 |
-|        | - Navigate to the Scripts Section.                                                                                                                                                   |
-|        | - Activate the newly installed Script. |
-| 2      | **Upload Manually**                                                                                                                                                                      |
-|        | - Log in to your web server with FTP/SFTP.                                                                                                                                               |
-|        | - Unpack the required Script Module folder.                                                                                                                                               |
-|        | - Move the extracted folder, containing files like version.php (...), to the _internal/_inactive/_script/ directory of the bugfishCMS Installation. Ensure that no special signs are used in the scripts folder name. The only special character allowed in an scripts folder name is _, but only as the first letter. |
-|        | - Activate the Script in the supporting Site Modules Administration Interface. |
+---------
 
+**How to Install Script Modules**
 
-Feel free to explore and utilize these modules to enhance your projects!
+**Method 1: Choose Module from Store**
+1. Login to the Administrator Site Module.
+2. Navigate to "Store"
+3. Download the desired script module through the web interface.
+4. Navigate to the "Scripts" Area of the Administrator Module.
+5. Install the aquired Script
+6. Use the script by hardlinking to the scripts public.php or access it through cms administrator module restricted.php or internal functionalities.
 
+**Method 2: Upload in Administrator Module**
+1. Open the Administrator Module in your web browser.
+2. Login as Administrator or Privileged user.
+3. Go to the "Script Module" area and select "Upload Manually."
+4. Upload the scripts's .zip file.
+5. Install the aquired Script
+6. Use the script by hardlinking to the scripts public.php or access it through cms administrator module restricted.php or internal functionalities.
+
+**Method 3: Upload Manually**
+1. Login to your webserver with FTP/SFTP.
+2. Unpack the required Script Modules folder.
+3. Move the extracted folder to the _script directory of the BugfishCMS installation.
+   - Use only alphanumeric characters and underscores (_), but _ only at the start.
+4. Use the script by hardlinking to the scripts public.php or access it through cms administrator module restricted.php or internal functionalities.
+
+**Notice**  
+Script Modules Templates are stored in /_internal/_script-tpl for multi deployment, in that folder /_internal/_script-tpl they stay inactive!  
+
+------
+
+**Important Rules**
+- Do not start a script module name with a number.
+- Do not start a script module name with _ (reserved for core modules).
+- Only use alphanumeric characters.
+- script module names and folder names should not exceed 10 characters.
+
+**Note:** Changes in this folder are persistent and will not be overwritten by core updates.
+
+Happy coding and have a great one!  
 🐟 Bugfish <3

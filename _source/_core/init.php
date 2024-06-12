@@ -1,11 +1,9 @@
 <?php
-	/* 
-		 _               __ _    _    ___ __  __ ___ 
-		| |__ _  _ __ _ / _(_)__| |_ / __|  \/  / __|
-		| '_ \ || / _` |  _| (_-< ' \ (__| |\/| \__ \
-		|_.__/\_,_\__, |_| |_/__/_||_\___|_|  |_|___/
-				  |___/                              
-
+	/* 	 _           ___ _     _   _____ _____ _____ 
+		| |_ _ _ ___|  _|_|___| |_|     |     |   __|
+		| . | | | . |  _| |_ -|   |   --| | | |__   |
+		|___|___|_  |_| |_|___|_|_|_____|_|_|_|_____|
+				|___|                                
 		Copyright (C) 2024 Jan Maurice Dahlmanns [Bugfish]
 
 		This program is free software: you can redistribute it and/or modify
@@ -19,10 +17,12 @@
 		GNU General Public License for more details.
 
 		You should have received a copy of the GNU General Public License
-		along with this program.  If not, see <https://www.gnu.org/licenses/>.
+		along with this program.  If not, see <https://www.gnu.org/licenses/>.	
 		
 		File Description:
-			General Site Initialization File
+			Stylesheet Loader file to load Files out of Site Module Directory 
+			reltated to current active site mode into this file to be included in 
+			the website.
 	*/ if(!is_array($object)) { @http_response_code(503); echo "Startup Error - Please delete your settings.php file and re-install this instance..."; exit(); }	
 	#################################################################################################################################################
 	// Define Defaults
@@ -32,6 +32,7 @@
 	#################################################################################################################################################
 	// Includes and Requirements
 	#################################################################################################################################################
+		require_once($object["path"]."/_framework/classes/x_class_2fa.php");
 		require_once($object["path"]."/_framework/classes/x_class_api.php");
 		require_once($object["path"]."/_framework/classes/x_class_benchmark.php");
 		require_once($object["path"]."/_framework/classes/x_class_block.php");
@@ -86,28 +87,30 @@
 	#################################################################################################################################################
 	// Create Maybe lost Folders
 	#################################################################################################################################################
+		hive__folder_create($object["path"]."/_domain", true, false);
+		hive__folder_create($object["path"]."/_ext", true, false);
+		hive__folder_create($object["path"]."/_image", true, false);
 		hive__folder_create($object["path"]."/_internal", true, true);
 		hive__folder_create($object["path"]."/_internal/_cache", true, true);
-		hive__folder_create($object["path"]."/_internal/_template", true, true);
-		hive__folder_create($object["path"]."/_internal/_docker", true, true);
-		hive__folder_create($object["path"]."/_internal/_image", true, true);
-		hive__folder_create($object["path"]."/_internal/_inactive", true, true);
-		hive__folder_create($object["path"]."/_internal/_inactive/_image", true, true);
-		hive__folder_create($object["path"]."/_internal/_inactive/_script", true, true);
-		hive__folder_create($object["path"]."/_internal/_inactive/_ext", true, true);
-		hive__folder_create($object["path"]."/_internal/_inactive/_site", true, true);
+		hive__folder_create($object["path"]."/_internal/_docker-tpl", true, true);
+		hive__folder_create($object["path"]."/_internal/_ext-dn", true, true);
+		hive__folder_create($object["path"]."/_internal/_ext-tpl", true, true);
+		hive__folder_create($object["path"]."/_internal/_image-tpl", true, true);
+		hive__folder_create($object["path"]."/_internal/_image-dn", true, true);
+		hive__folder_create($object["path"]."/_internal/_site-dn", true, true);
+		hive__folder_create($object["path"]."/_internal/_site-tpl", true, true);
+		hive__folder_create($object["path"]."/_internal/_script-tpl", true, true);
 		hive__folder_create($object["path"]."/_public", true, false);
-		hive__folder_create($object["path"]."/_domain", true, false);
-		hive__folder_create($object["path"]."/_script", true, false);
-		hive__folder_create($object["path"]."/_image", true, false);
 		hive__folder_create($object["path"]."/_restricted", true, true);
+		hive__folder_create($object["path"]."/_script", true, false);
+		hive__folder_create($object["path"]."/_site", true, false);		
 		hive__folder_create($object["path"]."/_store", true, false);
 		hive__folder_create($object["path"]."/_store/_core", true, false);
 		hive__folder_create($object["path"]."/_store/_core-cl", true, false);
 		hive__folder_create($object["path"]."/_store/_module-zip", true, false);
 		hive__folder_create($object["path"]."/_store/_module-cache", true, false);
 		hive__folder_create($object["path"]."/_store/_module-cl", true, false);
-		hive__folder_create($object["path"]."/_store/_module-img", true, false);
+		hive__folder_create($object["path"]."/_store/_module-img", true, false);		
 		
 	#################################################################################################################################################
 	// Instance Internal Settings
@@ -277,15 +280,15 @@
 	// Create Site Modules Folders
 	#################################################################################################################################################
 		hive__folder_create($object["path"]."/_public/"._HIVE_MODE_."", true, false);
-		hive__folder_create($object["path"]."/_public/"._HIVE_MODE_."/_ext", true, false);
 		hive__folder_create($object["path"]."/_restricted/"._HIVE_MODE_."/", true, true);
+		hive__folder_create($object["path"]."/_ext/"._HIVE_MODE_."/", true, false);
 	
 	#################################################################################################################################################
 	// Get Current Extensions
 	#################################################################################################################################################
 		$object["extensions_path"] = array();
-		if(is_dir($object["path"]."/_public/"._HIVE_MODE_."/_ext")) { 
-			foreach (glob($object["path"]."/_public/"._HIVE_MODE_."/_ext/*") as $filename) {
+		if(is_dir($object["path"]."/_ext/"._HIVE_MODE_."")) { 
+			foreach (glob($object["path"]."/_ext/"._HIVE_MODE_."/*") as $filename) {
 				if(is_dir($filename)) { 
 					array_push($object["extensions_path"], $filename);
 				}
@@ -323,7 +326,7 @@
 	#################################################################################################################################################
 		$object["log"] 			= 	new x_class_log($object["mysql"], _TABLE_LOG_CRON_, "");
 		$object["log"] 			= 	new x_class_log($object["mysql"], _TABLE_LOG_, _HIVE_MODE_);
-		$object["log_tmp"] 			= 	new x_class_log($object["mysql"], _TABLE_LOG_, "");
+		$object["log_tmp"] 		= 	new x_class_log($object["mysql"], _TABLE_LOG_, "");
 
 	#################################################################################################################################################
 	// Load Pre-Defined Core Tables if Needed
@@ -776,6 +779,7 @@ Disallow: "._HIVE_URLC_REL_."/_domain/*
 Disallow: "._HIVE_URLC_REL_."/_framework/*
 Disallow: "._HIVE_URLC_REL_."/_image/*
 Disallow: "._HIVE_URLC_REL_."/_internal/*
+Disallow: "._HIVE_URLC_REL_."/_ext/*
 Disallow: "._HIVE_URLC_REL_."/_restricted/*
 Disallow: "._HIVE_URLC_REL_."/_script/*
 Disallow: "._HIVE_URLC_REL_."/_store/*
@@ -1070,6 +1074,7 @@ file_put_contents($object["path"]."/.htaccess", "###############################
 	define("_HIVE_SITEC_REL_", _HIVE_URLC_REL_."/_site/"._HIVE_MODE_."/");
 	define("_HIVE_SITE_PRIVATE_", _HIVE_PATH_PRIVATE_."/"._HIVE_MODE_."/");
 	define("_HIVE_SITE_PUBLIC_", _HIVE_PATH_PUBLIC_."/"._HIVE_MODE_."/");
+	define("_HIVE_SITE_EXT_", _HIVE_PATH_."/_ext/"._HIVE_MODE_."/");
 	
 	// Unset some Variables
 	unset($ovr_hive_mode_getenv);

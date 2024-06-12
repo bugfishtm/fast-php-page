@@ -1,11 +1,9 @@
 <?php
-	/* 
-		 _               __ _    _    ___ __  __ ___ 
-		| |__ _  _ __ _ / _(_)__| |_ / __|  \/  / __|
-		| '_ \ || / _` |  _| (_-< ' \ (__| |\/| \__ \
-		|_.__/\_,_\__, |_| |_/__/_||_\___|_|  |_|___/
-				  |___/                              
-
+	/* 	 _           ___ _     _   _____ _____ _____ 
+		| |_ _ _ ___|  _|_|___| |_|     |     |   __|
+		| . | | | . |  _| |_ -|   |   --| | | |__   |
+		|___|___|_  |_| |_|___|_|_|_____|_|_|_|_____|
+				|___|                                
 		Copyright (C) 2024 Jan Maurice Dahlmanns [Bugfish]
 
 		This program is free software: you can redistribute it and/or modify
@@ -19,18 +17,8 @@
 		GNU General Public License for more details.
 
 		You should have received a copy of the GNU General Public License
-		along with this program.  If not, see <https://www.gnu.org/licenses/>.
-		
-		File Description:
-			File for Developers to easy control CMS Functionalitites without an
-			Administration interface. It is recommended to disable the use of 
-			this script in production environments in cfg_ruleset.php!
-	*/ 
-	
-	////////////////////////////////////////////////////////////////////////////////////
-	// Updater Script to deploy site module updates if build number has been increased.
-	// File may gets overwritten during core updates!
-	////////////////////////////////////////////////////////////////////////////////////
+		along with this program.  If not, see <https://www.gnu.org/licenses/>.	
+	*/
 	
 	if(file_exists("./settings.php")) { require_once("./settings.php"); } else { @http_response_code(404); Header("Location: ./"); exit(); } 
 	if(!_HIVE_MOD_CHANGES_) { hive_error_full("Access Error", "Script is deactivated in ruleset.php!", "Enable _HIVE_MOD_CHANGES_ in ruleset.php or in the _administration interface to enable this files execution!", true, 401); }

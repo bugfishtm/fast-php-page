@@ -1,11 +1,9 @@
 <?php
-	/* 
-		 _               __ _    _    ___ __  __ ___ 
-		| |__ _  _ __ _ / _(_)__| |_ / __|  \/  / __|
-		| '_ \ || / _` |  _| (_-< ' \ (__| |\/| \__ \
-		|_.__/\_,_\__, |_| |_/__/_||_\___|_|  |_|___/
-				  |___/                              
-
+	/* 	 _           ___ _     _   _____ _____ _____ 
+		| |_ _ _ ___|  _|_|___| |_|     |     |   __|
+		| . | | | . |  _| |_ -|   |   --| | | |__   |
+		|___|___|_  |_| |_|___|_|_|_____|_|_|_|_____|
+				|___|                                
 		Copyright (C) 2024 Jan Maurice Dahlmanns [Bugfish]
 
 		This program is free software: you can redistribute it and/or modify
@@ -20,9 +18,6 @@
 
 		You should have received a copy of the GNU General Public License
 		along with this program.  If not, see <https://www.gnu.org/licenses/>.
-		
-		File Description:
-			Function Library for General CMS Functionalitites
 	*/ if(!is_array(@$object)) { @http_response_code(@404); @Header("Location: ../"); exit(); }
 	
 	function hive_site_acces($object, $rights, $displayerror = false) { return hive__access($object, $rights, $displayerror);}
@@ -62,79 +57,105 @@
 	
 	
 	function hive_error_full($title, $subtitle, $description, $exit, $code, $type = "error") { 
-		if(is_numeric($code)) { @http_response_code($code); }?>	
-<!DOCTYPE html>
+		if(is_numeric($code)) { @http_response_code($code); }?>	<!DOCTYPE html>
 <html lang="en">
 <head>
-	<!--
-		 _               __ _    _    ___ __  __ ___ 
-		| |__ _  _ __ _ / _(_)__| |_ / __|  \/  / __|
-		| '_ \ || / _` |  _| (_-< ' \ (__| |\/| \__ \
-		|_.__/\_,_\__, |_| |_/__/_||_\___|_|  |_|___/
-				  |___/                              	
-										Error / Notification CMS Page
-	-->
+	<?php if(defined("_HIVE_URL_REL_")) { ?> <link rel="icon" type="image/x-icon" href="<?php echo _HIVE_URL_REL_; ?>/_core/_image/favicon.ico"> <?php } ?>
+    <title><?php echo $title; ?><?php if(defined("_HIVE_TITLE_SPACER_")) { echo _HIVE_TITLE_SPACER_; } else { echo " - "; } ?><?php if(defined("_HIVE_TITLE_")) { echo _HIVE_TITLE_; } else { echo "CMS"; } ?></title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="robots" content="noindex, nofollow">
-	<?php if(defined("_HIVE_URL_REL_")) { ?> <link rel="icon" type="image/x-icon" href="<?php echo _HIVE_URL_REL_; ?>/_core/_image/favicon.ico"> <?php } ?>
-    <title><?php echo $title; ?><?php if(defined("_HIVE_TITLE_SPACER_")) { echo _HIVE_TITLE_SPACER_; } else { echo " - "; } ?><?php if(defined("_HIVE_TITLE_")) { echo _HIVE_TITLE_; } else { echo "CMS"; } ?></title>
+    <title>Access Denied</title>
     <style>
-        body { 	margin: 0;
-				padding: 0;
-				height: 100vh;
-				min-height: 225px;
-				background-color: #080808;
-				color: #fff;
-				padding-top: 0px;
-				padding-bottom: 20px;
-				box-sizing: border-box;
-				font-family: Arial, sans-serif; }
-        .flex { 	
-				display: flex;
-				justify-content: center;
-				align-items: center; }
-        h1 { 	font-size: 24px; margin-bottom: 10px; }
-        p { 	font-size: 16px; margin-bottom: 20px; }
-        .container {
-				text-align: center;
-				max-width: 400px;
-				padding: 20px;
-				margin: 20px;
-				padding-top: 0px;
-				border: 2px solid #FF0000;
-				border-radius: 10px;
-				background-color: #121212;}
-        .box {
-            background-color: #444;
-            padding: 10px;
+        body {
+            background-color: #080808;
+			padding: 0 0 0 0 0;
+			margin: 0 0 0 0;
+            color: #ffffff;
+            font-family: 'Courier New', Courier, monospace;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+			overflow-x: hidden;
+        }
+
+        h1 {
+            font-size: 2em;
+			padding-top: 0px;
+			margin-top: 0px;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            background-color: #FF5707;
+            color: #ffffff;
+            border: none;
             border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-			font-size: 14px !important;
-			text-align: left;
-			overflow-y: none;
-			font-family: Courier; }
-		a { color: white; text-decoration: none; font-size: 12px; }
-        .info-container {
-				border: 2px solid #0080ff;}
-        .ok-container {
-				border: 2px solid #15ff00;}
-		.box a {
-			color: #FFFF00;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #ff814a;
+        }
+
+		.debugging_box {
+			background: #121212;
+			width: 100vw;
+			padding: 25px;
+			box-sizing: border-box;
+			padding-bottom: 0px;
 		}
+		
+		.debugging_box_inner {
+			max-width: 100%;
+			width: 500px;
+			margin: auto;
+		}
+		
+		a {
+			color: #FF5707;
+		}
+		
+        @media screen and (max-width: 600px) {
+            h1 {
+                font-size: 1.5em;
+            }
+            p {
+                font-size: 1em;
+            }
+        }
     </style>
 </head>
 <body>
-    <div class="flex">
-    <div class="container <?php echo $type; ?>-container">
-        <h1><?php echo $title; ?></h1>
-        <div class="box <?php echo $type; ?>-box">
-            Information:<br /><?php echo $subtitle; ?><br /><br />
-			Details:<br /><?php echo $description; ?>
-        </div><br />
-		<a href="<?php echo _HIVE_URL_REL; ?>/">Click here to get back!</a>
-    </div>
-    </div>
+
+<div class="debugging_box">
+	<div class="debugging_box_inner">
+		<h1><?php echo $title; ?></h1>
+		<p><?php echo $subtitle; ?> <?php echo $description; ?></p>
+		<!--<button onclick="goBack()">Go Back</button>-->
+	</div>
+</div>
+
+<script>
+    function goBack() {
+        window.location.href = '../';
+    }
+</script>
+
 </body>
 </html>
 	<?php if($exit) { exit(); } }

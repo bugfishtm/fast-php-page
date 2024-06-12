@@ -1,8 +1,8 @@
-# Third-Party Libraries
+📁 **Vendor Library Folder**
 
-**DO NOT MODIFY FILES WITHIN THIS FOLDER, AS THEY MAY BE OVERWRITTEN DURING CORE UPDATES!**
+The Third-Party Libraries directory is dedicated to storing third-party libraries utilized in the project. You can look up the different folders to find more informations about the included 3rd party project and theire licenses, which are also documented in our documentation!
 
-The Third-Party Libraries directory is dedicated to storing third-party libraries utilized in the project. You can look up the different folders to find more informations about the included 3rd party project!
+**Note:** Changes in this folder are NOT persistent and will be overwritten by core updates.
 
-Happy exploring!  
-Bugfish <3
+Happy coding and have a great one!  
+🐟 Bugfish <3

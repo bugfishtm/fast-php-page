@@ -106,6 +106,10 @@
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-19-65591" target="_blank">Development</a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-19-65592" target="_blank">Installation</a></li>
 					<!-- Various Informations -->
+				    <li class="nav-item section-title mt-3"><a class="nav-link scrollto" href="#section-7559"><span class="theme-icon-holder me-2"><i class="fas fa-hashtag"></i></span>Image Modules</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-19-75591" target="_blank">Development</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-19-75592" target="_blank">Installation</a></li>
+					<!-- Various Informations -->
 				    <li class="nav-item section-title mt-3"><a class="nav-link scrollto" href="#section-9"><span class="theme-icon-holder me-2"><i class="fas fa-hashtag"></i></span>Additional Informations</a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-9-11" target="_blank">Store</a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-9-1" target="_blank">Support</a></li>
@@ -389,9 +393,8 @@
 						</table></div>
 					</section><hr><section class="docs-section" id="item-1-2-1" style="border-bottom: none;">	
 						<h2>Installation Instructions</h2>
-						<p>Here you can find some information about the installation process!</p><br>
-						<h3>Method 1: Manual Installation</h3>
-						<h4>Requirements</h4>
+						<p>Here you can find some information about the installation process!</p>
+						<h3>Requirements</h3>
 						<ul>
 							<li>Webserver: Apache2 (recommended)</li>
 							<li>Apache2 Modules: Rewrite, Header, SSL (recommended)</li>
@@ -399,7 +402,7 @@
 							<li>PHP Modules: zip, imagick, mysqli (additional modules may be required during installation)</li>
 							<li>Database: MariaDB</li>
 						</ul>
-						<h4>Steps</h4>
+						<h3>Installation Procedure</h3>
 						<table class="table table-bordered table-dark">
 							<tr>
 								<th>Step</th>
@@ -429,9 +432,7 @@
 								<td>6</td>
 								<td>Use the CMS to install new modules/extensions from the official store or deploy your own modules to the <code>_site</code> folder.</td>
 							</tr>
-						</table><br>
-					<h3>Method 2: Docker Installation</h3>
-					<p>For Docker deployment, refer to the <code>_docker</code> directory in the repository for detailed instructions.</p>				
+						</table>
 					</section><hr>	<section class="docs-section" id="item-1-2-16" style="border-bottom: 0px;">	
 						<h2>Initial Login</h2>
 						<div class="alert alert-warning">Change the password and mail to your own credentials after login to not expose a security leak by using the default password!</div>
@@ -529,6 +530,11 @@
 							  <td>extension</td>
 							  <td>_exts6example</td>
 							  <td>Extension module example, deployable on a _administrator module installation inside your CMS. Check the _module folder inside this repository for the module's zip file and installation guide.</td>
+							</tr>	
+							<tr>
+							  <td>image</td>
+							  <td>_imgexample</td>
+							  <td>Website Image Module example to be investigated for developers!</td>
 							</tr>					
 						  </tbody>
 						</table>	
@@ -562,7 +568,7 @@
 								<td>Folder contains Core Files of this CMS. Do not change Files in that folder, they may be overwritten by CMS Updates!</td>		
 							</tr>
 							<tr>
-								<td>/_core/_action/*</td>
+								<td>/_core/_action</td>
 								<td>Folder for actions called by javascript requests or mail activation and user account operations!</td>		
 							</tr>
 							<tr>	
@@ -660,11 +666,25 @@
 								<td>This folder holds files like sitemaps and rss feeds/robots.txt for different side modules to be seperatly loaded on different vhosts using symbolink links or redirects!</td>		
 							</tr>
 							<tr>
+								<td colspan="2" style="background: #242424;"><b>/_ext</b></td>	
+							</tr>
+							<tr>
+								<td>/_ext</td>
+								<td>Inside this folder you will find subfolders related to deployed website module folders. Inside that folders you find extensions activated for the related site module!</td>		
+							</tr>
+							<tr>
 								<td colspan="2" style="background: #242424;"><b>/_framework</b></td>	
 							</tr>
 							<tr>
 								<td>/_framework</td>
 								<td>Here is the Bugfish-Framework located! Do not change or edit this files, as they may get overwritten with CMS Updates!</td>		
+							</tr>
+							<tr>
+								<td colspan="2" style="background: #242424;"><b>/_image</b></td>	
+							</tr>
+							<tr>
+								<td>/_image</td>
+								<td>Deployed Image Site Modules will be in this folder!</td>		
 							</tr>
 							<tr>
 								<td colspan="2" style="background: #242424;"><b>/_internal</b></td>	
@@ -678,38 +698,36 @@
 								<td>Internal Cache Folder!</td>		
 							</tr>
 							<tr>
-								<td>/_internal/_template</td>
-								<td>Store downloaded Site Modules waiting to be deployed!</td>		
+								<td>/_internal/_docker-tpl</td>
+								<td>Storage Folder for downloaded or manually uploaded Docker Templates!</td>		
 							</tr>
 							<tr>
-								<td>/_internal/_template</td>
-								<td>Store downloaded Site Modules waiting to be deployed!</td>		
+								<td>/_internal/_ext-tpl</td>
+								<td>Storage Folder for downloaded or manually uploaded Extension Module Templates!</td>		
 							</tr>
 							<tr>
-								<td>/_internal/_docker</td>
-								<td>Folder to store docker images related to the CMS!</td>		
+								<td>/_internal/_site-tpl</td>
+								<td>Storage Folder for downloaded or manually uploaded Site Module Templates!</td>		
 							</tr>
 							<tr>
-								<td>/_internal/_image</td>
-								<td>Folder to store downloaded images!</td>		
+								<td>/_internal/_script-tpl</td>
+								<td>Storage Folder for downloaded or manually uploaded Script Module Templates!</td>		
 							</tr>
 							<tr>
-								<td>/_internal/_inactive</td>
-								<td>Folder for currently inactive site-modules/templates/images/extensions!</td>		
+								<td>/_internal/_image-tpl</td>
+								<td>Storage Folder for downloaded or manually uploaded Image Module Templates!</td>		
 							</tr>
 							<tr>
-								<td colspan="2" style="background: #242424;"><b>/_image</b></td>	
+								<td>/_internal/_site-dn</td>
+								<td>Folder for currently inactive site modules!</td>		
 							</tr>
 							<tr>
-								<td>/_image</td>
-								<td>Folder for activated website image modules!</td>		
+								<td>/_internal/_image-dn</td>
+								<td>Folder for currently inactive image modules!</td>			
 							</tr>
 							<tr>
-								<td colspan="2" style="background: #242424;"><b>/_script</b></td>	
-							</tr>
-							<tr>
-								<td>/_script</td>
-								<td>Folder for activated script modules!</td>		
+								<td>/_internal/_ext-dn</td>
+								<td>Folder for currently inactive extension modules!</td>		
 							</tr>
 							<tr>
 								<td colspan="2" style="background: #242424;"><b>/_public</b></td>	
@@ -724,6 +742,13 @@
 							<tr>
 								<td>/_restricted</td>
 								<td>Files for Different Site Modules, which are not public accessible! Data of Site-Modules will be moved in this folder, this makes this folder important for Backup operations! A Folder for every site Modules related files will be created. An Exception is if you for example use the main file class to upload files, these files will be loaded into the folder where the site modules database is located. Files in this folder will not be affected by CMS Updates!</td>		
+							</tr>
+							<tr>
+								<td colspan="2" style="background: #242424;"><b>/_script</b></td>	
+							</tr>
+							<tr>
+								<td>/_script</td>
+								<td>Folder for activated script modules!</td>		
 							</tr>
 							<tr>
 								<td colspan="2" style="background: #242424;"><b>/_site</b></td>	
@@ -1824,11 +1849,11 @@
 						  <td colspan="2">Spawn Header.</td>
 						</tr>			
 						<tr>
-						  <td>hive__adminbsb_nav($object, $pfm = false, $footertext = false)</td>
+						  <td>hive__adminbsb_nav($object, $pfm = false, $footertext = false, $hideuserarea = false, $userimg = "/_core/_image/user_image.png")</td>
 						  <td colspan="2">Spawn Nav.</td>
 						</tr>		
 						<tr>
-						  <td>hive__adminbsb_topbar($object, $title = "", $theme_changer = false, $lang_ar = false, $notify_ar = false, $modulechooser = false)</td>
+						  <td>hive__adminbsb_topbar($object, $title = "", $theme_changer = false, $lang_ar = false, $notify_ar = false, $modulechooser = false, $cal_ar = false, $search = false)</td>
 						  <td colspan="2">Spawn Topbar.</td>
 						</tr>	
 					  </tbody>
@@ -2605,6 +2630,21 @@
 						   	<div class="alert alert-info">See the _module/_script/readme.md file for more informations about installing script modules in our repository! This area is not yet documented here!</div>
 					</section>						
 				</article>	
+			    <article class="docs-article" id="section-7559" style="margin-bottom: 0px; padding-bottom: 0px;" >
+				    <header class="docs-header">		
+					    <h2 class="docs-heading">Image Modules</h2>		
+					    <section class="docs-intro">
+						    <p>Script modules can be included in site modules that support them. An installed script module is ready to use for all CMS installed site modules and is not related to a specific site module. This area is not yet documented here!</p>
+						</section>
+				    </header><br />
+					<section class="docs-section" id="item-19-75591" style="padding-top: 0px; border-bottom: none;padding-bottom: 10px;">
+						<h3>Development</h3>	
+						<div class="alert alert-info">See the example Script Module inside our Github repository to get insights about creating one yourself!</div>
+					</section><section class="docs-section" id="item-19-75592" style="padding-top: 0px;">	
+						<h3>Installation</h3>		
+						   	<div class="alert alert-info">See the _module/_script/readme.md file for more informations about installing script modules in our repository! This area is not yet documented here!</div>
+					</section>						
+				</article>	
 			    <article class="docs-article" id="section-9" >
 				    <header class="docs-header">
 					    <h2 class="docs-heading">Additional Informations</h2>
@@ -3003,6 +3043,11 @@
 						  <tr>
 							<td>Google Fonts</td>
 							<td>OTF/Apache2</td>
+							<td>None</td>
+						  </tr>
+						  <tr>
+							<td>Evo-Event-Calendar</td>
+							<td>MIT</td>
 							<td>None</td>
 						  </tr>
 						  </tbody>

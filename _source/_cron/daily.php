@@ -1,11 +1,9 @@
 <?php
-	/* 
-		 _               __ _    _    ___ __  __ ___ 
-		| |__ _  _ __ _ / _(_)__| |_ / __|  \/  / __|
-		| '_ \ || / _` |  _| (_-< ' \ (__| |\/| \__ \
-		|_.__/\_,_\__, |_| |_/__/_||_\___|_|  |_|___/
-				  |___/                              
-
+	/* 	 _           ___ _     _   _____ _____ _____ 
+		| |_ _ _ ___|  _|_|___| |_|     |     |   __|
+		| . | | | . |  _| |_ -|   |   --| | | |__   |
+		|___|___|_  |_| |_|___|_|_|_____|_|_|_|_____|
+				|___|                                
 		Copyright (C) 2024 Jan Maurice Dahlmanns [Bugfish]
 
 		This program is free software: you can redistribute it and/or modify
@@ -20,9 +18,6 @@
 
 		You should have received a copy of the GNU General Public License
 		along with this program.  If not, see <https://www.gnu.org/licenses/>.
-		
-		File Description:
-			Daily Cronjob File - Set this up on your server to run at the specific interval!
 	*/
 	if(file_exists(dirname(__FILE__)."/../settings.php")) { require_once(dirname(__FILE__)."/../settings.php"); } else { echo "Not yet installed!"; exit(); }
 	if(_CRON_ONLY_CLI_) { if(!x_inCLI()) { hive_error_full("Not Allowed", "Cronjob hardlink not allowed!", "Cron execution in browser has been disabled in configuration by _CRON_ONLY_CLI_.", true, 401);  exit(); } }
@@ -35,8 +30,8 @@
 		   if (is_dir($object["path"]."/_site/".$file."/_cron/_daily") AND $file != "." AND $file != "..") {
 			   foreach (glob($object["path"]."/_site/".$file."/_cron/_daily/cron.*.php") as $filename){ 
 			   
-					$object["cron_var"] = new x_class_var($object["mysql"], _TABLE_VAR_, @trim($file));
-					$hive_mode_cron = @trim($file);
+					$object["cron_var"] = new x_class_var($object["mysql"], _TABLE_VAR_, @trim($file ?? ''));
+					$hive_mode_cron = @trim($file ?? '');
 					
 					$tmp = $object["cron_var"]->get("_SMTP_HOST_"); if(!$tmp) { $tmp  = false; } 
 					$tmp1 = $object["cron_var"]->get("_SMTP_PORT_"); if(!$tmp1) { $tmp1  = false; } 
@@ -60,7 +55,7 @@
 					$object["cron_mail_template"]->set_footer($tmp1);	
 					$object["cron_mail"]->change_default_template($tmp, $tmp1);	
 					
-					
+					// Execute Current Site Modules Cronjob in Loop
 					echo "// Execution - Site: ".$file." Cronjob File: ".basename($filename)."".$php_space.$php_space;
 					require_once($filename);
 					
@@ -78,6 +73,8 @@
 		   }
 		}	
 	}
+	
+	// Log and output Content
 	$content = ob_get_contents();
 	$cron_log = new x_class_log($object["mysql"], _TABLE_LOG_CRON_, "daily");
 	$cron_log->message($content);

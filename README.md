@@ -193,31 +193,38 @@ Script modules can be included in site modules that support them. An installed s
 | --------- | ----------------------------------- |
 | _screxample   | Extension script example that can be used on all site modules supporting its display. You can test this example script in our administrator module if you want to! |
 
+### Image Modules
+Full deployable Website Modules to easily deploy other projects and include controlling functionalities inside the cms. Primary Focus is to deploy 3rd party software like docker and other to vhosts. Will serve for vhosts for integrated hosting functionalities at implementation.
+
+| Name | Description |
+| --------- | ----------------------------------- |
+| _imgexample   | Exmaple Image Website Module for developers to look up its functionality! |
+
 ## Theme Libraries
 
 Below are screenshots and descriptions of integrated themes that can be used in development or are utilized in integrated modules. Detailed explanations and functions for each theme can be found in the documentation located in the "docs" folder within this repository. All these themes are MIT-Licensed and can be used for various purposes.
 
 ### Simple Responsive Template
 
-<a href="https://github.com/leemunroe/responsive-html-email-template"><img src="./_images/_minimal.png" style="max-width: 500px;"></a>
+<a href="https://github.com/leemunroe/responsive-html-email-template"><img src="./_images/preview_minimal.png" style="max-width: 500px;"></a>
 
 This template is seamlessly integrated for easy developer use within the bugfishCMS. It is a "Simple Responsive Email Template" sourced from GitHub ([link](https://github.com/leemunroe/responsive-html-email-template)), comprising only HTML/CSS without any additional frontend libraries like Bootstrap. Example modules in the repository demonstrate how to develop using this template style.
 
 ### Windmill Dashboard
 
-<a href="https://github.com/estevanmaito/windmill-dashboard"><img src="./_images/_windmill.png" style="max-width: 500px;"></a>
+<a href="https://github.com/estevanmaito/windmill-dashboard"><img src="./_images/preview_windmill.png" style="max-width: 500px;"></a>
 
 This template comes integrated with functions for straightforward use. Refer to the documentation for more details. Derived from the "Windmill Dashboard Theme" on GitHub ([link](https://github.com/estevanmaito/windmill-dashboard)), it utilizes TailwindCSS and offers a ready-to-use theme that can be further customized via custom CSS to suit specific requirements. Example modules in the repository illustrate development using this template style.
 
 ### Volt Dashboard
 
-<a href="https://github.com/themesberg/volt-bootstrap-5-dashboard"><img src="./_images/_volt.png" style="max-width: 500px;"></a>
+<a href="https://github.com/themesberg/volt-bootstrap-5-dashboard"><img src="./_images/preview_volt.png" style="max-width: 500px;"></a>
 
 The integrated Volt Theme provides a fully responsive and widely usable Bootstrap 5 admin dashboard theme. Example modules in the repository demonstrate how to develop using this template style. Refer to the documentation for function usage and explanations. Visit the official GitHub page for this theme: [Volt Bootstrap 5 Dashboard](https://github.com/themesberg/volt-bootstrap-5-dashboard).
 
 ### AdminBSB Dashboard
 
-<a href="https://github.com/gurayyarar/AdminBSBMaterialDesign"><img src="./_images/_adminbsb.png" style="max-width: 500px;"></a>
+<a href="https://github.com/gurayyarar/AdminBSBMaterialDesign"><img src="./_images/preview_adminbsb.png" style="max-width: 500px;"></a>
 
 The AdminBSB Dashboard is the most enhanced and functional theme, featuring a Bootstrap 3 environment with various libraries and pre-defined styles. The Material theme showcased here is used in the "Administrator" default Administration Module, with documentation included in this repository. For further details, visit the official GitHub page: [AdminBSBMaterialDesign](https://github.com/gurayyarar/AdminBSBMaterialDesign).
 

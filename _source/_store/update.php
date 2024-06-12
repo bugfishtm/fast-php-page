@@ -1,11 +1,9 @@
 <?php
-	/* 
-		 _               __ _    _    ___ __  __ ___ 
-		| |__ _  _ __ _ / _(_)__| |_ / __|  \/  / __|
-		| '_ \ || / _` |  _| (_-< ' \ (__| |\/| \__ \
-		|_.__/\_,_\__, |_| |_/__/_||_\___|_|  |_|___/
-				  |___/                              
-
+	/* 	 _           ___ _     _   _____ _____ _____ 
+		| |_ _ _ ___|  _|_|___| |_|     |     |   __|
+		| . | | | . |  _| |_ -|   |   --| | | |__   |
+		|___|___|_  |_| |_|___|_|_|_____|_|_|_|_____|
+				|___|                                
 		Copyright (C) 2024 Jan Maurice Dahlmanns [Bugfish]
 
 		This program is free software: you can redistribute it and/or modify
@@ -20,15 +18,15 @@
 
 		You should have received a copy of the GNU General Public License
 		along with this program.  If not, see <https://www.gnu.org/licenses/>.
-		
-		File Description:
-			Updater and listing Script for external Stores!
-	*/ if(file_exists("../settings.php")) { require_once("../settings.php"); }
+	*/
+	// Require Settings File,  otherwhise stop execution
+	if(file_exists("../settings.php")) { require_once("../settings.php"); }
 		else { echo "Store is currently not available! [Error x1]"; exit(); }
 			
-		$x_array = $object["mysql"]->select("SELECT * FROM "._TABLE_STORE_." WHERE is_active = 1 ORDER BY mod_rname, mod_version DESC", true);
-		if(is_array($x_array)) { 
-			echo serialize($x_array);
-		} else {
-			echo serialize(array());
-		}
+	// Output current deployed modules for external instances as serialized array!
+	$x_array = $object["mysql"]->select("SELECT * FROM "._TABLE_STORE_." ORDER BY mod_rname, mod_version DESC", true);
+	if(is_array($x_array)) { 
+		echo serialize($x_array);
+	} else {
+		echo serialize(array());
+	}

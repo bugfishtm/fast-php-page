@@ -1,11 +1,9 @@
 <?php
-	/* 
-		 _               __ _    _    ___ __  __ ___ 
-		| |__ _  _ __ _ / _(_)__| |_ / __|  \/  / __|
-		| '_ \ || / _` |  _| (_-< ' \ (__| |\/| \__ \
-		|_.__/\_,_\__, |_| |_/__/_||_\___|_|  |_|___/
-				  |___/                              
-
+	/* 	 _           ___ _     _   _____ _____ _____ 
+		| |_ _ _ ___|  _|_|___| |_|     |     |   __|
+		| . | | | . |  _| |_ -|   |   --| | | |__   |
+		|___|___|_  |_| |_|___|_|_|_____|_|_|_|_____|
+				|___|                                
 		Copyright (C) 2024 Jan Maurice Dahlmanns [Bugfish]
 
 		This program is free software: you can redistribute it and/or modify
@@ -19,10 +17,7 @@
 		GNU General Public License for more details.
 
 		You should have received a copy of the GNU General Public License
-		along with this program.  If not, see <https://www.gnu.org/licenses/>.
-		
-		File Description:
-			Site Module Updater File
+		along with this program.  If not, see <https://www.gnu.org/licenses/>.	
 	*/ if(file_exists("./settings.php")) { require_once("./settings.php"); } else { @http_response_code(404); Header("Location: ./"); exit(); }
 	
 	////////////////////////////////////////////////////////////////////////////////////
@@ -36,15 +31,18 @@
 	}		
 	unset($version);
 		
-	if(_HIVE_RNAME_ != _HIVE_RNAME_ACTIVE_ OR _HIVE_RNAME_ == 0) { 
-		hive_error_full("Wrong Site Module", "The site module used seems to have been replaced with another site module on the same location! Please restore the old site module and execute your operations on the administrator module!", "This is a critical error which should been taken care of!", true, 401); }
-	// Show Update Notification
-	if(_HIVE_BUILD_ == _HIVE_BUILD_ACTIVE_ ) { 
-		hive_error_full("No Update Required", "This software is already updated!", "Click <a href='./'>here</a> to go back!", true, 401); }	
-	// Show Update Notification
-	if(_HIVE_BUILD_ < _HIVE_BUILD_ACTIVE_ ) { 
-		hive_error_full("Not supported", "You are trying to downgrade this module!", "This is not supported by this updater functionality...", true, 401); }	
-		
+	if(defined("_HIVE_RNAME_") AND defined("_HIVE_BUILD_ACTIVE_") AND defined("_HIVE_RNAME_ACTIVE_")) {
+		if(_HIVE_RNAME_ != _HIVE_RNAME_ACTIVE_ OR _HIVE_RNAME_ == 0) { 
+			hive_error_full("Wrong Site Module", "The site module used seems to have been replaced with another site module on the same location! Please restore the old site module and execute your operations on the administrator module!", "This is a critical error which should been taken care of!", true, 401); }
+		// Show Update Notification
+		if(_HIVE_BUILD_ == _HIVE_BUILD_ACTIVE_ ) { 
+			hive_error_full("No Update Required", "This software is already updated!", "Click <a href='./'>here</a> to go back!", true, 401); }	
+		// Show Update Notification
+		if(_HIVE_BUILD_ < _HIVE_BUILD_ACTIVE_ ) { 
+			hive_error_full("Not supported", "You are trying to downgrade this module!", "This is not supported by this updater functionality...", true, 401); }	
+	} else {
+		hive_error_full("Updater Error", "Important information missing to execute site module update!", "This mostly happens if the site module has not been initialized by a one time visit of the modules page.", true, 401);
+	}
 	
 	if(!@is_numeric(@$_SESSION["hive_installer_block"])) { $_SESSION["hive_installer_block"] = 0; }
 	if(@$_SESSION["hive_installer_block"] > 100 AND _UPDATER_CODE_ != false AND _UPDATER_CODE_ != "") { 

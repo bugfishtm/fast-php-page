@@ -1,6 +1,4 @@
-# Development Tools
-
-**DO NOT MODIFY FILES WITHIN THIS FOLDER, AS THEY MAY BE OVERWRITTEN DURING CORE UPDATES!**
+📁 **Developer Tools**
 
 The Development Tools directory hosts tools utilized during development, accessible when the `_HIVE_ALLOW_TOOLS_` flag is activated in the `ruleset.php` file.
 
@@ -19,3 +17,8 @@ The Development Tools directory hosts tools utilized during development, accessi
 - Disable the `_HIVE_ALLOW_TOOLS_` flag in production environments to prevent unauthorized access to development tools.
 
 Enabling development tools streamlines debugging and profiling processes during development, while ensuring security in production environments.
+
+**Note:** Changes in this folder are NOT persistent and will be overwritten by core updates.
+
+Happy coding and have a great one!  
+🐟 Bugfish <3

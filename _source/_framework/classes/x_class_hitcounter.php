@@ -1,13 +1,17 @@
 <?php
-	/* 	__________ ____ ___  ___________________.___  _________ ___ ___  
-		\______   \    |   \/  _____/\_   _____/|   |/   _____//   |   \ 
-		 |    |  _/    |   /   \  ___ |    __)  |   |\_____  \/    ~    \
-		 |    |   \    |  /\    \_\  \|     \   |   |/        \    Y    /
-		 |______  /______/  \______  /\___  /   |___/_______  /\___|_  / 
-				\/                 \/     \/                \/       \/  	
-							www.bugfish.eu
+	/* 
+			bb                       fff iii       hh      
+			bb      uu   uu  gggggg ff        sss  hh      
+			bbbbbb  uu   uu gg   gg ffff iii s     hhhhhh  
+			bb   bb uu   uu ggggggg ff   iii  sss  hh   hh 
+			bbbbbb   uuuu u      gg ff   iii     s hh   hh 
+							 ggggg            sss          
+
+			 ____  ____    __    __  __  ____  _    _  _____  ____  _  _ 
+			( ___)(  _ \  /__\  (  \/  )( ___)( \/\/ )(  _  )(  _ \( )/ )
+			 )__)  )   / /(__)\  )    (  )__)  )    (  )(_)(  )   / )  ( 
+			(__)  (_)\_)(__)(__)(_/\/\_)(____)(__/\__)(_____)(_)\_)(_)\_)
 							
-	    Bugfish Framework
 		Copyright (C) 2024 Jan Maurice Dahlmanns [Bugfish]
 
 		This program is free software: you can redistribute it and/or modify
@@ -31,8 +35,8 @@
 		private $mysqltable		=  false;
 		private $precookie 		=  "";
 		private $section 		=  "";
-		private $urlpath 		=  false;
-		private $urlmd5 		=  false;		
+		public $urlpath 		=  false;
+		public $urlmd5 		=  false;		
 		
 		private $enabled 		=  true; 	public function enabled($bool = true) {$this->enabled = $bool;}	
 		private $clearget 		=  true; 	public function clearget($bool = true) {
@@ -92,7 +96,7 @@
 		######################################################
 		// Refresh the Counters Function
 		######################################################		
-		private function refresh_counters() {
+		public function refresh_counters() {
 			$b[0]["type"]	=	"s";
 			$b[0]["value"]	=	$this->urlpath;
 			$b[1]["type"]	=	"s";
@@ -112,7 +116,7 @@
 		######################################################
 		// Prepare URL for Database
 		######################################################
-		private function prepareUrl($tmpcode) { 
+		public function prepareUrl($tmpcode) { 
 			if(strpos($tmpcode, "?") > -1  AND $this->clearget) {$tmpcode = substr($tmpcode, 0, strpos($tmpcode, "?"));}
 			if(strpos($tmpcode, "&") > -1 AND $this->clearget){$tmpcode = substr($tmpcode, 0, strpos($tmpcode, "&"));} 
 			if(strpos($tmpcode, "https://") > -1){$tmpcode = substr($tmpcode, strpos($tmpcode, "https://"));} 

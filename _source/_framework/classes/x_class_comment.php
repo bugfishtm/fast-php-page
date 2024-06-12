@@ -1,13 +1,17 @@
 <?php
-	/* 	__________ ____ ___  ___________________.___  _________ ___ ___  
-		\______   \    |   \/  _____/\_   _____/|   |/   _____//   |   \ 
-		 |    |  _/    |   /   \  ___ |    __)  |   |\_____  \/    ~    \
-		 |    |   \    |  /\    \_\  \|     \   |   |/        \    Y    /
-		 |______  /______/  \______  /\___  /   |___/_______  /\___|_  / 
-				\/                 \/     \/                \/       \/  	
-							www.bugfish.eu
+	/* 
+			bb                       fff iii       hh      
+			bb      uu   uu  gggggg ff        sss  hh      
+			bbbbbb  uu   uu gg   gg ffff iii s     hhhhhh  
+			bb   bb uu   uu ggggggg ff   iii  sss  hh   hh 
+			bbbbbb   uuuu u      gg ff   iii     s hh   hh 
+							 ggggg            sss          
+
+			 ____  ____    __    __  __  ____  _    _  _____  ____  _  _ 
+			( ___)(  _ \  /__\  (  \/  )( ___)( \/\/ )(  _  )(  _ \( )/ )
+			 )__)  )   / /(__)\  )    (  )__)  )    (  )(_)(  )   / )  ( 
+			(__)  (_)\_)(__)(__)(_/\/\_)(____)(__/\__)(_____)(_)\_)(_)\_)
 							
-	    Bugfish Framework
 		Copyright (C) 2024 Jan Maurice Dahlmanns [Bugfish]
 
 		This program is free software: you can redistribute it and/or modify
@@ -222,7 +226,7 @@
 			// New Comment
 			if(isset($_POST["x_comment_submit"])) {
 				if (trim(@$_POST["x_comment_name"] ?? '') != "" AND trim(@$_POST["x_comment_text"] ?? '') != "" AND isset($_POST["x_comment_text"]) AND isset($_POST["x_comment_name"])){
-					if (trim(strtolower(@$_POST["x_comment_name"])) == $this->sys_name){$_POST["x_comment_name"] = "Guest_".trim(strtolower(@$_POST["x_comment_name"]) ?? ''); }
+					if (trim(strtolower(@$_POST["x_comment_name"] ?? '') ?? '') == $this->sys_name){$_POST["x_comment_name"] = "Guest_".trim(strtolower(@$_POST["x_comment_name"] ?? '') ?? ''); }
 					if (@$captcha_code_if_delivered == @$_POST["x_comment_captcha"] AND @$captcha_code_if_delivered != false){
 						$bind[0]["value"] = $_POST["x_comment_name"];
 						$bind[0]["type"] = "s";

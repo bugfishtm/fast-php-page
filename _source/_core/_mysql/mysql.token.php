@@ -1,11 +1,9 @@
 <?php
-	/* 
-		 _               __ _    _    ___ __  __ ___ 
-		| |__ _  _ __ _ / _(_)__| |_ / __|  \/  / __|
-		| '_ \ || / _` |  _| (_-< ' \ (__| |\/| \__ \
-		|_.__/\_,_\__, |_| |_/__/_||_\___|_|  |_|___/
-				  |___/                              
-
+	/* 	 _           ___ _     _   _____ _____ _____ 
+		| |_ _ _ ___|  _|_|___| |_|     |     |   __|
+		| . | | | . |  _| |_ -|   |   --| | | |__   |
+		|___|___|_  |_| |_|___|_|_|_____|_|_|_|_____|
+				|___|                                
 		Copyright (C) 2024 Jan Maurice Dahlmanns [Bugfish]
 
 		This program is free software: you can redistribute it and/or modify
@@ -19,13 +17,7 @@
 		GNU General Public License for more details.
 
 		You should have received a copy of the GNU General Public License
-		along with this program.  If not, see <https://www.gnu.org/licenses/>.
-		
-		File Description:
-			File in this folder with mysql.**table_name**.php will be installed automatically if you use syntax below.
-			Use CREATE TABLE IF NOT EXISTS - to prevent performance lowagen through handler errors.
-			File name shall not create the Prefix which has been set at the installation, prefix of tables will
-			automatically be included!
+		along with this program.  If not, see <https://www.gnu.org/licenses/>.	
 	*/ if(!is_array($object)) { @http_response_code(404); Header("Location: ../"); exit(); }	
 		$object["mysql"]->multi_query("
 			CREATE TABLE IF NOT EXISTS `"._HIVE_PREFIX_."token` (
@@ -33,7 +25,6 @@
 			  `fk_user` int(11) DEFAULT NULL COMMENT 'ID of User who created this item',
 			  `site_mode` text NOT NULL COMMENT 'Related Site Module to be Refered To',
 			  `token_key` text NOT NULL COMMENT 'Token Key',
-			  `token_active` int(1) DEFAULT 1 COMMENT '1 - Active | 0 - Inactive',
 			  `creation` datetime DEFAULT CURRENT_TIMESTAMP COMMENT 'Creation Date auto set',
 			  `modification` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Modification Date auto set',
 			  PRIMARY KEY (`id`) USING BTREE );

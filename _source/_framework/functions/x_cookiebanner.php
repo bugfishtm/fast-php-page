@@ -1,13 +1,17 @@
 <?php
-	/* 	__________ ____ ___  ___________________.___  _________ ___ ___  
-		\______   \    |   \/  _____/\_   _____/|   |/   _____//   |   \ 
-		 |    |  _/    |   /   \  ___ |    __)  |   |\_____  \/    ~    \
-		 |    |   \    |  /\    \_\  \|     \   |   |/        \    Y    /
-		 |______  /______/  \______  /\___  /   |___/_______  /\___|_  / 
-				\/                 \/     \/                \/       \/  	
-							www.bugfish.eu
+	/* 
+			bb                       fff iii       hh      
+			bb      uu   uu  gggggg ff        sss  hh      
+			bbbbbb  uu   uu gg   gg ffff iii s     hhhhhh  
+			bb   bb uu   uu ggggggg ff   iii  sss  hh   hh 
+			bbbbbb   uuuu u      gg ff   iii     s hh   hh 
+							 ggggg            sss          
+
+			 ____  ____    __    __  __  ____  _    _  _____  ____  _  _ 
+			( ___)(  _ \  /__\  (  \/  )( ___)( \/\/ )(  _  )(  _ \( )/ )
+			 )__)  )   / /(__)\  )    (  )__)  )    (  )(_)(  )   / )  ( 
+			(__)  (_)\_)(__)(__)(_/\/\_)(____)(__/\__)(_____)(_)\_)(_)\_)
 							
-	    Bugfish Framework
 		Copyright (C) 2024 Jan Maurice Dahlmanns [Bugfish]
 
 		This program is free software: you can redistribute it and/or modify
@@ -23,6 +27,7 @@
 		You should have received a copy of the GNU General Public License
 		along with this program.  If not, see <https://www.gnu.org/licenses/>.
 	*/
+	
 	function x_cookieBanner_Pre($precookie = "", $redirect = true) { 
 		if (session_status() !== PHP_SESSION_ACTIVE) {@session_start();}
 		if(@$_SESSION[$precookie ."x_cookieBanner"] == true) { return false; }

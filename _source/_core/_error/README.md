@@ -1,8 +1,8 @@
-# Error Pages
-
-**DO NOT MODIFY FILES WITHIN THIS FOLDER, AS THEY MAY BE OVERWRITTEN DURING CORE UPDATES!**
+📁 **Error Pages Folder**
 
 This folders does include default error pages used by htaccess files and other website functionalities. You can include them if you need to.
 
-Happy Erroring!  
-Bugfish <3
+**Note:** Changes in this folder are NOT persistent and will be overwritten by core updates.
+
+Happy coding and have a great one!  
+🐟 Bugfish <3
