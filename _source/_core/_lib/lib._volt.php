@@ -33,7 +33,7 @@
 		  </body>
 		</html>	
 	<?php }	
-	function hive__volt_header($object, $tabtitle = "", $metaextensions = "", $theme_default = "dark", $mainclass = "") { 
+	function hive__volt_header($object, $tabtitle = "", $metaextensions = "", $theme_default = "dark", $mainclass = "", $defaultclasses = true) { 
 		if(!isset($_SESSION[_HIVE_SITE_COOKIE_."hive_dashboard_subtheme"])) {
 			$_SESSION[_HIVE_SITE_COOKIE_."hive_dashboard_subtheme"] = $theme_default; 
 			if($object["user"]->user_loggedIn) {
@@ -169,38 +169,41 @@
 			<meta name="title" content="<?php echo htmlentities($tabtitle); ?><?php if(_HIVE_TITLE_SPACER_ != false) { echo _HIVE_TITLE_SPACER_; } ?><?php if(is_string(_HIVE_TITLE_)) { echo @htmlentities(_HIVE_TITLE_); } ?>">
 			<title><?php echo $tabtitle; ?><?php if(_HIVE_TITLE_SPACER_ != false) { echo _HIVE_TITLE_SPACER_; } ?><?php if(is_string(_HIVE_TITLE_)) { echo _HIVE_TITLE_; } ?></title>
 			
-			<!-- Default CSS Includes -->
-			<link rel="stylesheet" href="<?php echo _HIVE_URL_REL_; ?>/_core/_vendor/notyf/notyf.min.css">
-			<link rel="stylesheet" href="<?php echo _HIVE_URL_REL_; ?>/_core/_vendor/boxicons/boxicons.css">
-			<link rel="stylesheet" href="<?php echo _HIVE_URL_REL_; ?>/_core/_vendor/volt/volt.css">
-			<link rel="stylesheet" href="<?php echo _HIVE_URL_REL_; ?>/_core/_vendor/bugfish-jquery-sortselect/jquery.multiselect.sortable.js.css">
-			<link rel="stylesheet" href="<?php echo _HIVE_URL_REL_; ?>/_core/stylesheet.php">
+			<?php if($defaultclasses) { ?>
+				<!-- Default CSS Includes -->
+				<link rel="stylesheet" href="<?php echo _HIVE_URL_REL_; ?>/_core/_vendor/notyf/notyf.min.css">
+				<link rel="stylesheet" href="<?php echo _HIVE_URL_REL_; ?>/_core/_vendor/boxicons/boxicons.css">
+				<link rel="stylesheet" href="<?php echo _HIVE_URL_REL_; ?>/_core/_vendor/volt/volt.css">
+				<link rel="stylesheet" href="<?php echo _HIVE_URL_REL_; ?>/_core/_vendor/bugfish-jquery-sortselect/jquery.multiselect.sortable.js.css">
+				
+				<!-- Default Javascript Includes -->
+				<script src="<?php echo _HIVE_URL_REL_; ?>/_core/_vendor/jquery/jq.3.6.min.js"></script>	
+				<script src="<?php echo _HIVE_URL_REL_; ?>/_core/_vendor/@popperjs/core/dist/umd/popper.min.js"></script>	
+				<script src="<?php echo _HIVE_URL_REL_; ?>/_core/_vendor/bootstrap5/dist/js/bootstrap.min.js"></script>	
+				<script src="<?php echo _HIVE_URL_REL_; ?>/_core/_vendor/onscreen/dist/on-screen.umd.min.js"></script>	
+				<script src="<?php echo _HIVE_URL_REL_; ?>/_core/_vendor/sweetalert2/sweetalert2.all.min.js"></script>	
+				<script src="<?php echo _HIVE_URL_REL_; ?>/_core/_vendor/datatables/jq.datatables.js"></script>	
+				<script src="<?php echo _HIVE_URL_REL_; ?>/_core/_vendor/tinymce/tinymce.min.js"></script>	
+				<script src='<?php echo _HIVE_URL_REL_; ?>/_core/_vendor/bugfish-jquery-sortselect/jquery.multiselect.sortable.js' defer></script>		
+				<script src="<?php echo _HIVE_URL_REL_; ?>/_core/_vendor/resumable/resumable.js"></script>	
+				<script src="<?php echo _HIVE_URL_REL_; ?>/_core/_vendor/nouislider/dist/nouislider.min.js"></script>	
+				<script src="<?php echo _HIVE_URL_REL_; ?>/_core/_vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>	
+				<script src="<?php echo _HIVE_URL_REL_; ?>/_core/_vendor/simplebar/dist/simplebar.min.js"></script>	
+				<script src="<?php echo _HIVE_URL_REL_; ?>/_core/_vendor/notyf/notyf.min.js"></script>	
+				<script src="<?php echo _HIVE_URL_REL_; ?>/_core/_vendor/momentjs/moment.min.js"></script>	
+				<script src="<?php echo _HIVE_URL_REL_; ?>/_core/_vendor/githubbuttons/buttons.js"></script>	
+				<script src="<?php echo _HIVE_URL_REL_; ?>/_core/_vendor/chartist/dist/chartist.min.js"></script>	
+				<script src="<?php echo _HIVE_URL_REL_; ?>/_core/_vendor/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js"></script>	
+				<script src="<?php echo _HIVE_URL_REL_; ?>/_core/_vendor/vanillajs-datepicker/dist/js/datepicker.min.js"></script>	
+				<script src="<?php echo _HIVE_URL_REL_; ?>/_core/_vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>	
+				<script src="<?php echo _HIVE_URL_REL_; ?>/_core/_vendor/volt/volt.js"></script>	
+			<?php } ?>
 			
-			<!-- Default Javascript Includes -->
-			<script src="<?php echo _HIVE_URL_REL_; ?>/_core/_vendor/jquery/jq.3.6.min.js"></script>	
-			<script src="<?php echo _HIVE_URL_REL_; ?>/_core/_vendor/@popperjs/core/dist/umd/popper.min.js"></script>	
-			<script src="<?php echo _HIVE_URL_REL_; ?>/_core/_vendor/bootstrap5/dist/js/bootstrap.min.js"></script>	
-			<script src="<?php echo _HIVE_URL_REL_; ?>/_core/_vendor/onscreen/dist/on-screen.umd.min.js"></script>	
-			<script src="<?php echo _HIVE_URL_REL_; ?>/_core/_vendor/sweetalert2/sweetalert2.all.min.js"></script>	
-			<script src="<?php echo _HIVE_URL_REL_; ?>/_core/_vendor/datatables/jq.datatables.js"></script>	
-			<script src="<?php echo _HIVE_URL_REL_; ?>/_core/_vendor/tinymce/tinymce.min.js"></script>	
-			<script src='<?php echo _HIVE_URL_REL_; ?>/_core/_vendor/bugfish-jquery-sortselect/jquery.multiselect.sortable.js' defer></script>		
-			<script src="<?php echo _HIVE_URL_REL_; ?>/_core/_vendor/resumable/resumable.js"></script>	
-			<script src="<?php echo _HIVE_URL_REL_; ?>/_core/_vendor/nouislider/dist/nouislider.min.js"></script>	
-			<script src="<?php echo _HIVE_URL_REL_; ?>/_core/_vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>	
-			<script src="<?php echo _HIVE_URL_REL_; ?>/_core/_vendor/simplebar/dist/simplebar.min.js"></script>	
-			<script src="<?php echo _HIVE_URL_REL_; ?>/_core/_vendor/notyf/notyf.min.js"></script>	
-			<script src="<?php echo _HIVE_URL_REL_; ?>/_core/_vendor/momentjs/moment.min.js"></script>	
-			<script src="<?php echo _HIVE_URL_REL_; ?>/_core/_vendor/githubbuttons/buttons.js"></script>	
-			<script src="<?php echo _HIVE_URL_REL_; ?>/_core/_vendor/chartist/dist/chartist.min.js"></script>	
-			<script src="<?php echo _HIVE_URL_REL_; ?>/_core/_vendor/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js"></script>	
-			<script src="<?php echo _HIVE_URL_REL_; ?>/_core/_vendor/vanillajs-datepicker/dist/js/datepicker.min.js"></script>	
-			<script src="<?php echo _HIVE_URL_REL_; ?>/_core/_vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>	
-			<script src="<?php echo _HIVE_URL_REL_; ?>/_core/_vendor/volt/volt.js"></script>	
-			<script src="<?php echo _HIVE_URL_REL_; ?>/_core/javascript.php"></script> 
-
 			<!-- Include Extensions from Function -->
 			<?php echo $metaextensions; ?>			
+			
+			<link rel="stylesheet" href="<?php echo _HIVE_URL_REL_; ?>/_core/stylesheet.php">
+			<script src="<?php echo _HIVE_URL_REL_; ?>/_core/javascript.php"></script> 
 		
 		</head>		
 		  <body class="<?php echo $mainclass; ?>">

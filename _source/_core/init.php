@@ -385,8 +385,8 @@
 			// Extension Libraries
 			foreach ($object["extensions_path"] as $filename) {
 				$object["extension"] = array(); $object["extension"]["name"] = basename($filename);
-				$object["extension"]["prefix"] =  $object["extension"]["name"]."_";
-				$object["extension"]["cookie"] =  $object["extension"]["name"]."_";
+				$object["extension"]["prefix"] =  _HIVE_PREFIX_."_"._HIVE_MODE_."__".$object["extension"]["name"]."_";
+				$object["extension"]["cookie"] =  _HIVE_COOKIE_."_"._HIVE_MODE_."__".$object["extension"]["name"]."_";
 				if (file_exists($filename."/_config/config_pre.php")) {
 					require_once $filename."/_config/config_pre.php";
 				}
@@ -402,8 +402,8 @@
 			// Extension Libraries
 			foreach ($object["extensions_path"] as $filename) {
 				$object["extension"] = array(); $object["extension"]["name"] = basename($filename);
-				$object["extension"]["prefix"] =  $object["extension"]["name"]."_";
-				$object["extension"]["cookie"] =  $object["extension"]["name"]."_";
+				$object["extension"]["prefix"] =  _HIVE_PREFIX_."_"._HIVE_MODE_."__".$object["extension"]["name"]."_";
+				$object["extension"]["cookie"] =  _HIVE_COOKIE_."_"._HIVE_MODE_."__".$object["extension"]["name"]."_";
 				if (is_dir($filename."/_lib")) {
 						foreach (glob($filename."/_lib/lib.*.php") as $filenamex){ require_once $filenamex; }
 				}		
@@ -411,8 +411,8 @@
 			// Extension Libraries
 			foreach ($object["extensions_path"] as $filename) {
 				$object["extension"] = array(); $object["extension"]["name"] = basename($filename);
-				$object["extension"]["prefix"] =  $object["extension"]["name"]."_";
-				$object["extension"]["cookie"] =  $object["extension"]["name"]."_";
+				$object["extension"]["prefix"] =  _HIVE_PREFIX_."_"._HIVE_MODE_."__".$object["extension"]["name"]."_";
+				$object["extension"]["cookie"] =  _HIVE_COOKIE_."_"._HIVE_MODE_."__".$object["extension"]["name"]."_";
 				if (is_dir($filename."/_wfc")) {
 						foreach (glob($filename."/_wfc/wfc.*.php") as $filenamex){ require_once $filenamex; }
 				}
@@ -495,8 +495,8 @@
 		// Extension Libraries
 		foreach ($object["extensions_path"] as $filename) {
 			$object["extension"] = array(); $object["extension"]["name"] = basename($filename);
-			$object["extension"]["prefix"] =  $object["extension"]["name"]."_";
-			$object["extension"]["cookie"] =  $object["extension"]["name"]."_";
+			$object["extension"]["prefix"] =  _HIVE_PREFIX_."_"._HIVE_MODE_."__".$object["extension"]["name"]."_";
+			$object["extension"]["cookie"] =  _HIVE_COOKIE_."_"._HIVE_MODE_."__".$object["extension"]["name"]."_";
 			foreach (glob($filename."/_mysql/mysql.*.php") as $filenamemm){ 
 				if(@basename($filenamemm) == "index.php") { continue; } 
 				if(!$object["mysql"]->table_exists($object["extension"]["prefix"].substr(basename($filenamemm), 6, -4))) {
@@ -918,8 +918,8 @@ unset($https);
 			// Extension Libraries
 			foreach ($object["extensions_path"] as $filename) {
 				$object["extension"] = array(); $object["extension"]["name"] = basename($filename);
-				$object["extension"]["prefix"] =  $object["extension"]["name"]."_";
-				$object["extension"]["cookie"] =  $object["extension"]["name"]."_";
+				$object["extension"]["prefix"] =  _HIVE_PREFIX_."_"._HIVE_MODE_."__".$object["extension"]["name"]."_";
+				$object["extension"]["cookie"] =  _HIVE_COOKIE_."_"._HIVE_MODE_."__".$object["extension"]["name"]."_";
 				if (file_exists($filename."/_config/config_post.php")) {
 					require_once $filename."/_config/config_post.php";
 				}

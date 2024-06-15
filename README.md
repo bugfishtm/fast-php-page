@@ -1,8 +1,8 @@
 ![Bugfish](https://img.shields.io/badge/Bugfish-CMS-orange)
 ![Status](https://img.shields.io/badge/Status-Released-blue)
 ![License](https://img.shields.io/badge/License-GPLv3-black) 
-![CMS Version](https://img.shields.io/badge/CMS-2.18-white)
-![Framework Version](https://img.shields.io/badge/Framework-3.21-white)
+![CMS Version](https://img.shields.io/badge/CMS-2.19-white)
+![Framework Version](https://img.shields.io/badge/Framework-3.30-white)
 ![Admin Module Version](https://img.shields.io/badge/Administrator-0.00.000-white)
 
 # Welcome to bugfishCMS!
@@ -34,7 +34,7 @@ Explore our extension store for additional functionalities, manage files and med
 
 Whether you're building a personal blog, an e-commerce platform, or a corporate website, bugfishCMS provides the flexibility, scalability, and developer-friendly interface you need to bring your vision to life. Get started with bugfishCMS today and unlock the full potential of your online presence!
 
-<img src="./_images/preview.png" alt="Preview Image" height="100"><img src="./_images/_windmill.png" alt="Preview Image" height="100"><img src="./_images/_volt.png" alt="Preview Image" height="100"><img src="./_images/_minimal.png" alt="Preview Image" height="100"><img src="./_images/_adminbsb.png" alt="Preview Image" height="100">
+<img src="./_images/preview.png" alt="Preview Image" height="100"><img src="./_images/preview_windmill.png" alt="Preview Image" height="100"><img src="./_images/preview_volt.png" alt="Preview Image" height="100"><img src="./_images/preview_minimal.png" alt="Preview Image" height="100"><img src="./_images/preview_adminbsb.png" alt="Preview Image" height="100">
 
 
 ### Repository Folders
@@ -62,16 +62,14 @@ Below is information about the folder and file structure of this repository:
 
 ## Installation
 
-### Method 1: Manual Installation
-
-#### Requirements
+### Requirements
 - **Webserver:** Apache2 (recommended)
 - **Apache2 Modules:** Rewrite, Header, SSL (recommended)
 - **PHP:** 8.x (PHP 9 not tested)
 - **PHP Modules:** zip, imagick, mysqli (additional modules may be required during installation)
 - **Database:** MariaDB
 
-#### Steps
+### Steps
 
 | Step | Action |
 |------|--------|
@@ -81,11 +79,6 @@ Below is information about the folder and file structure of this repository:
 | 4    | After installation, you will be redirected to the CMS login page. |
 | 5    | Login using the initial credentials provided: <br> **Username:** `admin@admin.local` (sometimes just `admin`) <br> **Password:** `changeme` |
 | 6    | Use the CMS to install new modules/extensions from the official store or deploy your own modules to the `_site` folder. |
-
-### Method 2: Docker Installation
-
-#### Steps
-For Docker deployment, refer to the `_docker` directory in the repository for detailed instructions.
 
 ### Initial Login
 

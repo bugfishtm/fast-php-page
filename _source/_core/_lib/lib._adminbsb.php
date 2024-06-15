@@ -29,7 +29,7 @@
 
 
 	
-	function hive__adminbsb_header($object, $tabtitle = "", $metaextensions = "") { 
+	function hive__adminbsb_header($object, $tabtitle = "", $metaextensions = "", $defaultclasses = true) { 
 		// Change Theme Operation for a User
 		$change_mtheme = false;
 		if(@$_GET["hive__db_theme"]) { $change_mtheme = @$_GET["hive__db_theme"]; } 
@@ -88,7 +88,8 @@
 			<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 			<!-- Initial Meta -->
 			<title><?php echo $tabtitle; ?><?php if(_HIVE_TITLE_SPACER_ != false) { echo _HIVE_TITLE_SPACER_; } ?><?php if(is_string(_HIVE_TITLE_)) { echo _HIVE_TITLE_; } ?></title>
-		
+			
+			<?php if($defaultclasses) { ?>
 			<!-- Materialize Font Loader Css -->
 			<link href="<?php echo _HIVE_URL_REL_; ?>/_site/<?php echo _HIVE_MODE_; ?>/_theme/css_materialize.css" rel="stylesheet">
 			<!-- Materialize Core Css -->
@@ -145,14 +146,15 @@
 			<script src="<?php echo _HIVE_URL_REL_; ?>/_core/_vendor/tinymce/tinymce.min.js"></script>	
 			<!-- Sweetalert JS -->
 			<script src="<?php echo _HIVE_URL_REL_; ?>/_core/_vendor/sweetalert2/sweetalert2.all.min.js"></script>	
+			<?php } ?>
+			
+			<!-- User Defined Meta Extensions -->
+			<?php echo $metaextensions; ?>
 			
 			<!-- Framework Javascript Loader -->
 			<script src="<?php echo _HIVE_URL_REL_; ?>/_core/javascript.php"></script>
 			<!-- Framework Stylesheet Loader -->
 			<link href="<?php echo _HIVE_URL_REL_; ?>/_core/stylesheet.php"  rel="stylesheet">
-
-			<!-- User Defined Meta Extensions -->
-			<?php echo $metaextensions; ?>
 		</head>
 
 		<body class="theme-<?php echo _HIVE_THEME_; ?>">

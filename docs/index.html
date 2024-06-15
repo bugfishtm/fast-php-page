@@ -2019,9 +2019,16 @@
 					    <h2 class="docs-heading">Site Modules</h2>
 					    <section class="docs-intro">
 						    <p>Website modules can be run as standalone websites or alongside other installed website modules. They can be distributed across various domains and virtual hosts, using integrated functionalities to display many websites with just one instance. This allows for full control over our administration or another administration module, according to your needs!</p>
+							<div class="alert alert-info">Explore our example site modules to get more insights for developers! Mind the comments in the files as they will help you to understand everything.</div>
 						</section>
 				    </header><br />
 					<section class="docs-section" id="item-19-36581" style="padding-top: 0px; border-bottom: none;">
+						<h3>General Information</h3>
+						<ul>
+							<li>Site Modules are fully deployed Websites which are integrated inside this cms system. They can be extended using script or extension modules.</li>
+							<li>RNAME of Site modules have to start with an a-z char and only should contain at max 10 signs.</li>
+							<li>Lookup our example Site Module in our repository to get more information about development.</li>
+						</ul>
 						<div style="padding: 0px 0px 0px 0px;border: 2px solid white; border-radius: 5px;">
 						<div class="autohide_hover" style="padding: 15px;">
 						<h3>👆 Folder Structure</h3>
@@ -2202,6 +2209,10 @@
 							<tr>	
 								<td>_HIVE_SITE_PUBLIC_</td>
 								<td>Path to absolute Site Data Public folder!</td>									
+							</tr>
+							<tr>	
+								<td>_HIVE_SITE_EXT_</td>
+								<td>Sites Extension Folder!</td>									
 							</tr>
 							<tr>	
 								<td>_HIVE_SITE_PRIVATE_</td>
@@ -2597,7 +2608,76 @@
 						<!--<h2 class="section-heading">Page Styling</h2>-->
 						</div><div>
 						<div style="overflow-x: auto; max-width: 100%;" class="autohide">				
-						   	<div class="alert alert-info" style="margin: 15px;">See the _module/_site/readme.md file for more informations about installing script modules in our repository! This area is not yet documented here! You maybe also can find information about installation procedures in your provided module file.</div></div></div></div>			
+						<table class="table table-bordered table-dark">
+						  <tr>
+							<th>Method 1: Choose Module from Store</th>
+						  </tr>
+						  <tr>
+							<td>1. Login to the Administrator Site Module.</td>
+						  </tr>
+						  <tr>
+							<td>2. Navigate to "Store"</td>
+						  </tr>
+						  <tr>
+							<td>3. Download the desired module through the web interface.</td>
+						  </tr>
+						  <tr>
+							<td>4. Navigate to the "Website Module" Area of the Administrator Module.</td>
+						  </tr>
+						  <tr>
+							<td>5. Install the uploaded module template with a desired name.</td>
+						  </tr>
+						  <tr>
+							<td>6. Open the site module once to initialize required data and variables in the database.</td>
+						  </tr>
+						</table>
+
+						<table class="table table-bordered table-dark">
+						  <tr>
+							<th>Method 2: Upload in Administrator Module</th>
+						  </tr>
+						  <tr>
+							<td>1. Open the Administrator Module in your web browser.</td>
+						  </tr>
+						  <tr>
+							<td>2. Login as Administrator or Privileged user.</td>
+						  </tr>
+						  <tr>
+							<td>3. Go to the "Website Module" area and select "Upload Manually."</td>
+						  </tr>
+						  <tr>
+							<td>4. Upload the module's .zip file.</td>
+						  </tr>
+						  <tr>
+							<td>5. Install the uploaded module template with a desired name.</td>
+						  </tr>
+						  <tr>
+							<td>6. Open the site module once to initialize required data and variables in the database.</td>
+						  </tr>
+						</table>
+
+						<table class="table table-bordered table-dark">
+						  <tr>
+							<th>Method 3: Upload Manually</th>
+						  </tr>
+						  <tr>
+							<td>1. Login to your webserver with FTP/SFTP.</td>
+						  </tr>
+						  <tr>
+							<td>2. Unpack the required Site Modules folder.</td>
+						  </tr>
+						  <tr>
+							<td>3. Move the extracted folder to the _site directory of the BugfishCMS installation.</td>
+						  </tr>
+						  <tr>
+							<td>&nbsp;&nbsp;&nbsp;- Use only alphanumeric characters and underscores (_), but _ only at the start.</td>
+						  </tr>
+						  <tr>
+							<td>4. Use the administrator module or ./developer.php script (ensure it's activated in cfg_ruleset.php) to use the new site module.</td>
+						  </tr>
+						</table>						   	
+							
+						</div></div></div>			
 					<br></section>
 				</article>
 			    <article class="docs-article" id="section-659" style="margin-bottom: 0px; padding-bottom: 0px;" >
@@ -2609,40 +2689,376 @@
 				    </header><br />
 					<section class="docs-section" id="item-19-6591" style="padding-top: 0px; border-bottom: none;padding-bottom: 10px;">	
 						<h3>Development</h3>
+						<h4>General Information</h4>
+						<ul>
+							<li>RNAME of Extension Modules shall start with "ext" and contain no more than 10 signs</li>
+							<li>Extension Modules are there to extend already installed Site Modules depending on the Sites Modules Rname and the Extension Rname Parent Setting an Extension will be available for an deployed Site Module with the valid Rname in the extensions Parent Rname Setting.</li>
+							<li>An extension can only be installed a single time per site module it is valid for.</li>
+							<li>Site Extensions will have some pre-defined variables which you can look up in the comments of example files.</li>
+						</ul>
 						<div class="alert alert-info">See the example Extension Module for the Administrator Interface inside our Github repository to get insights about creating one yourself! This area is not yet documented here!</div>
+						<h4>Folder Structure</h4>	
+						The zip file of the extension module you want to deploy should look like this. Replace RNAME with the RNAME of your extension module.
+						<table class="table table-bordered table-dark">
+						  <tr>
+							<th>File/Folder Name</th>
+							<th>Description</th>
+						  </tr>
+						  <tr>
+							<td>./RNAME/_admin/mod_setting.php</td>
+							<td>Page to control on administrator page modules page settings on this site modules extension.</td>
+						  </tr>
+						  <tr>
+							<td>./RNAME/_admin/mod_index.php</td>
+							<td>Extens Administration Modules load.php by adding more available locations for indexing.</td>
+						  </tr>
+						  <tr>
+							<td>./RNAME/_config/config_post.php</td>
+							<td>Addition for post-configuration if extension is activated in site module and site module is active.</td>
+						  </tr>
+						  <tr>
+							<td>./RNAME/_config/config_pre.php</td>
+							<td>Addition for pre-configuration if extension is activated in site module and site module is active.</td>
+						  </tr>
+						  <tr>
+							<td>./RNAME/_cron/*</td>
+							<td>Additions for related Site modules cronjobs. See example to see how this works.</td>
+						  </tr>
+						  <tr>
+							<td>./RNAME/_css/css.*.php</td>
+							<td>Additions for related Site modules stylesheet.php autoload file</td>
+						  </tr>
+						  <tr>
+							<td>./RNAME/_js/js.*.php</td>
+							<td>Additions for related Site modules javascript.php autoload file</td>
+						  </tr>
+						  <tr>
+							<td>./RNAME/_mysql/mysql.*.php</td>
+							<td>Additions for related Site modules MySQL Tables</td>
+						  </tr>
+						  <tr>
+							<td>./RNAME/_lib/lib.*.php</td>
+							<td>Additions for related Site modules Library Functionalities</td>
+						  </tr>
+						  <tr>
+							<td>./RNAME/_wfc/wfc.*.php</td>
+							<td>Additions for related Site modules WFC Functionalities</td>
+						  </tr>
+						  
+						  <tr>
+							<td>./RNAME/version.php</td>
+							<td>Versioning Information of the Module</td>
+						  </tr>
+						  <tr>
+							<td>./RNAME/changelog.php</td>
+							<td>Changelog of the Module</td>
+						  </tr>
+						  <tr>
+							<td>./RNAME/preview.jpg</td>
+							<td>Preview Image for Administrator Module and Store</td>
+						  </tr>
+						</table>
 					</section><section class="docs-section" id="item-19-6592" style="padding-top: 0px;">	
 						<h3>Installation</h3>		
-						   	<div class="alert alert-info">See the _module/_ext/readme.md file for more informations about installing script modules in our repository! This area is not yet documented here!</div>
+							<table class="table table-bordered table-dark">
+							  <tr>
+								<th>Method 1: Choose Module from Store</th>
+							  </tr>
+							  <tr>
+								<td>1. Login to the Administrator Site Module.</td>
+							  </tr>
+							  <tr>
+								<td>2. Navigate to "Store"</td>
+							  </tr>
+							  <tr>
+								<td>3. Download the desired extension through the web interface.</td>
+							  </tr>
+							  <tr>
+								<td>4. Navigate to the "Website Module" Area of the Administrator Module.</td>
+							  </tr>
+							  <tr>
+								<td>5. Activate the desired extension on the desired site Module.</td>
+							  </tr>
+							</table>
+
+							<table class="table table-bordered table-dark">
+							  <tr>
+								<th>Method 2: Upload in Administrator Module</th>
+							  </tr>
+							  <tr>
+								<td>1. Open the Administrator Module in your web browser.</td>
+							  </tr>
+							  <tr>
+								<td>2. Login as Administrator or Privileged user.</td>
+							  </tr>
+							  <tr>
+								<td>3. Go to the "Extensions" area and select "Upload Manually."</td>
+							  </tr>
+							  <tr>
+								<td>4. Upload the extension's .zip file.</td>
+							  </tr>
+							  <tr>
+								<td>5. Navigate to the "Website Module" Area of the Administrator Module.</td>
+							  </tr>
+							  <tr>
+								<td>6. Activate the desired extension on the desired site Module.</td>
+							  </tr>
+							</table>
+
+							<table class="table table-bordered table-dark">
+							  <tr>
+								<th>Method 3: Upload Manually</th>
+							  </tr>
+							  <tr>
+								<td>1. Login to your webserver with FTP/SFTP.</td>
+							  </tr>
+							  <tr>
+								<td>2. Unpack the required Extension Modules folder.</td>
+							  </tr>
+							  <tr>
+								<td>3. Move the extracted folder to the _ext/SITEMODFOLDERNAME directory of the BugfishCMS installation.</td>
+							  </tr>
+							  <tr>
+								<td>&nbsp;&nbsp;&nbsp;- Use only alphanumeric characters and underscores (_), but _ only at the start.</td>
+							  </tr>
+							  <tr>
+								<td>4. Site module is activated automatically if moved inside that folder. Installation with Administrator Module is recommended.</td>
+							  </tr>
+							</table>		
 					</section>					
 				</article>
 			    <article class="docs-article" id="section-6559" style="margin-bottom: 0px; padding-bottom: 0px;" >
 				    <header class="docs-header">		
 					    <h2 class="docs-heading">Script Modules</h2>		
 					    <section class="docs-intro">
-						    <p>Script modules can be included in site modules that support them. An installed script module is ready to use for all CMS installed site modules and is not related to a specific site module. This area is not yet documented here!</p>
+						    <p>Script modules can be included in site modules that support them. An installed script module is ready to use for all CMS installed site modules and is not related to a specific site module.</p>
 						</section>
 				    </header><br />
 					<section class="docs-section" id="item-19-65591" style="padding-top: 0px; border-bottom: none;padding-bottom: 10px;">
 						<h3>Development</h3>	
+						<h4>General Information</h4>
+						<ul>
+							<li>Script Modules serves as hardlinkable full html pages or restricted code injections which are not related to any site module</li>
+							<li>Script modules does not have auto-load functionalities like installing mysql tables or else.</li>
+							<li>RNAME of Scripts have to start with "scr" and only should contain at max 30 signs.</li>
+							<li>Lookup our example Script Module in our repository to get more information about development.</li>
+							<li>Script modules does not have any CMS Related Auto-Load Functions, like installing Tables or anything in that matter.</li>
+						</ul>
 						<div class="alert alert-info">See the example Script Module inside our Github repository to get insights about creating one yourself!</div>
+						<h4>Folder Structure</h4>	
+						The zip file of the script module you want to deploy should look like this. Replace RNAME with the RNAME of your script module.
+						<table class="table table-bordered table-dark">
+						  <tr>
+							<th>File/Folder Name</th>
+							<th>Description</th>
+						  </tr>
+						  <tr>
+							<td>./RNAME/public.php</td>
+							<td>Public full HTML Files in this code to be viewed via IFrame or hardlinked. (Optional)</td>
+						  </tr>
+						  <tr>
+							<td>./RNAME/restricted.php</td>
+							<td>Restricted Stript File to be injected in necessary areas. (Optional)</td>
+						  </tr>
+						  <tr>
+							<td>./RNAME/version.php</td>
+							<td>Versioning Information of the Module</td>
+						  </tr>
+						  <tr>
+							<td>./RNAME/changelog.php</td>
+							<td>Changelog of the Module</td>
+						  </tr>
+						  <tr>
+							<td>./RNAME/preview.jpg</td>
+							<td>Preview Image for Administrator Module and Store</td>
+						  </tr>
+						</table>
 					</section><section class="docs-section" id="item-19-65592" style="padding-top: 0px;">	
 						<h3>Installation</h3>		
-						   	<div class="alert alert-info">See the _module/_script/readme.md file for more informations about installing script modules in our repository! This area is not yet documented here!</div>
+					<table class="table table-bordered table-dark">
+					  <tr>
+						<th>Method 1: Choose Module from Store</th>
+					  </tr>
+					  <tr>
+						<td>1. Login to the Administrator Site Module.</td>
+					  </tr>
+					  <tr>
+						<td>2. Navigate to "Store"</td>
+					  </tr>
+					  <tr>
+						<td>3. Download the desired script module through the web interface.</td>
+					  </tr>
+					  <tr>
+						<td>4. Navigate to the "Scripts" Area of the Administrator Module.</td>
+					  </tr>
+					  <tr>
+						<td>5. Install the acquired Script</td>
+					  </tr>
+					  <tr>
+						<td>6. Use the script by hardlinking to the script's public.php or access it through cms administrator module restricted.php or internal functionalities.</td>
+					  </tr>
+					</table>
+
+					<table class="table table-bordered table-dark">
+					  <tr>
+						<th>Method 2: Upload in Administrator Module</th>
+					  </tr>
+					  <tr>
+						<td>1. Open the Administrator Module in your web browser.</td>
+					  </tr>
+					  <tr>
+						<td>2. Login as Administrator or Privileged user.</td>
+					  </tr>
+					  <tr>
+						<td>3. Go to the "Script Module" area and select "Upload Manually."</td>
+					  </tr>
+					  <tr>
+						<td>4. Upload the script's .zip file.</td>
+					  </tr>
+					  <tr>
+						<td>5. Install the acquired Script</td>
+					  </tr>
+					  <tr>
+						<td>6. Use the script by hardlinking to the script's public.php or access it through cms administrator module restricted.php or internal functionalities.</td>
+					  </tr>
+					</table>
+
+					<table class="table table-bordered table-dark">
+					  <tr>
+						<th>Method 3: Upload Manually</th>
+					  </tr>
+					  <tr>
+						<td>1. Login to your webserver with FTP/SFTP.</td>
+					  </tr>
+					  <tr>
+						<td>2. Unpack the required Script Modules folder.</td>
+					  </tr>
+					  <tr>
+						<td>3. Move the extracted folder to the _script directory of the BugfishCMS installation.</td>
+					  </tr>
+					  <tr>
+						<td>&nbsp;&nbsp;&nbsp;- Use only alphanumeric characters and underscores (_), but _ only at the start.</td>
+					  </tr>
+					  <tr>
+						<td>4. Use the script by hardlinking to the script's public.php or access it through cms administrator module restricted.php or internal functionalities.</td>
+					  </tr>
+					</table>	
 					</section>						
 				</article>	
 			    <article class="docs-article" id="section-7559" style="margin-bottom: 0px; padding-bottom: 0px;" >
 				    <header class="docs-header">		
 					    <h2 class="docs-heading">Image Modules</h2>		
 					    <section class="docs-intro">
-						    <p>Script modules can be included in site modules that support them. An installed script module is ready to use for all CMS installed site modules and is not related to a specific site module. This area is not yet documented here!</p>
+						    <p>Test out our example image module if you want to deploy your own image modules!</p>
 						</section>
 				    </header><br />
 					<section class="docs-section" id="item-19-75591" style="padding-top: 0px; border-bottom: none;padding-bottom: 10px;">
 						<h3>Development</h3>	
-						<div class="alert alert-info">See the example Script Module inside our Github repository to get insights about creating one yourself!</div>
+						<h4>General Information</h4>	
+						<p>Image modules to be deployed, this can be full other website projects not related to this cms like wordpress and misc.</p>
+							<ul>
+								<li>Image modules does not have auto-load functionalities like installing mysql tables or else.</li>
+								<li>Important files to be present are preview.jpg / changelog.php and version.php in the image folder. Put the website content you want to deploy with that image module in the htdocs folder inside your image module. bugfishCMS will create an identifier file for the deployed image module in its deployed folder. You can look it up for investigation. This files are only created if you are using the administrator module to deploy the image module, which is highly recommended.</li>
+								<li>Do not use more than 50 signs for your modules rname, and start every rname with "img". Example: "imgwordpress". Put versioning informations in the related version.php file.</li>
+								<li>There are no controlling features for deployed website images inside the administrator module. This images are fully independent and can be served through dedicated apache vhosts or by going to the folder inside the bugfishcms structure which is _image/yourdeploymentname.</li>
+								<li>Image Modules can not alter/extend or modify existing site modules or extensions, they serve a different cause to deploy other projects like wordpress and else to host them for costumers or more. A lot of features are planned to be implemented in the future. But this is most likely the case for every project. Lets see what we can make happen.</li>
+								<li>Stick as close as possible to the example files which you can find in out repository, they will show you how things work. Mind the comments.</li>
+							</ul>
+						<div class="alert alert-info">See the example image Module inside our Github repository to get insights about creating one yourself!</div>
+						<h4>Folder Structure</h4>
+						The zip file of the image module you want to deploy should look like this. Replace RNAME with the RNAME of your image module.
+						<table class="table table-bordered table-dark">
+						  <tr>
+							<th>File/Folder Name</th>
+							<th>Description</th>
+						  </tr>
+						  <tr>
+							<td>./RNAME/htdocs/*</td>
+							<td>Source Code of the project you want to deploy with that image module, this can for example be the content of the wordpress htdocs folder which you would upload to an ftp server. This can also be the htdocs content of any other project, as long as it is deployable via a single htdocs folder.</td>
+						  </tr>
+						  <tr>
+							<td>./RNAME/version.php</td>
+							<td>Versioning Information of the Module</td>
+						  </tr>
+						  <tr>
+							<td>./RNAME/changelog.php</td>
+							<td>Changelog of the Module</td>
+						  </tr>
+						  <tr>
+							<td>./RNAME/preview.jpg</td>
+							<td>Preview Image for Administrator Module and Store</td>
+						  </tr>
+						</table>		
 					</section><section class="docs-section" id="item-19-75592" style="padding-top: 0px;">	
-						<h3>Installation</h3>		
-						   	<div class="alert alert-info">See the _module/_script/readme.md file for more informations about installing script modules in our repository! This area is not yet documented here!</div>
+						<h3>Installation</h3>	
+						<table class="table table-bordered table-dark">
+						  <tr>
+							<th>Method 1: Choose Module from Store</th>
+						  </tr>
+						  <tr>
+							<td>1. Login to the Administrator Site Module.</td>
+						  </tr>
+						  <tr>
+							<td>2. Navigate to "Store"</td>
+						  </tr>
+						  <tr>
+							<td>3. Download the desired image module through the web interface.</td>
+						  </tr>
+						  <tr>
+							<td>4. Navigate to the "Image Module" Area of the Administrator Module.</td>
+						  </tr>
+						  <tr>
+							<td>5. Install the uploaded image template with a desired name.</td>
+						  </tr>
+						  <tr>
+							<td>6. Follow required steps of the image module to deploy website by navigating to the website images subfolder or apache2 vhost created for this image template.</td>
+						  </tr>
+						</table>
+
+						<table class="table table-bordered table-dark">
+						  <tr>
+							<th>Method 2: Upload in Administrator Module</th>
+						  </tr>
+						  <tr>
+							<td>1. Open the Administrator Module in your web browser.</td>
+						  </tr>
+						  <tr>
+							<td>2. Login as Administrator or Privileged user.</td>
+						  </tr>
+						  <tr>
+							<td>3. Go to the "Image Module" area and select "Upload Manually."</td>
+						  </tr>
+						  <tr>
+							<td>4. Upload the image's .zip file.</td>
+						  </tr>
+						  <tr>
+							<td>5. Install the uploaded image template with a desired name.</td>
+						  </tr>
+						  <tr>
+							<td>6. Follow required steps of the image module to deploy website by navigating to the website images subfolder or apache2 vhost created for this image template.</td>
+						  </tr>
+						</table>
+
+						<table class="table table-bordered table-dark">
+						  <tr>
+							<th>Method 3: Upload Manually</th>
+						  </tr>
+						  <tr>
+							<td>1. Login to your webserver with FTP/SFTP.</td>
+						  </tr>
+						  <tr>
+							<td>2. Unpack the required Site Modules folder.</td>
+						  </tr>
+						  <tr>
+							<td>3. Move the extracted folder to the _image directory of the BugfishCMS installation.</td>
+						  </tr>
+						  <tr>
+							<td>&nbsp;&nbsp;&nbsp;- Use only alphanumeric characters and underscores (_), but _ only at the start.</td>
+						  </tr>
+						  <tr>
+							<td>4. Navigate to your uploaded folder with your web browser and follow the website images instruction or create necessary files depending on the deployed website image and its instructions.</td>
+						  </tr>
+						</table>	
 					</section>						
 				</article>	
 			    <article class="docs-article" id="section-9" >

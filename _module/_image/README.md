@@ -1,8 +1,10 @@
 📁 **Website Images Folder**
 
-The **Website Images** directory houses website images installed by the administrator module or uploaded manually. These sites are available through created apache vhosts inside the administrator module or directly by going into the Websites Directory in this folder here, where website image instances are deployed to.
+Full deployable Website Modules to easily deploy other projects and include controlling functionalities inside the cms. Primary Focus is to deploy 3rd party software like docker and other to vhosts. Will serve for vhosts for integrated hosting functionalities at implementation.
 
----------
+| Name | Description |
+| --------- | ----------------------------------- |
+| _imgexample   | Exmaple Image Website Module for developers to look up its functionality! |
 
 **How to Install Image Modules**
 
@@ -33,15 +35,11 @@ The **Website Images** directory houses website images installed by the administ
 Inactive Site Images are stored in /_internal/_image-dn!  
 Site Images Templates are stored in /_internal/_image-tpl!  
 
-------
-
 **Important Rules**
 - Do not start a image module name with a number.
 - Do not start a image module name with _ (reserved for core modules).
 - Only use alphanumeric characters.
 - Module names and folder names should not exceed 10 characters.
-
-**Note:** Changes in this folder are persistent and will not be overwritten by core updates.
 
 Happy coding and have a great one!  
 🐟 Bugfish <3

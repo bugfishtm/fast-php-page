@@ -29,4 +29,4 @@
 	// Version Information
 	########################################################
 	// Not interesting for System. Just for Versioning
-	$x["version"] 		= "2.20"; 
+	$x["version"] 		= "2.19"; 

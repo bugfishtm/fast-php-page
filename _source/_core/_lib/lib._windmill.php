@@ -44,7 +44,7 @@
 	function hive__windmill_content_end($object) { ?>
 		</div></main>
 	<?php }
-	function hive__windmill_header($object, $tabtitle = "", $metaextensions = "", $theme_default = "dark", $mainclass = "flex h-screen bg-gray-50 dark:bg-gray-900") { 
+	function hive__windmill_header($object, $tabtitle = "", $metaextensions = "", $theme_default = "dark", $mainclass = "flex h-screen bg-gray-50 dark:bg-gray-900", $defaultclasses = true) { 
 		if(!isset($_SESSION[_HIVE_SITE_COOKIE_."hive_dashboard_subtheme"])) {
 			$_SESSION[_HIVE_SITE_COOKIE_."hive_dashboard_subtheme"] = $theme_default; 
 			if($object["user"]->user_loggedIn) {
@@ -179,10 +179,11 @@
 			<meta charset="UTF-8" />
 			<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+			
+			<?php if($defaultclasses) { ?>
 			<!-- Include Main CSS -->
 			<link rel="stylesheet" href="<?php echo _HIVE_URL_REL_; ?>/_core/_vendor/bugfish-dashboard/main_stylesheet.css">
 			<link rel="stylesheet" href="<?php echo _HIVE_URL_REL_; ?>/_core/_vendor/bugfish-dashboard/<?php echo _HIVE_THEME_; ?>.css.php">
-			<link rel="stylesheet" href="<?php echo _HIVE_URL_REL_; ?>/_core/stylesheet.php">
 			<link rel="stylesheet" href="<?php echo _HIVE_URL_REL_; ?>/_core/_vendor/boxicons/boxicons.css">
 			<link rel="stylesheet" href="<?php echo _HIVE_URL_REL_; ?>/_core/_vendor/sweetalert2/sweetalert2.min.css">
 			<link rel="stylesheet" href="<?php echo _HIVE_URL_REL_; ?>/_core/_vendor/datatables/jq.datatables.css">
@@ -198,9 +199,13 @@
 			<script src="<?php echo _HIVE_URL_REL_; ?>/_core/_vendor/datatables/jq.datatables.js"></script>	
 			<script src="<?php echo _HIVE_URL_REL_; ?>/_core/_vendor/tinymce/tinymce.min.js"></script>	
 			<script src="<?php echo _HIVE_URL_REL_; ?>/_core/_vendor/resumable/resumable.js"></script>	
-			<script src="<?php echo _HIVE_URL_REL_; ?>/_core/javascript.php"></script> 
+			<?php } ?>
+			
 			<!-- Include Extensions from Function -->
 			<?php echo $metaextensions; ?>
+			
+			<link rel="stylesheet" href="<?php echo _HIVE_URL_REL_; ?>/_core/stylesheet.php">
+			<script src="<?php echo _HIVE_URL_REL_; ?>/_core/javascript.php"></script> 
 		  </head>
 		  <body>
 			<div

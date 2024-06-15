@@ -35,7 +35,7 @@
 	}
 
 	// Sort the version numbers in descending order
-	rsort($versions);
+	@rsort($versions);
 
 	// Output the sorted version numbers
-	echo serialize($versions);
+	echo @serialize($versions);

@@ -50,8 +50,8 @@
 	// Include Extension Scripts
 	foreach ($object["extensions_path"] as $filename) {
 		$object["extension"] = array(); $object["extension"]["name"] = basename($filename);
-		$object["extension"]["prefix"] =  $object["extension"]["name"]."_";
-		$object["extension"]["cookie"] =  $object["extension"]["name"]."_";
+		$object["extension"]["prefix"] =  _HIVE_PREFIX_."_"._HIVE_MODE_."__".$object["extension"]["name"]."_";
+		$object["extension"]["cookie"] =  _HIVE_COOKIE_."_"._HIVE_MODE_."__".$object["extension"]["name"]."_";
 		if (is_dir($filename."/_js")) {
 			if($object["user"]->loggedIn) {
 				foreach (glob($filename."/_js/js.global.*") as $filenamex){ require_once $filenamex; }

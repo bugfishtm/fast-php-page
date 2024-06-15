@@ -25,9 +25,14 @@
 		require_once("./settings.php");
 		
 		if(@trim(@$_GET["hive__seo_tag_loc"] ?? '') != ""  AND @$_GET["hive__seo_tag_loc"] != false) {
-			if(!_HIVE_URL_SEO_) {
+			if(!defined("_HIVE_URL_SEO_")) {
 				require_once($object["path"]."/_core/_error/error.404.php");
 				exit();
+			} else {
+				if(!_HIVE_URL_SEO_) {
+					require_once($object["path"]."/_core/_error/error.404.php");
+					exit();
+				}
 			}
 		}
 		
@@ -38,14 +43,20 @@
 		unset($version);
 		
 		// Check if Public/Internal/Restricted is writeable
-		if ( ! is_writable(dirname(_HIVE_PATH_PRIVATE_."/dummy.file"))) {
-			hive_error_full("Critical Error", "File/Folder permission error!", "The folder: '"._HIVE_PATH_PRIVATE_."' is not writeable!", true, 503);	
+		if (defined("_HIVE_PATH_PRIVATE_")) {
+			if ( ! is_writable(dirname(_HIVE_PATH_PRIVATE_."/dummy.file"))) {
+				hive_error_full("Critical Error", "File/Folder permission error!", "The folder: '"._HIVE_PATH_PRIVATE_."' is not writeable!", true, 503);	
+			}
 		}
-		if ( ! is_writable(dirname(_HIVE_PATH_INTERNAL_."/dummy.file"))) {
-			hive_error_full("Critical Error", "File/Folder permission error!", "The folder: '"._HIVE_PATH_INTERNAL_."' is not writeable!", true, 503);	
+		if (defined("_HIVE_PATH_INTERNAL_")) {
+			if ( ! is_writable(dirname(_HIVE_PATH_INTERNAL_."/dummy.file"))) {
+				hive_error_full("Critical Error", "File/Folder permission error!", "The folder: '"._HIVE_PATH_INTERNAL_."' is not writeable!", true, 503);	
+			}
 		}
-		if ( ! is_writable(dirname(_HIVE_PATH_PUBLIC_."/dummy.file"))) {
-			hive_error_full("Critical Error", "File/Folder permission error!", "The folder: '"._HIVE_PATH_PUBLIC_."' is not writeable!", true, 503);	
+		if (defined("_HIVE_PATH_PUBLIC_")) {
+			if ( ! is_writable(dirname(_HIVE_PATH_PUBLIC_."/dummy.file"))) {
+				hive_error_full("Critical Error", "File/Folder permission error!", "The folder: '"._HIVE_PATH_PUBLIC_."' is not writeable!", true, 503);	
+			}
 		}
 		
 		// If not Site Mode Found Display Error

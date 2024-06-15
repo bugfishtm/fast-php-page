@@ -1,8 +1,10 @@
 📁 **Script Modules Folder**
 
-The **Script Modules** directory houses script modules installed by the administrator module or uploaded manually. These modules are accessible by hardlinking to them if they have a public.php file, or by accessing threm trough the administrator interface or a fitting extension or module.
+Script modules can be included in site modules that support them. An installed script module is ready to use for all CMS installed site modules and is not related to a specific site module.
 
----------
+| Name | Description |
+| --------- | ----------------------------------- |
+| _screxample   | Extension script example that can be used on all site modules supporting its display. You can test this example script in our administrator module if you want to! |
 
 **How to Install Script Modules**
 
@@ -32,15 +34,11 @@ The **Script Modules** directory houses script modules installed by the administ
 **Notice**  
 Script Modules Templates are stored in /_internal/_script-tpl for multi deployment, in that folder /_internal/_script-tpl they stay inactive!  
 
-------
-
 **Important Rules**
 - Do not start a script module name with a number.
 - Do not start a script module name with _ (reserved for core modules).
 - Only use alphanumeric characters.
 - script module names and folder names should not exceed 10 characters.
-
-**Note:** Changes in this folder are persistent and will not be overwritten by core updates.
 
 Happy coding and have a great one!  
 🐟 Bugfish <3

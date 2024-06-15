@@ -1,13 +1,21 @@
 📁 **Website Modules Folder**
 
-The **Site Modules** directory houses modules installed by the store module or uploaded manually. These modules are accessible via the integrated admin panel or by adjusting the `cfg_ruleset.php` file.
+Full website modules capable of acting standalone.  
+You can also find downloadable Site Modules in our store!
 
-### Caution When Renaming Folders
-- Renaming folders can cause loss of relations to other site modules in _restricted/_public or _internal/_domains.
-- Only rename Site Module Folders manually if you understand the implications.
-- The Administrator Module has tools to find lost data.
-
----------
+| Name | Description |
+| --------- | ----------------------------------- |
+| _documentation-adminbsb     | Documentation for the integrated AdminBSB Template.   |
+| _documentation-volt     | Documentation for the integrated Volt Template.   | 
+| _documentation-framework     | Documentation for the integrated Bugish Framework.   |
+| _documentation   | Documentation for this CMS integrated as a site module.      |
+| _lab   | Module used at lab.bugfish.eu to showcase different site modules with a token! A very simple minimal site module, just to redirect to the internal CMS Token Switch to Module Page. | 
+| _example-minimal        | Minimal site module example. A minimal responsive open-source template.  | 
+| _example-windmill   | Windmill Dashboard site module example. A TailwindCSS open-source template.   | 
+| _example-volt   | Volt Dashboard site module example. A Bootstrap 5 open-source template.     | 
+| _skeleton   | Skeleton of site modules for developers to explore and understand folder functionalities and more! Very minimalistic. If you are looking for an enhanced site module to gain development insights, take a look at the integrated _administrator site module!    | 
+| _storepage   | Module used at store.bugfish.eu to showcase the internal store, deployable on other instances as a dedicated website! Works together with the Administration Module to showcase different available modules for deployment. Features the Volt Dashboard Theme. |
+| _administrator   | Most enhanced and documented example/useable module. This module is the main administration module integrated into the core version of the CMS. You can delete the module if you do not need it. You can find it in the _site/_administrator folder of your CMS instance.   |
 
 **How to Install Site Modules**
 
@@ -38,8 +46,6 @@ The **Site Modules** directory houses modules installed by the store module or u
 Site Modules which are inactive are stored in /_internal/_site-dn! 
 Site Modules Templates are stored in /_internal/_site-tpl for multi deployment, in that folder /_internal/_site-tpl they stay inactive!  
 
-------
-
 **Setting Up Standalone Module Pages**
 - Use cfg_ruleset.php in the website's root folders to access deep CMS functionalities.
 
@@ -48,8 +54,6 @@ Site Modules Templates are stored in /_internal/_site-tpl for multi deployment, 
 - Do not start a site module name with _ (reserved for core modules).
 - Only use alphanumeric characters.
 - Module names and folder names should not exceed 10 characters.
-
-**Note:** Changes in this folder are persistent and will not be overwritten by core updates.
 
 Happy coding and have a great one!  
 🐟 Bugfish <3

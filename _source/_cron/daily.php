@@ -62,8 +62,8 @@
 					// Extension Libraries
 					foreach ($object["extensions_path"] as $filename) {
 						$object["extension"] = array(); $object["extension"]["name"] = basename($filename);
-						$object["extension"]["prefix"] =  $object["extension"]["name"]."_";
-						$object["extension"]["cookie"] =  $object["extension"]["name"]."_";
+						$object["extension"]["prefix"] =  _HIVE_PREFIX_."_".$hive_mode_cron."__".$object["extension"]["name"]."_";
+						$object["extension"]["cookie"] =  _HIVE_COOKIE_."_".$hive_mode_cron."__".$object["extension"]["name"]."_";
 						if (is_dir($filename."/_cron/_daily")) {
 								foreach (glob($filename."/_cron/_daily/cron.*.php") as $filenamex){ require_once $filenamex; }
 						}
