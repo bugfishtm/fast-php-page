@@ -111,6 +111,11 @@
 		hive__folder_create($object["path"]."/_store/_module-cache", true, false);
 		hive__folder_create($object["path"]."/_store/_module-cl", true, false);
 		hive__folder_create($object["path"]."/_store/_module-img", true, false);		
+		hive__folder_create($object["path"]."/_store/_hub", true, false);		
+		hive__folder_create($object["path"]."/_store/_hub/_releases", true, false);		
+		hive__folder_create($object["path"]."/_store/_hub/_downloads", true, false);		
+		hive__folder_create($object["path"]."/_store/_app", true, false);		
+		hive__folder_create($object["path"]."/_store/_app/_releases", true, false);		
 		
 	#################################################################################################################################################
 	// Instance Internal Settings
