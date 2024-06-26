@@ -21,6 +21,7 @@ Project Languages:
 | All Documentations       | [https://bugfishtm.github.io](https://bugfishtm.github.io)       |
 | CMS Website / Store         | [https://store.bugfish.eu](https://store.bugfish.eu)           |
 |CMS Tutorial Videos|https://www.youtube.com/playlist?list=PL6npOHuBGrpAfrpUzQPTOWdqoCnhq1oP0|
+| App & Windows Software         | [https://software.bugfish.eu](https://software.bugfish.eu)           |
 
 ## Prologue
 
