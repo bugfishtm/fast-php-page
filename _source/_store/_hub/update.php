@@ -17,16 +17,16 @@
 		GNU General Public License for more details.
 
 		You should have received a copy of the GNU General Public License
-		along with this program.  If not, see <https://www.gnu.org/licenses/>.	
+		along with this program.  If not, see <https://www.gnu.org/licenses/>.
 	*/
-	
-	########################################################
-	// Initialize Array for Versioning Informations
-	########################################################
-	$x = array();
-	
-	########################################################
-	// Version Information
-	########################################################
-	// Not interesting for System. Just for Versioning
-	$x["version"] 		= "2.20"; 
+	// Require Settings File,  otherwhise stop execution
+	if(file_exists("../../settings.php")) { require_once("../../settings.php"); }
+		else { echo "Store is currently not available! [Error x1]"; exit(); }
+			
+	// Output current deployed modules for external instances as serialized array!
+	$x_array = $object["mysql"]->select("SELECT * FROM "._TABLE_HUB_." ORDER BY mod_rname, mod_version DESC", true);
+	if(is_array($x_array)) { 
+		echo serialize($x_array);
+	} else {
+		echo serialize(array());
+	}

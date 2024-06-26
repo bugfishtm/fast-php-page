@@ -1,7 +1,7 @@
 ![Bugfish](https://img.shields.io/badge/Bugfish-CMS-orange)
 ![Status](https://img.shields.io/badge/Status-Released-blue)
 ![License](https://img.shields.io/badge/License-GPLv3-black) 
-![CMS Version](https://img.shields.io/badge/CMS-2.19-white)
+![CMS Version](https://img.shields.io/badge/CMS-2.20-white)
 ![Framework Version](https://img.shields.io/badge/Framework-3.30-white)
 ![Admin Module Version](https://img.shields.io/badge/Administrator-0.00.000-white)
 
@@ -171,6 +171,7 @@ Website modules can be run as standalone websites or alongside other installed w
 | _skeleton   | Skeleton of site modules for developers to explore and understand folder functionalities and more! Very minimalistic. If you are looking for an enhanced site module to gain development insights, take a look at the integrated _administrator site module!    | 
 | _storepage   | Module used at store.bugfish.eu to showcase the internal store, deployable on other instances as a dedicated website! Works together with the Administration Module to showcase different available modules for deployment. Features the Volt Dashboard Theme. |
 | _administrator   | Most enhanced and documented example/useable module. This module is the main administration module integrated into the core version of the CMS. You can delete the module if you do not need it. You can find it in the _site/_administrator folder of your CMS instance.   | 
+| _software   | Module used at software.bugfish.eu to showcase the windows store and the current released bugfishHUB and bugfishAPP software! Works together with the Administration Module to showcase different available executables for deployment. Features the Volt Dashboard Theme. |
 
 ### Extension Modules
 Extension modules can extend the functionality of single site modules. An extension module always fits a specific site module to be executed and used there. It may change navigation/permission entries and much more, depending on the module. Extension modules extend the functionality of existing site modules without editing the site module's code itself.

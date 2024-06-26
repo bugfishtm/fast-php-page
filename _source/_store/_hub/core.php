@@ -17,16 +17,25 @@
 		GNU General Public License for more details.
 
 		You should have received a copy of the GNU General Public License
-		along with this program.  If not, see <https://www.gnu.org/licenses/>.	
+		along with this program.  If not, see <https://www.gnu.org/licenses/>.
 	*/
-	
-	########################################################
-	// Initialize Array for Versioning Informations
-	########################################################
-	$x = array();
-	
-	########################################################
-	// Version Information
-	########################################################
-	// Not interesting for System. Just for Versioning
-	$x["version"] 		= "2.20"; 
+		
+	// Folder containing the files
+	$folder = './_releases/';
+
+	// Get all files in the folder
+	$files = glob($folder . '*.zip');
+
+	// Array to store version numbers
+	$versions = [];
+
+	// Extract version numbers from filenames
+	foreach ($files as $file) {
+		$versions[] = basename($file);
+	}
+
+	// Sort the version numbers in descending order
+	@rsort($versions);
+
+	// Output the sorted version numbers
+	echo @serialize($versions);

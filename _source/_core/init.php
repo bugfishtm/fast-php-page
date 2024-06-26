@@ -187,6 +187,7 @@
 		
 		// Tables for Store and Token Access to Modules - Installed out of _core/_mysql folder!
 		define("_TABLE_STORE_", 			$object["prefix"]."store");
+		define("_TABLE_HUB_", 				$object["prefix"]."hub");
 		define("_TABLE_TOKEN_",				$object["prefix"]."token");
 		
 	#################################################################################################################################################
