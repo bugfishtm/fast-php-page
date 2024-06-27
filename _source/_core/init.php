@@ -347,6 +347,11 @@
 			require_once(_HIVE_PATH_."/_core/_mysql/mysql.token.php");
 			$object["mysql"]->free_all();
 		}
+		if(!$object["mysql"]->table_exists($object["prefix"]."hub")) {
+			$object["log_tmp"]->warning("[CORE][SQL_INSTALL] [TABLE] ".@htmlspecialchars($object["prefix"]."hub" ?? '' )."", "_core");
+			require_once(_HIVE_PATH_."/_core/_mysql/mysql.hub.php");
+			$object["mysql"]->free_all();
+		}
 		$object["mysql"]->benchmark_config(true, $object["cookie"]);
 		unset($mysql);
 
